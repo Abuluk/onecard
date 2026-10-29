@@ -1,0 +1,29 @@
+# .github/workflows/ci.yml
+name: CI — Build & Verify
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v6
+        with:
+          distribution: 'temurin'
+          java-version: '25'
+          cache: 'maven'
+          cache-dependency-path: |
+            pom.xml
+            */pom.xml
+            */*/pom.xml
+
+      - name: Build & Verify
+        run: ./mvnw --batch-mode --no-transfer-progress clean verify
