@@ -3,19 +3,18 @@ import { check, sleep } from 'k6';
 
 export const options = {
   vus: 5,
-  duration: '20s',
+  duration: '10s',
   thresholds: {
-    // 错误率必须低于 1%，否则 k6 以非零退出码结束
-    http_req_failed: ['rate<0.01'],
-    // 95% 的请求必须在 800ms 内完成
-    http_req_duration: ['p(95)<800'],
+    http_req_failed: ['rate<0.01'], // 错误率低于 1%
+    http_req_duration: ['p(95)<800'], // 95% 请求在 800ms 内
   },
 };
 
-const BASE_URL = __ENV.BASE_URL || 'http://localhost:8080';
+// 直接读取传入的完整 URL
+const TARGET_URL = __ENV.TARGET_URL;
 
 export default function () {
-  const res = http.get(`${BASE_URL}/actuator/health`);
+  const res = http.get(TARGET_URL);
   check(res, {
     'status is 200': (r) => r.status === 200,
   });
