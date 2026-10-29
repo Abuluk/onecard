@@ -14,8 +14,12 @@
 
     <groupId>com.onecard</groupId>
     <artifactId>onecard-parent</artifactId>
-    <version>${revision}</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+        <modules>
+            <module>onecard-demo-service</module>
+        </modules>
 
     <properties>
         <revision>1.0.0-SNAPSHOT</revision>
@@ -48,12 +52,6 @@
 
     <build>
         <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                </plugin>
-            </plugins>
         </pluginManagement>
 
         <plugins>

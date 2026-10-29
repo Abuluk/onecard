@@ -1,0 +1,25 @@
+name: Performance Gate — k6
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: '目标环境的基础 URL（例如 https://staging.example.com）'
+        required: true
+        type: string
+
+jobs:
+  k6-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup k6
+        uses: grafana/setup-k6-action@v1
+
+      - name: Run k6 smoke test
+        uses: grafana/run-k6-action@v1
+        with:
+          path: tests/performance/smoke.js
+          flags: --env BASE_URL=${{ inputs.base_url }}
