@@ -3,11 +3,10 @@ name: CD — Build and Push Image
 on:
   push:
     branches: [main]
-  workflow_dispatch: # 允许在 GitHub 页面上手动点击触发
+  workflow_dispatch: # 允许在页面上手动触发
 
 env:
   REGISTRY: ghcr.io
-  # 镜像名称格式：ghcr.io/用户名/仓库名/微服务名
   IMAGE_NAME: ${{ github.repository }}/onecard-demo-service
 
 jobs:
@@ -15,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write # 允许推送镜像到 GitHub Packages
+      packages: write # 推送镜像到 GHCR 需要的权限
 
     steps:
       - name: Checkout
@@ -31,9 +30,10 @@ jobs:
             pom.xml
             */pom.xml
 
-      - name: Build with Maven
+      - name: Build with Maven (Full Verify)
         run: |
           chmod +x ./mvnw
+          # 全流程测试，确保代码质量
           ./mvnw --batch-mode --no-transfer-progress clean verify
 
       - name: Log in to GitHub Container Registry
@@ -55,7 +55,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: ./onecard-demo-service # 指定上下文为微服务子模块
+          context: ./onecard-demo-service
+          file: ./onecard-demo-service/Dockerfile # 显式指定 Dockerfile 路径
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
