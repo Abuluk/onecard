@@ -33,12 +33,11 @@
 # 项目说明
 
 - 本项目为基于 Spring Cloud 的微服务后端工程
-- 构建工具：Maven（若项目实际为 Gradle，以 `build.gradle` 为准，并同步调整下方命令）
+- 构建工具：Maven
 - 版本以根 `pom.xml` 的 `dependencyManagement` 为准，下述为截至 2026 年 Q4 的常见组合：
   - **JDK 25**（Boot 4.x 最低要求 JDK 17，官方推荐生产使用 JDK 25 LTS）
-  - **Spring Boot 4.1.x**（稳定线；3.5.x 开源支持已于 2026-06 终止，不应作为新项目起点）
+  - **Spring Boot 4.1.x**
   - **Spring Cloud 2025.1.x（Oakwood）** —— 对应 Boot 4.0.x/4.1.x 的稳定列车
-    - 若项目追求最新预览，可关注 Spring Cloud 2026.0.x（Paddington），对应 Boot 4.2.x，但 2026.0.0 目前仍为 RC 状态
   - **Spring Cloud Alibaba 2025.1.0.0** —— 正式 BOM 官方声明适配 Boot 4.0.x + Cloud 2025.1.x；对 Boot 4.1 的兼容分支已就绪，但正式 BOM 尚未发布，选择时需注意版本对齐
 - 常用组件：
   - 注册中心 / 配置中心：Nacos
