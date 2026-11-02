@@ -17,9 +17,16 @@ docker compose -f deploy/monitoring/docker-compose.yml up --build
 ```
 
 The local Compose stack uses the `test` profile and container DNS routes. It is
-for development only; production configuration is supplied through Nacos.
+for development only; production configuration is intended to use Nacos after
+the target component combination passes compatibility validation.
 See [`docs/项目说明.md`](docs/项目说明.md) for module conventions and
 [`deploy/monitoring/README.md`](deploy/monitoring/README.md) for service URLs.
+The ordered implementation stages and their test/performance gates are in
+[`docs/开发阶段规划.md`](docs/开发阶段规划.md).
+
+The current Compose stack starts runnable service skeletons and monitoring.
+Its MySQL and Redis instances are private to N9E; business database, cache,
+message-broker, and Nacos instances are not part of the local stack yet.
 
 When adding a service, add its Maven module, application profiles, Dockerfile,
 API contract module, gateway route, Compose health check, Categraf scrape entry,
