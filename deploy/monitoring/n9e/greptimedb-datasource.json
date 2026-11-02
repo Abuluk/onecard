@@ -1,0 +1,21 @@
+{
+  "name": "GreptimeDB",
+  "identifier": "greptimedb",
+  "description": "OneCard local monitoring metrics",
+  "plugin_type": "prometheus",
+  "cluster_name": "default",
+  "settings": {
+    "internal_addr": "http://greptimedb:4000/v1/prometheus",
+    "prometheus.tsdb_type": "Prometheus",
+    "write_addr": "http://greptimedb:4000/v1/prometheus/write"
+  },
+  "http": {
+    "url": "http://greptimedb:4000/v1/prometheus",
+    "timeout": 10000
+  },
+  "auth": {
+    "basic_auth": false
+  },
+  "is_default": true,
+  "is_enable": true
+}

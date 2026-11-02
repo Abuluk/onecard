@@ -1,0 +1,79 @@
+{
+  "id": 0,
+  "group_id": 1,
+  "name": "OneCard service overview",
+  "ident": "onecard-service-overview",
+  "tags": "onecard,service",
+  "configs": {
+    "links": [],
+    "panels": [
+      {
+        "id": "f13e5528-4b50-4c37-8652-d80755b93c33",
+        "name": "Scrape status",
+        "type": "stat",
+        "version": "3.0.0",
+        "datasourceCate": "prometheus",
+        "datasourceValue": "${datasource}",
+        "layout": {"i": "f13e5528-4b50-4c37-8652-d80755b93c33", "x": 0, "y": 0, "w": 12, "h": 4, "isResizable": true},
+        "custom": {"calc": "lastNotNull", "colSpan": 1, "colorMode": "value", "graphMode": "none", "textMode": "value", "textSize": {}, "valueField": "Value"},
+        "options": {
+          "standardOptions": {},
+          "thresholds": {"steps": [{"color": "#D94A4A", "type": "base", "value": null}, {"color": "#41A36A", "type": "threshold", "value": 1}]}
+        },
+        "targets": [{"expr": "max by (application) (up{application=~\"$application\"})", "legend": "{{application}}", "refId": "A"}],
+        "transformations": [{"id": "organize", "options": {}}],
+        "links": [],
+        "maxPerRow": 2
+      },
+      {
+        "id": "cf67cf61-1f83-4f14-8985-71053e286d0d",
+        "name": "HTTP request rate",
+        "type": "timeseries",
+        "version": "3.0.0",
+        "datasourceCate": "prometheus",
+        "datasourceValue": "${datasource}",
+        "layout": {"i": "cf67cf61-1f83-4f14-8985-71053e286d0d", "x": 0, "y": 4, "w": 12, "h": 8, "isResizable": true},
+        "custom": {"drawStyle": "lines", "fillOpacity": 0.3, "lineInterpolation": "linear", "lineWidth": 2, "scaleDistribution": {"type": "linear"}, "spanNulls": false, "stack": "off"},
+        "options": {
+          "legend": {"displayMode": "list"},
+          "standardOptions": {},
+          "thresholds": {"steps": [{"color": "#634CD9", "type": "base", "value": null}]},
+          "tooltip": {"mode": "all", "sort": "none"}
+        },
+        "targets": [{"expr": "sum by (application) (rate(http_server_requests_seconds_count{application=~\"$application\"}[5m]))", "legend": "{{application}}", "refId": "A"}],
+        "transformations": [{"id": "organize", "options": {}}],
+        "links": [],
+        "maxPerRow": 2
+      },
+      {
+        "id": "2e4769cc-3aa9-45ae-9289-07970a519a41",
+        "name": "JVM heap used",
+        "type": "timeseries",
+        "version": "3.0.0",
+        "datasourceCate": "prometheus",
+        "datasourceValue": "${datasource}",
+        "layout": {"i": "2e4769cc-3aa9-45ae-9289-07970a519a41", "x": 12, "y": 4, "w": 12, "h": 8, "isResizable": true},
+        "custom": {"drawStyle": "lines", "fillOpacity": 0.3, "lineInterpolation": "linear", "lineWidth": 2, "scaleDistribution": {"type": "linear"}, "spanNulls": false, "stack": "off"},
+        "options": {
+          "legend": {"displayMode": "list"},
+          "standardOptions": {"util": "bytesIEC"},
+          "thresholds": {"steps": [{"color": "#634CD9", "type": "base", "value": null}]},
+          "tooltip": {"mode": "all", "sort": "none"}
+        },
+        "targets": [{"expr": "sum by (application) (jvm_memory_used_bytes{application=~\"$application\", area=\"heap\"})", "legend": "{{application}}", "refId": "A"}],
+        "transformations": [{"id": "organize", "options": {}}],
+        "links": [],
+        "maxPerRow": 2
+      }
+    ],
+    "var": [
+      {"definition": "prometheus", "label": "datasource", "name": "datasource", "type": "datasource"},
+      {"datasource": {"cate": "prometheus", "value": "${datasource}"}, "definition": "label_values(up, application)", "multi": false, "name": "application", "reg": "", "type": "query"}
+    ],
+    "version": "3.0.0"
+  },
+  "public": 0,
+  "public_cate": 0,
+  "built_in": 0,
+  "hide": 0
+}

@@ -13,7 +13,7 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "=== [2/4] 后台启动微服务 ===" -ForegroundColor Cyan
 $jarPath = "onecard-demo-service\target\onecard-demo-service-1.0.0-SNAPSHOT.jar"
 # 启动 Java 进程，并隐藏窗口
-$process = Start-Process -FilePath "java" -ArgumentList "-jar $jarPath" -PassThru -WindowStyle Hidden
+$process = Start-Process -FilePath "java" -ArgumentList "-Dspring.profiles.active=test -jar $jarPath" -PassThru -WindowStyle Hidden
 
 Write-Host "等待服务启动 (端口 8080)..." -ForegroundColor Yellow
 $isReady = $false
@@ -23,7 +23,8 @@ for ($i = 0; $i -lt 30; $i++) {
     try {
         # 尝试请求健康检查接口
         $response = Invoke-WebRequest -Uri "http://localhost:8080/api/demo/ping" -UseBasicParsing -TimeoutSec 1
-        if ($response.StatusCode -eq 200 -and $response.Content -eq "pong") {
+        $body = $response.Content | ConvertFrom-Json
+        if ($response.StatusCode -eq 200 -and $body.code -eq "SUCCESS") {
             $isReady = $true
             break
         }
@@ -40,8 +41,7 @@ if (-not $isReady) {
 Write-Host "✅ 服务已就绪！" -ForegroundColor Green
 
 Write-Host "=== [3/4] 运行 K6 性能门禁 ===" -ForegroundColor Cyan
-# 注意：这里调用你本地安装的 k6 命令，并传入完整的 URL
-k6 run --env TARGET_URL=http://localhost:8080/api/demo/ping tests/performance/smoke.js
+k6 run --env BASE_URL=http://localhost:8080 tests/performance/smoke.js
 $k6ExitCode = $LASTEXITCODE
 
 Write-Host "=== [4/4] 清理环境 ===" -ForegroundColor Cyan

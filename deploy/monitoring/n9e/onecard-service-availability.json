@@ -1,0 +1,31 @@
+[
+  {
+    "group_id": 1,
+    "name": "OneCard service unavailable",
+    "note": "A Categraf scrape reports up=0 for a OneCard service.",
+    "prod": "metric",
+    "cate": "prometheus",
+    "datasource_ids": [1],
+    "severity": 0,
+    "severities": [2],
+    "disabled": 1,
+    "prom_for_duration": 60,
+    "prom_eval_interval": 30,
+    "rule_config": {
+      "queries": [
+        {
+          "prom_ql": "up{application=~\"onecard-.*\"} == 0",
+          "severity": 2
+        }
+      ]
+    },
+    "notify_recovered": 1,
+    "notify_channels": [],
+    "notify_repeat_step": 60,
+    "notify_max_number": 0,
+    "recover_duration": 0,
+    "callbacks": [],
+    "append_tags": ["team=onecard"],
+    "annotations": {}
+  }
+]

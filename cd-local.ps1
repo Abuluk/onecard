@@ -9,7 +9,7 @@ if ($LASTEXITCODE -ne 0) { exit 1 }
 
 Write-Host "=== [2/5] 启动服务并运行 K6 门禁 ===" -ForegroundColor Cyan
 $jarPath = "onecard-demo-service\target\onecard-demo-service-1.0.0-SNAPSHOT.jar"
-$process = Start-Process -FilePath "java" -ArgumentList "-jar $jarPath" -PassThru -WindowStyle Hidden
+$process = Start-Process -FilePath "java" -ArgumentList "-Dspring.profiles.active=test -jar $jarPath" -PassThru -WindowStyle Hidden
 
 $isReady = $false
 for ($i = 0; $i -lt 30; $i++) {
@@ -27,7 +27,7 @@ if (-not $isReady) {
 }
 
 Write-Host "正在压测..." -ForegroundColor Yellow
-k6 run --env TARGET_URL=http://localhost:8080/api/demo/ping tests/performance/smoke.js
+k6 run --env BASE_URL=http://localhost:8080 tests/performance/smoke.js
 $k6ExitCode = $LASTEXITCODE
 
 Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue

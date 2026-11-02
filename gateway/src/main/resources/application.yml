@@ -1,0 +1,28 @@
+server:
+  port: ${SERVER_PORT:8081}
+spring:
+  application:
+    name: onecard-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+    gateway:
+      server:
+        webflux:
+          httpclient:
+            connect-timeout: 2000
+            response-timeout: 5s
+          routes:
+            - id: demo-service
+              uri: lb://onecard-account-service
+              predicates:
+                - Path=/api/account/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      show-details: never

@@ -3,8 +3,8 @@ name: Performance Gate — k6
 on:
   workflow_dispatch:
     inputs:
-      target_url:
-        description: '完整的目标测试 URL (例如 https://httpbin.org/get)'
+      base_url:
+        description: '服务根地址 (例如 https://example.com)'
         required: true
         type: string
 
@@ -22,4 +22,4 @@ jobs:
         uses: grafana/run-k6-action@v1
         with:
           path: tests/performance/smoke.js
-          flags: --env TARGET_URL=${{ inputs.target_url }}
+          flags: --env BASE_URL=${{ inputs.base_url }}

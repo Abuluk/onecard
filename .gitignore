@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Monitoring runtime data ###
+/deploy/monitoring/categraf/data/
+/deploy/monitoring/greptimedb/data/

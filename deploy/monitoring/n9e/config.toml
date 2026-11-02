@@ -1,0 +1,46 @@
+[Global]
+RunMode = "release"
+
+[Log]
+Dir = "logs"
+
+[HTTP]
+Host = "0.0.0.0"
+Port = 17000
+
+[HTTP.APIForAgent]
+Enable = true
+
+[DB]
+DBType = "mysql"
+DSN = "root@tcp(mysql:3306)/n9e?charset=utf8mb4&parseTime=True&loc=Local"
+Debug = false
+
+[Redis]
+Address = "redis:6379"
+RedisType = "standalone"
+
+[Center.AnonymousAccess]
+PromQuerier = true
+
+[Center]
+MetricsYamlFile = "/app/etc/metrics.yaml"
+
+[Pushgw]
+LabelRewrite = true
+ForceUseServerTS = true
+
+[[Pushgw.Writers]]
+Url = "http://greptimedb:4000/v1/prometheus/write"
+BasicAuthUser = ""
+BasicAuthPass = ""
+Headers = ["X-From", "n9e"]
+Timeout = 10000
+DialTimeout = 3000
+TLSHandshakeTimeout = 30000
+ExpectContinueTimeout = 1000
+IdleConnTimeout = 90000
+KeepAlive = 30000
+MaxConnsPerHost = 0
+MaxIdleConns = 100
+MaxIdleConnsPerHost = 100
