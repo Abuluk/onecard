@@ -1,0 +1,38 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: account-service
+              uri: http://onecard-account-service:8082
+              predicates:
+                - Path=/api/account/**
+            - id: transaction-service
+              uri: http://onecard-transaction-service:8083
+              predicates:
+                - Path=/api/transactions/**
+            - id: payment-adapter-service
+              uri: http://onecard-payment-adapter-service:8084
+              predicates:
+                - Path=/api/payments/**
+            - id: clearing-service
+              uri: http://onecard-clearing-service:8085
+              predicates:
+                - Path=/api/clearing/**
+            - id: notification-service
+              uri: http://onecard-notification-service:8086
+              predicates:
+                - Path=/api/notifications/**
+            - id: risk-service
+              uri: http://onecard-risk-service:8087
+              predicates:
+                - Path=/api/risk/**
+            - id: access-service
+              uri: http://onecard-access-service:8088
+              predicates:
+                - Path=/api/access/**
+            - id: device-service
+              uri: http://onecard-device-service:8089
+              predicates:
+                - Path=/api/devices/**

@@ -1,6 +1,6 @@
 package com.onecard.common.exception;
 
-import com.onecard.common.api.Result;
+import com.onecard.common.result.Result;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

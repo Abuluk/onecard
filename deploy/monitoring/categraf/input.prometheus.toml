@@ -1,8 +1,50 @@
 [[instances]]
-urls = ["http://onecard-demo-service:8080/actuator/prometheus"]
+urls = ["http://onecard-account-service:8082/actuator/prometheus"]
 interval = "15s"
 timeout = "5s"
-labels = { application = "onecard-demo-service" }
+labels = { application = "onecard-account-service" }
+
+[[instances]]
+urls = ["http://onecard-transaction-service:8083/actuator/prometheus"]
+interval = "15s"
+timeout = "5s"
+labels = { application = "onecard-transaction-service" }
+
+[[instances]]
+urls = ["http://onecard-payment-adapter-service:8084/actuator/prometheus"]
+interval = "15s"
+timeout = "5s"
+labels = { application = "onecard-payment-adapter-service" }
+
+[[instances]]
+urls = ["http://onecard-clearing-service:8085/actuator/prometheus"]
+interval = "15s"
+timeout = "5s"
+labels = { application = "onecard-clearing-service" }
+
+[[instances]]
+urls = ["http://onecard-notification-service:8086/actuator/prometheus"]
+interval = "15s"
+timeout = "5s"
+labels = { application = "onecard-notification-service" }
+
+[[instances]]
+urls = ["http://onecard-risk-service:8087/actuator/prometheus"]
+interval = "15s"
+timeout = "5s"
+labels = { application = "onecard-risk-service" }
+
+[[instances]]
+urls = ["http://onecard-access-service:8088/actuator/prometheus"]
+interval = "15s"
+timeout = "5s"
+labels = { application = "onecard-access-service" }
+
+[[instances]]
+urls = ["http://onecard-device-service:8089/actuator/prometheus"]
+interval = "15s"
+timeout = "5s"
+labels = { application = "onecard-device-service" }
 
 [[instances]]
 urls = ["http://onecard-gateway:8081/actuator/prometheus"]

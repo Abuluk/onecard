@@ -3,8 +3,12 @@ server:
 spring:
   application:
     name: onecard-gateway
+  profiles:
+    default: dev
   cloud:
     nacos:
+      config:
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
       discovery:
         server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
     gateway:
@@ -14,10 +18,38 @@ spring:
             connect-timeout: 2000
             response-timeout: 5s
           routes:
-            - id: demo-service
+            - id: account-service
               uri: lb://onecard-account-service
               predicates:
                 - Path=/api/account/**
+            - id: transaction-service
+              uri: lb://onecard-transaction-service
+              predicates:
+                - Path=/api/transactions/**
+            - id: payment-adapter-service
+              uri: lb://onecard-payment-adapter-service
+              predicates:
+                - Path=/api/payments/**
+            - id: clearing-service
+              uri: lb://onecard-clearing-service
+              predicates:
+                - Path=/api/clearing/**
+            - id: notification-service
+              uri: lb://onecard-notification-service
+              predicates:
+                - Path=/api/notifications/**
+            - id: risk-service
+              uri: lb://onecard-risk-service
+              predicates:
+                - Path=/api/risk/**
+            - id: access-service
+              uri: lb://onecard-access-service
+              predicates:
+                - Path=/api/access/**
+            - id: device-service
+              uri: lb://onecard-device-service
+              predicates:
+                - Path=/api/devices/**
 management:
   endpoints:
     web:

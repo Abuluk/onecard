@@ -1,0 +1,21 @@
+server:
+  port: ${SERVER_PORT:8084}
+spring:
+  application:
+    name: onecard-payment-adapter-service
+  profiles:
+    default: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      show-details: never

@@ -18,10 +18,24 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>onecard-common</module>
-        <module>onecard-demo-api</module>
-        <module>onecard-demo-service</module>
-        <module>onecard-gateway</module>
+        <module>common</module>
+        <module>gateway</module>
+        <module>apis/onecard-account-api</module>
+        <module>apis/onecard-transaction-api</module>
+        <module>apis/onecard-payment-adapter-api</module>
+        <module>apis/onecard-clearing-api</module>
+        <module>apis/onecard-notification-api</module>
+        <module>apis/onecard-risk-api</module>
+        <module>apis/onecard-access-api</module>
+        <module>apis/onecard-device-api</module>
+        <module>services/onecard-account-service</module>
+        <module>services/onecard-transaction-service</module>
+        <module>services/onecard-payment-adapter-service</module>
+        <module>services/onecard-clearing-service</module>
+        <module>services/onecard-notification-service</module>
+        <module>services/onecard-risk-service</module>
+        <module>services/onecard-access-service</module>
+        <module>services/onecard-device-service</module>
     </modules>
 
     <properties>

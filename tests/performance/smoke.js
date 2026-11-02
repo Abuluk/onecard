@@ -18,10 +18,10 @@ if (!BASE_URL) {
 }
 
 export default function () {
-  const res = http.get(`${BASE_URL}/api/demo/ping`);
+  const res = http.get(`${BASE_URL}/actuator/health`);
   check(res, {
     'status is 200': (r) => r.status === 200,
-    'result code is success': (r) => r.json('code') === 'SUCCESS',
+    'service health is up': (r) => r.json('status') === 'UP',
   });
   sleep(1);
 }

@@ -1,0 +1,3 @@
+spring:
+  config:
+    import: nacos:${spring.application.name}.yaml?group=DEFAULT_GROUP

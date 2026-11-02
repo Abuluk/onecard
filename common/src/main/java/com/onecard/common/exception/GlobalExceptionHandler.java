@@ -1,6 +1,6 @@
 package com.onecard.common.exception;
 
-import com.onecard.common.api.Result;
+import com.onecard.common.result.Result;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
