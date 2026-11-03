@@ -7,9 +7,13 @@ on:
   pull_request:
     branches: [main, develop]
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -27,3 +31,12 @@ jobs:
 
       - name: Build & Verify
         run: ./mvnw --batch-mode --no-transfer-progress clean verify
+
+      - name: Upload test reports
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: maven-test-reports
+          path: '**/target/surefire-reports/*.xml'
+          if-no-files-found: warn
+          retention-days: 14

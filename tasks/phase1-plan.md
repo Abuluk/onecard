@@ -1,21 +1,21 @@
 # 阶段 1：工程与运行平台详细开发方案
 
-**状态**：排队中；阶段 0 退出前不启动
+**状态**：进行中；阶段 0 退出准入尚未通过，应用户明确要求先行推进 CI 和本地 Nacos 集成切片。依赖未决身份、数据权限和 SLO 的任务仍保持阻断。
 **范围**：CI、配置与服务发现、入口与服务身份、公共响应与可观测性、迁移基础、开发/CI 运行环境
 **不含**：账户/交易等业务 API、业务表结构、生产发布和生产容量承诺
 
 本文是 `docs/开发阶段规划.md` 阶段 1 的执行细化。当前服务是可运行骨架；每个任务完成后都要留下自动化验证证据，不能以容器启动或 Actuator 返回 UP 代替验收。
 
-## 1. 现状基线
+## 1. 开工时基线与当前进展
 
 - 根 Maven 工程聚合 `common`、`gateway`、八个 API 模块和八个服务模块；`.github/workflows/ci.yml` 已运行 JDK 25 的 `clean verify`，但尚未覆盖平台集成和安全门禁。
-- 服务已有 `dev`、`test`、`prod` 配置。开发配置以 `optional:nacos:` 导入，测试关闭 Nacos，生产使用必需的 `nacos:` 导入；本地 Compose 目前关闭网关服务发现并使用静态容器地址。
+- 服务已有 `dev`、`test`、`prod` 配置。开发配置以 `optional:nacos:` 导入，测试关闭 Nacos，生产使用必需的 `nacos:` 导入；本地 Compose 已改用 Nacos 服务发现，生产失败路径和配置刷新仍待验证。
 - Gateway 在默认配置中为八个服务都声明了 `/api/...` 路由，包括风控与设备路径。Compose 将网关和服务端口都映射到宿主机回环地址。
-- Compose 已启动八个服务骨架和监控。现有 MySQL/Redis 属于 N9E；没有 Nacos、业务数据库、业务缓存或消息中间件。
+- Compose 已增加 Nacos 3.1.1（按已验证镜像 digest 固定）并启动八个服务骨架和网关。现有 MySQL/Redis 属于 N9E；业务数据库、业务缓存和消息中间件仍未接入。
 - `common` 已有 `Result<T>` 和 `BizException` 处理；当前异常处理只捕获业务异常，并将其统一映射为 HTTP 400。尚无身份认证依赖和 traceId 透传实现。
 - 当前没有 Flyway 迁移脚本。k6 只有 1 VU、10 秒的 Actuator 健康检查；本地 CI 也只启动账户服务并检查该端点。
-- `.github/workflows/deploy.yml` 和本地部署脚本含固定镜像仓库/发布配置，且部署 workflow 指向不存在的构建目录。仓库所有者确认仓库为私人仓库并接受现有凭据处理方式，因此凭据轮换/历史处置不纳入阶段 0；workflow 工程配置仍应按本阶段任务验证。
-- `.github/workflows/performance-gate.yml` 接受调用者传入任意 `base_url`，运行的仍是健康端点脚本。
+- `.github/workflows/deploy.yml` 原先包含内联发布凭据并指向不存在的构建目录；现已改为手动选择模块、使用仓库 Secret 发布。远端发布和扫描仍待验证。仓库所有者确认私人仓库并接受现有凭据处理方式，因此凭据轮换/历史处置不纳入阶段 0。
+- `.github/workflows/performance-gate.yml` 原先接受任意 `base_url`；现已固定到隔离运行的本地账户服务健康冒烟，不代表平台性能验收。
 
 ## 2. 开工前置决策
 

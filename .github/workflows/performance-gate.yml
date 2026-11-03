@@ -1,25 +1,59 @@
-name: Performance Gate — k6
+name: Platform Startup Smoke — k6
 
 on:
   workflow_dispatch:
-    inputs:
-      base_url:
-        description: '服务根地址 (例如 https://example.com)'
-        required: true
-        type: string
+
+permissions:
+  contents: read
 
 jobs:
-  k6-gate:
+  platform-smoke:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      COMPOSE_PROJECT_NAME: onecard-platform-smoke
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
+      - name: Create ephemeral Nacos token
+        run: echo "NACOS_AUTH_TOKEN=$(openssl rand -base64 32 | tr -d '\n')" >> "$GITHUB_ENV"
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v6
+        with:
+          distribution: 'temurin'
+          java-version: '25'
+          cache: 'maven'
+
+      - name: Build account service
+        run: ./mvnw --batch-mode --no-transfer-progress -pl services/onecard-account-service -am clean verify
+
+      - name: Start local account service
+        run: docker compose -f deploy/monitoring/docker-compose.yml up --build --detach --wait --wait-timeout 120 onecard-account-service
+
       - name: Setup k6
         uses: grafana/setup-k6-action@v1
 
-      - name: Run k6 smoke test
+      - name: Run local health smoke test
         uses: grafana/run-k6-action@v1
         with:
           path: tests/performance/smoke.js
-          flags: --env BASE_URL=${{ inputs.base_url }}
+          flags: --env BASE_URL=http://localhost:8082
+
+      - name: Save service logs
+        if: ${{ always() }}
+        run: docker compose -f deploy/monitoring/docker-compose.yml logs --no-color onecard-account-service > platform-smoke.log
+
+      - name: Stop local service
+        if: ${{ always() }}
+        run: docker compose -f deploy/monitoring/docker-compose.yml down --volumes
+
+      - name: Upload service logs
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: platform-smoke-logs
+          path: platform-smoke.log
+          if-no-files-found: warn
+          retention-days: 14
