@@ -1,3 +1,16 @@
 spring:
   config:
     import: optional:nacos:${spring.application.name}.yaml?group=DEFAULT_GROUP
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${OIDC_JWK_SET_URI:http://keycloak:8080/realms/onecard-dev/protocol/openid-connect/certs}
+onecard:
+  security:
+    issuer-uri: ${OIDC_ISSUER_URI:http://keycloak:8080/realms/onecard-dev}
+    audience: ${OIDC_AUDIENCE:onecard-api}
+    roles:
+      user: ${OIDC_ROLE_USER:onecard-user}
+      admin: ${OIDC_ROLE_ADMIN:onecard-admin}
+      auditor: ${OIDC_ROLE_AUDITOR:onecard-auditor}

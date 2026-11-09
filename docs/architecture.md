@@ -86,13 +86,14 @@ device delivery remain separate concerns. Monitoring is composed only from
 
 The current skeleton POMs include `transaction -> account/risk` and
 `access -> device` API dependencies. Payment callbacks and clearing settlement
-still need contracts and implementation. The Gateway skeleton currently has
-routes for all eight services, including risk and device paths; source contains
-no Gateway authentication/authorization filter implementation. These routes
-are development scaffolding, not an approved exposure policy. Stage 0 must
-freeze the exposure matrix and stage 1 must enforce it. See
-`docs/阶段0-安全与数据边界初稿.md`. Device protocol ingress has separate
-authentication and network requirements from user APIs.
+still need contracts and implementation. Gateway now validates OIDC JWTs,
+applies a development path/method/role allowlist, strips untrusted identity
+headers, and keeps Actuator on a separate management port. The route matrix is
+development scaffolding; production exposure, shared rate limits, signed
+payment callbacks, and service-to-service identity remain gated. See
+`docs/阶段1-Gateway入口白名单.md` and `docs/阶段0-安全与数据边界初稿.md`.
+Device protocol ingress has separate authentication and network requirements
+from user APIs.
 
 Service modules currently provide runnable Spring Boot and Actuator skeletons.
 Domain endpoints, schemas, and external provider integrations are added when

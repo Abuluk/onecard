@@ -10,7 +10,7 @@
 
 - 根 Maven 工程聚合 `common`、`gateway`、八个 API 模块和八个服务模块；`.github/workflows/ci.yml` 已运行 JDK 25 的 `clean verify`，但尚未覆盖平台集成和安全门禁。
 - 服务已有 `dev`、`test`、`prod` 配置。开发配置以 `optional:nacos:` 导入，测试关闭 Nacos，生产使用必需的 `nacos:` 导入；本地 Compose 已改用 Nacos 服务发现，生产失败路径和配置刷新仍待验证。
-- Gateway 在默认配置中为八个服务都声明了 `/api/...` 路由，包括风控与设备路径。Compose 将网关和服务端口都映射到宿主机回环地址。
+- Gateway 已完成开发态 OIDC JWT 验签、issuer/audience/过期校验、角色映射和路径/方法默认拒绝测试；公网配置移除了风控、设备和二期 access 路由，Actuator 改用仅容器网络可达的独立管理端口。精确业务 API 白名单、共享限流和真实 Keycloak 联测仍待完成。
 - Compose 已增加 Nacos 3.1.1（按已验证镜像 digest 固定）并启动八个服务骨架和网关。现有 MySQL/Redis 属于 N9E；业务数据库、业务缓存和消息中间件仍未接入。
 - `common` 已有 `Result<T>` 和 `BizException` 处理；当前异常处理只捕获业务异常，并将其统一映射为 HTTP 400。尚无身份认证依赖和 traceId 透传实现。
 - 当前没有 Flyway 迁移脚本。k6 只有 1 VU、10 秒的 Actuator 健康检查；本地 CI 也只启动账户服务并检查该端点。

@@ -47,7 +47,7 @@ timeout = "5s"
 labels = { application = "onecard-device-service" }
 
 [[instances]]
-urls = ["http://onecard-gateway:8081/actuator/prometheus"]
+urls = ["http://onecard-gateway:9081/actuator/prometheus"]
 interval = "15s"
 timeout = "5s"
 labels = { application = "onecard-gateway" }
