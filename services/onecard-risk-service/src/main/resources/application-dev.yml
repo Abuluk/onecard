@@ -1,3 +1,13 @@
 spring:
   config:
     import: optional:nacos:${spring.application.name}.yaml?group=DEFAULT_GROUP
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${OIDC_JWK_SET_URI:http://keycloak:8080/realms/onecard-dev/protocol/openid-connect/certs}
+onecard:
+  security:
+    issuer-uri: ${OIDC_ISSUER_URI:http://keycloak:8080/realms/onecard-dev}
+    audience: ${OIDC_AUDIENCE:onecard-risk-service}
+    required-scope: onecard.risk.invoke

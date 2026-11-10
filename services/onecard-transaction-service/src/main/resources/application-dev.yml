@@ -1,3 +1,54 @@
 spring:
+  datasource:
+    url: ${TRANSACTION_DB_URL:jdbc:mysql://onecard-oceanbase:2881/onecard_transaction}
+    username: ${TRANSACTION_DB_USERNAME:onecard_transaction_app}
+    password: ${TRANSACTION_DB_PASSWORD:}
+    hikari:
+      initialization-fail-timeout: -1
+  flyway:
+    enabled: ${TRANSACTION_DB_ENABLED:false}
+    url: ${TRANSACTION_DB_MIGRATION_URL:${TRANSACTION_DB_URL:jdbc:mysql://onecard-oceanbase:2881/onecard_transaction}}
+    user: ${TRANSACTION_DB_MIGRATION_USERNAME:onecard_transaction_migrator}
+    password: ${TRANSACTION_DB_MIGRATION_PASSWORD:}
+    schemas: ${TRANSACTION_DB_SCHEMA:onecard_transaction}
+    default-schema: ${TRANSACTION_DB_SCHEMA:onecard_transaction}
+    locations: classpath:db/migration
+    create-schemas: false
+    baseline-on-migrate: false
+    clean-disabled: true
+    out-of-order: false
+    validate-on-migrate: true
   config:
     import: optional:nacos:${spring.application.name}.yaml?group=DEFAULT_GROUP
+  cloud:
+    openfeign:
+      oauth2:
+        enabled: true
+      client:
+        config:
+          default:
+            connect-timeout: 2000
+            read-timeout: 3000
+  security:
+    oauth2:
+      client:
+        registration:
+          onecard-account-service:
+            provider: service-identity
+            client-id: ${SERVICE_ACCOUNT_CLIENT_ID:onecard-transaction-to-account}
+            client-secret: ${SERVICE_ACCOUNT_CLIENT_SECRET:}
+            authorization-grant-type: client_credentials
+            scope: onecard.account.invoke
+          onecard-risk-service:
+            provider: service-identity
+            client-id: ${SERVICE_RISK_CLIENT_ID:onecard-transaction-to-risk}
+            client-secret: ${SERVICE_RISK_CLIENT_SECRET:}
+            authorization-grant-type: client_credentials
+            scope: onecard.risk.invoke
+        provider:
+          service-identity:
+            token-uri: ${SERVICE_OIDC_TOKEN_URI:http://keycloak:8080/realms/onecard-dev/protocol/openid-connect/token}
+management:
+  health:
+    db:
+      enabled: ${TRANSACTION_DB_ENABLED:false}

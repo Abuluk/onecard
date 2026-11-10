@@ -39,6 +39,9 @@ spring:
               predicates:
                 - Path=/api/notifications/**
 management:
+  tracing:
+    propagation:
+      type: W3C
   server:
     port: ${MANAGEMENT_SERVER_PORT:9081}
   endpoints:

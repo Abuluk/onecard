@@ -30,7 +30,13 @@ jobs:
         run: ./mvnw --batch-mode --no-transfer-progress -pl services/onecard-account-service -am clean verify
 
       - name: Start local account service
-        run: docker compose -f deploy/monitoring/docker-compose.yml up --build --detach --wait --wait-timeout 120 onecard-account-service
+        run: docker compose -f deploy/monitoring/docker-compose.yml -f deploy/monitoring/docker-compose.debug.yml up --build --detach --wait --wait-timeout 120 onecard-account-service
+
+      - name: Verify account registration in Nacos
+        shell: bash
+        run: |
+          response="$(docker compose -f deploy/monitoring/docker-compose.yml -f deploy/monitoring/docker-compose.debug.yml exec -T nacos curl --fail --silent --show-error 'http://127.0.0.1:8848/nacos/v3/client/ns/instance/list?serviceName=onecard-account-service&groupName=DEFAULT_GROUP')"
+          printf '%s' "$response" | python3 -c 'import json, sys; instances = json.load(sys.stdin)["data"]; assert any(item.get("healthy") is True and item.get("enabled") is True and item.get("port") == 8082 and item.get("metadata", {}).get("preserved.register.source") == "SPRING_CLOUD" for item in instances), instances'
 
       - name: Setup k6
         uses: grafana/setup-k6-action@v1
@@ -43,11 +49,11 @@ jobs:
 
       - name: Save service logs
         if: ${{ always() }}
-        run: docker compose -f deploy/monitoring/docker-compose.yml logs --no-color onecard-account-service > platform-smoke.log
+        run: docker compose -f deploy/monitoring/docker-compose.yml -f deploy/monitoring/docker-compose.debug.yml logs --no-color onecard-account-service > platform-smoke.log
 
       - name: Stop local service
         if: ${{ always() }}
-        run: docker compose -f deploy/monitoring/docker-compose.yml down --volumes
+        run: docker compose -f deploy/monitoring/docker-compose.yml -f deploy/monitoring/docker-compose.debug.yml down --volumes
 
       - name: Upload service logs
         if: ${{ always() }}

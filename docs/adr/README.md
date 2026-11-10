@@ -13,3 +13,6 @@ file and include context, decision, and consequences.
 - [ADR-0006: Transaction data retention](0006-transaction-data-retention.md)
 - [ADR-0007: Campus stored-value and aggregator boundary](0007-campus-stored-value-and-aggregator-boundary.md)
 - [ADR-0008: Idempotent account operations and reliable progression](0008-idempotent-account-operations-and-reliable-progression.md)
+- [ADR-0009: OIDC service-to-service identity](0009-oidc-service-to-service-identity.md)
+- [ADR-0010: API errors, W3C tracing, and telemetry](0010-api-errors-tracing-and-telemetry.md)
+- [ADR-0011: Account database ownership and Flyway baseline](0011-account-database-ownership-and-flyway.md)

@@ -13,20 +13,27 @@ import java.security.interfaces.RSAPublicKey;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.concurrent.atomic.AtomicReference;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.system.CapturedOutput;
+import org.springframework.boot.test.system.OutputCaptureExtension;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @SpringBootTest(
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         properties = {"management.server.port=19081"})
 @ActiveProfiles("test")
+@ExtendWith(OutputCaptureExtension.class)
 class GatewaySecurityIntegrationTest {
 
     private static final String ISSUER = "http://issuer.test/realms/onecard-dev";
@@ -72,7 +79,30 @@ class GatewaySecurityIntegrationTest {
 
     @Test
     void rejectsRequestsWithoutBearerToken() {
-        client.get().uri("/api/account/balance").exchange().expectStatus().isUnauthorized();
+        client.get().uri("/api/account/balance")
+                .exchange()
+                .expectStatus().isUnauthorized()
+                .expectBody()
+                .jsonPath("$.code").isEqualTo("AUTHENTICATION_REQUIRED")
+                .jsonPath("$.message").isEqualTo("Authentication is required");
+    }
+
+    @Test
+    void rejectedRequestReturnsAndAuditsTrustedTraceId(CapturedOutput output) {
+        String traceId = "0123456789abcdef0123456789abcdef";
+        String traceparent = "00-" + traceId + "-0123456789abcdef-01";
+
+        client.get().uri("/api/account/balance")
+                .header("traceparent", traceparent)
+                .exchange()
+                .expectStatus().isUnauthorized()
+                .expectHeader().value("traceparent", responseTraceparent -> {
+                    assertThat(responseTraceparent.split("-")[1]).isEqualTo(traceId);
+                });
+
+        assertThat(output.getOut())
+                .contains("security_event event=authentication_failed service=onecard-gateway method=GET trace_id="
+                        + traceId);
     }
 
     @Test
@@ -109,8 +139,10 @@ class GatewaySecurityIntegrationTest {
 
         client.post().uri("/api/clearing/batches").headers(headers -> headers.setBearerAuth(token))
                 .exchange()
-                .expectStatus()
-                .isForbidden();
+                .expectStatus().isForbidden()
+                .expectBody()
+                .jsonPath("$.code").isEqualTo("ACCESS_DENIED")
+                .jsonPath("$.message").isEqualTo("Access is denied");
     }
 
     @Test
@@ -174,7 +206,13 @@ class GatewaySecurityIntegrationTest {
                 .build();
 
         managementClient.get().uri("/actuator/health").exchange().expectStatus().isOk();
-        managementClient.get().uri("/actuator/prometheus").exchange().expectStatus().isOk();
+        managementClient.get().uri("/actuator/prometheus")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(String.class)
+                .value(body -> assertThat(body)
+                        .contains("http_server_requests_seconds_count")
+                        .doesNotContain("traceparent", "Authorization", "onecard-user-token"));
         managementClient.get().uri("/actuator/env").exchange().expectStatus().isUnauthorized();
     }
 
@@ -199,6 +237,37 @@ class GatewaySecurityIntegrationTest {
                 .isEqualTo("")
                 .jsonPath("$.authenticatedUser")
                 .isEqualTo("");
+    }
+
+    @Test
+    void propagatesW3cTraceContextAndReturnsTheServerTraceparent() {
+        String traceId = "0123456789abcdef0123456789abcdef";
+        String parentId = "0123456789abcdef";
+        String inboundTraceparent = "00-" + traceId + "-" + parentId + "-01";
+        String token = token(SIGNING_KEY, ISSUER, AUDIENCE, "onecard-user", Instant.now().plusSeconds(60));
+
+        client.get().uri("/api/account/balance")
+                .headers(headers -> {
+                    headers.setBearerAuth(token);
+                    headers.set("traceparent", inboundTraceparent);
+                })
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectHeader()
+                .value("traceparent", responseTraceparent -> {
+                    String[] fields = responseTraceparent.split("-");
+                    assertThat(fields).hasSize(4);
+                    assertThat(fields[0]).isEqualTo("00");
+                    assertThat(fields[1]).isEqualTo(traceId);
+                    assertThat(fields[2]).isNotEqualTo(parentId);
+                });
+
+        String[] downstreamTraceparent = STUB_SERVER.traceparent().split("-");
+        assertThat(downstreamTraceparent).hasSize(4);
+        assertThat(downstreamTraceparent[0]).isEqualTo("00");
+        assertThat(downstreamTraceparent[1]).isEqualTo(traceId);
+        assertThat(downstreamTraceparent[2]).isNotEqualTo(parentId);
     }
 
     @Test
@@ -302,11 +371,13 @@ class GatewaySecurityIntegrationTest {
 
     private static final class StubServer implements AutoCloseable {
         private final HttpServer server;
+        private final AtomicReference<String> traceparent = new AtomicReference<>();
 
         private StubServer() {
             try {
                 server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
                 server.createContext("/", exchange -> {
+                    traceparent.set(exchange.getRequestHeaders().getFirst("traceparent"));
                     String body = "{\"userId\":\"" + header(exchange, "X-User-Id")
                             + "\",\"userRoles\":\"" + header(exchange, "X-User-Roles")
                             + "\",\"authenticatedUser\":\"" + header(exchange, "X-Authenticated-User") + "\"}";
@@ -325,6 +396,10 @@ class GatewaySecurityIntegrationTest {
 
         private String uri() {
             return "http://127.0.0.1:" + server.getAddress().getPort();
+        }
+
+        private String traceparent() {
+            return traceparent.get();
         }
 
         private static String header(com.sun.net.httpserver.HttpExchange exchange, String name) {

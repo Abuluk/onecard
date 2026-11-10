@@ -88,11 +88,17 @@ services:
       SPRING_PROFILES_ACTIVE: dev
       SERVER_PORT: "8082"
       NACOS_SERVER_ADDR: nacos:8848
+      ACCOUNT_DB_ENABLED: ${ACCOUNT_DB_ENABLED:-false}
+      ACCOUNT_DB_URL: ${ACCOUNT_DB_URL:-jdbc:mysql://onecard-oceanbase:2881/onecard_account}
+      ACCOUNT_DB_USERNAME: ${ACCOUNT_DB_USERNAME:-onecard_account_app}
+      ACCOUNT_DB_PASSWORD: ${ACCOUNT_DB_PASSWORD:-}
+      ACCOUNT_DB_MIGRATION_URL: ${ACCOUNT_DB_MIGRATION_URL:-jdbc:mysql://onecard-oceanbase:2881/onecard_account}
+      ACCOUNT_DB_MIGRATION_USERNAME: ${ACCOUNT_DB_MIGRATION_USERNAME:-onecard_account_migrator}
+      ACCOUNT_DB_MIGRATION_PASSWORD: ${ACCOUNT_DB_MIGRATION_PASSWORD:-}
+      ACCOUNT_DB_SCHEMA: ${ACCOUNT_DB_SCHEMA:-onecard_account}
     depends_on:
       nacos:
         condition: service_healthy
-    ports:
-      - "127.0.0.1:8082:8082"
 
   onecard-transaction-service:
     <<: *spring-service
@@ -102,11 +108,17 @@ services:
       SPRING_PROFILES_ACTIVE: dev
       SERVER_PORT: "8083"
       NACOS_SERVER_ADDR: nacos:8848
+      TRANSACTION_DB_ENABLED: ${TRANSACTION_DB_ENABLED:-false}
+      TRANSACTION_DB_URL: ${TRANSACTION_DB_URL:-jdbc:mysql://onecard-oceanbase:2881/onecard_transaction}
+      TRANSACTION_DB_USERNAME: ${TRANSACTION_DB_USERNAME:-onecard_transaction_app}
+      TRANSACTION_DB_PASSWORD: ${TRANSACTION_DB_PASSWORD:-}
+      TRANSACTION_DB_MIGRATION_URL: ${TRANSACTION_DB_MIGRATION_URL:-jdbc:mysql://onecard-oceanbase:2881/onecard_transaction}
+      TRANSACTION_DB_MIGRATION_USERNAME: ${TRANSACTION_DB_MIGRATION_USERNAME:-onecard_transaction_migrator}
+      TRANSACTION_DB_MIGRATION_PASSWORD: ${TRANSACTION_DB_MIGRATION_PASSWORD:-}
+      TRANSACTION_DB_SCHEMA: ${TRANSACTION_DB_SCHEMA:-onecard_transaction}
     depends_on:
       nacos:
         condition: service_healthy
-    ports:
-      - "127.0.0.1:8083:8083"
 
   onecard-payment-adapter-service:
     <<: *spring-service
@@ -119,8 +131,6 @@ services:
     depends_on:
       nacos:
         condition: service_healthy
-    ports:
-      - "127.0.0.1:8084:8084"
 
   onecard-clearing-service:
     <<: *spring-service
@@ -133,8 +143,6 @@ services:
     depends_on:
       nacos:
         condition: service_healthy
-    ports:
-      - "127.0.0.1:8085:8085"
 
   onecard-notification-service:
     <<: *spring-service
@@ -147,8 +155,6 @@ services:
     depends_on:
       nacos:
         condition: service_healthy
-    ports:
-      - "127.0.0.1:8086:8086"
 
   onecard-risk-service:
     <<: *spring-service
@@ -161,8 +167,6 @@ services:
     depends_on:
       nacos:
         condition: service_healthy
-    ports:
-      - "127.0.0.1:8087:8087"
 
   onecard-access-service:
     <<: *spring-service
@@ -175,8 +179,6 @@ services:
     depends_on:
       nacos:
         condition: service_healthy
-    ports:
-      - "127.0.0.1:8088:8088"
 
   onecard-device-service:
     <<: *spring-service
@@ -189,8 +191,6 @@ services:
     depends_on:
       nacos:
         condition: service_healthy
-    ports:
-      - "127.0.0.1:8089:8089"
 
   onecard-gateway:
     <<: *spring-service

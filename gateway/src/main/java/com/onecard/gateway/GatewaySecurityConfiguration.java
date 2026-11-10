@@ -1,16 +1,28 @@
 package com.onecard.gateway;
 
+import io.micrometer.tracing.Span;
+import io.micrometer.tracing.handler.TracingObservationHandler.TracingContext;
+import io.micrometer.tracing.propagation.Propagator;
+import io.micrometer.core.instrument.Meter;
+import io.micrometer.core.instrument.config.MeterFilter;
 import java.net.InetSocketAddress;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.server.reactive.observation.ServerRequestObservationContext;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
@@ -27,12 +39,40 @@ import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.ReactiveJwtAuthenticationConverterAdapter;
 import org.springframework.security.web.server.SecurityWebFilterChain;
+import org.springframework.security.web.server.ServerAuthenticationEntryPoint;
+import org.springframework.security.web.server.authorization.ServerAccessDeniedHandler;
 import org.springframework.security.web.server.util.matcher.ServerWebExchangeMatcher;
+import org.springframework.web.server.WebFilter;
+import tools.jackson.databind.json.JsonMapper;
 import reactor.core.publisher.Mono;
 
 @Configuration
 @EnableWebFluxSecurity
 public class GatewaySecurityConfiguration {
+
+    private static final Logger SECURITY_AUDIT = LoggerFactory.getLogger("com.onecard.security.audit");
+
+    @Bean
+    @Order(Ordered.HIGHEST_PRECEDENCE + 2)
+    WebFilter traceparentResponseFilter(Propagator propagator) {
+        return (exchange, chain) -> {
+            Span currentSpan = ServerRequestObservationContext.findCurrent(exchange.getAttributes())
+                    .map(observationContext -> observationContext.<TracingContext>get(TracingContext.class))
+                    .map(TracingContext::getSpan)
+                    .orElse(null);
+            String inboundTraceparent = exchange.getRequest().getHeaders().getFirst("traceparent");
+            if (currentSpan != null && hasAcceptedParent(inboundTraceparent, currentSpan.context().traceId())) {
+                propagator.inject(currentSpan.context(), exchange.getResponse(),
+                        (response, key, value) -> response.getHeaders().set(key, value));
+            }
+            return chain.filter(exchange);
+        };
+    }
+
+    @Bean
+    MeterFilter approvedMetricFilter() {
+        return MeterFilter.denyUnless(GatewaySecurityConfiguration::isApprovedMetric);
+    }
 
     @Bean
     ReactiveJwtDecoder jwtDecoder(
@@ -78,9 +118,26 @@ public class GatewaySecurityConfiguration {
             ServerHttpSecurity http,
             @Value("${management.server.port:9081}") int managementPort,
             ReactiveJwtDecoder jwtDecoder,
-            Converter<Jwt, Mono<AbstractAuthenticationToken>> jwtAuthenticationConverter) {
+            Converter<Jwt, Mono<AbstractAuthenticationToken>> jwtAuthenticationConverter,
+            JsonMapper jsonMapper) {
+        ServerAuthenticationEntryPoint authenticationEntryPoint = (exchange, exception) -> {
+            SECURITY_AUDIT.warn(
+                    "security_event event=authentication_failed service=onecard-gateway method={} trace_id={}",
+                    exchange.getRequest().getMethod(), GatewayExceptionHandler.traceId(exchange));
+            return writeSecurityError(exchange, HttpStatus.UNAUTHORIZED, "AUTHENTICATION_REQUIRED",
+                    "Authentication is required", jsonMapper);
+        };
+        ServerAccessDeniedHandler accessDeniedHandler = (exchange, exception) -> {
+            SECURITY_AUDIT.warn("security_event event=access_denied service=onecard-gateway method={} trace_id={}",
+                    exchange.getRequest().getMethod(), GatewayExceptionHandler.traceId(exchange));
+            return writeSecurityError(exchange, HttpStatus.FORBIDDEN, "ACCESS_DENIED",
+                    "Access is denied", jsonMapper);
+        };
         return http.securityMatcher(localPortMatcher(managementPort, false))
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
+                .exceptionHandling(exceptions -> exceptions
+                        .authenticationEntryPoint(authenticationEntryPoint)
+                        .accessDeniedHandler(accessDeniedHandler))
                 .authorizeExchange(authorize -> authorize
                         .pathMatchers("/api/payments/callback/**", "/api/payments/callbacks/**").denyAll()
                         .pathMatchers(HttpMethod.GET,
@@ -93,9 +150,40 @@ public class GatewaySecurityConfiguration {
                         .hasAnyRole("ONECARD_ADMIN", "ONECARD_AUDITOR")
                         .pathMatchers(HttpMethod.POST, "/api/clearing/**").hasRole("ONECARD_ADMIN")
                         .anyExchange().denyAll())
-                .oauth2ResourceServer(resourceServer -> resourceServer.jwt(jwt ->
-                        jwt.jwtAuthenticationConverter(jwtAuthenticationConverter)))
+                .oauth2ResourceServer(resourceServer -> resourceServer
+                        .authenticationEntryPoint(authenticationEntryPoint)
+                        .accessDeniedHandler(accessDeniedHandler)
+                        .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter)))
                 .build();
+    }
+
+    private static Mono<Void> writeSecurityError(
+            org.springframework.web.server.ServerWebExchange exchange,
+            HttpStatus status,
+            String code,
+            String message,
+            JsonMapper jsonMapper) {
+        exchange.getResponse().setStatusCode(status);
+        exchange.getResponse().getHeaders().setContentType(MediaType.APPLICATION_JSON);
+        exchange.getResponse().getHeaders().setCacheControl("no-store");
+        if (status == HttpStatus.UNAUTHORIZED) {
+            exchange.getResponse().getHeaders().set(HttpHeaders.WWW_AUTHENTICATE, "Bearer");
+        }
+        byte[] body = jsonMapper.writeValueAsBytes(new SecurityErrorBody(code, message, null));
+        return exchange.getResponse().writeWith(Mono.just(exchange.getResponse().bufferFactory().wrap(body)));
+    }
+
+    private record SecurityErrorBody(String code, String message, Object data) {
+    }
+
+    private static boolean isApprovedMetric(Meter.Id id) {
+        String name = id.getName();
+        return name.equals("http.server.requests")
+                || name.equals("http.client.requests")
+                || name.startsWith("jvm.")
+                || name.startsWith("process.")
+                || name.startsWith("system.cpu.")
+                || name.startsWith("executor.");
     }
 
     private static Collection<GrantedAuthority> authorities(
@@ -129,6 +217,13 @@ public class GatewaySecurityConfiguration {
             return "ROLE_ONECARD_AUDITOR";
         }
         return null;
+    }
+
+    private static boolean hasAcceptedParent(String traceparent, String activeTraceId) {
+        return traceparent != null
+                && traceparent.length() >= 35
+                && traceparent.charAt(2) == '-'
+                && traceparent.regionMatches(true, 3, activeTraceId, 0, 32);
     }
 
     private static ServerWebExchangeMatcher localPortMatcher(int managementPort, boolean management) {

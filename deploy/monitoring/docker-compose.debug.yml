@@ -1,0 +1,32 @@
+services:
+  onecard-account-service:
+    ports:
+      - "127.0.0.1:8082:8082"
+
+  onecard-transaction-service:
+    ports:
+      - "127.0.0.1:8083:8083"
+
+  onecard-payment-adapter-service:
+    ports:
+      - "127.0.0.1:8084:8084"
+
+  onecard-clearing-service:
+    ports:
+      - "127.0.0.1:8085:8085"
+
+  onecard-notification-service:
+    ports:
+      - "127.0.0.1:8086:8086"
+
+  onecard-risk-service:
+    ports:
+      - "127.0.0.1:8087:8087"
+
+  onecard-access-service:
+    ports:
+      - "127.0.0.1:8088:8088"
+
+  onecard-device-service:
+    ports:
+      - "127.0.0.1:8089:8089"

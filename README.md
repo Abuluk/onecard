@@ -4,7 +4,8 @@ Spring Cloud monorepo for the eight services listed in
 [`docs/微服务划分.md`](docs/微服务划分.md). Each service is an independent Maven
 module under `services/`; shared Feign contracts live under `apis/`.
 
-Build and test all modules:
+Prerequisites are JDK 25, the checked-in Maven wrapper, Docker Compose v2, and
+k6 for the full local smoke. Build and test all modules:
 
 ```powershell
 ./mvnw.cmd --batch-mode --no-transfer-progress verify
@@ -18,6 +19,13 @@ docker compose -f deploy/monitoring/docker-compose.yml up --build
 
 Before first startup, create an ignored local `.env` with a Nacos token as
 described in [`deploy/monitoring/README.md`](deploy/monitoring/README.md).
+
+Run the complete Windows local gate with `./ci-local.ps1`. It runs Maven
+`clean verify`, starts an isolated Nacos/account Compose project, checks the
+account's healthy registration in Nacos, runs the account health smoke, and
+removes only that test project. The regular PR workflow runs the same Maven
+Gateway proxy/security tests and builds/scans all application images. The
+PR and manual platform workflows also check runtime Nacos registration.
 
 The local Compose stack uses the `dev` profile and Nacos service discovery. It
 is for development only; `test` disables Nacos for isolated test runs.
