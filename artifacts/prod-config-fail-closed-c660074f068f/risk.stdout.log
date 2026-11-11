@@ -1,0 +1,317 @@
+04:34:08.744 [main] INFO com.alibaba.nacos.plugin.auth.spi.client.ClientAuthPluginManager -- [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+04:34:08.745 [main] INFO com.alibaba.nacos.plugin.auth.spi.client.ClientAuthPluginManager -- [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.9)
+
+2026-11-11T04:34:09.998+08:00  INFO 5592 --- [onecard-risk-service] [           main] [                                                 ] com.onecard.risk.RiskApplication         : Starting RiskApplication v1.0.0-SNAPSHOT using Java 25.0.5 with PID 5592 (D:\juyou\onecard\services\onecard-risk-service\target\onecard-risk-service-1.0.0-SNAPSHOT.jar started by Administrator in D:\juyou\onecard)
+2026-11-11T04:34:10.000+08:00  INFO 5592 --- [onecard-risk-service] [           main] [                                                 ] com.onecard.risk.RiskApplication         : The following 1 profile is active: "prod"
+2026-11-11T04:34:10.014+08:00  INFO 5592 --- [onecard-risk-service] [remote.worker.1] [                                                 ] c.a.n.c.remote.client.grpc.GrpcClient    : grpc client connection server: 127.0.0.1 ip, serverPort: 56370, grpcTslConfig: {"enableTls":false,"mutualAuthEnable":false,"trustAll":true}
+2026-11-11T04:34:10.018+08:00 ERROR 5592 --- [onecard-risk-service] [remote.worker.1] [                                                 ] c.a.n.c.remote.client.grpc.GrpcClient    : Server check fail, please check server 127.0.0.1, port 56370 is available, error ={}
+
+java.util.concurrent.ExecutionException: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.getDoneValue(AbstractFuture.java:596) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:471) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.serverCheck(GrpcClient.java:234) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.connectToServer(GrpcClient.java:346) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.RpcClient.reconnect(RpcClient.java:504) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.RpcClient.lambda$start$1(RpcClient.java:330) ~[nacos-client-3.1.1.jar!/:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:309) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.io.grpc.Status.asRuntimeException(Status.java:532) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.stub.ClientCalls$UnaryStreamToFuture.onClose(ClientCalls.java:638) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:487) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:451) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:484) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:565) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.access$100(ClientCallImpl.java:72) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:733) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:714) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[nacos-client-3.1.1.jar!/:na]
+	... 3 common frames omitted
+Caused by: com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: /127.0.0.1:56370
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[nacos-client-3.1.1.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-11-11T04:34:10.019+08:00  INFO 5592 --- [onecard-risk-service] [remote.worker.1] [                                                 ] com.alibaba.nacos.common.remote.client   : [a3f0fe2c-d068-402d-9925-f7fab23182c0_config-0] Fail to connect server, after trying 3 times, last try server is {serverIp = '127.0.0.1', server main port = 55370}, error = unknown
+2026-11-11T04:34:10.052+08:00  WARN 5592 --- [onecard-risk-service] [           main] [                                                 ] c.a.c.n.c.NacosConfigDataLoader          : [Nacos Config] config[dataId=onecard-risk-service.yaml, group=DEFAULT_GROUP] is empty
+2026-11-11T04:34:10.420+08:00  INFO 5592 --- [onecard-risk-service] [remote.worker.1] [                                                 ] c.a.n.c.remote.client.grpc.GrpcClient    : grpc client connection server: 127.0.0.1 ip, serverPort: 56370, grpcTslConfig: {"enableTls":false,"mutualAuthEnable":false,"trustAll":true}
+2026-11-11T04:34:10.424+08:00 ERROR 5592 --- [onecard-risk-service] [remote.worker.1] [                                                 ] c.a.n.c.remote.client.grpc.GrpcClient    : Server check fail, please check server 127.0.0.1, port 56370 is available, error ={}
+
+java.util.concurrent.ExecutionException: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.getDoneValue(AbstractFuture.java:596) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:471) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.serverCheck(GrpcClient.java:234) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.connectToServer(GrpcClient.java:346) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.RpcClient.reconnect(RpcClient.java:504) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.RpcClient.lambda$start$1(RpcClient.java:330) ~[nacos-client-3.1.1.jar!/:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:309) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.io.grpc.Status.asRuntimeException(Status.java:532) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.stub.ClientCalls$UnaryStreamToFuture.onClose(ClientCalls.java:638) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:487) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:451) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:484) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:565) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.access$100(ClientCallImpl.java:72) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:733) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:714) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[nacos-client-3.1.1.jar!/:na]
+	... 3 common frames omitted
+Caused by: com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: /127.0.0.1:56370
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[nacos-client-3.1.1.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-11-11T04:34:10.426+08:00  INFO 5592 --- [onecard-risk-service] [remote.worker.1] [                                                 ] com.alibaba.nacos.common.remote.client   : [a3f0fe2c-d068-402d-9925-f7fab23182c0_config-0] Fail to connect server, after trying 4 times, last try server is {serverIp = '127.0.0.1', server main port = 55370}, error = unknown
+2026-11-11T04:34:10.928+08:00  INFO 5592 --- [onecard-risk-service] [remote.worker.1] [                                                 ] c.a.n.c.remote.client.grpc.GrpcClient    : grpc client connection server: 127.0.0.1 ip, serverPort: 56370, grpcTslConfig: {"enableTls":false,"mutualAuthEnable":false,"trustAll":true}
+2026-11-11T04:34:10.931+08:00 ERROR 5592 --- [onecard-risk-service] [remote.worker.1] [                                                 ] c.a.n.c.remote.client.grpc.GrpcClient    : Server check fail, please check server 127.0.0.1, port 56370 is available, error ={}
+
+java.util.concurrent.ExecutionException: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.getDoneValue(AbstractFuture.java:596) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:471) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.serverCheck(GrpcClient.java:234) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.connectToServer(GrpcClient.java:346) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.RpcClient.reconnect(RpcClient.java:504) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.RpcClient.lambda$start$1(RpcClient.java:330) ~[nacos-client-3.1.1.jar!/:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:309) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.io.grpc.Status.asRuntimeException(Status.java:532) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.stub.ClientCalls$UnaryStreamToFuture.onClose(ClientCalls.java:638) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:487) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:451) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:484) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:565) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.access$100(ClientCallImpl.java:72) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:733) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:714) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[nacos-client-3.1.1.jar!/:na]
+	... 3 common frames omitted
+Caused by: com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: /127.0.0.1:56370
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[nacos-client-3.1.1.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-11-11T04:34:10.932+08:00  INFO 5592 --- [onecard-risk-service] [remote.worker.1] [                                                 ] com.alibaba.nacos.common.remote.client   : [a3f0fe2c-d068-402d-9925-f7fab23182c0_config-0] Fail to connect server, after trying 5 times, last try server is {serverIp = '127.0.0.1', server main port = 55370}, error = unknown
+2026-11-11T04:34:11.133+08:00  INFO 5592 --- [onecard-risk-service] [           main] [                                                 ] o.s.cloud.context.scope.GenericScope     : BeanFactory id=55b14eec-5b6c-35f8-b4d6-c4d8d1b939b4
+2026-11-11T04:34:11.521+08:00  INFO 5592 --- [onecard-risk-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-11-11T04:34:11.534+08:00  INFO 5592 --- [onecard-risk-service] [remote.worker.1] [                                                 ] c.a.n.c.remote.client.grpc.GrpcClient    : grpc client connection server: 127.0.0.1 ip, serverPort: 56370, grpcTslConfig: {"enableTls":false,"mutualAuthEnable":false,"trustAll":true}
+2026-11-11T04:34:11.536+08:00 ERROR 5592 --- [onecard-risk-service] [remote.worker.1] [                                                 ] c.a.n.c.remote.client.grpc.GrpcClient    : Server check fail, please check server 127.0.0.1, port 56370 is available, error ={}
+
+java.util.concurrent.ExecutionException: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.getDoneValue(AbstractFuture.java:596) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:471) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.serverCheck(GrpcClient.java:234) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.grpc.GrpcClient.connectToServer(GrpcClient.java:346) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.RpcClient.reconnect(RpcClient.java:504) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.common.remote.client.RpcClient.lambda$start$1(RpcClient.java:330) ~[nacos-client-3.1.1.jar!/:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:309) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at com.alibaba.nacos.shaded.io.grpc.Status.asRuntimeException(Status.java:532) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.stub.ClientCalls$UnaryStreamToFuture.onClose(ClientCalls.java:638) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:487) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:451) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:484) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:565) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl.access$100(ClientCallImpl.java:72) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:733) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:714) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[nacos-client-3.1.1.jar!/:na]
+	... 3 common frames omitted
+Caused by: com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: /127.0.0.1:56370
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[nacos-client-3.1.1.jar!/:na]
+	at com.alibaba.nacos.shaded.io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[nacos-client-3.1.1.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-11-11T04:34:11.538+08:00  INFO 5592 --- [onecard-risk-service] [remote.worker.1] [                                                 ] com.alibaba.nacos.common.remote.client   : [a3f0fe2c-d068-402d-9925-f7fab23182c0_config-0] Fail to connect server, after trying 6 times, last try server is {serverIp = '127.0.0.1', server main port = 55370}, error = unknown
+2026-11-11T04:34:11.539+08:00  INFO 5592 --- [onecard-risk-service] [           main] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-11T04:34:11.540+08:00  INFO 5592 --- [onecard-risk-service] [           main] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.27]
+2026-11-11T04:34:11.566+08:00  INFO 5592 --- [onecard-risk-service] [           main] [                                                 ] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1511 ms
+2026-11-11T04:34:12.074+08:00  WARN 5592 --- [onecard-risk-service] [           main] [                                                 ] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Unsatisfied dependency expressed through method 'setFilterChains' parameter 0: Error creating bean with name 'riskServiceSecurityFilterChain' defined in class path resource [com/onecard/risk/RiskServiceSecurityConfiguration.class]: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'riskServiceSecurityFilterChain' threw exception with message: Error creating bean with name 'jwtDecoder' defined in class path resource [com/onecard/risk/RiskServiceSecurityConfiguration.class]: Unexpected exception during bean creation
+2026-11-11T04:34:12.077+08:00  INFO 5592 --- [onecard-risk-service] [           main] [                                                 ] i.o.sdk.logs.SdkLoggerProvider           : Calling shutdown() multiple times.
+2026-11-11T04:34:12.078+08:00  INFO 5592 --- [onecard-risk-service] [           main] [                                                 ] i.o.sdk.trace.SdkTracerProvider          : Calling shutdown() multiple times.
+2026-11-11T04:34:12.082+08:00  INFO 5592 --- [onecard-risk-service] [           main] [                                                 ] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-11-11T04:34:12.096+08:00  INFO 5592 --- [onecard-risk-service] [           main] [                                                 ] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-11-11T04:34:12.111+08:00 ERROR 5592 --- [onecard-risk-service] [           main] [                                                 ] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Unsatisfied dependency expressed through method 'setFilterChains' parameter 0: Error creating bean with name 'riskServiceSecurityFilterChain' defined in class path resource [com/onecard/risk/RiskServiceSecurityConfiguration.class]: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'riskServiceSecurityFilterChain' threw exception with message: Error creating bean with name 'jwtDecoder' defined in class path resource [com/onecard/risk/RiskServiceSecurityConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:872) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:827) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:493) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1442) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1225) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1191) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:994) ~[spring-context-7.0.10.jar!/:7.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.10.jar!/:7.0.10]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:131) ~[spring-boot-web-server-4.0.9.jar!/:4.0.9]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744) ~[spring-boot-4.0.9.jar!/:4.0.9]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:433) ~[spring-boot-4.0.9.jar!/:4.0.9]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:309) ~[spring-boot-4.0.9.jar!/:4.0.9]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1353) ~[spring-boot-4.0.9.jar!/:4.0.9]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342) ~[spring-boot-4.0.9.jar!/:4.0.9]
+	at com.onecard.risk.RiskApplication.main(RiskApplication.java:10) ~[!/:1.0.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:94) ~[onecard-risk-service-1.0.0-SNAPSHOT.jar:1.0.0-SNAPSHOT]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:52) ~[onecard-risk-service-1.0.0-SNAPSHOT.jar:1.0.0-SNAPSHOT]
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:28) ~[onecard-risk-service-1.0.0-SNAPSHOT.jar:1.0.0-SNAPSHOT]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'riskServiceSecurityFilterChain' defined in class path resource [com/onecard/risk/RiskServiceSecurityConfiguration.class]: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'riskServiceSecurityFilterChain' threw exception with message: Error creating bean with name 'jwtDecoder' defined in class path resource [com/onecard/risk/RiskServiceSecurityConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1358) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1190) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:2015) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1978) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1870) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1840) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1718) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1658) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:864) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	... 27 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'riskServiceSecurityFilterChain' threw exception with message: Error creating bean with name 'jwtDecoder' defined in class path resource [com/onecard/risk/RiskServiceSecurityConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:183) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:72) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:152) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	... 44 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jwtDecoder' defined in class path resource [com/onecard/risk/RiskServiceSecurityConfiguration.class]: Unexpected exception during bean creation
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:536) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveBean(DefaultListableBeanFactory.java:1232) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1629) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1588) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveBean(DefaultListableBeanFactory.java:556) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:383) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:376) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1317) ~[spring-context-7.0.10.jar!/:7.0.10]
+	at org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer$JwtConfigurer.getJwtDecoder(OAuth2ResourceServerConfigurer.java:473) ~[spring-security-config-7.0.8.jar!/:7.0.8]
+	at org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer$JwtConfigurer.getAuthenticationProvider(OAuth2ResourceServerConfigurer.java:482) ~[spring-security-config-7.0.8.jar!/:7.0.8]
+	at org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer.getAuthenticationProvider(OAuth2ResourceServerConfigurer.java:376) ~[spring-security-config-7.0.8.jar!/:7.0.8]
+	at org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer.init(OAuth2ResourceServerConfigurer.java:278) ~[spring-security-config-7.0.8.jar!/:7.0.8]
+	at org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer.init(OAuth2ResourceServerConfigurer.java:156) ~[spring-security-config-7.0.8.jar!/:7.0.8]
+	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.init(AbstractConfiguredSecurityBuilder.java:371) ~[spring-security-config-7.0.8.jar!/:7.0.8]
+	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.doBuild(AbstractConfiguredSecurityBuilder.java:333) ~[spring-security-config-7.0.8.jar!/:7.0.8]
+	at org.springframework.security.config.annotation.AbstractSecurityBuilder.build(AbstractSecurityBuilder.java:38) ~[spring-security-config-7.0.8.jar!/:7.0.8]
+	at com.onecard.risk.RiskServiceSecurityConfiguration.riskServiceSecurityFilterChain(RiskServiceSecurityConfiguration.java:72) ~[!/:1.0.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:155) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	... 47 common frames omitted
+Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'OIDC_ISSUER_URI' in value "${OIDC_ISSUER_URI}" <-- "${onecard.security.issuer-uri}"
+	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81) ~[spring-core-7.0.10.jar!/:7.0.10]
+	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:296) ~[spring-core-7.0.10.jar!/:7.0.10]
+	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:129) ~[spring-core-7.0.10.jar!/:7.0.10]
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:96) ~[spring-core-7.0.10.jar!/:7.0.10]
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:286) ~[spring-core-7.0.10.jar!/:7.0.10]
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:257) ~[spring-core-7.0.10.jar!/:7.0.10]
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:184) ~[spring-context-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:959) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1679) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1658) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1358) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1190) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-7.0.10.jar!/:7.0.10]
+	... 70 common frames omitted
+
+2026-11-11T04:34:12.114+08:00  INFO 5592 --- [onecard-risk-service] [       Thread-1] [                                                 ] c.a.n.common.executor.ThreadPoolManager  : [ThreadPoolManager] Start destroying ThreadPool
+2026-11-11T04:34:12.114+08:00  INFO 5592 --- [onecard-risk-service] [       Thread-7] [                                                 ] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+2026-11-11T04:34:12.114+08:00  INFO 5592 --- [onecard-risk-service] [       Thread-9] [                                                 ] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher

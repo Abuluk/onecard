@@ -1,0 +1,139 @@
+onecard-oceanbase-1  | Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
+onecard-oceanbase-1  | 
+onecard-oceanbase-1  |   -n, --quiet, --silent
+onecard-oceanbase-1  |                  suppress automatic printing of pattern space
+onecard-oceanbase-1  |   -e script, --expression=script
+onecard-oceanbase-1  |                  add the script to the commands to be executed
+onecard-oceanbase-1  |   -f script-file, --file=script-file
+onecard-oceanbase-1  |                  add the contents of script-file to the commands to be executed
+onecard-oceanbase-1  |   --follow-symlinks
+onecard-oceanbase-1  |                  follow symlinks when processing in place
+onecard-oceanbase-1  |   -i[SUFFIX], --in-place[=SUFFIX]
+onecard-oceanbase-1  |                  edit files in place (makes backup if SUFFIX supplied)
+onecard-oceanbase-1  |   -c, --copy
+onecard-oceanbase-1  |                  use copy instead of rename when shuffling files in -i mode
+onecard-oceanbase-1  |   -b, --binary
+onecard-oceanbase-1  |                  does nothing; for compatibility with WIN32/CYGWIN/MSDOS/EMX (
+onecard-oceanbase-1  |                  open files in binary mode (CR+LFs are not treated specially))
+onecard-oceanbase-1  |   -l N, --line-length=N
+onecard-oceanbase-1  |                  specify the desired line-wrap length for the `l' command
+onecard-oceanbase-1  |   --posix
+onecard-oceanbase-1  |                  disable all GNU extensions.
+onecard-oceanbase-1  |   -E, -r, --regexp-extended
+onecard-oceanbase-1  |                  use extended regular expressions in the script
+onecard-oceanbase-1  |                  (for portability use POSIX -E).
+onecard-oceanbase-1  |   -s, --separate
+onecard-oceanbase-1  |                  consider files as separate rather than as a single,
+onecard-oceanbase-1  |                  continuous long stream.
+onecard-oceanbase-1  |       --sandbox
+onecard-oceanbase-1  |                  operate in sandbox mode (disable e/r/w commands).
+onecard-oceanbase-1  |   -u, --unbuffered
+onecard-oceanbase-1  |                  load minimal amounts of data from the input files and flush
+onecard-oceanbase-1  |                  the output buffers more often
+onecard-oceanbase-1  |   -z, --null-data
+onecard-oceanbase-1  |                  separate lines by NUL characters
+onecard-oceanbase-1  |   --help
+onecard-oceanbase-1  |                  display this help and exit
+onecard-oceanbase-1  |   --version
+onecard-oceanbase-1  |                  output version information and exit
+onecard-oceanbase-1  | 
+onecard-oceanbase-1  | If no -e, --expression, -f, or --file option is given, then the first
+onecard-oceanbase-1  | non-option argument is taken as the sed script to interpret.  All
+onecard-oceanbase-1  | remaining arguments are names of input files; if no input files are
+onecard-oceanbase-1  | specified, then the standard input is read.
+onecard-oceanbase-1  | 
+onecard-oceanbase-1  | GNU sed home page: <https://www.gnu.org/software/sed/>.
+onecard-oceanbase-1  | General help using GNU software: <https://www.gnu.org/gethelp/>.
+onecard-oceanbase-1  | Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
+onecard-oceanbase-1  | 
+onecard-oceanbase-1  |   -n, --quiet, --silent
+onecard-oceanbase-1  |                  suppress automatic printing of pattern space
+onecard-oceanbase-1  |   -e script, --expression=script
+onecard-oceanbase-1  |                  add the script to the commands to be executed
+onecard-oceanbase-1  |   -f script-file, --file=script-file
+onecard-oceanbase-1  |                  add the contents of script-file to the commands to be executed
+onecard-oceanbase-1  |   --follow-symlinks
+onecard-oceanbase-1  |                  follow symlinks when processing in place
+onecard-oceanbase-1  |   -i[SUFFIX], --in-place[=SUFFIX]
+onecard-oceanbase-1  |                  edit files in place (makes backup if SUFFIX supplied)
+onecard-oceanbase-1  |   -c, --copy
+onecard-oceanbase-1  |                  use copy instead of rename when shuffling files in -i mode
+onecard-oceanbase-1  |   -b, --binary
+onecard-oceanbase-1  |                  does nothing; for compatibility with WIN32/CYGWIN/MSDOS/EMX (
+onecard-oceanbase-1  |                  open files in binary mode (CR+LFs are not treated specially))
+onecard-oceanbase-1  |   -l N, --line-length=N
+onecard-oceanbase-1  |                  specify the desired line-wrap length for the `l' command
+onecard-oceanbase-1  |   --posix
+onecard-oceanbase-1  |                  disable all GNU extensions.
+onecard-oceanbase-1  |   -E, -r, --regexp-extended
+onecard-oceanbase-1  |                  use extended regular expressions in the script
+onecard-oceanbase-1  |                  (for portability use POSIX -E).
+onecard-oceanbase-1  |   -s, --separate
+onecard-oceanbase-1  |                  consider files as separate rather than as a single,
+onecard-oceanbase-1  |                  continuous long stream.
+onecard-oceanbase-1  |       --sandbox
+onecard-oceanbase-1  |                  operate in sandbox mode (disable e/r/w commands).
+onecard-oceanbase-1  |   -u, --unbuffered
+onecard-oceanbase-1  |                  load minimal amounts of data from the input files and flush
+onecard-oceanbase-1  |                  the output buffers more often
+onecard-oceanbase-1  |   -z, --null-data
+onecard-oceanbase-1  |                  separate lines by NUL characters
+onecard-oceanbase-1  |   --help
+onecard-oceanbase-1  |                  display this help and exit
+onecard-oceanbase-1  |   --version
+onecard-oceanbase-1  |                  output version information and exit
+onecard-oceanbase-1  | 
+onecard-oceanbase-1  | If no -e, --expression, -f, or --file option is given, then the first
+onecard-oceanbase-1  | non-option argument is taken as the sed script to interpret.  All
+onecard-oceanbase-1  | remaining arguments are names of input files; if no input files are
+onecard-oceanbase-1  | specified, then the standard input is read.
+onecard-oceanbase-1  | 
+onecard-oceanbase-1  | GNU sed home page: <https://www.gnu.org/software/sed/>.
+onecard-oceanbase-1  | General help using GNU software: <https://www.gnu.org/gethelp/>.
+onecard-oceanbase-1  | Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
+onecard-oceanbase-1  | 
+onecard-oceanbase-1  |   -n, --quiet, --silent
+onecard-oceanbase-1  |                  suppress automatic printing of pattern space
+onecard-oceanbase-1  |   -e script, --expression=script
+onecard-oceanbase-1  |                  add the script to the commands to be executed
+onecard-oceanbase-1  |   -f script-file, --file=script-file
+onecard-oceanbase-1  |                  add the contents of script-file to the commands to be executed
+onecard-oceanbase-1  |   --follow-symlinks
+onecard-oceanbase-1  |                  follow symlinks when processing in place
+onecard-oceanbase-1  |   -i[SUFFIX], --in-place[=SUFFIX]
+onecard-oceanbase-1  |                  edit files in place (makes backup if SUFFIX supplied)
+onecard-oceanbase-1  |   -c, --copy
+onecard-oceanbase-1  |                  use copy instead of rename when shuffling files in -i mode
+onecard-oceanbase-1  |   -b, --binary
+onecard-oceanbase-1  |                  does nothing; for compatibility with WIN32/CYGWIN/MSDOS/EMX (
+onecard-oceanbase-1  |                  open files in binary mode (CR+LFs are not treated specially))
+onecard-oceanbase-1  |   -l N, --line-length=N
+onecard-oceanbase-1  |                  specify the desired line-wrap length for the `l' command
+onecard-oceanbase-1  |   --posix
+onecard-oceanbase-1  |                  disable all GNU extensions.
+onecard-oceanbase-1  |   -E, -r, --regexp-extended
+onecard-oceanbase-1  |                  use extended regular expressions in the script
+onecard-oceanbase-1  |                  (for portability use POSIX -E).
+onecard-oceanbase-1  |   -s, --separate
+onecard-oceanbase-1  |                  consider files as separate rather than as a single,
+onecard-oceanbase-1  |                  continuous long stream.
+onecard-oceanbase-1  |       --sandbox
+onecard-oceanbase-1  |                  operate in sandbox mode (disable e/r/w commands).
+onecard-oceanbase-1  |   -u, --unbuffered
+onecard-oceanbase-1  |                  load minimal amounts of data from the input files and flush
+onecard-oceanbase-1  |                  the output buffers more often
+onecard-oceanbase-1  |   -z, --null-data
+onecard-oceanbase-1  |                  separate lines by NUL characters
+onecard-oceanbase-1  |   --help
+onecard-oceanbase-1  |                  display this help and exit
+onecard-oceanbase-1  |   --version
+onecard-oceanbase-1  |                  output version information and exit
+onecard-oceanbase-1  | 
+onecard-oceanbase-1  | If no -e, --expression, -f, or --file option is given, then the first
+onecard-oceanbase-1  | non-option argument is taken as the sed script to interpret.  All
+onecard-oceanbase-1  | remaining arguments are names of input files; if no input files are
+onecard-oceanbase-1  | specified, then the standard input is read.
+onecard-oceanbase-1  | 
+onecard-oceanbase-1  | GNU sed home page: <https://www.gnu.org/software/sed/>.
+onecard-oceanbase-1  | General help using GNU software: <https://www.gnu.org/gethelp/>.
+

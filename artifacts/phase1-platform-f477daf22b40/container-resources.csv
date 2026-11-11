@@ -1,0 +1,16 @@
+timestamp,name,cpu,memory
+2026-11-11T03:50:44.2407756+08:00,onecard-phase1-keycloak-f477daf22b40,0.21%,538.4MiB / 1GiB
+2026-11-11T03:50:44.2407756+08:00,onecard-phase1-gateway-f477daf22b40,87.06%,210.3MiB / 1.5GiB
+2026-11-11T03:50:44.2407756+08:00,onecard-phase1-account-f477daf22b40,0.08%,169.9MiB / 1GiB
+2026-11-11T03:50:52.0145665+08:00,onecard-phase1-keycloak-f477daf22b40,2.24%,538.5MiB / 1GiB
+2026-11-11T03:50:52.0145665+08:00,onecard-phase1-gateway-f477daf22b40,46.62%,214.6MiB / 1.5GiB
+2026-11-11T03:50:52.0145665+08:00,onecard-phase1-account-f477daf22b40,0.10%,169.8MiB / 1GiB
+2026-11-11T03:50:59.6874385+08:00,onecard-phase1-keycloak-f477daf22b40,0.23%,538.5MiB / 1GiB
+2026-11-11T03:50:59.6874385+08:00,onecard-phase1-gateway-f477daf22b40,32.58%,216.7MiB / 1.5GiB
+2026-11-11T03:50:59.6874385+08:00,onecard-phase1-account-f477daf22b40,0.05%,169.8MiB / 1GiB
+2026-11-11T03:51:07.3056650+08:00,onecard-phase1-keycloak-f477daf22b40,0.28%,538.5MiB / 1GiB
+2026-11-11T03:51:07.3056650+08:00,onecard-phase1-gateway-f477daf22b40,27.62%,218.8MiB / 1.5GiB
+2026-11-11T03:51:07.3056650+08:00,onecard-phase1-account-f477daf22b40,0.10%,169.8MiB / 1GiB
+2026-11-11T03:51:14.9955789+08:00,onecard-phase1-keycloak-f477daf22b40,0.19%,538.6MiB / 1GiB
+2026-11-11T03:51:14.9955789+08:00,onecard-phase1-gateway-f477daf22b40,0.20%,220.4MiB / 1.5GiB
+2026-11-11T03:51:14.9955789+08:00,onecard-phase1-account-f477daf22b40,0.14%,169.9MiB / 1GiB

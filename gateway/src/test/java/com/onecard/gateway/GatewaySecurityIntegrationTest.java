@@ -240,6 +240,40 @@ class GatewaySecurityIntegrationTest {
     }
 
     @Test
+    void rewritesUpstreamServerErrorWithoutLeakingItsBody() {
+        assertUpstreamError("upstream-error", 500, "INTERNAL_ERROR", "An unexpected error occurred");
+    }
+
+    @Test
+    void rewritesUpstreamUnavailableResponse() {
+        assertUpstreamError("upstream-unavailable", 503,
+                "SERVICE_UNAVAILABLE", "A downstream service is unavailable");
+    }
+
+    @Test
+    void rewritesUpstreamTimeoutResponse() {
+        assertUpstreamError("upstream-timeout", 504,
+                "DOWNSTREAM_TIMEOUT", "A downstream service timed out");
+    }
+
+    private void assertUpstreamError(String path, int status, String code, String message) {
+        String token = token(SIGNING_KEY, ISSUER, AUDIENCE, "onecard-user", Instant.now().plusSeconds(60));
+        client.get().uri("/api/account/" + path).headers(headers -> headers.setBearerAuth(token))
+                .exchange()
+                .expectStatus().isEqualTo(status)
+                .expectHeader().contentTypeCompatibleWith("application/json")
+                .expectHeader().valueEquals("Cache-Control", "no-store")
+                .expectHeader().doesNotExist("Content-Encoding")
+                .expectHeader().doesNotExist("ETag")
+                .expectBody()
+                .jsonPath("$.code").isEqualTo(code)
+                .jsonPath("$.message").isEqualTo(message)
+                .jsonPath("$.data").doesNotExist()
+                .consumeWith(result -> assertThat(new String(result.getResponseBody(), StandardCharsets.UTF_8))
+                        .doesNotContain("database.internal", "secret-token", "stack trace"));
+    }
+
+    @Test
     void propagatesW3cTraceContextAndReturnsTheServerTraceparent() {
         String traceId = "0123456789abcdef0123456789abcdef";
         String parentId = "0123456789abcdef";
@@ -378,6 +412,20 @@ class GatewaySecurityIntegrationTest {
                 server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
                 server.createContext("/", exchange -> {
                     traceparent.set(exchange.getRequestHeaders().getFirst("traceparent"));
+                    String path = exchange.getRequestURI().getPath();
+                    if (path.contains("/upstream-")) {
+                        int status = path.endsWith("/upstream-unavailable") ? 503
+                                : path.endsWith("/upstream-timeout") ? 504 : 500;
+                        byte[] error = "database.internal secret-token stack trace".getBytes(StandardCharsets.UTF_8);
+                        exchange.getResponseHeaders().set("Content-Type", "text/plain");
+                        exchange.getResponseHeaders().set("Content-Encoding", "identity");
+                        exchange.getResponseHeaders().set("ETag", "upstream-etag");
+                        exchange.sendResponseHeaders(status, error.length);
+                        try (var response = exchange.getResponseBody()) {
+                            response.write(error);
+                        }
+                        return;
+                    }
                     String body = "{\"userId\":\"" + header(exchange, "X-User-Id")
                             + "\",\"userRoles\":\"" + header(exchange, "X-User-Roles")
                             + "\",\"authenticatedUser\":\"" + header(exchange, "X-Authenticated-User") + "\"}";

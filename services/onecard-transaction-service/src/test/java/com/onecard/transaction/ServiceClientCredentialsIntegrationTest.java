@@ -5,8 +5,11 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +20,7 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -46,12 +50,21 @@ class ServiceClientCredentialsIntegrationTest {
         registry.add("spring.security.oauth2.client.registration.service-client.scope", () -> "onecard.account.invoke");
         registry.add("spring.security.oauth2.client.provider.test-provider.token-uri", TOKEN_SERVER::uri);
         registry.add("service.auth-test-target-url", SERVICE_SERVER::uri);
+        registry.add("spring.cloud.openfeign.client.config.service-auth-probe.connectTimeout", () -> 2000);
+        registry.add("spring.cloud.openfeign.client.config.service-auth-probe.readTimeout", () -> 1500);
     }
 
     @AfterAll
     static void stopServers() {
         TOKEN_SERVER.close();
         SERVICE_SERVER.close();
+    }
+
+    @AfterEach
+    void resetServiceResponse() {
+        SERVICE_SERVER.setStatusCode(200);
+        SERVICE_SERVER.setResponseDelayMillis(0);
+        SERVICE_SERVER.resetRequestCount();
     }
 
     @Test
@@ -74,6 +87,25 @@ class ServiceClientCredentialsIntegrationTest {
     }
 
     @Test
+    void doesNotConvertDownstreamFailuresIntoSuccess() {
+        SERVICE_SERVER.setStatusCode(503);
+
+        assertThatExceptionOfType(feign.FeignException.class)
+                .isThrownBy(client::probe)
+                .satisfies(exception -> assertThat(exception.status()).isEqualTo(503));
+        assertThat(SERVICE_SERVER.requestCount()).isEqualTo(1);
+    }
+
+    @Test
+    void failsWithinTheConfiguredReadTimeoutForASlowDownstream() {
+        SERVICE_SERVER.setResponseDelayMillis(2500);
+
+        assertThatExceptionOfType(feign.FeignException.class)
+                .isThrownBy(client::probe);
+        assertThat(SERVICE_SERVER.requestCount()).isEqualTo(1);
+    }
+
+    @Test
     void permitsHealthChecksAndDeniesUnimplementedServiceRoutes() throws Exception {
         mockMvc.perform(get("/actuator/health")).andExpect(status().isOk());
         mockMvc.perform(get("/api/transactions/commands")).andExpect(status().isForbidden());
@@ -85,6 +117,9 @@ class ServiceClientCredentialsIntegrationTest {
         private final AtomicReference<String> requestBody = new AtomicReference<>();
         private final AtomicReference<String> authorizationHeader = new AtomicReference<>();
         private final AtomicReference<String> traceparent = new AtomicReference<>();
+        private final AtomicInteger statusCode = new AtomicInteger(200);
+        private final AtomicInteger requestCount = new AtomicInteger();
+        private final AtomicLong responseDelayMillis = new AtomicLong();
 
         private StubServer(boolean tokenEndpoint) {
             this.tokenEndpoint = tokenEndpoint;
@@ -98,9 +133,21 @@ class ServiceClientCredentialsIntegrationTest {
                                 + "\"token_type\":\"Bearer\",\"expires_in\":300}");
                         return;
                     }
+                    requestCount.incrementAndGet();
                     authorizationHeader.set(exchange.getRequestHeaders().getFirst("Authorization"));
                     traceparent.set(exchange.getRequestHeaders().getFirst("traceparent"));
-                    int status = "Bearer service-access-token".equals(authorizationHeader.get()) ? 200 : 401;
+                    long delay = responseDelayMillis.get();
+                    if (delay > 0) {
+                        try {
+                            Thread.sleep(delay);
+                        } catch (InterruptedException exception) {
+                            Thread.currentThread().interrupt();
+                            return;
+                        }
+                    }
+                    int status = "Bearer service-access-token".equals(authorizationHeader.get())
+                            ? statusCode.get()
+                            : 401;
                     respond(exchange, status, "authenticated service call");
                 });
                 server.start();
@@ -123,6 +170,22 @@ class ServiceClientCredentialsIntegrationTest {
 
         private String traceparent() {
             return traceparent.get();
+        }
+
+        private void setStatusCode(int status) {
+            statusCode.set(status);
+        }
+
+        private void setResponseDelayMillis(long delayMillis) {
+            responseDelayMillis.set(delayMillis);
+        }
+
+        private int requestCount() {
+            return requestCount.get();
+        }
+
+        private void resetRequestCount() {
+            requestCount.set(0);
         }
 
         private static void respond(com.sun.net.httpserver.HttpExchange exchange, int status, String body)

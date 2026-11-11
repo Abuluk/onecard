@@ -1,0 +1,24 @@
+Updating the configuration and installing your custom providers, if any. Please wait.
+2026-11-10 21:30:24,727 WARN  [org.keycloak.common.Profile] (build-9) Deprecated features identity-brokering-api:v1, twitter-broker:v1 enabled by default. Check the upgrading guide for steps to use later versions if available.
+2026-11-10 21:30:50,765 INFO  [io.quarkus.deployment.QuarkusAugmentor] (main) Quarkus augmentation completed in 30008ms
+Running the server in development mode. DO NOT use this configuration in production.
+2026-11-10 21:30:52,976 INFO  [org.keycloak.url.HostnameV2ProviderFactory] (main) If hostname is specified, hostname-strict is effectively ignored
+2026-11-10 21:30:53,006 WARN  [org.keycloak.models.sessions.infinispan.InfinispanStickySessionEncoderProviderFactory] (main) The option `shouldAttachRoute` is deprecated and will be removed in a future release. Disable it by setting `spi-sticky-session-encoder--infinispan--should-attach-route` to `false`
+2026-11-10 21:30:54,525 INFO  [org.infinispan.CONTAINER] (main) ISPN000974: Virtual threads support: disabled
+2026-11-10 21:30:55,655 INFO  [org.hibernate.orm.jdbc.batch] (JPA Startup Thread) HHH100501: Automatic JDBC statement batching enabled (maximum batch size 32)
+2026-11-10 21:30:55,693 WARN  [org.keycloak.common.Profile] (main) Deprecated features identity-brokering-api:v1, twitter-broker:v1 enabled by default. Check the upgrading guide for steps to use later versions if available.
+2026-11-10 21:30:56,722 INFO  [org.keycloak.quarkus.runtime.storage.database.liquibase.QuarkusJpaUpdaterProvider] (main) Initializing database schema. Using changelog META-INF/jpa-changelog-master.xml
+2026-11-10 21:31:02,295 INFO  [org.infinispan.CONTAINER] (main) ISPN000556: Starting user marshaller 'org.infinispan.commons.marshall.ImmutableProtoStreamMarshaller'
+2026-11-10 21:31:02,619 INFO  [org.keycloak.connections.infinispan.DefaultInfinispanConnectionProviderFactory] (main) Node name: node_567082, Site name: null, Cluster name: ISPN
+2026-11-10 21:31:02,907 INFO  [org.keycloak.models.workflow.WorkflowsEventListenerFactory] (main) Workflow runner task scheduled: next execution at 09:31:02, then every PT12H
+2026-11-10 21:31:03,006 INFO  [org.keycloak.services] (main) KC-SERVICES0050: Initializing master realm
+2026-11-10 21:31:04,779 INFO  [org.keycloak.services] (main) KC-SERVICES0077: Created temporary admin user with username phase1-admin
+2026-11-10 21:31:04,919 INFO  [org.keycloak.services.resources.KeycloakApplication] (main) Bootstrap completed in 9.224000 seconds
+2026-11-10 21:31:05,024 INFO  [io.quarkus] (main) Keycloak 26.8.1 on JVM (powered by Quarkus 3.40.1) started in 14.127s. Listening on: http://127.0.0.1:38824
+2026-11-10 21:31:05,024 INFO  [io.quarkus] (main) Profile dev activated. 
+2026-11-10 21:31:05,025 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, jdbc-h2, keycloak, narayana-jta, opentelemetry, rest, rest-jackson, smallrye-context-propagation, vertx]
+2026-11-10 21:31:22,771 WARN  [org.keycloak.protocol.oidc.endpoints.TokenEndpoint.full-scope-allowed] (executor-thread-1) Client 'onecard-api' in the realm 'onecard-dev' has 'Full scope allowed' switch enabled. This client switch is deprecated and will be removed in the future. Please update your client settings to disable the switch and configure needed roles, which this client application needs, to the client role scope
+2026-11-10 21:31:22,945 WARN  [org.keycloak.protocol.oidc.endpoints.TokenEndpoint.full-scope-allowed] (executor-thread-1) Client 'onecard-transaction-to-account' in the realm 'onecard-dev' has 'Full scope allowed' switch enabled. This client switch is deprecated and will be removed in the future. Please update your client settings to disable the switch and configure needed roles, which this client application needs, to the client role scope
+2026-11-10 21:31:23,112 WARN  [org.keycloak.protocol.oidc.endpoints.TokenEndpoint.full-scope-allowed] (executor-thread-1) Client 'onecard-transaction-to-account' in the realm 'onecard-dev' has 'Full scope allowed' switch enabled. This client switch is deprecated and will be removed in the future. Please update your client settings to disable the switch and configure needed roles, which this client application needs, to the client role scope
+2026-11-10 21:31:33,215 WARN  [org.keycloak.protocol.oidc.endpoints.TokenEndpoint.full-scope-allowed] (executor-thread-1) Client 'onecard-transaction-to-account' in the realm 'onecard-dev' has 'Full scope allowed' switch enabled. This client switch is deprecated and will be removed in the future. Please update your client settings to disable the switch and configure needed roles, which this client application needs, to the client role scope
+

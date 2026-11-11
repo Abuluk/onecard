@@ -5,3 +5,10 @@ spring:
         enabled: false
       discovery:
         enabled: false
+onecard:
+  rate-limit:
+    enabled: false
+management:
+  health:
+    redis:
+      enabled: false

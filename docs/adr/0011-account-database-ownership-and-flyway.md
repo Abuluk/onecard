@@ -1,6 +1,6 @@
 # ADR-0011：服务数据库所有权与 Flyway 基线
 
-**状态**：采用为开发基线；应用级 OceanBase 集成验证进行中  
+**状态**：采用为开发基线；account/transaction OceanBase 首次迁移、重复迁移、权限隔离及失败恢复集成验证通过
 **日期**：2026-11-10
 
 ## 背景
@@ -10,7 +10,7 @@ OceanBase CE 4.4.2.1 MySQL 模式已有基础 SQL 与 Flyway CLI 空库 PoC，�
 ## 决策
 
 1. 账户服务独占账户、卡、余额、账本和账户 outbox 数据；交易服务独占交易状态、幂等请求、终端序号及补传进度。两边只通过服务 API/事件交互，不共享表或数据库事务。该边界落实 [ADR-0008](0008-idempotent-account-operations-and-reliable-progression.md)。
-2. 账户和交易 schema/database 分别为 `onecard_account` 与 `onecard_transaction`。每个 schema 各有应用身份和迁移身份；应用身份仅获本 schema 的 `SELECT`、`INSERT`、`UPDATE`、`DELETE`，迁移身份仅获本 schema 的迁移所需 DDL/DML。Spring JDBC 使用应用身份，Flyway 使用独立迁移身份。Gateway 不配置业务数据库依赖或凭据。
+2. 账户和交易 schema/database 分别为 `onecard_account` 与 `onecard_transaction`。每个 schema 各有应用身份和迁移身份；应用身份仅获本 schema 的 `SELECT`、`INSERT`、`UPDATE`、`DELETE`，迁移身份仅获本 schema 的迁移所需 DDL/DML。Spring JDBC 使用应用身份，Flyway 使用独立迁移身份。OceanBase MySQL 连接用户名需包含 tenant，格式为 `<user>@<tenant>`；当前 smoke tenant 为 `onecard`。Gateway 不配置业务数据库依赖或凭据。
 3. 本轮先为账户与交易两个资金主链路服务加入 Spring JDBC、MySQL Connector/J 和 Flyway。支付适配服务拥有外部请求/回调状态，清结算服务拥有批次/差错状态；在这两个服务实现持久化 API 前，不添加无用数据库依赖，但必须先评审并配置各自独立 schema 和身份。其他服务同样不得共享上述 schema。
 4. 生产连接配置通过 `ACCOUNT_DB_URL`、`ACCOUNT_DB_USERNAME`、`ACCOUNT_DB_PASSWORD`、`ACCOUNT_DB_MIGRATION_USERNAME`、`ACCOUNT_DB_MIGRATION_PASSWORD` 注入。迁移 URL 可用 `ACCOUNT_DB_MIGRATION_URL` 单独指定。不得把凭据提交到仓库、日志或异常响应。
 5. 生产迁移目录固定为 `services/onecard-account-service/src/main/resources/db/migration`，文件名为 `V<version>__<description>.sql`。应用启动时 Flyway 验证 checksum 并执行待运行迁移；baseline-on-migrate、out-of-order 和 clean 均关闭。空 schema 必须由受控数据库初始化步骤预先创建，Flyway 不创建 schema。当前目录不含业务迁移；真实首张业务表按评审后的模型作为 V1 提交。

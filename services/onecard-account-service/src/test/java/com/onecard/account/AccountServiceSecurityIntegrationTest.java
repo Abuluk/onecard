@@ -107,6 +107,8 @@ class AccountServiceSecurityIntegrationTest {
         mockMvc.perform(get("/actuator/env").header("Authorization", "Bearer "
                         + token(SIGNING_KEY, ISSUER, AUDIENCE, SCOPE, Instant.now().plusSeconds(60))))
                 .andExpect(status().isForbidden());
+        mockMvc.perform(get("/internal/dev/config-probe")).andExpect(status().isUnauthorized());
+        mockMvc.perform(get("/internal/dev/service-auth-probe")).andExpect(status().isUnauthorized());
     }
 
     @Test

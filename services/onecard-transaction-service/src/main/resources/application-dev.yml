@@ -1,14 +1,14 @@
 spring:
   datasource:
     url: ${TRANSACTION_DB_URL:jdbc:mysql://onecard-oceanbase:2881/onecard_transaction}
-    username: ${TRANSACTION_DB_USERNAME:onecard_transaction_app}
+    username: ${TRANSACTION_DB_USERNAME:onecard_transaction_app@onecard}
     password: ${TRANSACTION_DB_PASSWORD:}
     hikari:
       initialization-fail-timeout: -1
   flyway:
     enabled: ${TRANSACTION_DB_ENABLED:false}
     url: ${TRANSACTION_DB_MIGRATION_URL:${TRANSACTION_DB_URL:jdbc:mysql://onecard-oceanbase:2881/onecard_transaction}}
-    user: ${TRANSACTION_DB_MIGRATION_USERNAME:onecard_transaction_migrator}
+    user: ${TRANSACTION_DB_MIGRATION_USERNAME:onecard_transaction_migrator@onecard}
     password: ${TRANSACTION_DB_MIGRATION_PASSWORD:}
     schemas: ${TRANSACTION_DB_SCHEMA:onecard_transaction}
     default-schema: ${TRANSACTION_DB_SCHEMA:onecard_transaction}

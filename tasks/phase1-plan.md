@@ -9,12 +9,12 @@
 ## 1. 开工时基线与当前进展
 
 - 根 Maven 工程聚合 `common`、`gateway`、八个 API 模块和八个服务模块；`.github/workflows/ci.yml` 已运行 JDK 25 的 `clean verify`，但尚未覆盖平台集成和安全门禁。
-- 服务已有 `dev`、`test`、`prod` 配置。开发配置以 `optional:nacos:` 导入，测试关闭 Nacos，生产使用必需的 `nacos:` 导入；本地 Compose 已改用 Nacos 服务发现，生产失败路径和配置刷新仍待验证。
-- transaction-service 已配置 OIDC client credentials Feign 调用；account/risk 接收端按 ADR-0009 校验 JWT 签名、issuer、服务 audience 和独立 scope。开发使用 Keycloak realm 模板，生产身份映射与真实 IdP 联测仍待完成。
-- Gateway 已完成开发态 OIDC JWT 验签、issuer/audience/过期校验、角色映射和路径/方法默认拒绝测试；公网配置移除了风控、设备和二期 access 路由，Actuator 改用仅容器网络可达的独立管理端口。精确业务 API 白名单、共享限流和真实 Keycloak 联测仍待完成。
-- Compose 已增加 Nacos 3.1.1（按已验证镜像 digest 固定）并启动八个服务骨架和网关。现有 MySQL/Redis 属于 N9E；业务数据库、业务缓存和消息中间件仍未接入。
-- `common` 已有 `Result<T>`、业务/校验/未预期异常处理、Servlet 安全错误处理、可信 `traceparent` 响应头和平台指标白名单；Gateway 有响应式错误处理与对应指标白名单。ADR-0010 记录当前契约。共享限流、上游直接返回 HTTP 5xx 的响应体统一化、业务审计记录及业务指标仍待后续实现。
-- 当前没有 Flyway 迁移脚本。k6 只有 1 VU、10 秒的 Actuator 健康检查；本地 CI 也只启动账户服务并检查该端点。
+- 服务已有 `dev`、`test`、`prod` 配置。开发配置以 `optional:nacos:` 导入，测试关闭 Nacos，生产使用必需的 `nacos:` 导入；目标机已验证账户配置从 Nacos 初始导入，并通过 dev-only `@RefreshScope` 探针验证 `alpha -> beta` 在 1 秒内无重启刷新。2026-11-11 本机启动测试确认八个服务与 Gateway 的生产 profile 在 Nacos 不可达时均 fail-closed。
+- transaction-service 已配置 OIDC client credentials Feign 调用；account/risk 接收端按 ADR-0009 校验 JWT 签名、issuer、服务 audience 和独立 scope。开发使用 Keycloak realm 模板，2026-11-11 已完成真实 Keycloak 联测；生产身份映射仍待评审。
+- Gateway 已完成开发态 OIDC JWT 验签、issuer/audience/过期校验、角色映射、路径/方法默认拒绝和共享 Valkey 限流；真实 Valkey 运行测试及 PR CI 门禁已通过，真实 Keycloak JWT 与代理/trace 联测已完成。精确生产 API 白名单仍待业务所有者批准。
+- Compose 固定 Nacos 3.1.1 镜像 digest，并在私网启动八个服务骨架、Gateway 和仅供共享限流的 Valkey；目标机九应用 + Gateway 健康与注册通过。MySQL/Redis 仍只供 N9E，业务数据库、业务缓存和消息中间件仍未接入。
+- `common` 已有 `Result<T>`、业务/校验/未预期异常处理、Servlet 安全错误处理、可信 `traceparent` 响应头和平台指标白名单；Gateway 有响应式错误处理、上游 5xx 安全重写和真实 Valkey 429 限流。ADR-0010 记录当前契约。业务审计记录及业务指标仍待后续实现。
+- account/transaction 已建立 Flyway 生产迁移基线和隔离 smoke 迁移目录，尚无业务 V1 表；OceanBase 双 schema 迁移/权限 smoke 已通过。k6 保留 1 VU、10 秒 Actuator 启动检查，并新增真实 OIDC Gateway-to-stub 性能场景；CI 集成门禁已覆盖 Keycloak、Valkey、Nacos 和数据库 fail-closed/恢复。
 - `.github/workflows/deploy.yml` 原先包含内联发布凭据并指向不存在的构建目录；现已改为手动选择模块、使用仓库 Secret 发布。远端发布和扫描仍待验证。仓库所有者确认私人仓库并接受现有凭据处理方式，因此凭据轮换/历史处置不纳入阶段 0。
 - `.github/workflows/performance-gate.yml` 原先接受任意 `base_url`；现已固定到隔离运行的本地账户服务健康冒烟，不代表平台性能验收。
 
@@ -85,9 +85,13 @@
 **涉及文件**：`.github/workflows/ci.yml`、`.github/workflows/deploy.yml`、安全扫描配置、`pom.xml`（仅确有构建插件需求时）、CI 说明。
 **规模**：中。
 
+**当前进度（2026-11-11）**：CI 已新增真实 Keycloak service-client 凭据测试、全部八个服务与 Gateway 在 Nacos 不可达时 fail-closed 测试、Flyway 显式开启且数据库不可达时启动失败检查、Nacos/account 重启恢复验证和失败日志上传；临时 client secret 与 Nacos token 每次运行新建并遮罩。本机九应用 Nacos fail-closed 与两服务数据库 fail-closed 脚本、全仓 19 模块 `clean verify`、CI YAML 解析和 Compose 正式/debug 配置校验通过。原镜像的四项 Alpine libexpat High 已通过固定 `expat=2.10.0-r0` 修复；Gateway 镜像经 Trivy 0.76.2 OS 扫描为 0 High/Critical。剩余 Nacos client 3.1.1 shaded Guava 33.3.1-android 仍受 CVE-2026-102554 影响；已核对 Maven Central 最新 client 3.3.0 仍内嵌易受影响的 33.5.0-android，尚无已验证修复版，未豁免。GitHub CLI 不在当前工作站，分支保护、Dependabot alerts、远端 workflow 结果及剩余 High 处置仍未验证，任务保持进行中。
+
 ### 任务 2：统一 profile、Nacos 配置导入和本地平台栈
 
 **目标**：让配置加载策略明确可测，并使开发者可用与目标产品一致的本地/CI 依赖启动平台。
+
+**当前进度（2026-11-11）**：正式与 debug Compose 配置校验通过。目标机 `admin1@192.168.0.41` 的九个服务应用 + Gateway 均健康并在 Nacos 3.1.1 注册，Valkey 健康，Gateway 管理健康为 UP，匿名 API 返回标准 401。`nacos-config-refresh-smoke.ps1` 可重复验证 account 的 Nacos 初始导入和动态刷新：值从 alpha 更新到 beta，1 秒内生效且服务未重启；dev 配置探针默认关闭、test profile 请求返回 401。`prod-config-fail-closed-smoke.ps1` 已真实启动全部八个服务和 Gateway 的 `prod` profile 并指向无监听的临时 Nacos 端口，九者均在 60 秒内非零退出并记录 Nacos 错误；CI 门禁同步扩展为九应用。生产完整配置矩阵、namespace/认证策略及所有服务的配置变更范围仍待评审。
 
 **验收条件**：
 
@@ -107,6 +111,8 @@
 
 **目标**：建立可审计的外部 API 入口，默认拒绝未批准路径。
 
+**当前进度（2026-11-11）**：Gateway 在身份验证后按 JWT `sub` 经 Valkey Lua 原子滚动限流，GET 60 次/60 秒、POST 10 次/60 秒；真 Valkey HTTP 测试覆盖上下限、主体隔离、统一 429 以及不可用 fail-closed 503，并已加入 PR CI。另在 `admin1@192.168.0.41` 通过真实 Keycloak 26.8.1 token 验证签名、issuer、audience、角色映射、匿名 401、stub 代理和 W3C trace；30 秒 3,200/min 受控基准通过 3,202/3,202 功能检查。域级路径仍不是生产 API 批准，精确 API/所有者/生产阈值矩阵尚未完成。
+
 **验收条件**：
 
 - [ ] 每个外部 API 路由都有所有者、允许的路径/HTTP 方法、身份要求、角色/权限和速率策略；用户、管理、支付回调、设备协议、内部调用分开列明。
@@ -124,7 +130,7 @@
 
 **目标**：阻止绕过 Gateway 直连服务，并约束服务间调用和依赖故障。阶段 1 服务间 OAuth2 client credentials 开发基线见 [ADR-0009](../docs/adr/0009-oidc-service-to-service-identity.md)。
 
-**当前进度**：transaction-service 的调用端、account/risk 的接收端开发切片和本地签名 JWT 负向测试已完成；业务 API 暂未实现，实际 Keycloak 客户端映射、完整调用方授权矩阵及故障注入仍未验收。
+**当前进度（2026-11-11）**：transaction-service 的调用端、account/risk 的接收端开发切片和本地签名 JWT 负向测试已完成。真实 Keycloak client-credentials token 已经 transaction Feign 获取并送达服务 stub；验证签名、issuer、account audience、`onecard.account.invoke` scope 和 `traceparent` 通过。真实 account 服务对有 scope token 返回 200、缺 scope 返回 403。transaction 下游集成测试现覆盖 HTTP 503 不伪成功、1.5 秒读取超时和故障时只发出一个请求，5 项通过；CI 每个 PR 启动隔离 Keycloak 跑真实 token 测试。生产调用方授权矩阵及其他链路的故障注入仍未验收。
 
 **验收条件**：
 
@@ -143,7 +149,7 @@
 
 **目标**：为后续业务切片提供一致且不泄密的诊断接口。
 
-**当前进度**：ADR-0010 已记录 `Result<T>` 错误码和 W3C `traceparent` 契约。account/risk/Gateway 已实现并测试 400/401/403/500 与连接失败/超时异常映射，日志只记录安全拒绝摘要且关联 trace ID，Prometheus 注册限制为低基数平台指标。共享限流和实际 429、Gateway 上游直接返回 5xx 时的响应体重写、资金/管理操作审计存储及业务指标尚未实现，因此任务仍未完成。
+**当前进度（2026-11-11）**：ADR-0010 已记录 `Result<T>` 错误码和 W3C `traceparent` 契约。account/risk/Gateway 已实现并测试 400/401/403/500 与连接失败/超时异常映射，安全拒绝日志关联 trace ID，Prometheus 只注册低基数平台指标。Gateway 的 500/503/504 上游响应重写和 Valkey 共享限流已通过真实 HTTP 测试；Valkey 断连 fail-closed 返回 503。资金/管理操作持久审计与业务指标仍需等业务 API 和审计/保留策略定义后实现，因此任务未完成。
 
 **验收条件**：
 
@@ -175,7 +181,7 @@
 **涉及文件**：相关服务 POM 与数据源配置、`sql/` 迁移目录、Compose 初始化、迁移集成测试。
 **规模**：中至大；按服务所有权分批启用。
 
-**当前进度（2026-11-10）**：已新增 ADR-0011；首批账户与交易服务各自加入 Spring JDBC/MySQL Connector/J/Flyway，分别配置 `onecard_account` 与 `onecard_transaction`，运行账号和迁移账号分离，生产 profile 强制凭据并启用 Flyway，默认开发/Compose 数据库开关关闭。两服务都固定生产迁移目录与 V1 smoke 专用测试目录；测试覆盖首次/重复迁移、checksum 篡改拒绝、应用账号无 DDL 权限及应用/迁移账号跨服务 schema 拒绝。`.env.example`、Compose 环境变量和一次性 OceanBase smoke 脚本已落地。支付适配和清结算也有明确的持久化责任，但 schema/身份配置尚未落地，且遵守无表服务不添加无用依赖。全量 19 模块 `clean verify` 通过，但目标数据库测试尚未通过/运行：本地 Docker 分配 10 GiB OceanBase 容器前的总内存仅 8.25 GiB；此前 7 GiB 实例 observer 启动后资源池创建失败。此前检查的共享开发服务器并非本任务指定主机，其容量结论不适用于本任务。按指定地址 `admin1@192.168.0.41` 检查时，SSH/TCP 22 连接超时且系统报告 `DestinationHostUnreachable`，尚未读取其资源或容器状态，也未启动或修改远端容器。该主机从当前环境恢复可达后，先只读核验资源和现有负载，再运行 `scripts/oceanbase-account-smoke.ps1` 并保存结果；失败 DDL 恢复、迁移账号跨 schema 拒绝和账号/密码不出日志也须在该次目标库验证中最终确认。
+**当前进度（2026-11-11）**：已新增 ADR-0011；首批账户与交易服务各自加入 Spring JDBC/MySQL Connector/J/Flyway，分别配置 `onecard_account` 与 `onecard_transaction`，运行账号和迁移账号分离，生产 profile 强制凭据并启用 Flyway，默认开发/Compose 数据库开关关闭。两服务都固定生产迁移目录与 V1 smoke 专用测试目录；测试覆盖首次/重复迁移、checksum 篡改拒绝、应用账号无 DDL 权限及应用/迁移账号跨服务 schema 拒绝。另在本机显式启用 Flyway、关闭 Nacos 并让 JDBC 端口不可达，account 与 transaction 均按预期因迁移/连接失败而退出；CI 已增加相同 fail-closed 检查。`.env.example`、Compose 环境变量和一次性 OceanBase smoke 脚本已落地。2026-11-11 在指定 `admin1@192.168.0.41` 上用 digest 固定的 OceanBase CE 4.4.2-lts 完成双 schema 真实 smoke：account 和 transaction 各自通过首次/重复迁移、checksum 篡改拒绝、运行账号 DDL 拒绝、失败迁移保留 `FAILED` 状态并经 Flyway `repair()` 后重跑成功，另有 2 条验证双方运行/迁移账号跨服务 schema 拒绝，共 10 tests 全通过；脚本清理了临时容器、Docker context 和 SSH 隧道。OceanBase 冒烟脚本现保存三套 Maven 测试日志并对生成密码/token 扫描、脱敏，待用更新脚本复跑。payment-adapter/clearing 的持久化责任仍待业务数据矩阵确认，因此任务未关闭。
 
 ### 任务 7：本地开发入口和平台集成测试
 
@@ -194,11 +200,13 @@
 **涉及文件**：`ci-local.ps1`、必要的 `scripts/`、Compose、`.github/workflows/ci.yml`、`README.md`、`docs/ops/`。
 **规模**：中。
 
-**当前进度（2026-11-10）**：根 README 和监控说明记录 JDK/Maven/Docker/k6、首次 Nacos token、DEFAULT_GROUP DataId 约定、服务地址及保留/清理数据命令。Windows `ci-local.ps1` 已由全量构建加本机 test-profile 进程改为隔离 Compose 平台 smoke：`clean verify`、Nacos/account 启动、Nacos v3 API healthy instance 断言、Nacos 重启后自动注册恢复、k6 健康检查和项目级容器/空卷清理均通过。PR CI 现在在镜像构建后、Trivy 扫描前使用已构建 account image 执行同样的 Nacos 注册及重启恢复检查，`always()` 清理测试栈；Gateway HTTP 上游、JWT、白名单、Actuator 隔离由 Maven 集成测试覆盖。尚未验证远端 GitHub Actions；Gateway 真实 Nacos `lb://` 与 JWT 联测、配置刷新和全九服务完整恢复、数据库目标迁移 smoke 仍待完成。
+**当前进度（2026-11-11）**：文档和本地脚本记录 JDK/Maven/Docker/k6、Keycloak/OIDC、Nacos token、DataId、服务地址与资源清理。本机隔离栈验证 Nacos/account 健康、注册、重启恢复和 k6 20/20 checks；目标开发机上九服务 + Gateway + Valkey 全部健康、九实例注册，Gateway 返回匿名 401；配置刷新脚本真实发布两版 Nacos 配置并验证无重启更新。新增 CI 真实 Keycloak service-client 测试、production Nacos 与数据库 fail-closed 检查、Nacos/account 重启恢复；Gateway/account OIDC 真实验证脚本可复跑。CI YAML、Compose 正式/debug 配置和全仓构建通过；远端 GitHub Actions 结果、完整九服务停止/恢复及 OceanBase migration PR smoke 仍待验证。
 
 ### 任务 8：平台性能、压力和故障恢复验收
 
 **目标**：测量平台基础设施本身的开销与恢复行为，不用 Actuator 健康检查冒充业务性能。
+
+**当前进度（2026-11-11）**：新增隔离的 Keycloak 26.8.1 + Gateway + account + Python stub 场景及可重复 k6/资源/Prometheus 报告。目标机 30 秒基准以 3,200 请求/分钟运行，3,202/3,202 功能检查通过，HTTP 错误率 0%，p50/p95/p99 为 44/78.3/98.4ms；第二次 30 分钟稳态实测完成 96,001 请求，全部 HTTP 200，192,002/192,002 功能检查通过，0% HTTP 错误，p50/p95/p99=43.95/68.10/82.57ms。报告含 5 秒容器 CPU/内存采样峰值、JVM heap/GC、executor、HTTP 状态和凭据日志扫描，数据库连接池标注为不适用，临时容器和隧道已清理。首轮 30 分钟长测因测试用户 5 分钟 token 过期而以 80.6% HTTP 错误正确失败，测试 realm 已改为 1 小时 access token。另在本机 account/transaction 验证 Flyway 开启时数据库不可用 fail-closed。阶段 0 已将 3,200/min、30 分钟、96,000 请求定为开发容量压力输入；生产 SLO 明确延期，当前只收集开发基线、不声明生产 SLO 达标。
 
 **验收条件**：
 

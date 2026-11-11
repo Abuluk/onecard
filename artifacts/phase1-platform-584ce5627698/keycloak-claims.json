@@ -1,0 +1,22 @@
+{
+  "issuer": "http://127.0.0.1:38824/realms/onecard-dev",
+  "user": {
+    "roles": [
+      "default-roles-onecard-dev",
+      "offline_access",
+      "onecard-user",
+      "uma_authorization"
+    ],
+    "audience": [
+      "onecard-api",
+      "account"
+    ]
+  },
+  "service": {
+    "scope": "email onecard.account.invoke profile",
+    "audience": [
+      "onecard-account-service",
+      "account"
+    ]
+  }
+}

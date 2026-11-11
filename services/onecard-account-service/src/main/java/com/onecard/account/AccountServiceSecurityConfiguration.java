@@ -3,6 +3,8 @@ package com.onecard.account;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+import org.springframework.core.env.Profiles;
 import org.springframework.security.config.Customizer;
 import org.springframework.http.HttpMethod;
 import com.onecard.common.security.ServletSecurityErrorHandlers;
@@ -44,11 +46,14 @@ public class AccountServiceSecurityConfiguration {
     SecurityFilterChain accountServiceSecurityFilterChain(
             HttpSecurity http,
             JsonMapper jsonMapper,
-            @Value("${onecard.security.required-scope}") String requiredScope) throws Exception {
+            @Value("${onecard.security.required-scope}") String requiredScope,
+            @Value("${onecard.dev.config-probe.enabled:false}") boolean configProbeEnabled,
+            Environment environment) throws Exception {
         var authenticationEntryPoint = ServletSecurityErrorHandlers.authenticationEntryPoint(
                 "onecard-account-service", jsonMapper);
         var accessDeniedHandler = ServletSecurityErrorHandlers.accessDeniedHandler(
                 "onecard-account-service", jsonMapper);
+        boolean devConfigProbeEnabled = configProbeEnabled && environment.acceptsProfiles(Profiles.of("dev"));
         return http.csrf(AbstractHttpConfigurer::disable)
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
@@ -57,14 +62,16 @@ public class AccountServiceSecurityConfiguration {
                 .exceptionHandling(exceptions -> exceptions
                         .authenticationEntryPoint(authenticationEntryPoint)
                         .accessDeniedHandler(accessDeniedHandler))
-                .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.GET,
-                                "/actuator/health", "/actuator/health/**", "/actuator/info", "/actuator/prometheus")
-                        .permitAll()
-                        .requestMatchers("/actuator/**")
-                        .denyAll()
-                        .anyRequest()
-                        .hasAuthority("SCOPE_" + requiredScope))
+                .authorizeHttpRequests(authorize -> {
+                    authorize.requestMatchers(HttpMethod.GET,
+                            "/actuator/health", "/actuator/health/**", "/actuator/info", "/actuator/prometheus")
+                            .permitAll();
+                    authorize.requestMatchers("/actuator/**").denyAll();
+                    if (devConfigProbeEnabled) {
+                        authorize.requestMatchers(HttpMethod.GET, "/internal/dev/config-probe").permitAll();
+                    }
+                    authorize.anyRequest().hasAuthority("SCOPE_" + requiredScope);
+                })
                 .oauth2ResourceServer(resourceServer -> resourceServer
                         .authenticationEntryPoint(authenticationEntryPoint)
                         .accessDeniedHandler(accessDeniedHandler)

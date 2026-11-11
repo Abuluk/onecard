@@ -1,0 +1,42 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.9)
+
+2026-11-10T19:03:15.094Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] com.onecard.gateway.GatewayApplication   : Starting GatewayApplication v1.0.0-SNAPSHOT using Java 25.0.5 with PID 1 (/app/app.jar started by root in /app)
+2026-11-10T19:03:15.101Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] com.onecard.gateway.GatewayApplication   : The following 1 profile is active: "performance"
+2026-11-10T19:03:16.675Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-10T19:03:16.678Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-10T19:03:16.711Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2026-11-10T19:03:17.065Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ad9626ce-adb9-3864-a0cb-d003647807e8
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::loadLibrary has been called by io.netty.util.internal.NativeLibraryUtil in an unnamed module (jar:nested:/app/app.jar/!BOOT-INF/lib/netty-common-4.2.19.Final.jar!/)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-11-10T19:03:18.861Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2026-11-10T19:03:18.861Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2026-11-10T19:03:18.861Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2026-11-10T19:03:18.862Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2026-11-10T19:03:18.862Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2026-11-10T19:03:18.862Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2026-11-10T19:03:18.862Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2026-11-10T19:03:18.862Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2026-11-10T19:03:18.862Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2026-11-10T19:03:18.862Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2026-11-10T19:03:18.862Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2026-11-10T19:03:18.862Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Version]
+2026-11-10T19:03:18.862Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2026-11-10T19:03:18.862Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2026-11-10T19:03:18.862Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2026-11-10T19:03:19.455Z  WARN 1 --- [onecard-gateway] [           main] [                                                 ] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-11-10T19:03:19.610Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.boot.reactor.netty.NettyWebServer    : Netty started on port 46324 (http)
+2026-11-10T19:03:19.686Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2026-11-10T19:03:19.746Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] o.s.boot.reactor.netty.NettyWebServer    : Netty started on port 46325 (http)
+2026-11-10T19:03:19.809Z  INFO 1 --- [onecard-gateway] [           main] [                                                 ] com.onecard.gateway.GatewayApplication   : Started GatewayApplication in 5.492 seconds (process running for 6.31)
+2026-11-10T19:03:21.377Z  WARN 1 --- [onecard-gateway] [     parallel-1] [                                                 ] com.onecard.security.audit               : security_event event=authentication_failed service=onecard-gateway method=GET trace_id=98baa9446f42f1ee738ffede1c6a94ed

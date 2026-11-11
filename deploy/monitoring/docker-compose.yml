@@ -50,6 +50,88 @@ services:
       retries: 30
     restart: unless-stopped
 
+  valkey:
+    image: docker.1panel.live/valkey/valkey:9.1.3@sha256:3add1a336a920ea54770a001ab6feb3da5fceea96a40373a3a2cd469b815f0b7
+    command: ["valkey-server", "--save", "", "--appendonly", "no", "--maxmemory", "128mb", "--maxmemory-policy", "noeviction"]
+    healthcheck:
+      test: ["CMD", "valkey-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+
+  onecard-oceanbase:
+    image: oceanbase/oceanbase-ce:4.4.2-lts@sha256:eaa2c3b3513fa21e4a658f197c1deb93c9d6b6eb742cfa5ef0f085f82b9cec54
+    profiles: [business-data]
+    entrypoint: ["bash", "-lc"]
+    command: "sed -i 's/--min-cpu=/--max-cpu=2 --min-cpu=/' /root/boot/start.sh && /root/boot/start.sh"
+    environment:
+      MODE: MINI
+      EXIT_WHILE_ERROR: "YES"
+      OB_MEMORY_LIMIT: 6G
+      OB_SYSTEM_MEMORY: 1G
+      OB_DATAFILE_SIZE: 5G
+      OB_LOG_DISK_SIZE: 5G
+      OB_TENANT_NAME: onecard
+      OB_TENANT_MIN_CPU: "1"
+      OB_TENANT_MAX_CPU: "2"
+      OB_TENANT_MEMORY_SIZE: 2G
+      OB_TENANT_LOG_DISK_SIZE: 2G
+    mem_limit: 10g
+    cpus: 4
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
+      stack:
+        soft: -1
+        hard: -1
+    volumes:
+      - oceanbase-data:/root/ob
+    healthcheck:
+      test: ["CMD-SHELL", "obclient -h 127.0.0.1 -u root@sys -P 2881 --connect-timeout=3 -N -e 'SELECT 1' >/dev/null 2>&1"]
+      interval: 15s
+      timeout: 5s
+      retries: 30
+      start_period: 90s
+    restart: unless-stopped
+
+  onecard-rocketmq-namesrv:
+    image: apache/rocketmq:5.3.1@sha256:d2b231c1b9204129e4f4dd65ec1521c81b8d6826e5f1fe8daa521dab0db5bf16
+    profiles: [business-messaging]
+    command: ["sh", "mqnamesrv"]
+    environment:
+      MAX_POSSIBLE_HEAP: 512M
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'echo > /dev/tcp/127.0.0.1/9876'"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 20s
+    restart: unless-stopped
+
+  onecard-rocketmq-broker:
+    image: apache/rocketmq:5.3.1@sha256:d2b231c1b9204129e4f4dd65ec1521c81b8d6826e5f1fe8daa521dab0db5bf16
+    profiles: [business-messaging]
+    command: ["sh", "mqbroker", "-n", "onecard-rocketmq-namesrv:9876"]
+    environment:
+      NAMESRV_ADDR: onecard-rocketmq-namesrv:9876
+      MAX_POSSIBLE_HEAP: 768M
+    depends_on:
+      onecard-rocketmq-namesrv:
+        condition: service_healthy
+    mem_limit: 768m
+    volumes:
+      - rocketmq-data:/home/rocketmq/store
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'echo > /dev/tcp/127.0.0.1/10911'"]
+      interval: 10s
+      timeout: 3s
+      retries: 30
+      start_period: 30s
+    restart: unless-stopped
+
   greptimedb:
     image: greptime/greptimedb:1.3.0
     command: ["standalone", "start", "--http-addr", "0.0.0.0:4000", "--data-home", "/greptimedb_data"]
@@ -88,12 +170,13 @@ services:
       SPRING_PROFILES_ACTIVE: dev
       SERVER_PORT: "8082"
       NACOS_SERVER_ADDR: nacos:8848
+      ONECARD_DEV_CONFIG_PROBE_ENABLED: ${ONECARD_DEV_CONFIG_PROBE_ENABLED:-false}
       ACCOUNT_DB_ENABLED: ${ACCOUNT_DB_ENABLED:-false}
       ACCOUNT_DB_URL: ${ACCOUNT_DB_URL:-jdbc:mysql://onecard-oceanbase:2881/onecard_account}
-      ACCOUNT_DB_USERNAME: ${ACCOUNT_DB_USERNAME:-onecard_account_app}
+      ACCOUNT_DB_USERNAME: ${ACCOUNT_DB_USERNAME:-onecard_account_app@onecard}
       ACCOUNT_DB_PASSWORD: ${ACCOUNT_DB_PASSWORD:-}
       ACCOUNT_DB_MIGRATION_URL: ${ACCOUNT_DB_MIGRATION_URL:-jdbc:mysql://onecard-oceanbase:2881/onecard_account}
-      ACCOUNT_DB_MIGRATION_USERNAME: ${ACCOUNT_DB_MIGRATION_USERNAME:-onecard_account_migrator}
+      ACCOUNT_DB_MIGRATION_USERNAME: ${ACCOUNT_DB_MIGRATION_USERNAME:-onecard_account_migrator@onecard}
       ACCOUNT_DB_MIGRATION_PASSWORD: ${ACCOUNT_DB_MIGRATION_PASSWORD:-}
       ACCOUNT_DB_SCHEMA: ${ACCOUNT_DB_SCHEMA:-onecard_account}
     depends_on:
@@ -110,10 +193,10 @@ services:
       NACOS_SERVER_ADDR: nacos:8848
       TRANSACTION_DB_ENABLED: ${TRANSACTION_DB_ENABLED:-false}
       TRANSACTION_DB_URL: ${TRANSACTION_DB_URL:-jdbc:mysql://onecard-oceanbase:2881/onecard_transaction}
-      TRANSACTION_DB_USERNAME: ${TRANSACTION_DB_USERNAME:-onecard_transaction_app}
+      TRANSACTION_DB_USERNAME: ${TRANSACTION_DB_USERNAME:-onecard_transaction_app@onecard}
       TRANSACTION_DB_PASSWORD: ${TRANSACTION_DB_PASSWORD:-}
       TRANSACTION_DB_MIGRATION_URL: ${TRANSACTION_DB_MIGRATION_URL:-jdbc:mysql://onecard-oceanbase:2881/onecard_transaction}
-      TRANSACTION_DB_MIGRATION_USERNAME: ${TRANSACTION_DB_MIGRATION_USERNAME:-onecard_transaction_migrator}
+      TRANSACTION_DB_MIGRATION_USERNAME: ${TRANSACTION_DB_MIGRATION_USERNAME:-onecard_transaction_migrator@onecard}
       TRANSACTION_DB_MIGRATION_PASSWORD: ${TRANSACTION_DB_MIGRATION_PASSWORD:-}
       TRANSACTION_DB_SCHEMA: ${TRANSACTION_DB_SCHEMA:-onecard_transaction}
     depends_on:
@@ -220,6 +303,8 @@ services:
         condition: service_healthy
       onecard-device-service:
         condition: service_healthy
+      valkey:
+        condition: service_healthy
     ports:
       - "127.0.0.1:8081:8081"
     healthcheck:
@@ -261,3 +346,5 @@ volumes:
   nacos-data:
   mysql-data:
   greptimedb-data:
+  oceanbase-data:
+  rocketmq-data:

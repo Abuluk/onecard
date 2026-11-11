@@ -1,14 +1,14 @@
 spring:
   datasource:
     url: ${ACCOUNT_DB_URL:jdbc:mysql://onecard-oceanbase:2881/onecard_account}
-    username: ${ACCOUNT_DB_USERNAME:onecard_account_app}
+    username: ${ACCOUNT_DB_USERNAME:onecard_account_app@onecard}
     password: ${ACCOUNT_DB_PASSWORD:}
     hikari:
       initialization-fail-timeout: -1
   flyway:
     enabled: ${ACCOUNT_DB_ENABLED:false}
     url: ${ACCOUNT_DB_MIGRATION_URL:${ACCOUNT_DB_URL:jdbc:mysql://onecard-oceanbase:2881/onecard_account}}
-    user: ${ACCOUNT_DB_MIGRATION_USERNAME:onecard_account_migrator}
+    user: ${ACCOUNT_DB_MIGRATION_USERNAME:onecard_account_migrator@onecard}
     password: ${ACCOUNT_DB_MIGRATION_PASSWORD:}
     schemas: ${ACCOUNT_DB_SCHEMA:onecard_account}
     default-schema: ${ACCOUNT_DB_SCHEMA:onecard_account}
@@ -26,6 +26,9 @@ spring:
         jwt:
           jwk-set-uri: ${OIDC_JWK_SET_URI:http://keycloak:8080/realms/onecard-dev/protocol/openid-connect/certs}
 onecard:
+  dev:
+    config-probe:
+      enabled: ${ONECARD_DEV_CONFIG_PROBE_ENABLED:false}
   security:
     issuer-uri: ${OIDC_ISSUER_URI:http://keycloak:8080/realms/onecard-dev}
     audience: ${OIDC_AUDIENCE:onecard-account-service}

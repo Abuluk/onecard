@@ -1,6 +1,9 @@
 spring:
   config:
     import: nacos:${spring.application.name}.yaml?group=DEFAULT_GROUP
+  data:
+    redis:
+      url: ${VALKEY_URL}
   security:
     oauth2:
       resourceserver:

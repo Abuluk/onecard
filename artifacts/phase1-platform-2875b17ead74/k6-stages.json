@@ -1,0 +1,58 @@
+[
+  {
+    "VirtualUsers": 50,
+    "Duration": "1m",
+    "Requests": 3199,
+    "AchievedRequestsPerMinute": 3150.5,
+    "FailedRequestRatePercent": 0.0,
+    "CheckPasses": 9597,
+    "CheckFailures": 0,
+    "P50Milliseconds": 2.9,
+    "P95Milliseconds": 6.1,
+    "P99Milliseconds": 8.8,
+    "Http200": 3199,
+    "Non200": 0
+  },
+  {
+    "VirtualUsers": 100,
+    "Duration": "1m",
+    "Requests": 3199,
+    "AchievedRequestsPerMinute": 3103.0,
+    "FailedRequestRatePercent": 0.0,
+    "CheckPasses": 9597,
+    "CheckFailures": 0,
+    "P50Milliseconds": 2.1,
+    "P95Milliseconds": 2.9,
+    "P99Milliseconds": 3.9,
+    "Http200": 3199,
+    "Non200": 0
+  },
+  {
+    "VirtualUsers": 250,
+    "Duration": "1m",
+    "Requests": 3199,
+    "AchievedRequestsPerMinute": 2967.3,
+    "FailedRequestRatePercent": 0.0,
+    "CheckPasses": 9597,
+    "CheckFailures": 0,
+    "P50Milliseconds": 1.9,
+    "P95Milliseconds": 2.6,
+    "P99Milliseconds": 4.0,
+    "Http200": 3199,
+    "Non200": 0
+  },
+  {
+    "VirtualUsers": 500,
+    "Duration": "10s",
+    "Requests": 527,
+    "AchievedRequestsPerMinute": 1632.3,
+    "FailedRequestRatePercent": 0.0,
+    "CheckPasses": 1581,
+    "CheckFailures": 0,
+    "P50Milliseconds": 1.8,
+    "P95Milliseconds": 2.4,
+    "P99Milliseconds": 3.2,
+    "Http200": 527,
+    "Non200": 0
+  }
+]

@@ -24,7 +24,7 @@ docker compose -f deploy/monitoring/docker-compose.yml -f deploy/monitoring/dock
 ```
 
 The Compose file includes Nacos 3.1.1, all eight business services, the API
-Gateway, and monitoring on a private Compose network. Nacos client and Console
+Gateway, private Valkey rate-limit storage, and monitoring on a private Compose network. Nacos client and Console
 ports are not published to the host. Nacos authentication is disabled only for
 this isolated development network; do not attach untrusted containers or expose
 the Nacos service. Applications use the `dev` profile, register in Nacos, and
@@ -35,8 +35,26 @@ overrides use `<spring.application.name>.yaml` in `DEFAULT_GROUP`; do not store
 credentials, OIDC client secrets, or other secrets in Nacos development config.
 The generated `.env` is local-only and ignored by Git; `.env.example` contains
 placeholders and must not be used as a real token.
-MySQL and Redis remain private to N9E. The Gateway, N9E UI, and GreptimeDB HTTP
+MySQL and Redis remain private to N9E. Valkey is separate, volatile counter
+storage with no persistent volume and does not represent a production HA setup.
+The Gateway, N9E UI, and GreptimeDB HTTP
 API bind to localhost; business service ports are not published by default.
+
+OceanBase and RocketMQ are available as optional, digest-pinned business
+profiles. They are excluded from the default smoke because OceanBase requires
+up to 10 GiB of container memory and the services are only needed for database
+or messaging development. The OceanBase service name matches the JDBC URLs in
+`.env.example`; the RocketMQ broker and nameserver stay on the private Compose
+network and publish no host ports. Their named data volumes are preserved by
+the stop command.
+
+```powershell
+docker compose --profile business-data --profile business-messaging `
+  -f deploy/monitoring/docker-compose.yml up -d onecard-oceanbase onecard-rocketmq-broker
+
+docker compose --profile business-data --profile business-messaging `
+  -f deploy/monitoring/docker-compose.yml stop onecard-oceanbase onecard-rocketmq-broker
+```
 
 Local application ports:
 

@@ -1,6 +1,10 @@
 spring:
   config:
     import: optional:nacos:${spring.application.name}.yaml?group=DEFAULT_GROUP
+  data:
+    redis:
+      host: ${VALKEY_HOST:valkey}
+      port: ${VALKEY_PORT:6379}
   security:
     oauth2:
       resourceserver:
