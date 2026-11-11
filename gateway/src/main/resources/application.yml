@@ -17,27 +17,6 @@ spring:
           httpclient:
             connect-timeout: 2000
             response-timeout: 5s
-          routes:
-            - id: account-service
-              uri: lb://onecard-account-service
-              predicates:
-                - Path=/api/account/**
-            - id: transaction-service
-              uri: lb://onecard-transaction-service
-              predicates:
-                - Path=/api/transactions/**
-            - id: payment-adapter-service
-              uri: lb://onecard-payment-adapter-service
-              predicates:
-                - Path=/api/payments/**
-            - id: clearing-service
-              uri: lb://onecard-clearing-service
-              predicates:
-                - Path=/api/clearing/**
-            - id: notification-service
-              uri: lb://onecard-notification-service
-              predicates:
-                - Path=/api/notifications/**
 management:
   tracing:
     propagation:

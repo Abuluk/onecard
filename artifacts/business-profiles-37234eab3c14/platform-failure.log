@@ -1,0 +1,270 @@
+onecard-oceanbase-1  | do normal boot
+onecard-oceanbase-1  | oceanbase-ce-4.4.2.1 already installed.
+onecard-oceanbase-1  | +--------------------------------------------------------------------------------------------+
+onecard-oceanbase-1  | |                                          Packages                                          |
+onecard-oceanbase-1  | +--------------+---------+------------------------+------------------------------------------+
+onecard-oceanbase-1  | | Repository   | Version | Release                | Md5                                      |
+onecard-oceanbase-1  | +--------------+---------+------------------------+------------------------------------------+
+onecard-oceanbase-1  | | oceanbase-ce | 4.4.2.1 | 101000022026050611.el8 | f39bc29ee0e67f9aaff4f01da77d79afb5257623 |
+onecard-oceanbase-1  | +--------------+---------+------------------------+------------------------------------------+
+onecard-oceanbase-1  | Repository integrity check ok
+onecard-oceanbase-1  | Load param plugin ok
+onecard-oceanbase-1  | Open ssh connection ok
+onecard-oceanbase-1  | Initializes observer work home ok
+onecard-oceanbase-1  | Parameter check ok
+onecard-oceanbase-1  | Remote oceanbase-ce-4.4.2.1-101000022026050611.el8-f39bc29ee0e67f9aaff4f01da77d79afb5257623 repository install ok
+onecard-oceanbase-1  | Remote oceanbase-ce-4.4.2.1-101000022026050611.el8-f39bc29ee0e67f9aaff4f01da77d79afb5257623 repository lib check !!
+onecard-oceanbase-1  | Try to get lib-repository
+onecard-oceanbase-1  | oceanbase-ce-libs-4.4.2.1 already installed.
+onecard-oceanbase-1  | Remote oceanbase-ce-libs-4.4.2.1-101000022026050611.el8-d440edb1e6ef56725f6a5f0fbf652cb9f7d334dd repository install ok
+onecard-oceanbase-1  | Remote oceanbase-ce-4.4.2.1-101000022026050611.el8-f39bc29ee0e67f9aaff4f01da77d79afb5257623 repository lib check ok
+onecard-oceanbase-1  | obcluster deployed
+onecard-oceanbase-1  | Please execute ` obd cluster start obcluster ` to start
+onecard-oceanbase-1  | Trace ID: d458afb6-dd96-11f1-b925-7aa5f50096a0
+onecard-oceanbase-1  | If you want to view detailed obd logs, please run: obd display-trace d458afb6-dd96-11f1-b925-7aa5f50096a0
+onecard-oceanbase-1  | 
+
+
+
+
+
+
+
+
+Get local repositories ok
+onecard-oceanbase-1  | Load cluster param plugin ok
+onecard-oceanbase-1  | Open ssh connection ok
+onecard-oceanbase-1  | [WARN] OBD-1011: (172.18.0.2) The recommended value of fs.aio-max-nr is 1048576 (Current value: 65536)
+onecard-oceanbase-1  | [WARN] OBD-1007: (172.18.0.2) The recommended number of open files is 655350 (Current value: 65535)
+onecard-oceanbase-1  | [WARN] OBD-1017: (172.18.0.2) The value of the "vm.max_map_count" must be within [327600, 1310720] (Current value: 65530, Recommended value: 655360)
+onecard-oceanbase-1  | [WARN] OBD-1017: (172.18.0.2) The value of the "vm.overcommit_memory" must be 0 (Current value: 1, Recommended value: 0)
+onecard-oceanbase-1  | [WARN] OBD-2000: (172.18.0.2) not enough memory. (Free: 4G, Need: 6G)
+onecard-oceanbase-1  | [WARN] OBD-1012: (172.18.0.2) clog and data use the same disk (/root/ob)
+onecard-oceanbase-1  | cluster scenario: express_oltp
+onecard-oceanbase-1  | Start observer ok
+onecard-oceanbase-1  | observer program health check ok
+onecard-oceanbase-1  | Connect to observer ok
+onecard-rocketmq-broker-1  | 06:12:16,072 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.3.5-rocketmq
+onecard-rocketmq-broker-1  | 06:12:16,090 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.LoggerContext[default] - Found resource [/home/rocketmq/rocketmq-5.3.1/conf/rmq.broker.logback.xml] at [file:/home/rocketmq/rocketmq-5.3.1/conf/rmq.broker.logback.xml]
+onecard-rocketmq-broker-1  | 06:12:16,230 |-WARN in org.apache.rocketmq.logging.ch.qos.logback.classic.joran.action.LevelAction - <level> element is deprecated. Near [level] on line 700
+onecard-rocketmq-broker-1  | 06:12:16,230 |-WARN in org.apache.rocketmq.logging.ch.qos.logback.classic.joran.action.LevelAction - Please use "level" attribute within <logger> or <root> elements instead.
+onecard-rocketmq-broker-1  | 06:12:16,271 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.ConfigurationModelHandler - Registering a new ReconfigureOnChangeTask ReconfigureOnChangeTask(born:1794377536271)
+onecard-rocketmq-broker-1  | 06:12:16,272 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.ConfigurationModelHandler - Will scan for changes in [file:/home/rocketmq/rocketmq-5.3.1/conf/rmq.broker.logback.xml] 
+onecard-rocketmq-broker-1  | 06:12:16,272 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.ConfigurationModelHandler - Setting ReconfigureOnChangeTask scanning period to 30 seconds
+onecard-rocketmq-broker-1  | 06:12:16,275 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [DefaultSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,275 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,283 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,288 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [DefaultSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,288 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,289 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [DefaultSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[DefaultSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,289 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[DefaultSiftingAppender] - Attaching appender named [DefaultSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,290 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[DefaultSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,290 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqBrokerSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,290 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,290 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,290 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqBrokerSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,290 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,290 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqBrokerSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqBrokerSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,290 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqBrokerSiftingAppender] - Attaching appender named [RocketmqBrokerSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,290 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqBrokerSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,290 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqProtectionSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,290 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,290 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqProtectionSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqProtectionSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqProtectionSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqProtectionSiftingAppender] - Attaching appender named [RocketmqProtectionSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqProtectionSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqWaterMarkSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqWaterMarkSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqWaterMarkSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqWaterMarkSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqWaterMarkSiftingAppender] - Attaching appender named [RocketmqWaterMarkSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqWaterMarkSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqRocksDBSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqRocksDBSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqRocksDBSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqRocksDBSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqRocksDBSiftingAppender] - Attaching appender named [RocketmqRocksDBSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,291 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqRocksDBSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,292 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqStoreSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,292 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,292 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,292 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqStoreSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,292 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,292 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqStoreSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqStoreSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,292 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqStoreSiftingAppender] - Attaching appender named [RocketmqStoreSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,292 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqStoreSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,295 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqTieredStoreSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,295 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,295 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,295 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqTieredStoreSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,295 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,295 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqTieredStoreSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqTieredStoreSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,295 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqTieredStoreSiftingAppender] - Attaching appender named [RocketmqTieredStoreSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,295 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqTieredStoreSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,295 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqTrafficSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,295 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,295 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqTrafficSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqTrafficSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqTrafficSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqTrafficSiftingAppender] - Attaching appender named [RocketmqTrafficSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqTrafficSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqRemotingSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqRemotingSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqRemotingSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqRemotingSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqRemotingSiftingAppender] - Attaching appender named [RocketmqRemotingSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqRemotingSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqStoreErrorSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqStoreErrorSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,296 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqStoreErrorSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqStoreErrorSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqStoreErrorSiftingAppender] - Attaching appender named [RocketmqStoreErrorSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqStoreErrorSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqTransactionSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqTransactionSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqTransactionSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqTransactionSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqTransactionSiftingAppender] - Attaching appender named [RocketmqTransactionSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqTransactionSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqRebalanceLockSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqRebalanceLockSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqRebalanceLockSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqRebalanceLockSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqRebalanceLockSiftingAppender] - Attaching appender named [RocketmqRebalanceLockSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,297 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqRebalanceLockSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqFilterSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqRebalanceLockSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqFilterSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqRebalanceLockSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqRebalanceLockSiftingAppender] - Attaching appender named [RocketmqFilterSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqRebalanceLockSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqStatsSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqStatsSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqStatsSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqStatsSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqStatsSiftingAppender] - Attaching appender named [RocketmqStatsSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqStatsSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqCommercialSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,298 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,299 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqCommercialSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,299 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,299 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqCommercialSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqCommercialSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,299 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqCommercialSiftingAppender] - Attaching appender named [RocketmqCommercialSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,299 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqCommercialSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,299 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqPopSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,299 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,301 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,302 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqPopSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,302 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,302 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqPopSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqPopSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,302 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqPopSiftingAppender] - Attaching appender named [RocketmqPopSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqPopSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqColdCtrSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqBrokerMetricsSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqBrokerMetricsSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqBrokerMetricsSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqBrokerMetricsSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqBrokerMetricsSiftingAppender] - Attaching appender named [RocketmqBrokerMetricsSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqBrokerMetricsSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqAuthAuditSiftingAppender_inner]
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.SiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.sift.MDCBasedDiscriminator] for [discriminator] property
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [RocketmqAuthAuditSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,303 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender]
+onecard-rocketmq-broker-1  | 06:12:16,304 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqAuthAuditSiftingAppender_inner] to org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqAuthAuditSiftingAppender]
+onecard-rocketmq-broker-1  | 06:12:16,304 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqAuthAuditSiftingAppender] - Attaching appender named [RocketmqAuthAuditSiftingAppender_inner] to AsyncAppender.
+onecard-rocketmq-broker-1  | 06:12:16,304 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.AsyncAppender[RocketmqAuthAuditSiftingAppender] - Setting discardingThreshold to 51
+onecard-rocketmq-broker-1  | 06:12:16,304 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [STDOUT]
+onecard-rocketmq-broker-1  | 06:12:16,304 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [org.apache.rocketmq.logging.ch.qos.logback.core.ConsoleAppender]
+onecard-rocketmq-broker-1  | 06:12:16,305 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [org.apache.rocketmq.logging.ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqBroker] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqBroker] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqBrokerSiftingAppender] to Logger[RocketmqBroker]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqProtection] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqProtection] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqProtectionSiftingAppender] to Logger[RocketmqProtection]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqWaterMark] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqWaterMark] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqWaterMarkSiftingAppender] to Logger[RocketmqWaterMark]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqCommon] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqCommon] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqBrokerSiftingAppender] to Logger[RocketmqCommon]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqRocksDB] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqRocksDB] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqRocksDBSiftingAppender] to Logger[RocketmqRocksDB]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqStore] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqStore] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqStoreSiftingAppender] to Logger[RocketmqStore]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqStoreError] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqStoreError] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqStoreErrorSiftingAppender] to Logger[RocketmqStoreError]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqTieredStore] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqTieredStore] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqTieredStoreSiftingAppender] to Logger[RocketmqTieredStore]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqTransaction] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqTransaction] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqTransactionSiftingAppender] to Logger[RocketmqTransaction]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqRebalanceLock] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqRebalanceLock] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqRebalanceLockSiftingAppender] to Logger[RocketmqRebalanceLock]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqRemoting] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqRemoting] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqRemotingSiftingAppender] to Logger[RocketmqRemoting]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqStats] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqStats] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqStatsSiftingAppender] to Logger[RocketmqStats]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqCommercial] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqCommercial] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqCommercialSiftingAppender] to Logger[RocketmqCommercial]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqConsole] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqConsole] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [STDOUT] to Logger[RocketmqConsole]
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqPop] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqPop] to false
+onecard-rocketmq-broker-1  | 06:12:16,329 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqPopSiftingAppender] to Logger[RocketmqPop]
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqColdCtr] to false
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LevelModelHandler - RocketmqColdCtr level set to INFO
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqColdCtrSiftingAppender] to Logger[RocketmqColdCtr]
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqTraffic] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqTraffic] to false
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqTrafficSiftingAppender] to Logger[RocketmqTraffic]
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [io.opentelemetry.exporter.logging.otlp.OtlpJsonLoggingMetricExporter] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [io.opentelemetry.exporter.logging.otlp.OtlpJsonLoggingMetricExporter] to false
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqBrokerMetricsSiftingAppender] to Logger[io.opentelemetry.exporter.logging.otlp.OtlpJsonLoggingMetricExporter]
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [io.opentelemetry.exporter.logging.LoggingMetricExporter] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [io.opentelemetry.exporter.logging.LoggingMetricExporter] to false
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqBrokerMetricsSiftingAppender] to Logger[io.opentelemetry.exporter.logging.LoggingMetricExporter]
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [RocketmqAuthAudit] to INFO
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [RocketmqAuthAudit] to false
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [RocketmqAuthAuditSiftingAppender] to Logger[RocketmqAuthAudit]
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [DefaultSiftingAppender] to Logger[ROOT]
+onecard-rocketmq-broker-1  | 06:12:16,330 |-INFO in org.apache.rocketmq.logging.ch.qos.logback.core.model.processor.DefaultProcessor@27f723 - End of configuration.
+onecard-rocketmq-broker-1  | 06:12:16,331 |-INFO in org.apache.rocketmq.common.logging.JoranConfiguratorExt@670b40af - Registering current configuration as safe fallback point
+onecard-rocketmq-broker-1  | 
+onecard-rocketmq-broker-1  | The broker[01c55db01da6, 172.18.0.4:10911] boot success. serializeType=JSON and name server is onecard-rocketmq-namesrv:9876
+

@@ -28,18 +28,10 @@ final class TraceparentResponseFilter extends OncePerRequestFilter {
             HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         Span currentSpan = tracer.currentSpan();
-        String inboundTraceparent = request.getHeader("traceparent");
-        if (currentSpan != null && hasAcceptedParent(inboundTraceparent, currentSpan.context().traceId())) {
+        if (currentSpan != null) {
             propagator.inject(currentSpan.context(), response,
                     (carrier, key, value) -> carrier.setHeader(key, value));
         }
         filterChain.doFilter(request, response);
-    }
-
-    private static boolean hasAcceptedParent(String traceparent, String activeTraceId) {
-        return traceparent != null
-                && traceparent.length() >= 35
-                && traceparent.charAt(2) == '-'
-                && traceparent.regionMatches(true, 3, activeTraceId, 0, 32);
     }
 }

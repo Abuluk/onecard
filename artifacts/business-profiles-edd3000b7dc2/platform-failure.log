@@ -1,0 +1,30 @@
+onecard-oceanbase-1  | do normal boot
+onecard-oceanbase-1  | oceanbase-ce-4.4.2.1 already installed.
+onecard-oceanbase-1  | +--------------------------------------------------------------------------------------------+
+onecard-oceanbase-1  | |                                          Packages                                          |
+onecard-oceanbase-1  | +--------------+---------+------------------------+------------------------------------------+
+onecard-oceanbase-1  | | Repository   | Version | Release                | Md5                                      |
+onecard-oceanbase-1  | +--------------+---------+------------------------+------------------------------------------+
+onecard-oceanbase-1  | | oceanbase-ce | 4.4.2.1 | 101000022026050611.el8 | f39bc29ee0e67f9aaff4f01da77d79afb5257623 |
+onecard-oceanbase-1  | +--------------+---------+------------------------+------------------------------------------+
+onecard-oceanbase-1  | Repository integrity check ok
+onecard-oceanbase-1  | Load param plugin ok
+onecard-oceanbase-1  | Open ssh connection x
+onecard-oceanbase-1  | [ERROR] OBD-1013: root@172.18.0.2 connect failed: time out
+onecard-oceanbase-1  | 
+onecard-oceanbase-1  | Trace ID: f09bf9d0-dd6e-11f1-b4c7-5a76585c5dd7
+onecard-oceanbase-1  | If you want to view detailed obd logs, please run: obd display-trace f09bf9d0-dd6e-11f1-b4c7-5a76585c5dd7
+onecard-oceanbase-1  | 
+
+
+boot failed!
+onecard-oceanbase-1  | find obd deploy information, skip configuring...
+onecard-oceanbase-1  | start ob cluster ...
+onecard-oceanbase-1  | [ERROR] Deploy "obcluster" is configured. You could not start an configured cluster.
+onecard-oceanbase-1  | See https://www.oceanbase.com/product/ob-deployer/error-codes .
+onecard-oceanbase-1  | Trace ID: f2759fea-dd6e-11f1-9a4e-c6ee9255ea2e
+onecard-oceanbase-1  | If you want to view detailed obd logs, please run: obd display-trace f2759fea-dd6e-11f1-9a4e-c6ee9255ea2e
+onecard-oceanbase-1  | Wed Nov 11 01:26:41 UTC 2026
+onecard-oceanbase-1  | boot success!
+onecard-rocketmq-broker-1  | Killed
+

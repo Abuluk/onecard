@@ -18,6 +18,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.core.env.Environment;
+import org.springframework.core.env.Profiles;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -60,8 +62,7 @@ public class GatewaySecurityConfiguration {
                     .map(observationContext -> observationContext.<TracingContext>get(TracingContext.class))
                     .map(TracingContext::getSpan)
                     .orElse(null);
-            String inboundTraceparent = exchange.getRequest().getHeaders().getFirst("traceparent");
-            if (currentSpan != null && hasAcceptedParent(inboundTraceparent, currentSpan.context().traceId())) {
+            if (currentSpan != null) {
                 propagator.inject(currentSpan.context(), exchange.getResponse(),
                         (response, key, value) -> response.getHeaders().set(key, value));
             }
@@ -117,6 +118,8 @@ public class GatewaySecurityConfiguration {
     SecurityWebFilterChain apiSecurityFilterChain(
             ServerHttpSecurity http,
             @Value("${management.server.port:9081}") int managementPort,
+            @Value("${onecard.security.test-routes.enabled:false}") boolean testRoutePolicyConfigured,
+            Environment environment,
             ReactiveJwtDecoder jwtDecoder,
             Converter<Jwt, Mono<AbstractAuthenticationToken>> jwtAuthenticationConverter,
             JsonMapper jsonMapper) {
@@ -138,23 +141,34 @@ public class GatewaySecurityConfiguration {
                 .exceptionHandling(exceptions -> exceptions
                         .authenticationEntryPoint(authenticationEntryPoint)
                         .accessDeniedHandler(accessDeniedHandler))
-                .authorizeExchange(authorize -> authorize
-                        .pathMatchers("/api/payments/callback/**", "/api/payments/callbacks/**").denyAll()
-                        .pathMatchers(HttpMethod.GET,
-                                "/api/account/**", "/api/transactions/**", "/api/payments/**", "/api/notifications/**")
-                        .hasAnyRole("ONECARD_USER", "ONECARD_ADMIN", "ONECARD_AUDITOR")
-                        .pathMatchers(HttpMethod.POST, "/api/account/**", "/api/transactions/**", "/api/payments/**")
-                        .hasAnyRole("ONECARD_USER", "ONECARD_ADMIN")
-                        .pathMatchers(HttpMethod.POST, "/api/notifications/**").hasRole("ONECARD_ADMIN")
-                        .pathMatchers(HttpMethod.GET, "/api/clearing/**")
-                        .hasAnyRole("ONECARD_ADMIN", "ONECARD_AUDITOR")
-                        .pathMatchers(HttpMethod.POST, "/api/clearing/**").hasRole("ONECARD_ADMIN")
-                        .anyExchange().denyAll())
+                .authorizeExchange(authorize -> {
+                    if (testRouteAuthorizationEnabled(environment, testRoutePolicyConfigured)) {
+                        authorize.pathMatchers("/api/payments/callback/**", "/api/payments/callbacks/**").denyAll()
+                                .pathMatchers(HttpMethod.GET,
+                                        "/api/account/**", "/api/transactions/**", "/api/payments/**",
+                                        "/api/notifications/**")
+                                .hasAnyRole("ONECARD_USER", "ONECARD_ADMIN", "ONECARD_AUDITOR")
+                                .pathMatchers(HttpMethod.POST,
+                                        "/api/account/**", "/api/transactions/**", "/api/payments/**")
+                                .hasAnyRole("ONECARD_USER", "ONECARD_ADMIN")
+                                .pathMatchers(HttpMethod.POST, "/api/notifications/**").hasRole("ONECARD_ADMIN")
+                                .pathMatchers(HttpMethod.GET, "/api/clearing/**")
+                                .hasAnyRole("ONECARD_ADMIN", "ONECARD_AUDITOR")
+                                .pathMatchers(HttpMethod.POST, "/api/clearing/**").hasRole("ONECARD_ADMIN")
+                                .anyExchange().denyAll();
+                    } else {
+                        authorize.anyExchange().denyAll();
+                    }
+                })
                 .oauth2ResourceServer(resourceServer -> resourceServer
                         .authenticationEntryPoint(authenticationEntryPoint)
                         .accessDeniedHandler(accessDeniedHandler)
                         .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter)))
                 .build();
+    }
+
+    static boolean testRouteAuthorizationEnabled(Environment environment, boolean configured) {
+        return configured && environment.acceptsProfiles(Profiles.of("test", "performance"));
     }
 
     private static Mono<Void> writeSecurityError(
@@ -217,13 +231,6 @@ public class GatewaySecurityConfiguration {
             return "ROLE_ONECARD_AUDITOR";
         }
         return null;
-    }
-
-    private static boolean hasAcceptedParent(String traceparent, String activeTraceId) {
-        return traceparent != null
-                && traceparent.length() >= 35
-                && traceparent.charAt(2) == '-'
-                && traceparent.regionMatches(true, 3, activeTraceId, 0, 32);
     }
 
     private static ServerWebExchangeMatcher localPortMatcher(int managementPort, boolean management) {

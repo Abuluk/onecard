@@ -23,14 +23,19 @@ $servicePorts = @(
 $dockerContextCreated = $false
 $stackAttempted = $false
 $sshTunnel = $null
+Add-Type -AssemblyName System.Net.Http
 $httpClient = [System.Net.Http.HttpClient]::new()
 $savedLocation = (Get-Location).Path
 $savedDockerContext = $env:DOCKER_CONTEXT
 $savedNacosToken = [Environment]::GetEnvironmentVariable("NACOS_AUTH_TOKEN", "Process")
 $outputDirectory = Join-Path $repositoryRoot "artifacts/platform-recovery-$suffix"
 
-function Invoke-Compose([string[]] $Arguments) {
-    & docker compose --project-name $project --file $composeFile @Arguments
+function Invoke-Compose([string[]] $Arguments, [int] $Parallel = -1) {
+    $parallelOptions = @()
+    if ($Parallel -gt 0) {
+        $parallelOptions = @("--parallel", "$Parallel")
+    }
+    & docker compose --project-name $project --file $composeFile @parallelOptions @Arguments
     if ($LASTEXITCODE -ne 0) {
         throw "docker compose $($Arguments -join ' ') failed."
     }
@@ -61,6 +66,26 @@ function Wait-NacosRegistration([string] $ServiceName, [int] $Port) {
         Start-Sleep -Seconds 2
     }
     throw "$ServiceName did not register as a healthy Nacos instance on port $Port."
+}
+
+function Assert-GatewayPortBinding {
+    $containerId = & docker compose --project-name $project --file $composeFile ps --quiet onecard-gateway
+    if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($containerId)) {
+        throw "Unable to find the Gateway container for its published-port check."
+    }
+    $portBindingsJson = & docker inspect --format '{{json .NetworkSettings.Ports}}' $containerId
+    if ($LASTEXITCODE -ne 0) {
+        throw "Unable to inspect the Gateway container's published ports."
+    }
+    $portBindings = ($portBindingsJson -join "") | ConvertFrom-Json
+    $binding = @($portBindings.'8081/tcp') | Select-Object -First 1
+    if (-not $binding -or $binding.HostIp -ne "127.0.0.1" -or $binding.HostPort -ne "8081") {
+        throw "Gateway host port 8081 is not bound to 127.0.0.1 through the ingress network."
+    }
+    if ($SshTarget -match "^[^@]+@(?<host>.+)$" -and
+        (Test-NetConnection -ComputerName $Matches.host -Port 8081 -InformationLevel Quiet -WarningAction SilentlyContinue)) {
+        throw "Gateway port 8081 is reachable outside the target host's loopback interface."
+    }
 }
 
 function Get-FreeLocalPort {
@@ -97,10 +122,19 @@ try {
     }
 
     $applicationServices = @($servicePorts | ForEach-Object { $_.Name })
-    Invoke-Compose (@("build", "--pull=false") + $applicationServices)
+    Invoke-Compose ((@("build", "--pull=false") + $applicationServices)) 1
 
     $stackAttempted = $true
     Invoke-Compose @("up", "--no-build", "--detach", "--wait", "--wait-timeout", "300", "onecard-gateway")
+    Assert-GatewayPortBinding
+    foreach ($service in $servicePorts) {
+        Wait-NacosRegistration $service.Name $service.Port
+    }
+
+    Invoke-Compose (@("stop") + $applicationServices)
+    Invoke-Compose (@(
+        "up", "--no-build", "--detach", "--wait", "--wait-timeout", "300"
+    ) + $applicationServices)
     foreach ($service in $servicePorts) {
         Wait-NacosRegistration $service.Name $service.Port
     }
@@ -154,6 +188,9 @@ try {
         "",
         "- Target: $(if ($SshTarget) { $SshTarget } else { 'local Docker engine' })",
         "- Healthy Nacos registrations verified before and after Nacos restart: $($servicePorts.Count)/$($servicePorts.Count).",
+        "- Gateway host port 8081 is published only on 127.0.0.1 through the onecard-ingress network.",
+        "- Direct TCP access from the smoke runner to the target host's port 8081 was unavailable.",
+        "- All nine application containers were stopped and restarted; healthy Nacos registrations recovered: $($servicePorts.Count)/$($servicePorts.Count).",
         "- Account service restart returned a healthy Nacos registration.",
         "- Anonymous protected Gateway request returned HTTP 401.",
         "- Temporary Compose project, volumes, images, Docker context, and SSH tunnel are removed by the script."
@@ -166,6 +203,14 @@ try {
             $logs = $logs.Replace($env:NACOS_AUTH_TOKEN, "[REDACTED]")
         }
         $logs | Set-Content -LiteralPath (Join-Path $outputDirectory "platform-failure.log")
+
+        $status = & docker compose --project-name $project --file $composeFile ps --all 2>&1 | Out-String
+        $status | Set-Content -LiteralPath (Join-Path $outputDirectory "platform-failure-status.txt")
+        $containerIds = @(& docker compose --project-name $project --file $composeFile ps --all --quiet)
+        if ($containerIds.Count -gt 0) {
+            & docker inspect --format '{{json .State}}' @containerIds |
+                Set-Content -LiteralPath (Join-Path $outputDirectory "platform-failure-container-state.jsonl")
+        }
     }
     throw
 } finally {

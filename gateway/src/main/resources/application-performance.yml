@@ -22,15 +22,17 @@ spring:
         jwt:
           jwk-set-uri: ${OIDC_JWK_SET_URI:http://127.0.0.1:19080/realms/onecard-dev/protocol/openid-connect/certs}
 onecard:
-  rate-limit:
-    enabled: false
   security:
+    test-routes:
+      enabled: true
     issuer-uri: ${OIDC_ISSUER_URI:http://127.0.0.1:19080/realms/onecard-dev}
     audience: ${OIDC_AUDIENCE:onecard-api}
     roles:
       user: onecard-user
       admin: onecard-admin
       auditor: onecard-auditor
+  rate-limit:
+    enabled: false
 management:
   server:
     address: ${MANAGEMENT_SERVER_ADDRESS:127.0.0.1}

@@ -12,7 +12,7 @@
 - 服务已有 `dev`、`test`、`prod` 配置。开发配置以 `optional:nacos:` 导入，测试关闭 Nacos，生产使用必需的 `nacos:` 导入；目标机已验证账户配置从 Nacos 初始导入，并通过 dev-only `@RefreshScope` 探针验证 `alpha -> beta` 在 1 秒内无重启刷新。2026-11-11 本机启动测试确认八个服务与 Gateway 的生产 profile 在 Nacos 不可达时均 fail-closed。
 - transaction-service 已配置 OIDC client credentials Feign 调用；account/risk 接收端按 ADR-0009 校验 JWT 签名、issuer、服务 audience 和独立 scope。开发使用 Keycloak realm 模板，2026-11-11 已完成真实 Keycloak 联测；生产身份映射仍待评审。
 - Gateway 已完成开发态 OIDC JWT 验签、issuer/audience/过期校验、角色映射、路径/方法默认拒绝和共享 Valkey 限流；真实 Valkey 运行测试及 PR CI 门禁已通过，真实 Keycloak JWT 与代理/trace 联测已完成。精确生产 API 白名单仍待业务所有者批准。
-- Compose 固定 Nacos 3.1.1 镜像 digest，并在私网启动八个服务骨架、Gateway 和仅供共享限流的 Valkey；目标机九应用 + Gateway 健康与注册通过。MySQL/Redis 仍只供 N9E，业务数据库、业务缓存和消息中间件仍未接入。
+- Compose 固定 Nacos 3.1.1 镜像 digest；八个服务、Gateway、Nacos、Valkey 和可选 OceanBase/RocketMQ 接入 `internal: true` 的 `onecard-private`。Gateway 单独加入 `onecard-ingress` 并只发布回环端口；监控数据库在 default 网络，Categraf 双网连接。目标机已验证九应用注册/恢复、Gateway 入口隔离和可选业务数据/消息 profile。MySQL/Redis 仍只供 N9E，业务缓存尚未接入。
 - `common` 已有 `Result<T>`、业务/校验/未预期异常处理、Servlet 安全错误处理、可信 `traceparent` 响应头和平台指标白名单；Gateway 有响应式错误处理、上游 5xx 安全重写和真实 Valkey 429 限流。ADR-0010 记录当前契约。业务审计记录及业务指标仍待后续实现。
 - account/transaction 已建立 Flyway 生产迁移基线和隔离 smoke 迁移目录，尚无业务 V1 表；OceanBase 双 schema 迁移/权限 smoke 已通过。k6 保留 1 VU、10 秒 Actuator 启动检查，并新增真实 OIDC Gateway-to-stub 性能场景；CI 集成门禁已覆盖 Keycloak、Valkey、Nacos 和数据库 fail-closed/恢复。
 - `.github/workflows/deploy.yml` 原先包含内联发布凭据并指向不存在的构建目录；现已改为手动选择模块、使用仓库 Secret 发布。远端发布和扫描仍待验证。仓库所有者确认私人仓库并接受现有凭据处理方式，因此凭据轮换/历史处置不纳入阶段 0。
@@ -91,7 +91,7 @@
 
 **目标**：让配置加载策略明确可测，并使开发者可用与目标产品一致的本地/CI 依赖启动平台。
 
-**当前进度（2026-11-11）**：正式与 debug Compose 配置校验通过。目标机 `admin1@192.168.0.41` 的九个服务应用 + Gateway 均健康并在 Nacos 3.1.1 注册，Valkey 健康，Gateway 管理健康为 UP，匿名 API 返回标准 401。`nacos-config-refresh-smoke.ps1` 可重复验证 account 的 Nacos 初始导入和动态刷新：值从 alpha 更新到 beta，1 秒内生效且服务未重启；dev 配置探针默认关闭、test profile 请求返回 401。`prod-config-fail-closed-smoke.ps1` 已真实启动全部八个服务和 Gateway 的 `prod` profile 并指向无监听的临时 Nacos 端口，九者均在 60 秒内非零退出并记录 Nacos 错误；CI 门禁同步扩展为九应用。生产完整配置矩阵、namespace/认证策略及所有服务的配置变更范围仍待评审。
+**当前进度（2026-11-11）**：默认、debug、business-data、business-messaging Compose 配置校验通过并纳入 CI。目标机 `admin1@192.168.0.41` 的九个服务应用 + Gateway 均健康并在 Nacos 3.1.1 注册，Valkey 健康，Gateway 管理健康为 UP，匿名 API 返回标准 401。`nacos-config-refresh-smoke.ps1` 可重复验证 account 的 Nacos 初始导入和动态刷新：值从 alpha 更新到 beta，1 秒内生效且服务未重启；dev 配置探针默认关闭、test profile 请求返回 401。`prod-config-fail-closed-smoke.ps1` 已真实启动全部八个服务和 Gateway 的 `prod` profile 并指向无监听的临时 Nacos 端口，九者均在 60 秒内非零退出并记录 Nacos 错误；CI 门禁同步扩展为九应用。OceanBase CE 4.4.2-lts 与 RocketMQ 5.3.1 在最新私网拓扑组合 smoke 通过，OceanBase `SELECT 1` 返回 1。生产完整配置矩阵、namespace/认证策略及所有服务的配置变更范围仍待评审。
 
 **验收条件**：
 
@@ -130,7 +130,7 @@
 
 **目标**：阻止绕过 Gateway 直连服务，并约束服务间调用和依赖故障。阶段 1 服务间 OAuth2 client credentials 开发基线见 [ADR-0009](../docs/adr/0009-oidc-service-to-service-identity.md)。
 
-**当前进度（2026-11-11）**：transaction-service 的调用端、account/risk 的接收端开发切片和本地签名 JWT 负向测试已完成。真实 Keycloak client-credentials token 已经 transaction Feign 获取并送达服务 stub；验证签名、issuer、account audience、`onecard.account.invoke` scope 和 `traceparent` 通过。真实 account 服务对有 scope token 返回 200、缺 scope 返回 403。transaction 下游集成测试现覆盖 HTTP 503 不伪成功、1.5 秒读取超时和故障时只发出一个请求，5 项通过；CI 每个 PR 启动隔离 Keycloak 跑真实 token 测试。生产调用方授权矩阵及其他链路的故障注入仍未验收。
+**当前进度（2026-11-11）**：transaction-service 的调用端、account/risk 的接收端开发切片和本地签名 JWT 负向测试已完成。真实 Keycloak client-credentials token 已由 transaction Feign 获取并送达服务 stub；验证签名、issuer、account audience、`onecard.account.invoke` scope 和 `traceparent` 通过。真实 account 服务对有 scope token 返回 200、缺 scope 返回 403。transaction 下游集成测试现覆盖 HTTP 503 不伪成功、1.5 秒读取超时和故障时只发出一个请求，5 项通过；CI 每个 PR 启动隔离 Keycloak 跑真实 token 测试。Compose 默认业务应用使用内部网络，Gateway 仅经额外 ingress bridge 发布 `127.0.0.1:8081`；目标机实测外部工作站不能直连该端口。全栈停启和 Nacos 重启后 9/9 注册恢复，Gateway 匿名请求 401；业务 profile 组合 smoke 通过。生产调用方授权矩阵、生产网络策略及其他链路的故障注入仍未验收。
 
 **验收条件**：
 
@@ -200,7 +200,7 @@
 **涉及文件**：`ci-local.ps1`、必要的 `scripts/`、Compose、`.github/workflows/ci.yml`、`README.md`、`docs/ops/`。
 **规模**：中。
 
-**当前进度（2026-11-11）**：文档和本地脚本记录 JDK/Maven/Docker/k6、Keycloak/OIDC、Nacos token、DataId、服务地址与资源清理。本机隔离栈验证 Nacos/account 健康、注册、重启恢复和 k6 20/20 checks；目标开发机上九服务 + Gateway + Valkey 全部健康、九实例注册，Gateway 返回匿名 401；配置刷新脚本真实发布两版 Nacos 配置并验证无重启更新。新增 CI 真实 Keycloak service-client 测试、production Nacos 与数据库 fail-closed 检查、Nacos/account 重启恢复；Gateway/account OIDC 真实验证脚本可复跑。CI YAML、Compose 正式/debug 配置和全仓构建通过；远端 GitHub Actions 结果、完整九服务停止/恢复及 OceanBase migration PR smoke 仍待验证。
+**当前进度（2026-11-11）**：文档和本地脚本记录 JDK/Maven/Docker/k6、Keycloak/OIDC、Nacos token、DataId、服务地址与资源清理。本机隔离栈验证 Nacos/account 健康、注册、重启恢复和 k6 20/20 checks；目标开发机上九服务 + Gateway + Valkey 全部健康、九实例注册，Gateway 返回匿名 401；配置刷新脚本真实发布两版 Nacos 配置并验证无重启更新。目标机最新完整 `clean verify`、九应用镜像构建、Gateway loopback 映射和外部不可达、全栈停启/Nacos 重启后 9/9 注册恢复、account 重启及匿名 401 全通过；OceanBase/RocketMQ 组合 profile smoke 通过。CI YAML、Compose 正式/debug/可选 profile 配置和全仓构建通过。GitHub 私有仓库远端验证仍待完成：工作站当前不能连接 `github.com:443`；目标机能访问 GitHub 公网但未提供私有仓库读取认证。OceanBase PR workflow 仍待验证。
 
 ### 任务 8：平台性能、压力和故障恢复验收
 
@@ -258,3 +258,9 @@
 ## 7. 执行说明
 
 实现期间以 `tasks/phase1-todo.md` 记录任务状态；每个检查点提交测试报告和决策更新。一次只完成一个垂直切片，切片通过后再进入依赖它的任务。若实际依赖/版本和本方案不符，先更新 ADR 与本方案，再改实现。
+
+## 最新复核（2026-11-11）
+
+前文关于 GitHub 无法连接的进度记录已过时：工作站当前使用已有凭据只读可访问私有仓库，远端 `main` 为 `0074cc8a969cc266c744b33013fcec8d47973b72`，该提交的 Actions CI/deploy 成功，但不覆盖未提交工作树；branch protection 与 Dependabot alerts API 返回 403。新增的 performance profile 解析回归测试复现了重复 YAML `security` 键并验证修复；真实 Keycloak 四阶段 smoke 和全仓 19 模块 `clean verify` 通过。上一轮修复后的 500 VU/30 分钟运行达到 95,995 请求，距 96,000 目标差 5；现已在 k6 加入按阶段时长计算的最低请求数门槛，并以 3,210/min 节奏留出调度余量，完整复测进行中。业务 API/调用者批准矩阵、正式配置与数据责任决策、持久审计保留策略、GitHub 管理权限及生产 SLO 仍是阶段 1 退出门槛。
+
+最终复测已完成：修复后的 500 VU/30 分钟阶段完成 96,303 请求，四阶段合计 105,922 请求、317,766/317,766 checks、0% HTTP 错误，证据为 `artifacts/phase1-platform-e9ed7f3f70f8/report.md`；远端容器、临时目录、SSH 隧道和 Docker context 均已清理。生产 API/调用者批准矩阵、正式配置与数据责任决策、持久审计保留策略、GitHub 管理权限及生产 SLO 仍未获批准或验证。

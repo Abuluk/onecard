@@ -171,8 +171,11 @@ class AccountServiceSecurityIntegrationTest {
                 .andExpect(status().isOk())
                 .andReturn();
 
-        assertThat(result.getResponse().getContentAsString()).matches("[0-9a-f]{32}").isNotEqualTo("malformed");
-        assertThat(result.getResponse().getHeader("traceparent")).isNull();
+        String traceId = result.getResponse().getContentAsString();
+        assertThat(traceId).matches("[0-9a-f]{32}").isNotEqualTo("malformed");
+        assertThat(result.getResponse().getHeader("traceparent"))
+                .matches("00-[0-9a-f]{32}-[0-9a-f]{16}-[0-9a-f]{2}")
+                .startsWith("00-" + traceId + "-");
     }
 
     @Test

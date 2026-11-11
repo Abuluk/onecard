@@ -6,7 +6,15 @@ import { sleep } from 'k6';
 const gatewayUrl = __ENV.BASE_URL;
 const accessToken = __ENV.AUTH_TOKEN;
 const virtualUsers = Number(__ENV.VUS || 50);
-const targetRatePerSecond = 3200 / 60;
+const duration = __ENV.DURATION || '30m';
+const durationParts = /^(\d+)(s|m|h)$/.exec(duration);
+if (!durationParts) {
+  throw new Error('DURATION must use seconds, minutes, or hours');
+}
+
+const durationSeconds = Number(durationParts[1]) * { s: 1, m: 60, h: 3600 }[durationParts[2]];
+const minimumRequests = Math.ceil((3200 / 60) * durationSeconds);
+const targetRatePerSecond = 3210 / 60;
 const iterationIntervalSeconds = virtualUsers / targetRatePerSecond;
 const successfulResponses = new Counter('gateway_http_200');
 const otherResponses = new Counter('gateway_http_non_200');
@@ -25,13 +33,14 @@ export const options = {
     gateway_stub: {
       executor: 'constant-vus',
       vus: virtualUsers,
-      duration: __ENV.DURATION || '30m',
+      duration,
       gracefulStop: '30s',
     },
   },
   summaryTrendStats: ['avg', 'min', 'med', 'max', 'p(50)', 'p(95)', 'p(99)'],
   thresholds: {
     checks: ['rate>0.99'],
+    http_reqs: [`count>=${minimumRequests}`],
     http_req_failed: ['rate<0.01'],
     http_req_duration: ['p(95)<500'],
   },

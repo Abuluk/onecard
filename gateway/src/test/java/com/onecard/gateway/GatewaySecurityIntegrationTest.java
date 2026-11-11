@@ -13,6 +13,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.AfterAll;
@@ -79,12 +80,14 @@ class GatewaySecurityIntegrationTest {
 
     @Test
     void rejectsRequestsWithoutBearerToken() {
+        int requestCount = STUB_SERVER.requestCount();
         client.get().uri("/api/account/balance")
                 .exchange()
                 .expectStatus().isUnauthorized()
                 .expectBody()
                 .jsonPath("$.code").isEqualTo("AUTHENTICATION_REQUIRED")
                 .jsonPath("$.message").isEqualTo("Authentication is required");
+        assertThat(STUB_SERVER.requestCount()).isEqualTo(requestCount);
     }
 
     @Test
@@ -135,6 +138,7 @@ class GatewaySecurityIntegrationTest {
 
     @Test
     void rejectsRoleInsufficientForClearingWrite() {
+        int requestCount = STUB_SERVER.requestCount();
         String token = token(SIGNING_KEY, ISSUER, AUDIENCE, "onecard-auditor", Instant.now().plusSeconds(60));
 
         client.post().uri("/api/clearing/batches").headers(headers -> headers.setBearerAuth(token))
@@ -143,15 +147,18 @@ class GatewaySecurityIntegrationTest {
                 .expectBody()
                 .jsonPath("$.code").isEqualTo("ACCESS_DENIED")
                 .jsonPath("$.message").isEqualTo("Access is denied");
+        assertThat(STUB_SERVER.requestCount()).isEqualTo(requestCount);
     }
 
     @Test
     void rejectsUnlistedInternalRoutesEvenForAdministrator() {
+        int requestCount = STUB_SERVER.requestCount();
         String token = token(SIGNING_KEY, ISSUER, AUDIENCE, "onecard-admin", Instant.now().plusSeconds(60));
 
         getWithToken("/api/risk/rules", token).expectStatus().isForbidden();
         getWithToken("/api/devices/commands", token).expectStatus().isForbidden();
         getWithToken("/api/access/policies", token).expectStatus().isForbidden();
+        assertThat(STUB_SERVER.requestCount()).isEqualTo(requestCount);
     }
 
     @Test
@@ -305,6 +312,26 @@ class GatewaySecurityIntegrationTest {
     }
 
     @Test
+    void replacesMalformedTraceparentBeforeForwarding() {
+        String token = token(SIGNING_KEY, ISSUER, AUDIENCE, "onecard-user", Instant.now().plusSeconds(60));
+
+        client.get().uri("/api/account/balance")
+                .headers(headers -> {
+                    headers.setBearerAuth(token);
+                    headers.set("traceparent", "not-a-valid-traceparent");
+                })
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectHeader()
+                .value("traceparent", value -> assertThat(value)
+                        .matches("00-[0-9a-f]{32}-[0-9a-f]{16}-[0-9a-f]{2}"));
+
+        assertThat(STUB_SERVER.traceparent())
+                .matches("00-[0-9a-f]{32}-[0-9a-f]{16}-[0-9a-f]{2}");
+    }
+
+    @Test
     void authorizesAdministratorForReadOnlyClearingRoute() {
         String token = token(SIGNING_KEY, ISSUER, AUDIENCE, "onecard-admin", Instant.now().plusSeconds(60));
 
@@ -406,11 +433,13 @@ class GatewaySecurityIntegrationTest {
     private static final class StubServer implements AutoCloseable {
         private final HttpServer server;
         private final AtomicReference<String> traceparent = new AtomicReference<>();
+        private final AtomicInteger requestCount = new AtomicInteger();
 
         private StubServer() {
             try {
                 server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
                 server.createContext("/", exchange -> {
+                    requestCount.incrementAndGet();
                     traceparent.set(exchange.getRequestHeaders().getFirst("traceparent"));
                     String path = exchange.getRequestURI().getPath();
                     if (path.contains("/upstream-")) {
@@ -448,6 +477,10 @@ class GatewaySecurityIntegrationTest {
 
         private String traceparent() {
             return traceparent.get();
+        }
+
+        private int requestCount() {
+            return requestCount.get();
         }
 
         private static String header(com.sun.net.httpserver.HttpExchange exchange, String name) {

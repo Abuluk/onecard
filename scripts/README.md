@@ -59,13 +59,16 @@ with a one-hour access-token lifetime for the duration of the test, real
 Gateway and account-service containers, and a loopback-only stub upstream on
 the development server. It verifies user and service JWT claims, account scope
 enforcement, transaction-service client credentials, trace propagation, and a
-paced k6 load of 3,200 requests per minute at 50/100/250/500 VUs. The 500-VU
-stage runs for 30 minutes by default. Each stage enforces HTTP errors below 1%,
+paced k6 load slightly above 3,200 requests per minute at 50/100/250/500 VUs,
+with a request-count threshold that requires at least 3,200 requests per minute.
+The 500-VU stage runs for 30 minutes by default. Each stage enforces HTTP errors below 1%,
 p95 below 500 ms, and checks above 99%; these are development test thresholds,
 not production SLOs. Remote mode runs the pinned k6 2.3.0 Linux binary on the
 development server after verifying its SHA-256, so load traffic does not cross
 the SSH tunnel. Reports and raw metrics, including load-generator resources,
-are written to a unique directory under `artifacts/`.
+are written to a unique directory under `artifacts/`. Remote mode reuses a
+local cached archive only when its pinned SHA-256 matches and limits fallback
+downloads to 90 seconds.
 
 ```powershell
 pwsh -File scripts/phase1-oidc-performance-smoke.ps1 `
@@ -92,11 +95,14 @@ database connectivity/migration error rather than run without their configured
 database.
 
 `platform-recovery-smoke.ps1` builds and starts all nine applications in an
-isolated Compose project, verifies their Nacos registrations, restarts Nacos
-and the account service, and checks that the Gateway returns `401` for an
-anonymous protected request. It removes the project volumes, images, temporary
-Docker context, and SSH tunnel. Run it against the selected development server
-with:
+isolated Compose project, verifies their Nacos registrations, stops and
+restarts all nine applications, restarts Nacos and the account service, and
+checks that the Gateway host port is published only on loopback and returns
+`401` for an anonymous protected request. Remote mode also checks that the
+smoke runner cannot connect to port `8081` through the target host's LAN
+address. It removes the project volumes,
+images, temporary Docker context, and SSH tunnel.
+Run it against the selected development server with:
 
 ```powershell
 pwsh -File scripts/platform-recovery-smoke.ps1 `
@@ -105,9 +111,13 @@ pwsh -File scripts/platform-recovery-smoke.ps1 `
 ```
 
 `business-profiles-smoke.ps1` starts the optional OceanBase and RocketMQ
-profiles in an isolated project, waits for all three health checks, and runs
-`SELECT 1` against OceanBase. It removes the temporary volumes and Docker
-context after the run.
+profiles in an isolated project, waits for their health checks, and runs
+`SELECT 1` against OceanBase with a bounded retry for tenant initialization.
+If a pinned image is missing on the target, it
+exports the matching digest from the local Docker context and loads it on the
+target before startup. It removes the temporary volumes and Docker context after
+the run. Select one profile with `-Profiles business-data` or
+`-Profiles business-messaging` when testing them separately.
 
 ```powershell
 pwsh -File scripts/business-profiles-smoke.ps1 `

@@ -233,9 +233,15 @@ try {
         throw "Unable to create the temporary remote smoke directory."
     }
     if ($SshTarget) {
-        Invoke-WebRequest -Uri "https://api.github.com/repos/grafana/k6/releases/assets/579287772" `
-            -Headers @{ "User-Agent" = "onecard-phase1-validation"; Accept = "application/octet-stream" } `
-            -OutFile $k6ArchivePath
+        $cachedK6Archive = Join-Path ([IO.Path]::GetTempPath()) "onecard-k6-v2.3.0-linux-amd64.tar.gz"
+        if ((Test-Path -LiteralPath $cachedK6Archive) -and
+            (Get-FileHash -LiteralPath $cachedK6Archive -Algorithm SHA256).Hash.Equals($k6Sha256, [StringComparison]::OrdinalIgnoreCase)) {
+            Copy-Item -LiteralPath $cachedK6Archive -Destination $k6ArchivePath
+        } else {
+            Invoke-WebRequest -Uri "https://api.github.com/repos/grafana/k6/releases/assets/579287772" `
+                -Headers @{ "User-Agent" = "onecard-phase1-validation"; Accept = "application/octet-stream" } `
+                -OutFile $k6ArchivePath -TimeoutSec 90
+        }
         $downloadedHash = (Get-FileHash -LiteralPath $k6ArchivePath -Algorithm SHA256).Hash.ToLowerInvariant()
         if ($downloadedHash -ne $k6Sha256) {
             throw "The downloaded k6 release archive did not match its pinned SHA-256."
@@ -753,7 +759,7 @@ try {
     $report.Add("")
     $report.Add("- Target: admin1@192.168.0.41")
     $report.Add("- Keycloak: 26.8.1; issuer, audience, signature, role and service scope checked with real tokens.")
-    $report.Add("- Scenario: authenticated Gateway to isolated stub at a paced 3,200 requests/minute across 50/100/250/500 VU stages; the 500-VU stage runs for $Duration.")
+    $report.Add("- Scenario: authenticated Gateway to isolated stub paced at 3,210 requests/minute to sustain the 3,200/minute minimum across 50/100/250/500 VU stages; the 500-VU stage runs for $Duration.")
     $report.Add("- Account service authenticated-scope probe returned HTTP 200; missing-scope probe returned HTTP 403.")
     foreach ($result in $stageResults) {
         $report.Add("- Stage $($result.VirtualUsers) VUs ($($result.Duration)): $($result.Requests) requests, $($result.AchievedRequestsPerMinute)/min, p50/p95/p99=$($result.P50Milliseconds)/$($result.P95Milliseconds)/$($result.P99Milliseconds) ms, HTTP errors $($result.FailedRequestRatePercent)%, checks $($result.CheckPasses)/$($result.CheckPasses + $result.CheckFailures).")
@@ -764,7 +770,7 @@ try {
     $report.Add("- Gateway JVM final scrape: process CPU $([math]::Round(([double]::Parse($processCpu, [Globalization.CultureInfo]::InvariantCulture) * 100), 2))%; heap used $([math]::Round($heapUsedBytes / 1MB, 1)) MiB; GC $gcCount collections / $([math]::Round($gcPauseSeconds, 3)) s cumulative pause; executor active=$executorActive, queued=$executorQueued.")
     $report.Add("- Database connection pool: not applicable to this Gateway-to-stub route; no database is in the request path.")
     $report.Add("- Application, Keycloak and integration-test logs were scanned for temporary credentials; no leak found.")
-    $report.Add("- Enforced development test thresholds: HTTP errors <1%, p95 <500 ms, checks >99%; this does not establish production SLOs.")
+    $report.Add("- Enforced development test thresholds: minimum request count matching 3,200/minute for each stage, HTTP errors <1%, p95 <500 ms, checks >99%; this does not establish production SLOs.")
     $report.Add("- User token and client secret are not included in this report.")
     $report.Add("- Raw per-stage k6, Prometheus and container samples are in this directory.")
     $report | Set-Content -LiteralPath (Join-Path $outputDirectory "report.md")
@@ -775,7 +781,7 @@ try {
         @(
             "# Phase 1 Gateway Platform Smoke (failed)",
             "",
-            "- Failed stage: $($activeStage.VirtualUsers) VUs for $($activeStage.Duration); target pacing is 3,200 requests/minute.",
+            "- Failed stage: $($activeStage.VirtualUsers) VUs for $($activeStage.Duration); pacing is 3,210 requests/minute with a 3,200/minute minimum.",
             "- Requests: $($failedSummary.metrics.http_reqs.count); achieved rate: $([math]::Round($failedSummary.metrics.http_reqs.rate * 60, 1))/minute.",
             "- Latency: p50=$([math]::Round($failedSummary.metrics.http_req_duration.'p(50)', 1)) ms, p95=$([math]::Round($failedSummary.metrics.http_req_duration.'p(95)', 1)) ms, p99=$([math]::Round($failedSummary.metrics.http_req_duration.'p(99)', 1)) ms.",
             "- Failed HTTP requests: $([math]::Round($failedSummary.metrics.http_req_failed.value * 100, 3))%; functional checks: $($failedSummary.metrics.checks.passes)/$($failedSummary.metrics.checks.passes + $failedSummary.metrics.checks.fails).",

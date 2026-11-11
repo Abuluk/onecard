@@ -28,6 +28,64 @@ jobs:
         run: |
           docker compose -f deploy/monitoring/docker-compose.yml config --quiet
           docker compose -f deploy/monitoring/docker-compose.yml -f deploy/monitoring/docker-compose.debug.yml config --quiet
+          docker compose --profile business-data --profile business-messaging -f deploy/monitoring/docker-compose.yml config --quiet
+
+      - name: Verify business service port boundaries
+        shell: bash
+        run: |
+          base_config="$RUNNER_TEMP/onecard-base-compose.json"
+          debug_config="$RUNNER_TEMP/onecard-debug-compose.json"
+          docker compose --profile business-data --profile business-messaging \
+            -f deploy/monitoring/docker-compose.yml config --format json > "$base_config"
+          if jq -e '
+            [.services | to_entries[]
+              | select(.key | startswith("onecard-"))
+              | select(.key != "onecard-gateway")
+              | select((.value.ports // []) | length > 0)
+            ] | length > 0
+          ' "$base_config" >/dev/null; then
+            echo "A business service publishes a host port in the default Compose profile." >&2
+            exit 1
+          fi
+          if ! jq -e '
+            (.services["onecard-gateway"].ports // []) as $ports
+            | ($ports | length) == 1 and $ports[0].host_ip == "127.0.0.1"
+              and (.networks["onecard-ingress"].internal // false) == false
+              and (.services["onecard-gateway"].networks | has("onecard-ingress"))
+              and ([.services | to_entries[]
+                | select(.key != "onecard-gateway")
+                | select((.value.networks // {}) | has("onecard-ingress"))] | length) == 0
+          ' "$base_config" >/dev/null; then
+            echo "The Gateway must bind only to 127.0.0.1 through the non-internal ingress network." >&2
+            exit 1
+          fi
+          if ! jq -e '
+            .networks["onecard-private"].internal == true
+            and ([.services | to_entries[]
+              | select(.key | startswith("onecard-"))
+              | select(((.value.networks // {}) | has("onecard-private")) | not)] | length) == 0
+          ' "$base_config" >/dev/null; then
+            echo "Every onecard service must use the internal onecard-private network." >&2
+            exit 1
+          fi
+          docker compose --profile business-data --profile business-messaging \
+            -f deploy/monitoring/docker-compose.yml \
+            -f deploy/monitoring/docker-compose.debug.yml config --format json > "$debug_config"
+          if ! jq -e '
+            [.services | to_entries[]
+              | select(.key | startswith("onecard-"))
+              | .value.ports[]?
+            ] as $ports
+            | ($ports | length) == 9
+              and .networks["onecard-private"].internal == true
+              and ([.services | to_entries[]
+                | select(.key | startswith("onecard-"))
+                | select(((.value.networks // {}) | has("onecard-private")) | not)] | length) == 0
+              and ([ $ports[] | select(.host_ip != "127.0.0.1") ] | length) == 0
+          ' "$debug_config" >/dev/null; then
+            echo "Debug application ports must bind to 127.0.0.1 on the internal onecard-private network." >&2
+            exit 1
+          fi
 
       - name: Set up JDK 25
         uses: actions/setup-java@v6

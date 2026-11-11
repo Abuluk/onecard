@@ -19,6 +19,15 @@
 
 开发服务身份模板使用 `onecard-account-service`、`onecard-risk-service` audience，分别要求 `onecard.account.invoke`、`onecard.risk.invoke` scope。account/risk 的 `dev` profile 默认指向 `onecard-dev` realm；生产 profile 要求显式设置 issuer、JWKS URI 和目标服务 audience。2026-11-11 已通过 Keycloak 26.8.1 验证 transaction Feign 获取 client-credentials token、account audience/scope 校验、缺 scope 拒绝及 `traceparent` 传播；生产身份提供方、密钥生命周期和调用方授权矩阵仍待评审。
 
+### 开发 Compose 网络边界（2026-11-11）
+
+- 八个业务服务、Gateway、Nacos、Valkey 及可选 OceanBase/RocketMQ 均加入 `internal: true` 的 `onecard-private` 网络；业务服务默认不发布宿主端口。
+- Gateway 另加入仅供其自身使用的 `onecard-ingress` bridge，并只将 `8081` 绑定到宿主机 `127.0.0.1`。目标 Docker Engine 29.6.2 实测表明，位于 Docker internal bridge 的容器不会获得请求的宿主端口映射；相同端口在普通 bridge 上可以发布。让 Gateway 双网接入保留私网业务连通，同时提供受限的开发入口。
+- Categraf 加入监控 default 网络和 `onecard-private`，用于抓取私有管理端点并向 N9E 写入指标；N9E 的数据库和监控存储仍只在 default 网络。
+- Compose YAML/JSON 断言覆盖所有 OneCard 服务的私网归属、Gateway ingress 独占和 loopback 绑定、默认无业务端口映射以及 debug profile 恰好九个 loopback 应用端口。目标机恢复 smoke 已验证九个应用健康、停止/恢复后 9/9 Nacos 注册、Gateway 匿名请求 401 和实际端口映射。
+- 从运行 smoke 的工作站直连 `192.168.0.41:8081` 也无法建立 TCP 连接；Docker inspect 同时确认映射地址为 `127.0.0.1`，因此不是仅靠目标主机防火墙推断隔离。
+- 这只定义开发 Compose 的容器网络边界，不代替生产网络策略、防火墙规则或工作负载安全审查。
+
 ## 备选方案
 
 - 服务间 mTLS：可在传输层认证工作负载，但需要证书签发、轮换和信任根运维；当前阶段暂不选为开发基线。

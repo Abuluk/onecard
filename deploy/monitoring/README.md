@@ -24,10 +24,16 @@ docker compose -f deploy/monitoring/docker-compose.yml -f deploy/monitoring/dock
 ```
 
 The Compose file includes Nacos 3.1.1, all eight business services, the API
-Gateway, private Valkey rate-limit storage, and monitoring on a private Compose network. Nacos client and Console
-ports are not published to the host. Nacos authentication is disabled only for
-this isolated development network; do not attach untrusted containers or expose
-the Nacos service. Applications use the `dev` profile, register in Nacos, and
+Gateway, private Valkey rate-limit storage, and monitoring. Applications,
+discovery, cache, database, and message containers use an `internal: true`
+`onecard-private` network. The Gateway also joins a separate bridge network so
+its host port can be published on loopback; no other application joins that
+network. Monitoring databases remain on the default network; Categraf joins
+both the default and private networks to scrape private management endpoints
+and send metrics to N9E. Nacos client and Console ports are not published to
+the host. Nacos authentication is disabled only for this isolated development
+network; do not attach untrusted containers or expose the Nacos service.
+Applications use the `dev` profile, register in Nacos, and
 Gateway routes use Nacos service discovery. The `test` profile remains isolated
 from Nacos for unit and integration tests that do not need service discovery.
 No remote DataId is required for the service skeletons. Optional development
@@ -47,6 +53,11 @@ or messaging development. The OceanBase service name matches the JDBC URLs in
 `.env.example`; the RocketMQ broker and nameserver stay on the private Compose
 network and publish no host ports. Their named data volumes are preserved by
 the stop command.
+
+The RocketMQ broker sets `HEAP_OPTS` below its container memory limit. A
+one-shot profile service initializes the named store volume for the image's
+non-root UID before the broker starts. `docker compose stop` preserves these
+volumes; `docker compose down --volumes` removes them.
 
 ```powershell
 docker compose --profile business-data --profile business-messaging `

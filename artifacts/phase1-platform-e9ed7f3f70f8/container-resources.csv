@@ -1,0 +1,1614 @@
+timestamp,name,cpu,memory
+2026-11-11T17:12:22.1421739+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.21%,549.3MiB / 1GiB
+2026-11-11T17:12:22.1421739+08:00,onecard-phase1-gateway-e9ed7f3f70f8,99.56%,209.7MiB / 1.5GiB
+2026-11-11T17:12:22.1421739+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.4MiB / 1GiB
+2026-11-11T17:12:22.1421739+08:00,k6-load-generator,8.3,53.3MiB
+2026-11-11T17:12:27.1596310+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,549.4MiB / 1GiB
+2026-11-11T17:12:27.1596310+08:00,onecard-phase1-gateway-e9ed7f3f70f8,43.23%,213.7MiB / 1.5GiB
+2026-11-11T17:12:27.1596310+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,169.4MiB / 1GiB
+2026-11-11T17:12:27.1596310+08:00,k6-load-generator,6.8,55.2MiB
+2026-11-11T17:12:32.1645960+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.32%,549.4MiB / 1GiB
+2026-11-11T17:12:32.1645960+08:00,onecard-phase1-gateway-e9ed7f3f70f8,52.14%,228MiB / 1.5GiB
+2026-11-11T17:12:32.1645960+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,169.4MiB / 1GiB
+2026-11-11T17:12:32.1645960+08:00,k6-load-generator,6.3,55.9MiB
+2026-11-11T17:12:37.1789133+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.21%,549.4MiB / 1GiB
+2026-11-11T17:12:37.1789133+08:00,onecard-phase1-gateway-e9ed7f3f70f8,38.84%,219.1MiB / 1.5GiB
+2026-11-11T17:12:37.1789133+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.4MiB / 1GiB
+2026-11-11T17:12:37.1789133+08:00,k6-load-generator,6.0,57.9MiB
+2026-11-11T17:12:42.1851070+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.26%,549.4MiB / 1GiB
+2026-11-11T17:12:42.1851070+08:00,onecard-phase1-gateway-e9ed7f3f70f8,19.20%,221.3MiB / 1.5GiB
+2026-11-11T17:12:42.1851070+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,169.4MiB / 1GiB
+2026-11-11T17:12:42.1851070+08:00,k6-load-generator,5.9,58.4MiB
+2026-11-11T17:12:47.1934470+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.24%,549.5MiB / 1GiB
+2026-11-11T17:12:47.1934470+08:00,onecard-phase1-gateway-e9ed7f3f70f8,28.09%,223.6MiB / 1.5GiB
+2026-11-11T17:12:47.1934470+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,169.5MiB / 1GiB
+2026-11-11T17:12:47.1934470+08:00,k6-load-generator,5.8,58.6MiB
+2026-11-11T17:12:52.1975472+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,549.5MiB / 1GiB
+2026-11-11T17:12:52.1975472+08:00,onecard-phase1-gateway-e9ed7f3f70f8,24.37%,224.4MiB / 1.5GiB
+2026-11-11T17:12:52.1975472+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,169.5MiB / 1GiB
+2026-11-11T17:12:52.1975472+08:00,k6-load-generator,5.7,59MiB
+2026-11-11T17:12:57.2002770+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.31%,549.5MiB / 1GiB
+2026-11-11T17:12:57.2002770+08:00,onecard-phase1-gateway-e9ed7f3f70f8,63.32%,236.4MiB / 1.5GiB
+2026-11-11T17:12:57.2002770+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.5MiB / 1GiB
+2026-11-11T17:12:57.2002770+08:00,k6-load-generator,5.7,59.2MiB
+2026-11-11T17:13:02.2181147+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.24%,549.5MiB / 1GiB
+2026-11-11T17:13:02.2181147+08:00,onecard-phase1-gateway-e9ed7f3f70f8,12.74%,227.4MiB / 1.5GiB
+2026-11-11T17:13:02.2181147+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.4MiB / 1GiB
+2026-11-11T17:13:02.2181147+08:00,k6-load-generator,5.6,59.2MiB
+2026-11-11T17:13:07.2209114+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.22%,549.5MiB / 1GiB
+2026-11-11T17:13:07.2209114+08:00,onecard-phase1-gateway-e9ed7f3f70f8,16.45%,227.3MiB / 1.5GiB
+2026-11-11T17:13:07.2209114+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.4MiB / 1GiB
+2026-11-11T17:13:07.2209114+08:00,k6-load-generator,5.6,59.7MiB
+2026-11-11T17:13:12.2356367+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,549.5MiB / 1GiB
+2026-11-11T17:13:12.2356367+08:00,onecard-phase1-gateway-e9ed7f3f70f8,12.06%,228.3MiB / 1.5GiB
+2026-11-11T17:13:12.2356367+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.4MiB / 1GiB
+2026-11-11T17:13:12.2356367+08:00,k6-load-generator,5.5,59.8MiB
+2026-11-11T17:13:17.2491590+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.22%,549.4MiB / 1GiB
+2026-11-11T17:13:17.2491590+08:00,onecard-phase1-gateway-e9ed7f3f70f8,14.81%,228.3MiB / 1.5GiB
+2026-11-11T17:13:17.2491590+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.4MiB / 1GiB
+2026-11-11T17:13:17.2491590+08:00,k6-load-generator,5.5,59.9MiB
+2026-11-11T17:13:22.2652194+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,549.4MiB / 1GiB
+2026-11-11T17:13:22.2652194+08:00,onecard-phase1-gateway-e9ed7f3f70f8,0.42%,232.4MiB / 1.5GiB
+2026-11-11T17:13:22.2652194+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.4MiB / 1GiB
+2026-11-11T17:13:27.2768322+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.39%,549.4MiB / 1GiB
+2026-11-11T17:13:27.2768322+08:00,onecard-phase1-gateway-e9ed7f3f70f8,0.07%,228.5MiB / 1.5GiB
+2026-11-11T17:13:27.2768322+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.4MiB / 1GiB
+2026-11-11T17:13:33.3551967+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,549.4MiB / 1GiB
+2026-11-11T17:13:33.3551967+08:00,onecard-phase1-gateway-e9ed7f3f70f8,17.45%,228.8MiB / 1.5GiB
+2026-11-11T17:13:33.3551967+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.4MiB / 1GiB
+2026-11-11T17:13:33.3551967+08:00,k6-load-generator,16.0,66.6MiB
+2026-11-11T17:13:38.3654717+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,549.4MiB / 1GiB
+2026-11-11T17:13:38.3654717+08:00,onecard-phase1-gateway-e9ed7f3f70f8,18.11%,229.2MiB / 1.5GiB
+2026-11-11T17:13:38.3654717+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,169.4MiB / 1GiB
+2026-11-11T17:13:38.3654717+08:00,k6-load-generator,8.2,69.4MiB
+2026-11-11T17:13:43.3716336+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,549.4MiB / 1GiB
+2026-11-11T17:13:43.3716336+08:00,onecard-phase1-gateway-e9ed7f3f70f8,24.15%,229.3MiB / 1.5GiB
+2026-11-11T17:13:43.3716336+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.4MiB / 1GiB
+2026-11-11T17:13:43.3716336+08:00,k6-load-generator,6.9,70.1MiB
+2026-11-11T17:13:48.3744782+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,549.4MiB / 1GiB
+2026-11-11T17:13:48.3744782+08:00,onecard-phase1-gateway-e9ed7f3f70f8,14.32%,229.4MiB / 1.5GiB
+2026-11-11T17:13:48.3744782+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.4MiB / 1GiB
+2026-11-11T17:13:48.3744782+08:00,k6-load-generator,6.4,70.4MiB
+2026-11-11T17:13:53.3830315+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.21%,549.4MiB / 1GiB
+2026-11-11T17:13:53.3830315+08:00,onecard-phase1-gateway-e9ed7f3f70f8,24.99%,231.8MiB / 1.5GiB
+2026-11-11T17:13:53.3830315+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.4MiB / 1GiB
+2026-11-11T17:13:53.3830315+08:00,k6-load-generator,6.1,73.3MiB
+2026-11-11T17:13:58.3958764+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,549.4MiB / 1GiB
+2026-11-11T17:13:58.3958764+08:00,onecard-phase1-gateway-e9ed7f3f70f8,12.09%,229.6MiB / 1.5GiB
+2026-11-11T17:13:58.3958764+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.4MiB / 1GiB
+2026-11-11T17:13:58.3958764+08:00,k6-load-generator,5.9,74.4MiB
+2026-11-11T17:14:03.4090982+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,549.5MiB / 1GiB
+2026-11-11T17:14:03.4090982+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.52%,229.9MiB / 1.5GiB
+2026-11-11T17:14:03.4090982+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.5MiB / 1GiB
+2026-11-11T17:14:03.4090982+08:00,k6-load-generator,5.8,75MiB
+2026-11-11T17:14:08.4142379+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,549.5MiB / 1GiB
+2026-11-11T17:14:08.4142379+08:00,onecard-phase1-gateway-e9ed7f3f70f8,52.18%,242.4MiB / 1.5GiB
+2026-11-11T17:14:08.4142379+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.5MiB / 1GiB
+2026-11-11T17:14:08.4142379+08:00,k6-load-generator,5.7,75.4MiB
+2026-11-11T17:14:13.4242812+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,549.5MiB / 1GiB
+2026-11-11T17:14:13.4242812+08:00,onecard-phase1-gateway-e9ed7f3f70f8,12.16%,230.6MiB / 1.5GiB
+2026-11-11T17:14:13.4242812+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.5MiB / 1GiB
+2026-11-11T17:14:13.4242812+08:00,k6-load-generator,5.6,75.6MiB
+2026-11-11T17:14:18.4342119+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,549.5MiB / 1GiB
+2026-11-11T17:14:18.4342119+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.85%,230.8MiB / 1.5GiB
+2026-11-11T17:14:18.4342119+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.5MiB / 1GiB
+2026-11-11T17:14:18.4342119+08:00,k6-load-generator,5.6,75.6MiB
+2026-11-11T17:14:23.4415356+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,549.5MiB / 1GiB
+2026-11-11T17:14:23.4415356+08:00,onecard-phase1-gateway-e9ed7f3f70f8,13.23%,231.4MiB / 1.5GiB
+2026-11-11T17:14:23.4415356+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.5MiB / 1GiB
+2026-11-11T17:14:23.4415356+08:00,k6-load-generator,5.5,75.8MiB
+2026-11-11T17:14:28.4449702+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,549.5MiB / 1GiB
+2026-11-11T17:14:28.4449702+08:00,onecard-phase1-gateway-e9ed7f3f70f8,11.25%,231.2MiB / 1.5GiB
+2026-11-11T17:14:28.4449702+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.5MiB / 1GiB
+2026-11-11T17:14:28.4449702+08:00,k6-load-generator,5.5,75.9MiB
+2026-11-11T17:14:33.4536337+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,549.5MiB / 1GiB
+2026-11-11T17:14:33.4536337+08:00,onecard-phase1-gateway-e9ed7f3f70f8,0.47%,230.9MiB / 1.5GiB
+2026-11-11T17:14:33.4536337+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.5MiB / 1GiB
+2026-11-11T17:14:38.4546548+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,549.5MiB / 1GiB
+2026-11-11T17:14:38.4546548+08:00,onecard-phase1-gateway-e9ed7f3f70f8,0.07%,230.9MiB / 1.5GiB
+2026-11-11T17:14:38.4546548+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.5MiB / 1GiB
+2026-11-11T17:14:44.9174224+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,34.56%,551.5MiB / 1GiB
+2026-11-11T17:14:44.9174224+08:00,onecard-phase1-gateway-e9ed7f3f70f8,23.97%,231.2MiB / 1.5GiB
+2026-11-11T17:14:44.9174224+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,169.5MiB / 1GiB
+2026-11-11T17:14:44.9174224+08:00,k6-load-generator,16.0,84.8MiB
+2026-11-11T17:14:49.9379814+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,553.1MiB / 1GiB
+2026-11-11T17:14:49.9379814+08:00,onecard-phase1-gateway-e9ed7f3f70f8,10.15%,232MiB / 1.5GiB
+2026-11-11T17:14:49.9379814+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,169.5MiB / 1GiB
+2026-11-11T17:14:49.9379814+08:00,k6-load-generator,10.5,100MiB
+2026-11-11T17:14:56.0378476+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,553.1MiB / 1GiB
+2026-11-11T17:14:56.0378476+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.15%,232.7MiB / 1.5GiB
+2026-11-11T17:14:56.0378476+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.6MiB / 1GiB
+2026-11-11T17:14:56.0378476+08:00,k6-load-generator,7.9,106.6MiB
+2026-11-11T17:15:01.0527615+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,553.1MiB / 1GiB
+2026-11-11T17:15:01.0527615+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.33%,232.3MiB / 1.5GiB
+2026-11-11T17:15:01.0527615+08:00,onecard-phase1-account-e9ed7f3f70f8,0.34%,169.6MiB / 1GiB
+2026-11-11T17:15:01.0527615+08:00,k6-load-generator,7.5,112.1MiB
+2026-11-11T17:15:06.0534149+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,553.1MiB / 1GiB
+2026-11-11T17:15:06.0534149+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.76%,232.5MiB / 1.5GiB
+2026-11-11T17:15:06.0534149+08:00,onecard-phase1-account-e9ed7f3f70f8,0.15%,169.6MiB / 1GiB
+2026-11-11T17:15:06.0534149+08:00,k6-load-generator,6.8,112.4MiB
+2026-11-11T17:15:11.0637971+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,553.1MiB / 1GiB
+2026-11-11T17:15:11.0637971+08:00,onecard-phase1-gateway-e9ed7f3f70f8,10.95%,232.7MiB / 1.5GiB
+2026-11-11T17:15:11.0637971+08:00,onecard-phase1-account-e9ed7f3f70f8,0.32%,169.6MiB / 1GiB
+2026-11-11T17:15:11.0637971+08:00,k6-load-generator,6.7,113.8MiB
+2026-11-11T17:15:16.0794450+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,553.1MiB / 1GiB
+2026-11-11T17:15:16.0794450+08:00,onecard-phase1-gateway-e9ed7f3f70f8,10.37%,233.4MiB / 1.5GiB
+2026-11-11T17:15:16.0794450+08:00,onecard-phase1-account-e9ed7f3f70f8,0.19%,169.6MiB / 1GiB
+2026-11-11T17:15:16.0794450+08:00,k6-load-generator,6.6,114.4MiB
+2026-11-11T17:15:21.0880990+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,553.1MiB / 1GiB
+2026-11-11T17:15:21.0880990+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.17%,233.4MiB / 1.5GiB
+2026-11-11T17:15:21.0880990+08:00,onecard-phase1-account-e9ed7f3f70f8,0.17%,169.6MiB / 1GiB
+2026-11-11T17:15:21.0880990+08:00,k6-load-generator,6.4,114.7MiB
+2026-11-11T17:15:26.0934677+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,553.1MiB / 1GiB
+2026-11-11T17:15:26.0934677+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.14%,233.7MiB / 1.5GiB
+2026-11-11T17:15:26.0934677+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.6MiB / 1GiB
+2026-11-11T17:15:26.0934677+08:00,k6-load-generator,6.1,116.2MiB
+2026-11-11T17:15:31.0974740+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,553.1MiB / 1GiB
+2026-11-11T17:15:31.0974740+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.78%,235.3MiB / 1.5GiB
+2026-11-11T17:15:31.0974740+08:00,onecard-phase1-account-e9ed7f3f70f8,0.12%,169.6MiB / 1GiB
+2026-11-11T17:15:31.0974740+08:00,k6-load-generator,6.1,123.8MiB
+2026-11-11T17:15:36.1074793+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,553.1MiB / 1GiB
+2026-11-11T17:15:36.1074793+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.50%,234.2MiB / 1.5GiB
+2026-11-11T17:15:36.1074793+08:00,onecard-phase1-account-e9ed7f3f70f8,0.24%,169.7MiB / 1GiB
+2026-11-11T17:15:36.1074793+08:00,k6-load-generator,6.0,123.9MiB
+2026-11-11T17:15:41.1213430+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.27%,553.1MiB / 1GiB
+2026-11-11T17:15:41.1213430+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.54%,234.3MiB / 1.5GiB
+2026-11-11T17:15:41.1213430+08:00,onecard-phase1-account-e9ed7f3f70f8,0.12%,169.7MiB / 1GiB
+2026-11-11T17:15:41.1213430+08:00,k6-load-generator,6.0,124.8MiB
+2026-11-11T17:15:46.1301516+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,553MiB / 1GiB
+2026-11-11T17:15:46.1301516+08:00,onecard-phase1-gateway-e9ed7f3f70f8,0.08%,234.3MiB / 1.5GiB
+2026-11-11T17:15:46.1301516+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,169.7MiB / 1GiB
+2026-11-11T17:15:46.1301516+08:00,k6-load-generator,5.6,124.8MiB
+2026-11-11T17:15:51.1317090+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,553MiB / 1GiB
+2026-11-11T17:15:51.1317090+08:00,onecard-phase1-gateway-e9ed7f3f70f8,0.07%,233.9MiB / 1.5GiB
+2026-11-11T17:15:51.1317090+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,169.7MiB / 1GiB
+2026-11-11T17:15:57.4788182+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.66%,553.1MiB / 1GiB
+2026-11-11T17:15:57.4788182+08:00,onecard-phase1-gateway-e9ed7f3f70f8,32.89%,234.3MiB / 1.5GiB
+2026-11-11T17:15:57.4788182+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.7MiB / 1GiB
+2026-11-11T17:15:57.4788182+08:00,k6-load-generator,36.5,123.2MiB
+2026-11-11T17:16:02.4930738+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,553.1MiB / 1GiB
+2026-11-11T17:16:02.4930738+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.74%,234.9MiB / 1.5GiB
+2026-11-11T17:16:02.4930738+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.7MiB / 1GiB
+2026-11-11T17:16:02.4930738+08:00,k6-load-generator,14.8,146.7MiB
+2026-11-11T17:16:07.5061719+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,553.1MiB / 1GiB
+2026-11-11T17:16:07.5061719+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.04%,236.1MiB / 1.5GiB
+2026-11-11T17:16:07.5061719+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.7MiB / 1GiB
+2026-11-11T17:16:07.5061719+08:00,k6-load-generator,12.0,156.4MiB
+2026-11-11T17:16:12.5095695+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.21%,553.1MiB / 1GiB
+2026-11-11T17:16:12.5095695+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.99%,236.4MiB / 1.5GiB
+2026-11-11T17:16:12.5095695+08:00,onecard-phase1-account-e9ed7f3f70f8,0.11%,169.7MiB / 1GiB
+2026-11-11T17:16:12.5095695+08:00,k6-load-generator,9.8,158.8MiB
+2026-11-11T17:16:17.5337419+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.22%,553.1MiB / 1GiB
+2026-11-11T17:16:17.5337419+08:00,onecard-phase1-gateway-e9ed7f3f70f8,29.96%,236.5MiB / 1.5GiB
+2026-11-11T17:16:17.5337419+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.7MiB / 1GiB
+2026-11-11T17:16:17.5337419+08:00,k6-load-generator,8.6,172.6MiB
+2026-11-11T17:16:22.5421342+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,553.1MiB / 1GiB
+2026-11-11T17:16:22.5421342+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.38%,236.6MiB / 1.5GiB
+2026-11-11T17:16:22.5421342+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.7MiB / 1GiB
+2026-11-11T17:16:22.5421342+08:00,k6-load-generator,8.4,184.8MiB
+2026-11-11T17:16:27.5497201+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,553.1MiB / 1GiB
+2026-11-11T17:16:27.5497201+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.88%,236.7MiB / 1.5GiB
+2026-11-11T17:16:27.5497201+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.7MiB / 1GiB
+2026-11-11T17:16:27.5497201+08:00,k6-load-generator,7.9,185.2MiB
+2026-11-11T17:16:32.5523205+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,553.1MiB / 1GiB
+2026-11-11T17:16:32.5523205+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.24%,237.4MiB / 1.5GiB
+2026-11-11T17:16:32.5523205+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.7MiB / 1GiB
+2026-11-11T17:16:32.5523205+08:00,k6-load-generator,7.4,185.3MiB
+2026-11-11T17:16:37.5659142+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.26%,553.1MiB / 1GiB
+2026-11-11T17:16:37.5659142+08:00,onecard-phase1-gateway-e9ed7f3f70f8,10.76%,237.4MiB / 1.5GiB
+2026-11-11T17:16:37.5659142+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.7MiB / 1GiB
+2026-11-11T17:16:37.5659142+08:00,k6-load-generator,7.0,186.7MiB
+2026-11-11T17:16:42.5722098+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,553.1MiB / 1GiB
+2026-11-11T17:16:42.5722098+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.95%,237.7MiB / 1.5GiB
+2026-11-11T17:16:42.5722098+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.7MiB / 1GiB
+2026-11-11T17:16:42.5722098+08:00,k6-load-generator,7.1,188.2MiB
+2026-11-11T17:16:47.5952388+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,553.1MiB / 1GiB
+2026-11-11T17:16:47.5952388+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.96%,237.5MiB / 1.5GiB
+2026-11-11T17:16:47.5952388+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.7MiB / 1GiB
+2026-11-11T17:16:47.5952388+08:00,k6-load-generator,6.8,188.3MiB
+2026-11-11T17:16:52.5996513+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,553.1MiB / 1GiB
+2026-11-11T17:16:52.5996513+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.32%,237.7MiB / 1.5GiB
+2026-11-11T17:16:52.5996513+08:00,onecard-phase1-account-e9ed7f3f70f8,0.21%,169.8MiB / 1GiB
+2026-11-11T17:16:52.5996513+08:00,k6-load-generator,6.6,188.3MiB
+2026-11-11T17:16:57.6098938+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,553.1MiB / 1GiB
+2026-11-11T17:16:57.6098938+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.78%,237.6MiB / 1.5GiB
+2026-11-11T17:16:57.6098938+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.8MiB / 1GiB
+2026-11-11T17:16:57.6098938+08:00,k6-load-generator,6.7,188.8MiB
+2026-11-11T17:17:02.6134030+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.21%,553.1MiB / 1GiB
+2026-11-11T17:17:02.6134030+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.76%,237.6MiB / 1.5GiB
+2026-11-11T17:17:02.6134030+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.8MiB / 1GiB
+2026-11-11T17:17:02.6134030+08:00,k6-load-generator,6.5,189MiB
+2026-11-11T17:17:07.6267298+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.22%,553.1MiB / 1GiB
+2026-11-11T17:17:07.6267298+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.65%,237.7MiB / 1.5GiB
+2026-11-11T17:17:07.6267298+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.8MiB / 1GiB
+2026-11-11T17:17:07.6267298+08:00,k6-load-generator,6.3,189MiB
+2026-11-11T17:17:12.6353708+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,553.1MiB / 1GiB
+2026-11-11T17:17:12.6353708+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.42%,238.2MiB / 1.5GiB
+2026-11-11T17:17:12.6353708+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.8MiB / 1GiB
+2026-11-11T17:17:12.6353708+08:00,k6-load-generator,6.2,189MiB
+2026-11-11T17:17:17.6593007+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,553.1MiB / 1GiB
+2026-11-11T17:17:17.6593007+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.22%,238.1MiB / 1.5GiB
+2026-11-11T17:17:17.6593007+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.8MiB / 1GiB
+2026-11-11T17:17:17.6593007+08:00,k6-load-generator,6.3,189.1MiB
+2026-11-11T17:17:22.6677696+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,553.1MiB / 1GiB
+2026-11-11T17:17:22.6677696+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.37%,237.9MiB / 1.5GiB
+2026-11-11T17:17:22.6677696+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.8MiB / 1GiB
+2026-11-11T17:17:22.6677696+08:00,k6-load-generator,6.2,189.1MiB
+2026-11-11T17:17:27.6816004+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,553.1MiB / 1GiB
+2026-11-11T17:17:27.6816004+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.29%,237.9MiB / 1.5GiB
+2026-11-11T17:17:27.6816004+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.8MiB / 1GiB
+2026-11-11T17:17:27.6816004+08:00,k6-load-generator,6.1,189.1MiB
+2026-11-11T17:17:32.7028203+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,553.1MiB / 1GiB
+2026-11-11T17:17:32.7028203+08:00,onecard-phase1-gateway-e9ed7f3f70f8,12.22%,238.3MiB / 1.5GiB
+2026-11-11T17:17:32.7028203+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.8MiB / 1GiB
+2026-11-11T17:17:32.7028203+08:00,k6-load-generator,6.0,189.7MiB
+2026-11-11T17:17:37.7192924+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.29%,553.1MiB / 1GiB
+2026-11-11T17:17:37.7192924+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.16%,238.1MiB / 1.5GiB
+2026-11-11T17:17:37.7192924+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.8MiB / 1GiB
+2026-11-11T17:17:37.7192924+08:00,k6-load-generator,6.0,203.5MiB
+2026-11-11T17:17:42.7360686+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.21%,553.1MiB / 1GiB
+2026-11-11T17:17:42.7360686+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.59%,238.1MiB / 1.5GiB
+2026-11-11T17:17:42.7360686+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.8MiB / 1GiB
+2026-11-11T17:17:42.7360686+08:00,k6-load-generator,6.0,207.3MiB
+2026-11-11T17:17:47.7386726+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,554.3MiB / 1GiB
+2026-11-11T17:17:47.7386726+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.58%,238.2MiB / 1.5GiB
+2026-11-11T17:17:47.7386726+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.8MiB / 1GiB
+2026-11-11T17:17:47.7386726+08:00,k6-load-generator,6.0,207.5MiB
+2026-11-11T17:17:52.7532965+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,554.3MiB / 1GiB
+2026-11-11T17:17:52.7532965+08:00,onecard-phase1-gateway-e9ed7f3f70f8,32.61%,238.4MiB / 1.5GiB
+2026-11-11T17:17:52.7532965+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.8MiB / 1GiB
+2026-11-11T17:17:52.7532965+08:00,k6-load-generator,5.9,207.5MiB
+2026-11-11T17:17:57.7547422+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,554.3MiB / 1GiB
+2026-11-11T17:17:57.7547422+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.48%,238.7MiB / 1.5GiB
+2026-11-11T17:17:57.7547422+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.8MiB / 1GiB
+2026-11-11T17:17:57.7547422+08:00,k6-load-generator,5.8,207.5MiB
+2026-11-11T17:18:02.7673954+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,554.3MiB / 1GiB
+2026-11-11T17:18:02.7673954+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.79%,238.4MiB / 1.5GiB
+2026-11-11T17:18:02.7673954+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.8MiB / 1GiB
+2026-11-11T17:18:02.7673954+08:00,k6-load-generator,5.7,208.5MiB
+2026-11-11T17:18:07.7754528+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.22%,554.3MiB / 1GiB
+2026-11-11T17:18:07.7754528+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.22%,238.4MiB / 1.5GiB
+2026-11-11T17:18:07.7754528+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.8MiB / 1GiB
+2026-11-11T17:18:07.7754528+08:00,k6-load-generator,5.9,209.2MiB
+2026-11-11T17:18:12.7892270+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,554.3MiB / 1GiB
+2026-11-11T17:18:12.7892270+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.35%,239.1MiB / 1.5GiB
+2026-11-11T17:18:12.7892270+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.8MiB / 1GiB
+2026-11-11T17:18:12.7892270+08:00,k6-load-generator,5.8,209.3MiB
+2026-11-11T17:18:17.8123728+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,554.3MiB / 1GiB
+2026-11-11T17:18:17.8123728+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.29%,238.8MiB / 1.5GiB
+2026-11-11T17:18:17.8123728+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.8MiB / 1GiB
+2026-11-11T17:18:17.8123728+08:00,k6-load-generator,5.7,209.3MiB
+2026-11-11T17:18:22.8144778+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,554.3MiB / 1GiB
+2026-11-11T17:18:22.8144778+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.76%,238.7MiB / 1.5GiB
+2026-11-11T17:18:22.8144778+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:18:22.8144778+08:00,k6-load-generator,5.7,209.3MiB
+2026-11-11T17:18:27.8253165+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,554.3MiB / 1GiB
+2026-11-11T17:18:27.8253165+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.23%,238.7MiB / 1.5GiB
+2026-11-11T17:18:27.8253165+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.9MiB / 1GiB
+2026-11-11T17:18:27.8253165+08:00,k6-load-generator,5.7,209.9MiB
+2026-11-11T17:18:32.8383462+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,554.3MiB / 1GiB
+2026-11-11T17:18:32.8383462+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.09%,238.8MiB / 1.5GiB
+2026-11-11T17:18:32.8383462+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:18:32.8383462+08:00,k6-load-generator,5.7,210.2MiB
+2026-11-11T17:18:37.8433859+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,554.3MiB / 1GiB
+2026-11-11T17:18:37.8433859+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.88%,238.8MiB / 1.5GiB
+2026-11-11T17:18:37.8433859+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:18:37.8433859+08:00,k6-load-generator,5.7,210.2MiB
+2026-11-11T17:18:42.8579269+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,554.3MiB / 1GiB
+2026-11-11T17:18:42.8579269+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.49%,239.4MiB / 1.5GiB
+2026-11-11T17:18:42.8579269+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:18:42.8579269+08:00,k6-load-generator,5.6,210.2MiB
+2026-11-11T17:18:47.8635457+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,554.3MiB / 1GiB
+2026-11-11T17:18:47.8635457+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.90%,239.1MiB / 1.5GiB
+2026-11-11T17:18:47.8635457+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.9MiB / 1GiB
+2026-11-11T17:18:47.8635457+08:00,k6-load-generator,5.6,210.3MiB
+2026-11-11T17:18:52.8767584+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,554.3MiB / 1GiB
+2026-11-11T17:18:52.8767584+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.01%,239.1MiB / 1.5GiB
+2026-11-11T17:18:52.8767584+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:18:52.8767584+08:00,k6-load-generator,5.6,210.6MiB
+2026-11-11T17:18:57.8862935+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,554.3MiB / 1GiB
+2026-11-11T17:18:57.8862935+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.95%,239.4MiB / 1.5GiB
+2026-11-11T17:18:57.8862935+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.9MiB / 1GiB
+2026-11-11T17:18:57.8862935+08:00,k6-load-generator,5.6,210.6MiB
+2026-11-11T17:19:02.8942656+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.29%,554.3MiB / 1GiB
+2026-11-11T17:19:02.8942656+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.81%,239MiB / 1.5GiB
+2026-11-11T17:19:02.8942656+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.9MiB / 1GiB
+2026-11-11T17:19:02.8942656+08:00,k6-load-generator,5.6,210.6MiB
+2026-11-11T17:19:07.9102724+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,554.3MiB / 1GiB
+2026-11-11T17:19:07.9102724+08:00,onecard-phase1-gateway-e9ed7f3f70f8,10.84%,239.5MiB / 1.5GiB
+2026-11-11T17:19:07.9102724+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.9MiB / 1GiB
+2026-11-11T17:19:07.9102724+08:00,k6-load-generator,5.6,210.6MiB
+2026-11-11T17:19:12.9181147+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.21%,554.3MiB / 1GiB
+2026-11-11T17:19:12.9181147+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.17%,239.2MiB / 1.5GiB
+2026-11-11T17:19:12.9181147+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.9MiB / 1GiB
+2026-11-11T17:19:12.9181147+08:00,k6-load-generator,5.5,210.6MiB
+2026-11-11T17:19:17.9328368+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,554.3MiB / 1GiB
+2026-11-11T17:19:17.9328368+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.53%,239.2MiB / 1.5GiB
+2026-11-11T17:19:17.9328368+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:19:17.9328368+08:00,k6-load-generator,5.6,210.8MiB
+2026-11-11T17:19:22.9363731+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,554.3MiB / 1GiB
+2026-11-11T17:19:22.9363731+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.35%,239.5MiB / 1.5GiB
+2026-11-11T17:19:22.9363731+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.9MiB / 1GiB
+2026-11-11T17:19:22.9363731+08:00,k6-load-generator,5.5,210.9MiB
+2026-11-11T17:19:27.9466343+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,554.3MiB / 1GiB
+2026-11-11T17:19:27.9466343+08:00,onecard-phase1-gateway-e9ed7f3f70f8,21.21%,239.4MiB / 1.5GiB
+2026-11-11T17:19:27.9466343+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,169.9MiB / 1GiB
+2026-11-11T17:19:27.9466343+08:00,k6-load-generator,5.5,210.9MiB
+2026-11-11T17:19:32.9570408+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,554.3MiB / 1GiB
+2026-11-11T17:19:32.9570408+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.27%,239.4MiB / 1.5GiB
+2026-11-11T17:19:32.9570408+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:19:32.9570408+08:00,k6-load-generator,5.5,210.9MiB
+2026-11-11T17:19:37.9676147+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,554.3MiB / 1GiB
+2026-11-11T17:19:37.9676147+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.55%,239.4MiB / 1.5GiB
+2026-11-11T17:19:37.9676147+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:19:37.9676147+08:00,k6-load-generator,5.5,210.9MiB
+2026-11-11T17:19:42.9876014+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,554.3MiB / 1GiB
+2026-11-11T17:19:42.9876014+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.55%,239.6MiB / 1.5GiB
+2026-11-11T17:19:42.9876014+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:19:42.9876014+08:00,k6-load-generator,5.5,211MiB
+2026-11-11T17:19:48.0010851+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,554.3MiB / 1GiB
+2026-11-11T17:19:48.0010851+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.20%,239.5MiB / 1.5GiB
+2026-11-11T17:19:48.0010851+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:19:48.0010851+08:00,k6-load-generator,5.5,211MiB
+2026-11-11T17:19:53.0133724+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,554.3MiB / 1GiB
+2026-11-11T17:19:53.0133724+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.63%,239.9MiB / 1.5GiB
+2026-11-11T17:19:53.0133724+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:19:53.0133724+08:00,k6-load-generator,5.5,211MiB
+2026-11-11T17:19:58.0217819+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,554.3MiB / 1GiB
+2026-11-11T17:19:58.0217819+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.76%,239.6MiB / 1.5GiB
+2026-11-11T17:19:58.0217819+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.9MiB / 1GiB
+2026-11-11T17:19:58.0217819+08:00,k6-load-generator,5.4,211MiB
+2026-11-11T17:20:03.0274553+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,554.3MiB / 1GiB
+2026-11-11T17:20:03.0274553+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.78%,239.6MiB / 1.5GiB
+2026-11-11T17:20:03.0274553+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:20:03.0274553+08:00,k6-load-generator,5.4,211MiB
+2026-11-11T17:20:08.0395259+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,554.3MiB / 1GiB
+2026-11-11T17:20:08.0395259+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.37%,239.7MiB / 1.5GiB
+2026-11-11T17:20:08.0395259+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:20:08.0395259+08:00,k6-load-generator,5.5,211.1MiB
+2026-11-11T17:20:13.0502024+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,554.4MiB / 1GiB
+2026-11-11T17:20:13.0502024+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.99%,239.7MiB / 1.5GiB
+2026-11-11T17:20:13.0502024+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:20:13.0502024+08:00,k6-load-generator,5.4,211.2MiB
+2026-11-11T17:20:18.0587969+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.23%,554.4MiB / 1GiB
+2026-11-11T17:20:18.0587969+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.04%,240.5MiB / 1.5GiB
+2026-11-11T17:20:18.0587969+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,169.9MiB / 1GiB
+2026-11-11T17:20:18.0587969+08:00,k6-load-generator,5.4,211.2MiB
+2026-11-11T17:20:23.0752206+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,554.4MiB / 1GiB
+2026-11-11T17:20:23.0752206+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.00%,239.8MiB / 1.5GiB
+2026-11-11T17:20:23.0752206+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:20:23.0752206+08:00,k6-load-generator,5.4,211.2MiB
+2026-11-11T17:20:28.0893996+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,554.4MiB / 1GiB
+2026-11-11T17:20:28.0893996+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.74%,240.2MiB / 1.5GiB
+2026-11-11T17:20:28.0893996+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:20:28.0893996+08:00,k6-load-generator,5.4,211.2MiB
+2026-11-11T17:20:33.1061849+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,554.4MiB / 1GiB
+2026-11-11T17:20:33.1061849+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.88%,240MiB / 1.5GiB
+2026-11-11T17:20:33.1061849+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,169.9MiB / 1GiB
+2026-11-11T17:20:33.1061849+08:00,k6-load-generator,5.4,211.5MiB
+2026-11-11T17:20:38.1238679+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,554.4MiB / 1GiB
+2026-11-11T17:20:38.1238679+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.84%,240MiB / 1.5GiB
+2026-11-11T17:20:38.1238679+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170MiB / 1GiB
+2026-11-11T17:20:38.1238679+08:00,k6-load-generator,5.4,211.6MiB
+2026-11-11T17:20:43.1277205+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,554.4MiB / 1GiB
+2026-11-11T17:20:43.1277205+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.99%,240MiB / 1.5GiB
+2026-11-11T17:20:43.1277205+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170MiB / 1GiB
+2026-11-11T17:20:43.1277205+08:00,k6-load-generator,5.4,211.6MiB
+2026-11-11T17:20:48.1310876+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,556.4MiB / 1GiB
+2026-11-11T17:20:48.1310876+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.40%,240.1MiB / 1.5GiB
+2026-11-11T17:20:48.1310876+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170MiB / 1GiB
+2026-11-11T17:20:48.1310876+08:00,k6-load-generator,5.4,211.6MiB
+2026-11-11T17:20:53.1428607+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,556.4MiB / 1GiB
+2026-11-11T17:20:53.1428607+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.89%,240MiB / 1.5GiB
+2026-11-11T17:20:53.1428607+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170MiB / 1GiB
+2026-11-11T17:20:53.1428607+08:00,k6-load-generator,5.4,211.6MiB
+2026-11-11T17:20:58.1543676+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,556.4MiB / 1GiB
+2026-11-11T17:20:58.1543676+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.96%,240.1MiB / 1.5GiB
+2026-11-11T17:20:58.1543676+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170MiB / 1GiB
+2026-11-11T17:20:58.1543676+08:00,k6-load-generator,5.4,211.8MiB
+2026-11-11T17:21:03.1742754+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,556.4MiB / 1GiB
+2026-11-11T17:21:03.1742754+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.04%,240.3MiB / 1.5GiB
+2026-11-11T17:21:03.1742754+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170MiB / 1GiB
+2026-11-11T17:21:03.1742754+08:00,k6-load-generator,5.4,212.2MiB
+2026-11-11T17:21:08.1815475+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,556.4MiB / 1GiB
+2026-11-11T17:21:08.1815475+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.51%,240.1MiB / 1.5GiB
+2026-11-11T17:21:08.1815475+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170MiB / 1GiB
+2026-11-11T17:21:08.1815475+08:00,k6-load-generator,5.4,212.2MiB
+2026-11-11T17:21:13.1954240+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,556.4MiB / 1GiB
+2026-11-11T17:21:13.1954240+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.89%,240.1MiB / 1.5GiB
+2026-11-11T17:21:13.1954240+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170MiB / 1GiB
+2026-11-11T17:21:13.1954240+08:00,k6-load-generator,5.4,212.4MiB
+2026-11-11T17:21:18.2159269+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,556.4MiB / 1GiB
+2026-11-11T17:21:18.2159269+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.42%,240.1MiB / 1.5GiB
+2026-11-11T17:21:18.2159269+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170MiB / 1GiB
+2026-11-11T17:21:18.2159269+08:00,k6-load-generator,5.3,212.4MiB
+2026-11-11T17:21:23.2171394+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,556.4MiB / 1GiB
+2026-11-11T17:21:23.2171394+08:00,onecard-phase1-gateway-e9ed7f3f70f8,12.64%,240.5MiB / 1.5GiB
+2026-11-11T17:21:23.2171394+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170MiB / 1GiB
+2026-11-11T17:21:23.2171394+08:00,k6-load-generator,5.4,212.4MiB
+2026-11-11T17:21:28.2273063+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,556.4MiB / 1GiB
+2026-11-11T17:21:28.2273063+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.74%,240.2MiB / 1.5GiB
+2026-11-11T17:21:28.2273063+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:21:28.2273063+08:00,k6-load-generator,5.4,212.4MiB
+2026-11-11T17:21:33.2396600+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,556.4MiB / 1GiB
+2026-11-11T17:21:33.2396600+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.37%,240.2MiB / 1.5GiB
+2026-11-11T17:21:33.2396600+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:21:33.2396600+08:00,k6-load-generator,5.3,212.4MiB
+2026-11-11T17:21:38.2494910+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,556.4MiB / 1GiB
+2026-11-11T17:21:38.2494910+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.72%,240.2MiB / 1.5GiB
+2026-11-11T17:21:38.2494910+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:21:38.2494910+08:00,k6-load-generator,5.3,212.4MiB
+2026-11-11T17:21:43.2571205+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,556.4MiB / 1GiB
+2026-11-11T17:21:43.2571205+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.82%,240.3MiB / 1.5GiB
+2026-11-11T17:21:43.2571205+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:21:43.2571205+08:00,k6-load-generator,5.3,212.4MiB
+2026-11-11T17:21:48.2716794+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557MiB / 1GiB
+2026-11-11T17:21:48.2716794+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.39%,240.6MiB / 1.5GiB
+2026-11-11T17:21:48.2716794+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:21:48.2716794+08:00,k6-load-generator,5.3,212.7MiB
+2026-11-11T17:21:53.2748876+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,557MiB / 1GiB
+2026-11-11T17:21:53.2748876+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.62%,240.3MiB / 1.5GiB
+2026-11-11T17:21:53.2748876+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:21:53.2748876+08:00,k6-load-generator,5.3,212.7MiB
+2026-11-11T17:21:58.2968858+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,557MiB / 1GiB
+2026-11-11T17:21:58.2968858+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.94%,240.6MiB / 1.5GiB
+2026-11-11T17:21:58.2968858+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:21:58.2968858+08:00,k6-load-generator,5.3,212.7MiB
+2026-11-11T17:22:03.3057505+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557MiB / 1GiB
+2026-11-11T17:22:03.3057505+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.18%,240.8MiB / 1.5GiB
+2026-11-11T17:22:03.3057505+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:22:03.3057505+08:00,k6-load-generator,5.3,212.7MiB
+2026-11-11T17:22:08.3211708+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,557MiB / 1GiB
+2026-11-11T17:22:08.3211708+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.95%,240.5MiB / 1.5GiB
+2026-11-11T17:22:08.3211708+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:22:08.3211708+08:00,k6-load-generator,5.3,212.7MiB
+2026-11-11T17:22:13.3303707+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,557MiB / 1GiB
+2026-11-11T17:22:13.3303707+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.07%,240.3MiB / 1.5GiB
+2026-11-11T17:22:13.3303707+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:22:13.3303707+08:00,k6-load-generator,5.3,212.7MiB
+2026-11-11T17:22:18.3432893+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,557MiB / 1GiB
+2026-11-11T17:22:18.3432893+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.29%,240.5MiB / 1.5GiB
+2026-11-11T17:22:18.3432893+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:22:18.3432893+08:00,k6-load-generator,5.3,212.7MiB
+2026-11-11T17:22:23.3445799+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,557MiB / 1GiB
+2026-11-11T17:22:23.3445799+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.52%,240.3MiB / 1.5GiB
+2026-11-11T17:22:23.3445799+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:22:23.3445799+08:00,k6-load-generator,5.3,212.7MiB
+2026-11-11T17:22:28.3479707+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,557MiB / 1GiB
+2026-11-11T17:22:28.3479707+08:00,onecard-phase1-gateway-e9ed7f3f70f8,10.08%,240.3MiB / 1.5GiB
+2026-11-11T17:22:28.3479707+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:22:28.3479707+08:00,k6-load-generator,5.3,212.7MiB
+2026-11-11T17:22:33.3629054+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,557MiB / 1GiB
+2026-11-11T17:22:33.3629054+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.04%,240.3MiB / 1.5GiB
+2026-11-11T17:22:33.3629054+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:22:33.3629054+08:00,k6-load-generator,5.3,212.7MiB
+2026-11-11T17:22:38.3708018+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,557MiB / 1GiB
+2026-11-11T17:22:38.3708018+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.54%,240.3MiB / 1.5GiB
+2026-11-11T17:22:38.3708018+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:22:38.3708018+08:00,k6-load-generator,5.3,213.7MiB
+2026-11-11T17:22:43.3791852+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,557MiB / 1GiB
+2026-11-11T17:22:43.3791852+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.22%,240.6MiB / 1.5GiB
+2026-11-11T17:22:43.3791852+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:22:43.3791852+08:00,k6-load-generator,5.3,213.7MiB
+2026-11-11T17:22:48.3924968+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,556.9MiB / 1GiB
+2026-11-11T17:22:48.3924968+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.73%,240.3MiB / 1.5GiB
+2026-11-11T17:22:48.3924968+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:22:48.3924968+08:00,k6-load-generator,5.3,213.9MiB
+2026-11-11T17:22:53.4079336+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,556.9MiB / 1GiB
+2026-11-11T17:22:53.4079336+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.06%,240.6MiB / 1.5GiB
+2026-11-11T17:22:53.4079336+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:22:53.4079336+08:00,k6-load-generator,5.3,213.9MiB
+2026-11-11T17:22:58.4168653+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,556.9MiB / 1GiB
+2026-11-11T17:22:58.4168653+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.99%,240.4MiB / 1.5GiB
+2026-11-11T17:22:58.4168653+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:22:58.4168653+08:00,k6-load-generator,5.3,213.9MiB
+2026-11-11T17:23:03.4321776+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,556.9MiB / 1GiB
+2026-11-11T17:23:03.4321776+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.91%,240.4MiB / 1.5GiB
+2026-11-11T17:23:03.4321776+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:23:03.4321776+08:00,k6-load-generator,5.3,213.9MiB
+2026-11-11T17:23:08.4395368+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,556.9MiB / 1GiB
+2026-11-11T17:23:08.4395368+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.76%,240.4MiB / 1.5GiB
+2026-11-11T17:23:08.4395368+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:23:08.4395368+08:00,k6-load-generator,5.3,213.9MiB
+2026-11-11T17:23:13.4446645+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,556.9MiB / 1GiB
+2026-11-11T17:23:13.4446645+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.27%,240.4MiB / 1.5GiB
+2026-11-11T17:23:13.4446645+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:23:13.4446645+08:00,k6-load-generator,5.3,213.9MiB
+2026-11-11T17:23:18.4558141+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,556.9MiB / 1GiB
+2026-11-11T17:23:18.4558141+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.60%,240.7MiB / 1.5GiB
+2026-11-11T17:23:18.4558141+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:23:18.4558141+08:00,k6-load-generator,5.3,213.9MiB
+2026-11-11T17:23:23.4660198+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,556.9MiB / 1GiB
+2026-11-11T17:23:23.4660198+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.10%,240.4MiB / 1.5GiB
+2026-11-11T17:23:23.4660198+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:23:23.4660198+08:00,k6-load-generator,5.3,213.9MiB
+2026-11-11T17:23:28.4826031+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,556.9MiB / 1GiB
+2026-11-11T17:23:28.4826031+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.51%,240.4MiB / 1.5GiB
+2026-11-11T17:23:28.4826031+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:23:28.4826031+08:00,k6-load-generator,5.3,213.9MiB
+2026-11-11T17:23:33.4932706+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,556.9MiB / 1GiB
+2026-11-11T17:23:33.4932706+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.14%,240.4MiB / 1.5GiB
+2026-11-11T17:23:33.4932706+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:23:33.4932706+08:00,k6-load-generator,5.3,213.9MiB
+2026-11-11T17:23:38.5108309+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,556.9MiB / 1GiB
+2026-11-11T17:23:38.5108309+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.31%,240.7MiB / 1.5GiB
+2026-11-11T17:23:38.5108309+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:23:38.5108309+08:00,k6-load-generator,5.2,213.9MiB
+2026-11-11T17:23:43.5293627+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,556.9MiB / 1GiB
+2026-11-11T17:23:43.5293627+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.45%,240.4MiB / 1.5GiB
+2026-11-11T17:23:43.5293627+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:23:43.5293627+08:00,k6-load-generator,5.2,214MiB
+2026-11-11T17:23:48.5416293+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557.5MiB / 1GiB
+2026-11-11T17:23:48.5416293+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.16%,240.7MiB / 1.5GiB
+2026-11-11T17:23:48.5416293+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:23:48.5416293+08:00,k6-load-generator,5.3,214MiB
+2026-11-11T17:23:53.5536936+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557.5MiB / 1GiB
+2026-11-11T17:23:53.5536936+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.81%,240.5MiB / 1.5GiB
+2026-11-11T17:23:53.5536936+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:23:53.5536936+08:00,k6-load-generator,5.3,214MiB
+2026-11-11T17:23:58.5650966+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557.5MiB / 1GiB
+2026-11-11T17:23:58.5650966+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.73%,240.5MiB / 1.5GiB
+2026-11-11T17:23:58.5650966+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:23:58.5650966+08:00,k6-load-generator,5.2,214MiB
+2026-11-11T17:24:03.5683851+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,557.5MiB / 1GiB
+2026-11-11T17:24:03.5683851+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.71%,240.8MiB / 1.5GiB
+2026-11-11T17:24:03.5683851+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:24:03.5683851+08:00,k6-load-generator,5.2,214MiB
+2026-11-11T17:24:08.5684503+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557.5MiB / 1GiB
+2026-11-11T17:24:08.5684503+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.61%,240.6MiB / 1.5GiB
+2026-11-11T17:24:08.5684503+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:24:08.5684503+08:00,k6-load-generator,5.2,214MiB
+2026-11-11T17:24:13.5767171+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,557.5MiB / 1GiB
+2026-11-11T17:24:13.5767171+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.31%,240.6MiB / 1.5GiB
+2026-11-11T17:24:13.5767171+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:24:13.5767171+08:00,k6-load-generator,5.3,214MiB
+2026-11-11T17:24:18.5808161+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,557.5MiB / 1GiB
+2026-11-11T17:24:18.5808161+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.85%,240.7MiB / 1.5GiB
+2026-11-11T17:24:18.5808161+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:24:18.5808161+08:00,k6-load-generator,5.2,214MiB
+2026-11-11T17:24:23.5892523+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557.5MiB / 1GiB
+2026-11-11T17:24:23.5892523+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.46%,240.9MiB / 1.5GiB
+2026-11-11T17:24:23.5892523+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:24:23.5892523+08:00,k6-load-generator,5.2,214MiB
+2026-11-11T17:24:28.6017334+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,557.5MiB / 1GiB
+2026-11-11T17:24:28.6017334+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.21%,241MiB / 1.5GiB
+2026-11-11T17:24:28.6017334+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:24:28.6017334+08:00,k6-load-generator,5.2,214MiB
+2026-11-11T17:24:33.6070326+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557.5MiB / 1GiB
+2026-11-11T17:24:33.6070326+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.92%,240.7MiB / 1.5GiB
+2026-11-11T17:24:33.6070326+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:24:33.6070326+08:00,k6-load-generator,5.2,215.8MiB
+2026-11-11T17:24:38.6199979+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,557.5MiB / 1GiB
+2026-11-11T17:24:38.6199979+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.57%,240.7MiB / 1.5GiB
+2026-11-11T17:24:38.6199979+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:24:38.6199979+08:00,k6-load-generator,5.2,215.8MiB
+2026-11-11T17:24:43.6216865+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,557.5MiB / 1GiB
+2026-11-11T17:24:43.6216865+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.00%,240.7MiB / 1.5GiB
+2026-11-11T17:24:43.6216865+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:24:43.6216865+08:00,k6-load-generator,5.2,215.8MiB
+2026-11-11T17:24:48.6299918+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,557.5MiB / 1GiB
+2026-11-11T17:24:48.6299918+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.18%,241.2MiB / 1.5GiB
+2026-11-11T17:24:48.6299918+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:24:48.6299918+08:00,k6-load-generator,5.2,215.8MiB
+2026-11-11T17:24:53.6314613+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,557.5MiB / 1GiB
+2026-11-11T17:24:53.6314613+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.39%,241MiB / 1.5GiB
+2026-11-11T17:24:53.6314613+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:24:53.6314613+08:00,k6-load-generator,5.2,215.8MiB
+2026-11-11T17:24:58.6379436+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,557.5MiB / 1GiB
+2026-11-11T17:24:58.6379436+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.20%,241MiB / 1.5GiB
+2026-11-11T17:24:58.6379436+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:24:58.6379436+08:00,k6-load-generator,5.2,215.8MiB
+2026-11-11T17:25:03.6565022+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,557.5MiB / 1GiB
+2026-11-11T17:25:03.6565022+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.40%,240.7MiB / 1.5GiB
+2026-11-11T17:25:03.6565022+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:25:03.6565022+08:00,k6-load-generator,5.2,215.8MiB
+2026-11-11T17:25:08.6686374+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,557.5MiB / 1GiB
+2026-11-11T17:25:08.6686374+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.30%,240.7MiB / 1.5GiB
+2026-11-11T17:25:08.6686374+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.1MiB / 1GiB
+2026-11-11T17:25:08.6686374+08:00,k6-load-generator,5.2,215.8MiB
+2026-11-11T17:25:13.6837493+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,557.5MiB / 1GiB
+2026-11-11T17:25:13.6837493+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.77%,240.7MiB / 1.5GiB
+2026-11-11T17:25:13.6837493+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.1MiB / 1GiB
+2026-11-11T17:25:13.6837493+08:00,k6-load-generator,5.2,215.8MiB
+2026-11-11T17:25:18.7016929+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,557.5MiB / 1GiB
+2026-11-11T17:25:18.7016929+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.01%,241MiB / 1.5GiB
+2026-11-11T17:25:18.7016929+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:25:18.7016929+08:00,k6-load-generator,5.2,215.8MiB
+2026-11-11T17:25:23.7090483+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,557.5MiB / 1GiB
+2026-11-11T17:25:23.7090483+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.51%,241MiB / 1.5GiB
+2026-11-11T17:25:23.7090483+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:25:23.7090483+08:00,k6-load-generator,5.2,215.8MiB
+2026-11-11T17:25:28.7197292+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557.5MiB / 1GiB
+2026-11-11T17:25:28.7197292+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.60%,241MiB / 1.5GiB
+2026-11-11T17:25:28.7197292+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:25:28.7197292+08:00,k6-load-generator,5.2,215.8MiB
+2026-11-11T17:25:33.7316541+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,557.5MiB / 1GiB
+2026-11-11T17:25:33.7316541+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.25%,240.7MiB / 1.5GiB
+2026-11-11T17:25:33.7316541+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.2MiB / 1GiB
+2026-11-11T17:25:33.7316541+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:25:38.7453417+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,557.5MiB / 1GiB
+2026-11-11T17:25:38.7453417+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.00%,240.7MiB / 1.5GiB
+2026-11-11T17:25:38.7453417+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:25:38.7453417+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:25:43.7461314+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,557.5MiB / 1GiB
+2026-11-11T17:25:43.7461314+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.72%,240.7MiB / 1.5GiB
+2026-11-11T17:25:43.7461314+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:25:43.7461314+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:25:48.7516849+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,557.5MiB / 1GiB
+2026-11-11T17:25:48.7516849+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.22%,241MiB / 1.5GiB
+2026-11-11T17:25:48.7516849+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:25:48.7516849+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:25:53.7571887+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,557.5MiB / 1GiB
+2026-11-11T17:25:53.7571887+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.83%,240.7MiB / 1.5GiB
+2026-11-11T17:25:53.7571887+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:25:53.7571887+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:25:58.7714787+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,557.5MiB / 1GiB
+2026-11-11T17:25:58.7714787+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.77%,240.7MiB / 1.5GiB
+2026-11-11T17:25:58.7714787+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:25:58.7714787+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:26:03.7869405+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,557.5MiB / 1GiB
+2026-11-11T17:26:03.7869405+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.57%,241MiB / 1.5GiB
+2026-11-11T17:26:03.7869405+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:26:03.7869405+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:26:08.8092662+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557.5MiB / 1GiB
+2026-11-11T17:26:08.8092662+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.47%,240.7MiB / 1.5GiB
+2026-11-11T17:26:08.8092662+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:26:08.8092662+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:26:13.8203913+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557.5MiB / 1GiB
+2026-11-11T17:26:13.8203913+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.84%,241.2MiB / 1.5GiB
+2026-11-11T17:26:13.8203913+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:26:13.8203913+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:26:18.8281447+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557.5MiB / 1GiB
+2026-11-11T17:26:18.8281447+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.39%,241MiB / 1.5GiB
+2026-11-11T17:26:18.8281447+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.2MiB / 1GiB
+2026-11-11T17:26:18.8281447+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:26:23.8392258+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,557.5MiB / 1GiB
+2026-11-11T17:26:23.8392258+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.18%,241MiB / 1.5GiB
+2026-11-11T17:26:23.8392258+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:26:23.8392258+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:26:28.8603352+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,557.5MiB / 1GiB
+2026-11-11T17:26:28.8603352+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.89%,240.8MiB / 1.5GiB
+2026-11-11T17:26:28.8603352+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.2MiB / 1GiB
+2026-11-11T17:26:28.8603352+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:26:33.8657967+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,557.5MiB / 1GiB
+2026-11-11T17:26:33.8657967+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.04%,241MiB / 1.5GiB
+2026-11-11T17:26:33.8657967+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:26:33.8657967+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:26:38.8735229+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,557.5MiB / 1GiB
+2026-11-11T17:26:38.8735229+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.83%,240.8MiB / 1.5GiB
+2026-11-11T17:26:38.8735229+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.2MiB / 1GiB
+2026-11-11T17:26:38.8735229+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:26:43.8848521+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,557.5MiB / 1GiB
+2026-11-11T17:26:43.8848521+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.03%,241.3MiB / 1.5GiB
+2026-11-11T17:26:43.8848521+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:26:43.8848521+08:00,k6-load-generator,5.2,215.9MiB
+2026-11-11T17:26:48.8977967+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,7.73%,559.2MiB / 1GiB
+2026-11-11T17:26:48.8977967+08:00,onecard-phase1-gateway-e9ed7f3f70f8,10.44%,240.8MiB / 1.5GiB
+2026-11-11T17:26:48.8977967+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.2MiB / 1GiB
+2026-11-11T17:26:48.8977967+08:00,k6-load-generator,5.2,217.6MiB
+2026-11-11T17:26:53.9000094+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.2MiB / 1GiB
+2026-11-11T17:26:53.9000094+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.29%,240.8MiB / 1.5GiB
+2026-11-11T17:26:53.9000094+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:26:53.9000094+08:00,k6-load-generator,5.2,217.6MiB
+2026-11-11T17:26:58.9052339+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.2MiB / 1GiB
+2026-11-11T17:26:58.9052339+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.73%,240.8MiB / 1.5GiB
+2026-11-11T17:26:58.9052339+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:26:58.9052339+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:27:03.9103756+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.2MiB / 1GiB
+2026-11-11T17:27:03.9103756+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.07%,240.8MiB / 1.5GiB
+2026-11-11T17:27:03.9103756+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:27:03.9103756+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:27:08.9145141+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.2MiB / 1GiB
+2026-11-11T17:27:08.9145141+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.66%,241MiB / 1.5GiB
+2026-11-11T17:27:08.9145141+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:27:08.9145141+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:27:13.9158658+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.21%,559.2MiB / 1GiB
+2026-11-11T17:27:13.9158658+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.00%,240.8MiB / 1.5GiB
+2026-11-11T17:27:13.9158658+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:27:13.9158658+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:27:18.9233834+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.2MiB / 1GiB
+2026-11-11T17:27:18.9233834+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.48%,240.8MiB / 1.5GiB
+2026-11-11T17:27:18.9233834+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:27:18.9233834+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:27:23.9259657+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,559.2MiB / 1GiB
+2026-11-11T17:27:23.9259657+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.60%,241.1MiB / 1.5GiB
+2026-11-11T17:27:23.9259657+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:27:23.9259657+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:27:28.9386396+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.2MiB / 1GiB
+2026-11-11T17:27:28.9386396+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.12%,240.8MiB / 1.5GiB
+2026-11-11T17:27:28.9386396+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:27:28.9386396+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:27:33.9419558+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.2MiB / 1GiB
+2026-11-11T17:27:33.9419558+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.80%,240.8MiB / 1.5GiB
+2026-11-11T17:27:33.9419558+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:27:33.9419558+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:27:38.9520923+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.2MiB / 1GiB
+2026-11-11T17:27:38.9520923+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.87%,241.1MiB / 1.5GiB
+2026-11-11T17:27:38.9520923+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:27:38.9520923+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:27:43.9635945+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.2MiB / 1GiB
+2026-11-11T17:27:43.9635945+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.89%,240.9MiB / 1.5GiB
+2026-11-11T17:27:43.9635945+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:27:43.9635945+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:27:48.9777122+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,559.1MiB / 1GiB
+2026-11-11T17:27:48.9777122+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.37%,240.8MiB / 1.5GiB
+2026-11-11T17:27:48.9777122+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:27:48.9777122+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:27:53.9831480+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.1MiB / 1GiB
+2026-11-11T17:27:53.9831480+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.95%,240.8MiB / 1.5GiB
+2026-11-11T17:27:53.9831480+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:27:53.9831480+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:27:58.9889663+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.1MiB / 1GiB
+2026-11-11T17:27:58.9889663+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.84%,240.8MiB / 1.5GiB
+2026-11-11T17:27:58.9889663+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:27:58.9889663+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:28:03.9923712+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,559.1MiB / 1GiB
+2026-11-11T17:28:03.9923712+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.11%,240.8MiB / 1.5GiB
+2026-11-11T17:28:03.9923712+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:28:03.9923712+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:28:09.0032326+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.1MiB / 1GiB
+2026-11-11T17:28:09.0032326+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.84%,240.8MiB / 1.5GiB
+2026-11-11T17:28:09.0032326+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:28:09.0032326+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:28:14.0044018+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.1MiB / 1GiB
+2026-11-11T17:28:14.0044018+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.60%,240.9MiB / 1.5GiB
+2026-11-11T17:28:14.0044018+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:28:14.0044018+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:28:19.0067640+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,559.1MiB / 1GiB
+2026-11-11T17:28:19.0067640+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.18%,241.2MiB / 1.5GiB
+2026-11-11T17:28:19.0067640+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:28:19.0067640+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:28:24.0165992+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,559.1MiB / 1GiB
+2026-11-11T17:28:24.0165992+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.20%,240.9MiB / 1.5GiB
+2026-11-11T17:28:24.0165992+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:28:24.0165992+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:28:29.0204574+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.1MiB / 1GiB
+2026-11-11T17:28:29.0204574+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.77%,241MiB / 1.5GiB
+2026-11-11T17:28:29.0204574+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:28:29.0204574+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:28:34.0224161+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.1MiB / 1GiB
+2026-11-11T17:28:34.0224161+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.54%,241.2MiB / 1.5GiB
+2026-11-11T17:28:34.0224161+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:28:34.0224161+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:28:39.0371570+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,559.1MiB / 1GiB
+2026-11-11T17:28:39.0371570+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.67%,241MiB / 1.5GiB
+2026-11-11T17:28:39.0371570+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:28:39.0371570+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:28:44.0564467+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,559.1MiB / 1GiB
+2026-11-11T17:28:44.0564467+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.15%,241.2MiB / 1.5GiB
+2026-11-11T17:28:44.0564467+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:28:44.0564467+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:28:49.0636179+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.1MiB / 1GiB
+2026-11-11T17:28:49.0636179+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.94%,241.7MiB / 1.5GiB
+2026-11-11T17:28:49.0636179+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:28:49.0636179+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:28:54.0758046+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,559.1MiB / 1GiB
+2026-11-11T17:28:54.0758046+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.82%,241.2MiB / 1.5GiB
+2026-11-11T17:28:54.0758046+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:28:54.0758046+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:28:59.0907803+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.1MiB / 1GiB
+2026-11-11T17:28:59.0907803+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.30%,241.2MiB / 1.5GiB
+2026-11-11T17:28:59.0907803+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:28:59.0907803+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:29:04.1074894+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,559.1MiB / 1GiB
+2026-11-11T17:29:04.1074894+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.79%,240.9MiB / 1.5GiB
+2026-11-11T17:29:04.1074894+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,170.2MiB / 1GiB
+2026-11-11T17:29:04.1074894+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:29:09.1208348+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.1MiB / 1GiB
+2026-11-11T17:29:09.1208348+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.81%,241.1MiB / 1.5GiB
+2026-11-11T17:29:09.1208348+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.2MiB / 1GiB
+2026-11-11T17:29:09.1208348+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:29:14.1214918+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,559.1MiB / 1GiB
+2026-11-11T17:29:14.1214918+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.18%,240.9MiB / 1.5GiB
+2026-11-11T17:29:14.1214918+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:29:14.1214918+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:29:19.1328537+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,559.1MiB / 1GiB
+2026-11-11T17:29:19.1328537+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.55%,240.9MiB / 1.5GiB
+2026-11-11T17:29:19.1328537+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:29:19.1328537+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:29:24.1451138+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,559.1MiB / 1GiB
+2026-11-11T17:29:24.1451138+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.74%,240.9MiB / 1.5GiB
+2026-11-11T17:29:24.1451138+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:29:24.1451138+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:29:29.1711098+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.1MiB / 1GiB
+2026-11-11T17:29:29.1711098+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.70%,240.9MiB / 1.5GiB
+2026-11-11T17:29:29.1711098+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:29:29.1711098+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:29:34.1732518+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,559.1MiB / 1GiB
+2026-11-11T17:29:34.1732518+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.27%,241.1MiB / 1.5GiB
+2026-11-11T17:29:34.1732518+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.2MiB / 1GiB
+2026-11-11T17:29:34.1732518+08:00,k6-load-generator,5.2,217.9MiB
+2026-11-11T17:29:39.1788462+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.1MiB / 1GiB
+2026-11-11T17:29:39.1788462+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.95%,241MiB / 1.5GiB
+2026-11-11T17:29:39.1788462+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:29:39.1788462+08:00,k6-load-generator,5.2,219.6MiB
+2026-11-11T17:29:44.1804729+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.1MiB / 1GiB
+2026-11-11T17:29:44.1804729+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.47%,241MiB / 1.5GiB
+2026-11-11T17:29:44.1804729+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:29:44.1804729+08:00,k6-load-generator,5.2,219.6MiB
+2026-11-11T17:29:49.1916375+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.5MiB / 1GiB
+2026-11-11T17:29:49.1916375+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.78%,241MiB / 1.5GiB
+2026-11-11T17:29:49.1916375+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:29:49.1916375+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:29:54.1995185+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.5MiB / 1GiB
+2026-11-11T17:29:54.1995185+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.56%,241.3MiB / 1.5GiB
+2026-11-11T17:29:54.1995185+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:29:54.1995185+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:29:59.2072412+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.5MiB / 1GiB
+2026-11-11T17:29:59.2072412+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.72%,241.5MiB / 1.5GiB
+2026-11-11T17:29:59.2072412+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:29:59.2072412+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:30:04.2088404+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,559.5MiB / 1GiB
+2026-11-11T17:30:04.2088404+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.95%,241.3MiB / 1.5GiB
+2026-11-11T17:30:04.2088404+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:30:04.2088404+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:30:09.2113010+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.5MiB / 1GiB
+2026-11-11T17:30:09.2113010+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.42%,241.3MiB / 1.5GiB
+2026-11-11T17:30:09.2113010+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:30:09.2113010+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:30:14.2192443+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.5MiB / 1GiB
+2026-11-11T17:30:14.2192443+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.77%,241.5MiB / 1.5GiB
+2026-11-11T17:30:14.2192443+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:30:14.2192443+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:30:19.2297554+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.5MiB / 1GiB
+2026-11-11T17:30:19.2297554+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.31%,241.1MiB / 1.5GiB
+2026-11-11T17:30:19.2297554+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:30:19.2297554+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:30:24.2528985+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.5MiB / 1GiB
+2026-11-11T17:30:24.2528985+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.25%,241.3MiB / 1.5GiB
+2026-11-11T17:30:24.2528985+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.2MiB / 1GiB
+2026-11-11T17:30:24.2528985+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:30:29.2627088+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.5MiB / 1GiB
+2026-11-11T17:30:29.2627088+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.79%,241.1MiB / 1.5GiB
+2026-11-11T17:30:29.2627088+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:30:29.2627088+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:30:34.2787675+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.5MiB / 1GiB
+2026-11-11T17:30:34.2787675+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.00%,241.1MiB / 1.5GiB
+2026-11-11T17:30:34.2787675+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:30:34.2787675+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:30:39.2895981+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.5MiB / 1GiB
+2026-11-11T17:30:39.2895981+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.84%,241.1MiB / 1.5GiB
+2026-11-11T17:30:39.2895981+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.2MiB / 1GiB
+2026-11-11T17:30:39.2895981+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:30:44.3004050+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.5MiB / 1GiB
+2026-11-11T17:30:44.3004050+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.97%,241.3MiB / 1.5GiB
+2026-11-11T17:30:44.3004050+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.2MiB / 1GiB
+2026-11-11T17:30:44.3004050+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:30:49.3063641+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.5MiB / 1GiB
+2026-11-11T17:30:49.3063641+08:00,onecard-phase1-gateway-e9ed7f3f70f8,15.64%,241.4MiB / 1.5GiB
+2026-11-11T17:30:49.3063641+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.2MiB / 1GiB
+2026-11-11T17:30:49.3063641+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:30:54.3141642+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.5MiB / 1GiB
+2026-11-11T17:30:54.3141642+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.67%,241.4MiB / 1.5GiB
+2026-11-11T17:30:54.3141642+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.3MiB / 1GiB
+2026-11-11T17:30:54.3141642+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:30:59.3308346+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.5MiB / 1GiB
+2026-11-11T17:30:59.3308346+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.81%,241.1MiB / 1.5GiB
+2026-11-11T17:30:59.3308346+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:30:59.3308346+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:31:04.3417360+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.5MiB / 1GiB
+2026-11-11T17:31:04.3417360+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.20%,241.1MiB / 1.5GiB
+2026-11-11T17:31:04.3417360+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:31:04.3417360+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:31:09.3500903+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,559.5MiB / 1GiB
+2026-11-11T17:31:09.3500903+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.86%,241.3MiB / 1.5GiB
+2026-11-11T17:31:09.3500903+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:31:09.3500903+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:31:14.3519859+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.5MiB / 1GiB
+2026-11-11T17:31:14.3519859+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.98%,241.1MiB / 1.5GiB
+2026-11-11T17:31:14.3519859+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:31:14.3519859+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:31:19.3758318+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,559.5MiB / 1GiB
+2026-11-11T17:31:19.3758318+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.63%,241.1MiB / 1.5GiB
+2026-11-11T17:31:19.3758318+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.3MiB / 1GiB
+2026-11-11T17:31:19.3758318+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:31:24.3839729+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.5MiB / 1GiB
+2026-11-11T17:31:24.3839729+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.88%,241.1MiB / 1.5GiB
+2026-11-11T17:31:24.3839729+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:31:24.3839729+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:31:29.3923495+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.5MiB / 1GiB
+2026-11-11T17:31:29.3923495+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.82%,241.3MiB / 1.5GiB
+2026-11-11T17:31:29.3923495+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:31:29.3923495+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:31:34.4036958+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.21%,559.5MiB / 1GiB
+2026-11-11T17:31:34.4036958+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.25%,241.3MiB / 1.5GiB
+2026-11-11T17:31:34.4036958+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:31:34.4036958+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:31:39.4255965+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,559.5MiB / 1GiB
+2026-11-11T17:31:39.4255965+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.62%,241.1MiB / 1.5GiB
+2026-11-11T17:31:39.4255965+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.3MiB / 1GiB
+2026-11-11T17:31:39.4255965+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:31:44.4354069+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.5MiB / 1GiB
+2026-11-11T17:31:44.4354069+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.73%,241.3MiB / 1.5GiB
+2026-11-11T17:31:44.4354069+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:31:44.4354069+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:31:49.4529506+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,559.8MiB / 1GiB
+2026-11-11T17:31:49.4529506+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.58%,241.1MiB / 1.5GiB
+2026-11-11T17:31:49.4529506+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:31:49.4529506+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:31:54.4591092+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.8MiB / 1GiB
+2026-11-11T17:31:54.4591092+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.84%,241.1MiB / 1.5GiB
+2026-11-11T17:31:54.4591092+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:31:54.4591092+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:31:59.4642641+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,559.8MiB / 1GiB
+2026-11-11T17:31:59.4642641+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.28%,241.1MiB / 1.5GiB
+2026-11-11T17:31:59.4642641+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.3MiB / 1GiB
+2026-11-11T17:31:59.4642641+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:32:04.4739943+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.8MiB / 1GiB
+2026-11-11T17:32:04.4739943+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.68%,241.6MiB / 1.5GiB
+2026-11-11T17:32:04.4739943+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:32:04.4739943+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:32:09.4809572+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.8MiB / 1GiB
+2026-11-11T17:32:09.4809572+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.26%,241.3MiB / 1.5GiB
+2026-11-11T17:32:09.4809572+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,170.3MiB / 1GiB
+2026-11-11T17:32:09.4809572+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:32:14.4964656+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.8MiB / 1GiB
+2026-11-11T17:32:14.4964656+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.51%,241.4MiB / 1.5GiB
+2026-11-11T17:32:14.4964656+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.3MiB / 1GiB
+2026-11-11T17:32:14.4964656+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:32:19.5012063+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.8MiB / 1GiB
+2026-11-11T17:32:19.5012063+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.34%,241.4MiB / 1.5GiB
+2026-11-11T17:32:19.5012063+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.3MiB / 1GiB
+2026-11-11T17:32:19.5012063+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:32:24.5117557+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.8MiB / 1GiB
+2026-11-11T17:32:24.5117557+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.95%,241.6MiB / 1.5GiB
+2026-11-11T17:32:24.5117557+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:32:24.5117557+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:32:29.5251782+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.8MiB / 1GiB
+2026-11-11T17:32:29.5251782+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.39%,241.1MiB / 1.5GiB
+2026-11-11T17:32:29.5251782+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:32:29.5251782+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:32:34.5360442+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.8MiB / 1GiB
+2026-11-11T17:32:34.5360442+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.83%,241.1MiB / 1.5GiB
+2026-11-11T17:32:34.5360442+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:32:34.5360442+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:32:39.5478988+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,559.8MiB / 1GiB
+2026-11-11T17:32:39.5478988+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.49%,241.1MiB / 1.5GiB
+2026-11-11T17:32:39.5478988+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:32:39.5478988+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:32:44.5554066+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.8MiB / 1GiB
+2026-11-11T17:32:44.5554066+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.21%,241.1MiB / 1.5GiB
+2026-11-11T17:32:44.5554066+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.3MiB / 1GiB
+2026-11-11T17:32:44.5554066+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:32:49.5568877+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.9MiB / 1GiB
+2026-11-11T17:32:49.5568877+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.66%,241.4MiB / 1.5GiB
+2026-11-11T17:32:49.5568877+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.3MiB / 1GiB
+2026-11-11T17:32:49.5568877+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:32:54.5615628+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.9MiB / 1GiB
+2026-11-11T17:32:54.5615628+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.39%,241.6MiB / 1.5GiB
+2026-11-11T17:32:54.5615628+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.3MiB / 1GiB
+2026-11-11T17:32:54.5615628+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:32:59.5749862+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.9MiB / 1GiB
+2026-11-11T17:32:59.5749862+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.47%,241.1MiB / 1.5GiB
+2026-11-11T17:32:59.5749862+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.3MiB / 1GiB
+2026-11-11T17:32:59.5749862+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:33:04.5869854+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.9MiB / 1GiB
+2026-11-11T17:33:04.5869854+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.30%,241.4MiB / 1.5GiB
+2026-11-11T17:33:04.5869854+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.3MiB / 1GiB
+2026-11-11T17:33:04.5869854+08:00,k6-load-generator,5.2,220.1MiB
+2026-11-11T17:33:09.6007935+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.9MiB / 1GiB
+2026-11-11T17:33:09.6007935+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.34%,241.4MiB / 1.5GiB
+2026-11-11T17:33:09.6007935+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.3MiB / 1GiB
+2026-11-11T17:33:09.6007935+08:00,k6-load-generator,5.2,221.7MiB
+2026-11-11T17:33:14.6064615+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.9MiB / 1GiB
+2026-11-11T17:33:14.6064615+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.37%,241.1MiB / 1.5GiB
+2026-11-11T17:33:14.6064615+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.3MiB / 1GiB
+2026-11-11T17:33:14.6064615+08:00,k6-load-generator,5.2,221.7MiB
+2026-11-11T17:33:19.6116199+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,559.9MiB / 1GiB
+2026-11-11T17:33:19.6116199+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.67%,241.1MiB / 1.5GiB
+2026-11-11T17:33:19.6116199+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.3MiB / 1GiB
+2026-11-11T17:33:19.6116199+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:33:24.6205856+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,559.9MiB / 1GiB
+2026-11-11T17:33:24.6205856+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.11%,241.4MiB / 1.5GiB
+2026-11-11T17:33:24.6205856+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:33:24.6205856+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:33:29.6311171+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,559.9MiB / 1GiB
+2026-11-11T17:33:29.6311171+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.42%,241.1MiB / 1.5GiB
+2026-11-11T17:33:29.6311171+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:33:29.6311171+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:33:34.6474337+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,559.9MiB / 1GiB
+2026-11-11T17:33:34.6474337+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.55%,241.1MiB / 1.5GiB
+2026-11-11T17:33:34.6474337+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:33:34.6474337+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:33:39.6626484+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,559.9MiB / 1GiB
+2026-11-11T17:33:39.6626484+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.55%,241.3MiB / 1.5GiB
+2026-11-11T17:33:39.6626484+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:33:39.6626484+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:33:44.6724240+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.37%,560MiB / 1GiB
+2026-11-11T17:33:44.6724240+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.03%,241.2MiB / 1.5GiB
+2026-11-11T17:33:44.6724240+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:33:44.6724240+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:33:49.6838395+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560MiB / 1GiB
+2026-11-11T17:33:49.6838395+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.65%,241.5MiB / 1.5GiB
+2026-11-11T17:33:49.6838395+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:33:49.6838395+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:33:54.6917080+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560MiB / 1GiB
+2026-11-11T17:33:54.6917080+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.79%,241.5MiB / 1.5GiB
+2026-11-11T17:33:54.6917080+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:33:54.6917080+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:33:59.7015124+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560MiB / 1GiB
+2026-11-11T17:33:59.7015124+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.34%,241.5MiB / 1.5GiB
+2026-11-11T17:33:59.7015124+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,170.4MiB / 1GiB
+2026-11-11T17:33:59.7015124+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:34:04.7189007+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,560MiB / 1GiB
+2026-11-11T17:34:04.7189007+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.02%,241.3MiB / 1.5GiB
+2026-11-11T17:34:04.7189007+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:34:04.7189007+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:34:09.7261181+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560MiB / 1GiB
+2026-11-11T17:34:09.7261181+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.58%,241.3MiB / 1.5GiB
+2026-11-11T17:34:09.7261181+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:34:09.7261181+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:34:14.7297986+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560MiB / 1GiB
+2026-11-11T17:34:14.7297986+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.47%,241.5MiB / 1.5GiB
+2026-11-11T17:34:14.7297986+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:34:14.7297986+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:34:19.7512409+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560MiB / 1GiB
+2026-11-11T17:34:19.7512409+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.62%,241.8MiB / 1.5GiB
+2026-11-11T17:34:19.7512409+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:34:19.7512409+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:34:24.7606577+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560MiB / 1GiB
+2026-11-11T17:34:24.7606577+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.20%,241.3MiB / 1.5GiB
+2026-11-11T17:34:24.7606577+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:34:24.7606577+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:34:29.7739464+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560MiB / 1GiB
+2026-11-11T17:34:29.7739464+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.84%,241.5MiB / 1.5GiB
+2026-11-11T17:34:29.7739464+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:34:29.7739464+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:34:34.7819764+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560MiB / 1GiB
+2026-11-11T17:34:34.7819764+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.54%,241.5MiB / 1.5GiB
+2026-11-11T17:34:34.7819764+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:34:34.7819764+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:34:39.7992048+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560MiB / 1GiB
+2026-11-11T17:34:39.7992048+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.40%,241.3MiB / 1.5GiB
+2026-11-11T17:34:39.7992048+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:34:39.7992048+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:34:44.8063094+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.32%,560MiB / 1GiB
+2026-11-11T17:34:44.8063094+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.27%,241.3MiB / 1.5GiB
+2026-11-11T17:34:44.8063094+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:34:44.8063094+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:34:49.8245153+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560MiB / 1GiB
+2026-11-11T17:34:49.8245153+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.66%,241.8MiB / 1.5GiB
+2026-11-11T17:34:49.8245153+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:34:49.8245153+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:34:54.8445982+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,560MiB / 1GiB
+2026-11-11T17:34:54.8445982+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.24%,241.3MiB / 1.5GiB
+2026-11-11T17:34:54.8445982+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:34:54.8445982+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:34:59.8517283+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560MiB / 1GiB
+2026-11-11T17:34:59.8517283+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.70%,241.3MiB / 1.5GiB
+2026-11-11T17:34:59.8517283+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:34:59.8517283+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:35:04.8630169+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560MiB / 1GiB
+2026-11-11T17:35:04.8630169+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.75%,241.7MiB / 1.5GiB
+2026-11-11T17:35:04.8630169+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:35:04.8630169+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:35:09.8734350+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560MiB / 1GiB
+2026-11-11T17:35:09.8734350+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.26%,241.2MiB / 1.5GiB
+2026-11-11T17:35:09.8734350+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:35:09.8734350+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:35:14.8904126+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560MiB / 1GiB
+2026-11-11T17:35:14.8904126+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.34%,241.2MiB / 1.5GiB
+2026-11-11T17:35:14.8904126+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:35:14.8904126+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:35:19.8974405+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560MiB / 1GiB
+2026-11-11T17:35:19.8974405+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.26%,241.4MiB / 1.5GiB
+2026-11-11T17:35:19.8974405+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:35:19.8974405+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:35:24.9010285+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560MiB / 1GiB
+2026-11-11T17:35:24.9010285+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.28%,241.2MiB / 1.5GiB
+2026-11-11T17:35:24.9010285+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:35:24.9010285+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:35:29.9138514+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560MiB / 1GiB
+2026-11-11T17:35:29.9138514+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.35%,241.2MiB / 1.5GiB
+2026-11-11T17:35:29.9138514+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:35:29.9138514+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:35:34.9265289+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560MiB / 1GiB
+2026-11-11T17:35:34.9265289+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.39%,241.4MiB / 1.5GiB
+2026-11-11T17:35:34.9265289+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:35:34.9265289+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:35:39.9383270+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560MiB / 1GiB
+2026-11-11T17:35:39.9383270+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.71%,241.7MiB / 1.5GiB
+2026-11-11T17:35:39.9383270+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:35:39.9383270+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:35:44.9514247+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.51%,560MiB / 1GiB
+2026-11-11T17:35:44.9514247+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.60%,241.2MiB / 1.5GiB
+2026-11-11T17:35:44.9514247+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:35:44.9514247+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:35:49.9594066+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.1MiB / 1GiB
+2026-11-11T17:35:49.9594066+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.51%,241.2MiB / 1.5GiB
+2026-11-11T17:35:49.9594066+08:00,onecard-phase1-account-e9ed7f3f70f8,0.31%,170.4MiB / 1GiB
+2026-11-11T17:35:49.9594066+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:35:54.9747763+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,560.1MiB / 1GiB
+2026-11-11T17:35:54.9747763+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.14%,241.5MiB / 1.5GiB
+2026-11-11T17:35:54.9747763+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:35:54.9747763+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:35:59.9873086+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.1MiB / 1GiB
+2026-11-11T17:35:59.9873086+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.46%,241.5MiB / 1.5GiB
+2026-11-11T17:35:59.9873086+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:35:59.9873086+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:36:04.9930061+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.1MiB / 1GiB
+2026-11-11T17:36:04.9930061+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.83%,241.7MiB / 1.5GiB
+2026-11-11T17:36:04.9930061+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:36:04.9930061+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:36:09.9975662+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.1MiB / 1GiB
+2026-11-11T17:36:09.9975662+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.95%,241.2MiB / 1.5GiB
+2026-11-11T17:36:09.9975662+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:36:09.9975662+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:36:14.9971428+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.1MiB / 1GiB
+2026-11-11T17:36:14.9971428+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.89%,241.3MiB / 1.5GiB
+2026-11-11T17:36:14.9971428+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:36:14.9971428+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:36:20.0024401+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.1MiB / 1GiB
+2026-11-11T17:36:20.0024401+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.64%,241.3MiB / 1.5GiB
+2026-11-11T17:36:20.0024401+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:36:20.0024401+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:36:25.0042498+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.1MiB / 1GiB
+2026-11-11T17:36:25.0042498+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.23%,241.6MiB / 1.5GiB
+2026-11-11T17:36:25.0042498+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:36:25.0042498+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:36:30.0152402+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,560.1MiB / 1GiB
+2026-11-11T17:36:30.0152402+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.43%,241.6MiB / 1.5GiB
+2026-11-11T17:36:30.0152402+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,170.4MiB / 1GiB
+2026-11-11T17:36:30.0152402+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:36:35.0244184+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.1MiB / 1GiB
+2026-11-11T17:36:35.0244184+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.38%,241.3MiB / 1.5GiB
+2026-11-11T17:36:35.0244184+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:36:35.0244184+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:36:40.0362944+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.1MiB / 1GiB
+2026-11-11T17:36:40.0362944+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.56%,241.4MiB / 1.5GiB
+2026-11-11T17:36:40.0362944+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,170.4MiB / 1GiB
+2026-11-11T17:36:40.0362944+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:36:45.0478778+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.24%,560.1MiB / 1GiB
+2026-11-11T17:36:45.0478778+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.07%,241.4MiB / 1.5GiB
+2026-11-11T17:36:45.0478778+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:36:45.0478778+08:00,k6-load-generator,5.2,222.2MiB
+2026-11-11T17:36:50.0526494+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.1MiB / 1GiB
+2026-11-11T17:36:50.0526494+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.18%,241.4MiB / 1.5GiB
+2026-11-11T17:36:50.0526494+08:00,onecard-phase1-account-e9ed7f3f70f8,0.10%,170.4MiB / 1GiB
+2026-11-11T17:36:50.0526494+08:00,k6-load-generator,5.2,222.3MiB
+2026-11-11T17:36:55.0637427+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.1MiB / 1GiB
+2026-11-11T17:36:55.0637427+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.21%,241.6MiB / 1.5GiB
+2026-11-11T17:36:55.0637427+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:36:55.0637427+08:00,k6-load-generator,5.2,222.3MiB
+2026-11-11T17:37:00.0688332+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.1MiB / 1GiB
+2026-11-11T17:37:00.0688332+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.87%,241.3MiB / 1.5GiB
+2026-11-11T17:37:00.0688332+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:37:00.0688332+08:00,k6-load-generator,5.2,222.3MiB
+2026-11-11T17:37:05.0710470+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.1MiB / 1GiB
+2026-11-11T17:37:05.0710470+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.19%,241.4MiB / 1.5GiB
+2026-11-11T17:37:05.0710470+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:37:05.0710470+08:00,k6-load-generator,5.2,222.3MiB
+2026-11-11T17:37:10.0817953+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.1MiB / 1GiB
+2026-11-11T17:37:10.0817953+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.04%,241.6MiB / 1.5GiB
+2026-11-11T17:37:10.0817953+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:37:10.0817953+08:00,k6-load-generator,5.2,222.3MiB
+2026-11-11T17:37:15.0956265+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.1MiB / 1GiB
+2026-11-11T17:37:15.0956265+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.79%,241.4MiB / 1.5GiB
+2026-11-11T17:37:15.0956265+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:37:15.0956265+08:00,k6-load-generator,5.2,222.3MiB
+2026-11-11T17:37:20.1046521+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.1MiB / 1GiB
+2026-11-11T17:37:20.1046521+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.67%,241.9MiB / 1.5GiB
+2026-11-11T17:37:20.1046521+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:37:20.1046521+08:00,k6-load-generator,5.2,222.3MiB
+2026-11-11T17:37:25.1275744+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.1MiB / 1GiB
+2026-11-11T17:37:25.1275744+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.96%,241.9MiB / 1.5GiB
+2026-11-11T17:37:25.1275744+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:37:25.1275744+08:00,k6-load-generator,5.2,222.3MiB
+2026-11-11T17:37:30.1346612+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.1MiB / 1GiB
+2026-11-11T17:37:30.1346612+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.71%,241.4MiB / 1.5GiB
+2026-11-11T17:37:30.1346612+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:37:30.1346612+08:00,k6-load-generator,5.2,222.3MiB
+2026-11-11T17:37:35.1505588+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.1MiB / 1GiB
+2026-11-11T17:37:35.1505588+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.07%,241.4MiB / 1.5GiB
+2026-11-11T17:37:35.1505588+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:37:35.1505588+08:00,k6-load-generator,5.2,222.3MiB
+2026-11-11T17:37:40.1634051+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.1MiB / 1GiB
+2026-11-11T17:37:40.1634051+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.49%,241.4MiB / 1.5GiB
+2026-11-11T17:37:40.1634051+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:37:40.1634051+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:37:45.1665151+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.36%,560.1MiB / 1GiB
+2026-11-11T17:37:45.1665151+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.22%,241.4MiB / 1.5GiB
+2026-11-11T17:37:45.1665151+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:37:45.1665151+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:37:50.1799547+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.1MiB / 1GiB
+2026-11-11T17:37:50.1799547+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.10%,241.4MiB / 1.5GiB
+2026-11-11T17:37:50.1799547+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:37:50.1799547+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:37:55.1893316+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.1MiB / 1GiB
+2026-11-11T17:37:55.1893316+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.78%,241.4MiB / 1.5GiB
+2026-11-11T17:37:55.1893316+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:37:55.1893316+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:38:00.2005111+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.1MiB / 1GiB
+2026-11-11T17:38:00.2005111+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.17%,241.4MiB / 1.5GiB
+2026-11-11T17:38:00.2005111+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:38:00.2005111+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:38:05.2038619+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.1MiB / 1GiB
+2026-11-11T17:38:05.2038619+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.53%,241.5MiB / 1.5GiB
+2026-11-11T17:38:05.2038619+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:38:05.2038619+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:38:10.2087390+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.1MiB / 1GiB
+2026-11-11T17:38:10.2087390+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.72%,241.6MiB / 1.5GiB
+2026-11-11T17:38:10.2087390+08:00,onecard-phase1-account-e9ed7f3f70f8,0.11%,170.4MiB / 1GiB
+2026-11-11T17:38:10.2087390+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:38:15.2118214+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.1MiB / 1GiB
+2026-11-11T17:38:15.2118214+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.14%,241.6MiB / 1.5GiB
+2026-11-11T17:38:15.2118214+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:38:15.2118214+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:38:20.2239037+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.1MiB / 1GiB
+2026-11-11T17:38:20.2239037+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.98%,241.3MiB / 1.5GiB
+2026-11-11T17:38:20.2239037+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:38:20.2239037+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:38:25.2290187+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.21%,560.1MiB / 1GiB
+2026-11-11T17:38:25.2290187+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.28%,241.3MiB / 1.5GiB
+2026-11-11T17:38:25.2290187+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:38:25.2290187+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:38:30.2332024+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.1MiB / 1GiB
+2026-11-11T17:38:30.2332024+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.33%,241.3MiB / 1.5GiB
+2026-11-11T17:38:30.2332024+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:38:30.2332024+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:38:35.2431899+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.1MiB / 1GiB
+2026-11-11T17:38:35.2431899+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.54%,241.6MiB / 1.5GiB
+2026-11-11T17:38:35.2431899+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:38:35.2431899+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:38:40.2487130+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.1MiB / 1GiB
+2026-11-11T17:38:40.2487130+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.76%,241.6MiB / 1.5GiB
+2026-11-11T17:38:40.2487130+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:38:40.2487130+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:38:45.2609832+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.26%,560.1MiB / 1GiB
+2026-11-11T17:38:45.2609832+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.49%,241.6MiB / 1.5GiB
+2026-11-11T17:38:45.2609832+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:38:45.2609832+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:38:50.2687089+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.2MiB / 1GiB
+2026-11-11T17:38:50.2687089+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.70%,241.6MiB / 1.5GiB
+2026-11-11T17:38:50.2687089+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:38:50.2687089+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:38:55.2755558+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.2MiB / 1GiB
+2026-11-11T17:38:55.2755558+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.60%,241.4MiB / 1.5GiB
+2026-11-11T17:38:55.2755558+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:38:55.2755558+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:39:00.2911074+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.2MiB / 1GiB
+2026-11-11T17:39:00.2911074+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.94%,241.4MiB / 1.5GiB
+2026-11-11T17:39:00.2911074+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,170.4MiB / 1GiB
+2026-11-11T17:39:00.2911074+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:39:05.2972340+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.2MiB / 1GiB
+2026-11-11T17:39:05.2972340+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.27%,241.3MiB / 1.5GiB
+2026-11-11T17:39:05.2972340+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:39:05.2972340+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:39:10.3088377+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.2MiB / 1GiB
+2026-11-11T17:39:10.3088377+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.25%,241.4MiB / 1.5GiB
+2026-11-11T17:39:10.3088377+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:39:10.3088377+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:39:15.3280717+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.2MiB / 1GiB
+2026-11-11T17:39:15.3280717+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.04%,241.5MiB / 1.5GiB
+2026-11-11T17:39:15.3280717+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:39:15.3280717+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:39:20.3404950+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.2MiB / 1GiB
+2026-11-11T17:39:20.3404950+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.16%,241.5MiB / 1.5GiB
+2026-11-11T17:39:20.3404950+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:39:20.3404950+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:39:25.3591048+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.2MiB / 1GiB
+2026-11-11T17:39:25.3591048+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.47%,241.5MiB / 1.5GiB
+2026-11-11T17:39:25.3591048+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:39:25.3591048+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:39:30.3632482+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.2MiB / 1GiB
+2026-11-11T17:39:30.3632482+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.23%,241.8MiB / 1.5GiB
+2026-11-11T17:39:30.3632482+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:39:30.3632482+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:39:35.3692234+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.2MiB / 1GiB
+2026-11-11T17:39:35.3692234+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.11%,241.7MiB / 1.5GiB
+2026-11-11T17:39:35.3692234+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:39:35.3692234+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:39:40.3765353+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.2MiB / 1GiB
+2026-11-11T17:39:40.3765353+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.93%,241.7MiB / 1.5GiB
+2026-11-11T17:39:40.3765353+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:39:40.3765353+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:39:45.3821514+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.2MiB / 1GiB
+2026-11-11T17:39:45.3821514+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.10%,241.5MiB / 1.5GiB
+2026-11-11T17:39:45.3821514+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:39:45.3821514+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:39:50.3876962+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.2MiB / 1GiB
+2026-11-11T17:39:50.3876962+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.72%,241.7MiB / 1.5GiB
+2026-11-11T17:39:50.3876962+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:39:50.3876962+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:39:55.4017972+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.2MiB / 1GiB
+2026-11-11T17:39:55.4017972+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.60%,241.5MiB / 1.5GiB
+2026-11-11T17:39:55.4017972+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:39:55.4017972+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:40:00.4050946+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.2MiB / 1GiB
+2026-11-11T17:40:00.4050946+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.67%,242MiB / 1.5GiB
+2026-11-11T17:40:00.4050946+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,170.4MiB / 1GiB
+2026-11-11T17:40:00.4050946+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:40:05.4265259+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.2MiB / 1GiB
+2026-11-11T17:40:05.4265259+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.42%,241.7MiB / 1.5GiB
+2026-11-11T17:40:05.4265259+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:40:05.4265259+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:40:10.4304946+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.2MiB / 1GiB
+2026-11-11T17:40:10.4304946+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.53%,241.5MiB / 1.5GiB
+2026-11-11T17:40:10.4304946+08:00,onecard-phase1-account-e9ed7f3f70f8,0.35%,170.4MiB / 1GiB
+2026-11-11T17:40:10.4304946+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:40:15.4538031+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,560.2MiB / 1GiB
+2026-11-11T17:40:15.4538031+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.25%,241.5MiB / 1.5GiB
+2026-11-11T17:40:15.4538031+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:40:15.4538031+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:40:20.4614766+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.2MiB / 1GiB
+2026-11-11T17:40:20.4614766+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.62%,241.8MiB / 1.5GiB
+2026-11-11T17:40:20.4614766+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:40:20.4614766+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:40:25.4844469+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,560.2MiB / 1GiB
+2026-11-11T17:40:25.4844469+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.71%,241.8MiB / 1.5GiB
+2026-11-11T17:40:25.4844469+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:40:25.4844469+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:40:30.4921809+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.2MiB / 1GiB
+2026-11-11T17:40:30.4921809+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.04%,241.5MiB / 1.5GiB
+2026-11-11T17:40:30.4921809+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,170.4MiB / 1GiB
+2026-11-11T17:40:30.4921809+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:40:35.5037091+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.2MiB / 1GiB
+2026-11-11T17:40:35.5037091+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.68%,241.5MiB / 1.5GiB
+2026-11-11T17:40:35.5037091+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:40:35.5037091+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:40:40.5092644+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.2MiB / 1GiB
+2026-11-11T17:40:40.5092644+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.15%,241.5MiB / 1.5GiB
+2026-11-11T17:40:40.5092644+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:40:40.5092644+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:40:45.5160569+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.22%,560.2MiB / 1GiB
+2026-11-11T17:40:45.5160569+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.99%,241.5MiB / 1.5GiB
+2026-11-11T17:40:45.5160569+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:40:45.5160569+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:40:50.5326354+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,560.2MiB / 1GiB
+2026-11-11T17:40:50.5326354+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.83%,241.5MiB / 1.5GiB
+2026-11-11T17:40:50.5326354+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:40:50.5326354+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:40:55.5381475+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,560.2MiB / 1GiB
+2026-11-11T17:40:55.5381475+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.81%,241.5MiB / 1.5GiB
+2026-11-11T17:40:55.5381475+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:40:55.5381475+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:41:00.5491305+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.20%,560.2MiB / 1GiB
+2026-11-11T17:41:00.5491305+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.96%,241.5MiB / 1.5GiB
+2026-11-11T17:41:00.5491305+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,170.4MiB / 1GiB
+2026-11-11T17:41:00.5491305+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:41:05.5549176+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.2MiB / 1GiB
+2026-11-11T17:41:05.5549176+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.73%,241.5MiB / 1.5GiB
+2026-11-11T17:41:05.5549176+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:41:05.5549176+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:41:10.5652793+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.2MiB / 1GiB
+2026-11-11T17:41:10.5652793+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.73%,241.5MiB / 1.5GiB
+2026-11-11T17:41:10.5652793+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:41:10.5652793+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:41:15.5771272+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.2MiB / 1GiB
+2026-11-11T17:41:15.5771272+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.47%,241.5MiB / 1.5GiB
+2026-11-11T17:41:15.5771272+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:41:15.5771272+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:41:20.5830897+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.2MiB / 1GiB
+2026-11-11T17:41:20.5830897+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.65%,241.5MiB / 1.5GiB
+2026-11-11T17:41:20.5830897+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:41:20.5830897+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:41:25.5931171+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.2MiB / 1GiB
+2026-11-11T17:41:25.5931171+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.29%,241.7MiB / 1.5GiB
+2026-11-11T17:41:25.5931171+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:41:25.5931171+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:41:30.6129158+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.2MiB / 1GiB
+2026-11-11T17:41:30.6129158+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.40%,241.5MiB / 1.5GiB
+2026-11-11T17:41:30.6129158+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:41:30.6129158+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:41:35.6176882+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.2MiB / 1GiB
+2026-11-11T17:41:35.6176882+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.11%,241.5MiB / 1.5GiB
+2026-11-11T17:41:35.6176882+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:41:35.6176882+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:41:40.6336284+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.2MiB / 1GiB
+2026-11-11T17:41:40.6336284+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.27%,241.6MiB / 1.5GiB
+2026-11-11T17:41:40.6336284+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:41:40.6336284+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:41:45.6454492+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,1.70%,560.4MiB / 1GiB
+2026-11-11T17:41:45.6454492+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.02%,241.6MiB / 1.5GiB
+2026-11-11T17:41:45.6454492+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:41:45.6454492+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:41:50.6559280+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.5MiB / 1GiB
+2026-11-11T17:41:50.6559280+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.85%,241.6MiB / 1.5GiB
+2026-11-11T17:41:50.6559280+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:41:50.6559280+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:41:55.6700908+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.5MiB / 1GiB
+2026-11-11T17:41:55.6700908+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.02%,241.6MiB / 1.5GiB
+2026-11-11T17:41:55.6700908+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:41:55.6700908+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:42:00.6867096+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,560.5MiB / 1GiB
+2026-11-11T17:42:00.6867096+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.64%,241.6MiB / 1.5GiB
+2026-11-11T17:42:00.6867096+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,170.4MiB / 1GiB
+2026-11-11T17:42:00.6867096+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:42:05.6926967+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.29%,560.6MiB / 1GiB
+2026-11-11T17:42:05.6926967+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.89%,241.6MiB / 1.5GiB
+2026-11-11T17:42:05.6926967+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:42:05.6926967+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:42:10.7044429+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.6MiB / 1GiB
+2026-11-11T17:42:10.7044429+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.65%,241.9MiB / 1.5GiB
+2026-11-11T17:42:10.7044429+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:42:10.7044429+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:42:15.7131007+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.6MiB / 1GiB
+2026-11-11T17:42:15.7131007+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.23%,241.7MiB / 1.5GiB
+2026-11-11T17:42:15.7131007+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:42:15.7131007+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:42:20.7372472+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.6MiB / 1GiB
+2026-11-11T17:42:20.7372472+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.52%,241.7MiB / 1.5GiB
+2026-11-11T17:42:20.7372472+08:00,onecard-phase1-account-e9ed7f3f70f8,0.11%,170.4MiB / 1GiB
+2026-11-11T17:42:20.7372472+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:42:25.7437248+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.6MiB / 1GiB
+2026-11-11T17:42:25.7437248+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.81%,241.9MiB / 1.5GiB
+2026-11-11T17:42:25.7437248+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:42:25.7437248+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:42:30.7580781+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.6MiB / 1GiB
+2026-11-11T17:42:30.7580781+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.63%,242MiB / 1.5GiB
+2026-11-11T17:42:30.7580781+08:00,onecard-phase1-account-e9ed7f3f70f8,0.10%,170.4MiB / 1GiB
+2026-11-11T17:42:30.7580781+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:42:35.7592887+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.6MiB / 1GiB
+2026-11-11T17:42:35.7592887+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.19%,241.7MiB / 1.5GiB
+2026-11-11T17:42:35.7592887+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:42:35.7592887+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:42:40.7648664+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.6MiB / 1GiB
+2026-11-11T17:42:40.7648664+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.77%,241.7MiB / 1.5GiB
+2026-11-11T17:42:40.7648664+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:42:40.7648664+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:42:45.7734971+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.25%,560.6MiB / 1GiB
+2026-11-11T17:42:45.7734971+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.14%,241.7MiB / 1.5GiB
+2026-11-11T17:42:45.7734971+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:42:45.7734971+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:42:50.7848881+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.5MiB / 1GiB
+2026-11-11T17:42:50.7848881+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.15%,241.7MiB / 1.5GiB
+2026-11-11T17:42:50.7848881+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:42:50.7848881+08:00,k6-load-generator,5.2,225.6MiB
+2026-11-11T17:42:55.7959173+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.5MiB / 1GiB
+2026-11-11T17:42:55.7959173+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.62%,241.9MiB / 1.5GiB
+2026-11-11T17:42:55.7959173+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:42:55.7959173+08:00,k6-load-generator,5.2,225.7MiB
+2026-11-11T17:43:00.8108732+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.5MiB / 1GiB
+2026-11-11T17:43:00.8108732+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.88%,241.7MiB / 1.5GiB
+2026-11-11T17:43:00.8108732+08:00,onecard-phase1-account-e9ed7f3f70f8,0.14%,170.4MiB / 1GiB
+2026-11-11T17:43:00.8108732+08:00,k6-load-generator,5.2,225.7MiB
+2026-11-11T17:43:05.8235273+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.5MiB / 1GiB
+2026-11-11T17:43:05.8235273+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.44%,241.7MiB / 1.5GiB
+2026-11-11T17:43:05.8235273+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:43:05.8235273+08:00,k6-load-generator,5.2,225.7MiB
+2026-11-11T17:43:10.8351602+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.5MiB / 1GiB
+2026-11-11T17:43:10.8351602+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.07%,242MiB / 1.5GiB
+2026-11-11T17:43:10.8351602+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:43:10.8351602+08:00,k6-load-generator,5.2,225.7MiB
+2026-11-11T17:43:15.8562278+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,560.5MiB / 1GiB
+2026-11-11T17:43:15.8562278+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.52%,242MiB / 1.5GiB
+2026-11-11T17:43:15.8562278+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:43:15.8562278+08:00,k6-load-generator,5.2,225.7MiB
+2026-11-11T17:43:20.8644520+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.5MiB / 1GiB
+2026-11-11T17:43:20.8644520+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.99%,241.8MiB / 1.5GiB
+2026-11-11T17:43:20.8644520+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:43:20.8644520+08:00,k6-load-generator,5.2,225.7MiB
+2026-11-11T17:43:25.8678874+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.5MiB / 1GiB
+2026-11-11T17:43:25.8678874+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.16%,242.1MiB / 1.5GiB
+2026-11-11T17:43:25.8678874+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:43:25.8678874+08:00,k6-load-generator,5.2,229.9MiB
+2026-11-11T17:43:30.8756601+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.5MiB / 1GiB
+2026-11-11T17:43:30.8756601+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.26%,241.8MiB / 1.5GiB
+2026-11-11T17:43:30.8756601+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:43:30.8756601+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:43:35.8838676+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.5MiB / 1GiB
+2026-11-11T17:43:35.8838676+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.46%,241.8MiB / 1.5GiB
+2026-11-11T17:43:35.8838676+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:43:35.8838676+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:43:40.8922719+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.5MiB / 1GiB
+2026-11-11T17:43:40.8922719+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.86%,241.8MiB / 1.5GiB
+2026-11-11T17:43:40.8922719+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:43:40.8922719+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:43:45.9064216+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.5MiB / 1GiB
+2026-11-11T17:43:45.9064216+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.80%,241.8MiB / 1.5GiB
+2026-11-11T17:43:45.9064216+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:43:45.9064216+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:43:50.9211566+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.5MiB / 1GiB
+2026-11-11T17:43:50.9211566+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.35%,242.3MiB / 1.5GiB
+2026-11-11T17:43:50.9211566+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:43:50.9211566+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:43:55.9328184+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.12%,560.5MiB / 1GiB
+2026-11-11T17:43:55.9328184+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.35%,241.8MiB / 1.5GiB
+2026-11-11T17:43:55.9328184+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:43:55.9328184+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:44:00.9423045+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.17%,560.5MiB / 1GiB
+2026-11-11T17:44:00.9423045+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.87%,241.8MiB / 1.5GiB
+2026-11-11T17:44:00.9423045+08:00,onecard-phase1-account-e9ed7f3f70f8,0.15%,170.4MiB / 1GiB
+2026-11-11T17:44:00.9423045+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:44:05.9502144+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.5MiB / 1GiB
+2026-11-11T17:44:05.9502144+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.84%,242.1MiB / 1.5GiB
+2026-11-11T17:44:05.9502144+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:44:05.9502144+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:44:10.9692479+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.18%,560.5MiB / 1GiB
+2026-11-11T17:44:10.9692479+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.85%,242.1MiB / 1.5GiB
+2026-11-11T17:44:10.9692479+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:44:10.9692479+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:44:15.9782825+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.5MiB / 1GiB
+2026-11-11T17:44:15.9782825+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.74%,242.6MiB / 1.5GiB
+2026-11-11T17:44:15.9782825+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:44:15.9782825+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:44:20.9939240+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.5MiB / 1GiB
+2026-11-11T17:44:20.9939240+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.94%,241.9MiB / 1.5GiB
+2026-11-11T17:44:20.9939240+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:44:20.9939240+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:44:26.0058761+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.5MiB / 1GiB
+2026-11-11T17:44:26.0058761+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.85%,241.8MiB / 1.5GiB
+2026-11-11T17:44:26.0058761+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:44:26.0058761+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:44:31.0210220+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.5MiB / 1GiB
+2026-11-11T17:44:31.0210220+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.13%,242.3MiB / 1.5GiB
+2026-11-11T17:44:31.0210220+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:44:31.0210220+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:44:36.0279145+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.5MiB / 1GiB
+2026-11-11T17:44:36.0279145+08:00,onecard-phase1-gateway-e9ed7f3f70f8,9.15%,242.1MiB / 1.5GiB
+2026-11-11T17:44:36.0279145+08:00,onecard-phase1-account-e9ed7f3f70f8,0.11%,170.4MiB / 1GiB
+2026-11-11T17:44:36.0279145+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:44:41.0355440+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.19%,560.5MiB / 1GiB
+2026-11-11T17:44:41.0355440+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.69%,241.8MiB / 1.5GiB
+2026-11-11T17:44:41.0355440+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:44:41.0355440+08:00,k6-load-generator,5.2,230.7MiB
+2026-11-11T17:44:46.0397029+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,560.5MiB / 1GiB
+2026-11-11T17:44:46.0397029+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.73%,241.9MiB / 1.5GiB
+2026-11-11T17:44:46.0397029+08:00,onecard-phase1-account-e9ed7f3f70f8,0.03%,170.4MiB / 1GiB
+2026-11-11T17:44:46.0397029+08:00,k6-load-generator,5.2,230.8MiB
+2026-11-11T17:44:51.0465083+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.5MiB / 1GiB
+2026-11-11T17:44:51.0465083+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.35%,242.3MiB / 1.5GiB
+2026-11-11T17:44:51.0465083+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:44:51.0465083+08:00,k6-load-generator,5.2,230.8MiB
+2026-11-11T17:44:56.0582759+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,560.5MiB / 1GiB
+2026-11-11T17:44:56.0582759+08:00,onecard-phase1-gateway-e9ed7f3f70f8,5.89%,241.8MiB / 1.5GiB
+2026-11-11T17:44:56.0582759+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:44:56.0582759+08:00,k6-load-generator,5.2,230.8MiB
+2026-11-11T17:45:01.0643331+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,560.5MiB / 1GiB
+2026-11-11T17:45:01.0643331+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.50%,241.8MiB / 1.5GiB
+2026-11-11T17:45:01.0643331+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:45:01.0643331+08:00,k6-load-generator,5.2,230.8MiB
+2026-11-11T17:45:06.0723505+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,560.5MiB / 1GiB
+2026-11-11T17:45:06.0723505+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.41%,242MiB / 1.5GiB
+2026-11-11T17:45:06.0723505+08:00,onecard-phase1-account-e9ed7f3f70f8,0.04%,170.4MiB / 1GiB
+2026-11-11T17:45:06.0723505+08:00,k6-load-generator,5.2,230.8MiB
+2026-11-11T17:45:11.0755011+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.5MiB / 1GiB
+2026-11-11T17:45:11.0755011+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.79%,242MiB / 1.5GiB
+2026-11-11T17:45:11.0755011+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:45:11.0755011+08:00,k6-load-generator,5.2,230.8MiB
+2026-11-11T17:45:16.0927891+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,560.5MiB / 1GiB
+2026-11-11T17:45:16.0927891+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.59%,241.7MiB / 1.5GiB
+2026-11-11T17:45:16.0927891+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:45:16.0927891+08:00,k6-load-generator,5.2,230.8MiB
+2026-11-11T17:45:21.1083605+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,560.5MiB / 1GiB
+2026-11-11T17:45:21.1083605+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.01%,241.7MiB / 1.5GiB
+2026-11-11T17:45:21.1083605+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,170.4MiB / 1GiB
+2026-11-11T17:45:21.1083605+08:00,k6-load-generator,5.2,230.8MiB
+2026-11-11T17:45:26.1167787+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.14%,560.5MiB / 1GiB
+2026-11-11T17:45:26.1167787+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.39%,241.7MiB / 1.5GiB
+2026-11-11T17:45:26.1167787+08:00,onecard-phase1-account-e9ed7f3f70f8,0.18%,170.4MiB / 1GiB
+2026-11-11T17:45:26.1167787+08:00,k6-load-generator,5.2,230.8MiB
+2026-11-11T17:45:31.1231890+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,560.5MiB / 1GiB
+2026-11-11T17:45:31.1231890+08:00,onecard-phase1-gateway-e9ed7f3f70f8,6.89%,242MiB / 1.5GiB
+2026-11-11T17:45:31.1231890+08:00,onecard-phase1-account-e9ed7f3f70f8,0.07%,170.4MiB / 1GiB
+2026-11-11T17:45:31.1231890+08:00,k6-load-generator,5.2,230.8MiB
+2026-11-11T17:45:36.1416484+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.5MiB / 1GiB
+2026-11-11T17:45:36.1416484+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.84%,242.2MiB / 1.5GiB
+2026-11-11T17:45:36.1416484+08:00,onecard-phase1-account-e9ed7f3f70f8,0.05%,170.4MiB / 1GiB
+2026-11-11T17:45:36.1416484+08:00,k6-load-generator,5.2,230.9MiB
+2026-11-11T17:45:41.1567930+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.5MiB / 1GiB
+2026-11-11T17:45:41.1567930+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.38%,241.7MiB / 1.5GiB
+2026-11-11T17:45:41.1567930+08:00,onecard-phase1-account-e9ed7f3f70f8,0.08%,170.4MiB / 1GiB
+2026-11-11T17:45:41.1567930+08:00,k6-load-generator,5.2,230.9MiB
+2026-11-11T17:45:46.1611646+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.13%,560.5MiB / 1GiB
+2026-11-11T17:45:46.1611646+08:00,onecard-phase1-gateway-e9ed7f3f70f8,7.73%,242.2MiB / 1.5GiB
+2026-11-11T17:45:46.1611646+08:00,onecard-phase1-account-e9ed7f3f70f8,0.12%,170.4MiB / 1GiB
+2026-11-11T17:45:46.1611646+08:00,k6-load-generator,5.2,230.9MiB
+2026-11-11T17:45:51.1670027+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.5MiB / 1GiB
+2026-11-11T17:45:51.1670027+08:00,onecard-phase1-gateway-e9ed7f3f70f8,8.04%,241.8MiB / 1.5GiB
+2026-11-11T17:45:51.1670027+08:00,onecard-phase1-account-e9ed7f3f70f8,0.09%,170.4MiB / 1GiB
+2026-11-11T17:45:51.1670027+08:00,k6-load-generator,5.2,230.9MiB
+2026-11-11T17:45:56.1711328+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.5MiB / 1GiB
+2026-11-11T17:45:56.1711328+08:00,onecard-phase1-gateway-e9ed7f3f70f8,0.07%,241.7MiB / 1.5GiB
+2026-11-11T17:45:56.1711328+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:45:56.1711328+08:00,k6-load-generator,5.2,230.9MiB
+2026-11-11T17:46:01.1856700+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.5MiB / 1GiB
+2026-11-11T17:46:01.1856700+08:00,onecard-phase1-gateway-e9ed7f3f70f8,0.06%,241.7MiB / 1.5GiB
+2026-11-11T17:46:01.1856700+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:46:01.1856700+08:00,k6-load-generator,5.1,230.9MiB
+2026-11-11T17:46:06.1961588+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.15%,560.5MiB / 1GiB
+2026-11-11T17:46:06.1961588+08:00,onecard-phase1-gateway-e9ed7f3f70f8,0.06%,241MiB / 1.5GiB
+2026-11-11T17:46:06.1961588+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB
+2026-11-11T17:46:11.1982239+08:00,onecard-phase1-keycloak-e9ed7f3f70f8,0.16%,560.5MiB / 1GiB
+2026-11-11T17:46:11.1982239+08:00,onecard-phase1-gateway-e9ed7f3f70f8,0.06%,241MiB / 1.5GiB
+2026-11-11T17:46:11.1982239+08:00,onecard-phase1-account-e9ed7f3f70f8,0.06%,170.4MiB / 1GiB

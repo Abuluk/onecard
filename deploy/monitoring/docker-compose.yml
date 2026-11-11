@@ -1,4 +1,5 @@
 x-spring-service: &spring-service
+  networks: [onecard-private]
   healthcheck:
     test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1:$${SERVER_PORT}/actuator/health | grep -q 'UP'"]
     interval: 10s
@@ -17,6 +18,7 @@ services:
       NACOS_AUTH_IDENTITY_VALUE: ${NACOS_AUTH_IDENTITY_VALUE:-onecard-local}
       PREFER_HOST_MODE: ip
       TIME_ZONE: Asia/Shanghai
+    networks: [onecard-private]
     volumes:
       - nacos-data:/home/nacos/data
     healthcheck:
@@ -53,6 +55,7 @@ services:
   valkey:
     image: docker.1panel.live/valkey/valkey:9.1.3@sha256:3add1a336a920ea54770a001ab6feb3da5fceea96a40373a3a2cd469b815f0b7
     command: ["valkey-server", "--save", "", "--appendonly", "no", "--maxmemory", "128mb", "--maxmemory-policy", "noeviction"]
+    networks: [onecard-private]
     healthcheck:
       test: ["CMD", "valkey-cli", "ping"]
       interval: 5s
@@ -64,7 +67,8 @@ services:
     image: oceanbase/oceanbase-ce:4.4.2-lts@sha256:eaa2c3b3513fa21e4a658f197c1deb93c9d6b6eb742cfa5ef0f085f82b9cec54
     profiles: [business-data]
     entrypoint: ["bash", "-lc"]
-    command: "sed -i 's/--min-cpu=/--max-cpu=2 --min-cpu=/' /root/boot/start.sh && /root/boot/start.sh"
+    command: ["/usr/sbin/sshd && sed -i 's/--min-cpu=/--max-cpu=2 --min-cpu=/' /root/boot/start.sh && /root/boot/start.sh"]
+    networks: [onecard-private]
     environment:
       MODE: MINI
       EXIT_WHILE_ERROR: "YES"
@@ -100,8 +104,9 @@ services:
     image: apache/rocketmq:5.3.1@sha256:d2b231c1b9204129e4f4dd65ec1521c81b8d6826e5f1fe8daa521dab0db5bf16
     profiles: [business-messaging]
     command: ["sh", "mqnamesrv"]
+    networks: [onecard-private]
     environment:
-      MAX_POSSIBLE_HEAP: 512M
+      HEAP_OPTS: -Xms128m -Xmx256m -Xmn128m -XX:MaxDirectMemorySize=128m
     mem_limit: 512m
     healthcheck:
       test: ["CMD-SHELL", "bash -c 'echo > /dev/tcp/127.0.0.1/9876'"]
@@ -111,17 +116,30 @@ services:
       start_period: 20s
     restart: unless-stopped
 
+  onecard-rocketmq-store-init:
+    image: apache/rocketmq:5.3.1@sha256:d2b231c1b9204129e4f4dd65ec1521c81b8d6826e5f1fe8daa521dab0db5bf16
+    profiles: [business-messaging]
+    user: "0:0"
+    entrypoint: ["sh", "-c"]
+    command: ["chown -R 3000:3000 /store"]
+    networks: [onecard-private]
+    volumes:
+      - rocketmq-data:/store
+
   onecard-rocketmq-broker:
     image: apache/rocketmq:5.3.1@sha256:d2b231c1b9204129e4f4dd65ec1521c81b8d6826e5f1fe8daa521dab0db5bf16
     profiles: [business-messaging]
     command: ["sh", "mqbroker", "-n", "onecard-rocketmq-namesrv:9876"]
+    networks: [onecard-private]
     environment:
       NAMESRV_ADDR: onecard-rocketmq-namesrv:9876
-      MAX_POSSIBLE_HEAP: 768M
+      HEAP_OPTS: -Xms256m -Xmx512m -Xmn128m -XX:MaxDirectMemorySize=256m
     depends_on:
       onecard-rocketmq-namesrv:
         condition: service_healthy
-    mem_limit: 768m
+      onecard-rocketmq-store-init:
+        condition: service_completed_successfully
+    mem_limit: 1g
     volumes:
       - rocketmq-data:/home/rocketmq/store
     healthcheck:
@@ -277,6 +295,7 @@ services:
 
   onecard-gateway:
     <<: *spring-service
+    networks: [onecard-private, onecard-ingress]
     build:
       context: ../../gateway
     environment:
@@ -317,6 +336,9 @@ services:
     image: flashcatcloud/categraf:v0.3.73-amd64
     environment:
       N9E_HOST: n9e:17000
+    networks:
+      - default
+      - onecard-private
     depends_on:
       n9e:
         condition: service_started
@@ -348,3 +370,9 @@ volumes:
   greptimedb-data:
   oceanbase-data:
   rocketmq-data:
+
+networks:
+  default: {}
+  onecard-private:
+    internal: true
+  onecard-ingress: {}

@@ -6,6 +6,9 @@ spring:
       discovery:
         enabled: false
 onecard:
+  security:
+    test-routes:
+      enabled: true
   rate-limit:
     enabled: false
 management:
