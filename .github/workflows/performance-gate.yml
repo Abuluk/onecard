@@ -1,25 +1,65 @@
-name: Performance Gate — k6
+name: Platform Startup Smoke — k6
 
 on:
   workflow_dispatch:
-    inputs:
-      target_url:
-        description: '完整的目标测试 URL (例如 https://httpbin.org/get)'
-        required: true
-        type: string
+
+permissions:
+  contents: read
 
 jobs:
-  k6-gate:
+  platform-smoke:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      COMPOSE_PROJECT_NAME: onecard-platform-smoke
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
+      - name: Create ephemeral Nacos token
+        run: echo "NACOS_AUTH_TOKEN=$(openssl rand -base64 32 | tr -d '\n')" >> "$GITHUB_ENV"
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v6
+        with:
+          distribution: 'temurin'
+          java-version: '25'
+          cache: 'maven'
+
+      - name: Build account service
+        run: ./mvnw --batch-mode --no-transfer-progress -pl services/onecard-account-service -am clean verify
+
+      - name: Start local account service
+        run: docker compose -f deploy/monitoring/docker-compose.yml -f deploy/monitoring/docker-compose.debug.yml up --build --detach --wait --wait-timeout 120 onecard-account-service
+
+      - name: Verify account registration in Nacos
+        shell: bash
+        run: |
+          response="$(docker compose -f deploy/monitoring/docker-compose.yml -f deploy/monitoring/docker-compose.debug.yml exec -T nacos curl --fail --silent --show-error 'http://127.0.0.1:8848/nacos/v3/client/ns/instance/list?serviceName=onecard-account-service&groupName=DEFAULT_GROUP')"
+          printf '%s' "$response" | python3 -c 'import json, sys; instances = json.load(sys.stdin)["data"]; assert any(item.get("healthy") is True and item.get("enabled") is True and item.get("port") == 8082 and item.get("metadata", {}).get("preserved.register.source") == "SPRING_CLOUD" for item in instances), instances'
+
       - name: Setup k6
         uses: grafana/setup-k6-action@v1
 
-      - name: Run k6 smoke test
+      - name: Run local health smoke test
         uses: grafana/run-k6-action@v1
         with:
           path: tests/performance/smoke.js
-          flags: --env TARGET_URL=${{ inputs.target_url }}
+          flags: --env BASE_URL=http://localhost:8082
+
+      - name: Save service logs
+        if: ${{ always() }}
+        run: docker compose -f deploy/monitoring/docker-compose.yml -f deploy/monitoring/docker-compose.debug.yml logs --no-color onecard-account-service > platform-smoke.log
+
+      - name: Stop local service
+        if: ${{ always() }}
+        run: docker compose -f deploy/monitoring/docker-compose.yml -f deploy/monitoring/docker-compose.debug.yml down --volumes
+
+      - name: Upload service logs
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: platform-smoke-logs
+          path: platform-smoke.log
+          if-no-files-found: warn
+          retention-days: 14

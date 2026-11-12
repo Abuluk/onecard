@@ -1,0 +1,121 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /tmp/onecard-phase1-3475aceaebc5/gateway-platform.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 500 max VUs, 40s max duration (incl. graceful stop):
+              * gateway_stub: 500 looping VUs for 10s (gracefulStop: 30s)
+
+
+running (00.9s), 500/500 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [   9% ] 500 VUs  00.9s/10s
+
+running (01.9s), 500/500 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [  19% ] 500 VUs  01.9s/10s
+
+running (02.9s), 500/500 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [  29% ] 500 VUs  02.9s/10s
+
+running (03.9s), 500/500 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [  39% ] 500 VUs  03.9s/10s
+
+running (04.9s), 500/500 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [  49% ] 500 VUs  04.9s/10s
+
+running (05.9s), 500/500 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [  59% ] 500 VUs  05.9s/10s
+
+running (06.9s), 500/500 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [  69% ] 500 VUs  06.9s/10s
+
+running (07.9s), 500/500 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [  79% ] 500 VUs  07.9s/10s
+
+running (08.9s), 500/500 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [  89% ] 500 VUs  08.9s/10s
+
+running (09.9s), 500/500 VUs, 31 complete and 0 interrupted iterations
+gateway_stub   [  99% ] 500 VUs  09.9s/10s
+
+running (10.9s), 457/500 VUs, 77 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 500 VUs  10s
+
+running (11.9s), 388/500 VUs, 146 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 500 VUs  10s
+
+running (12.9s), 321/500 VUs, 213 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 500 VUs  10s
+
+running (13.9s), 277/500 VUs, 257 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 500 VUs  10s
+
+running (14.9s), 226/500 VUs, 308 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 500 VUs  10s
+
+running (15.9s), 164/500 VUs, 370 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 500 VUs  10s
+
+running (16.9s), 132/500 VUs, 402 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 500 VUs  10s
+
+running (17.9s), 072/500 VUs, 462 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 500 VUs  10s
+
+running (18.9s), 023/500 VUs, 511 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 500 VUs  10s
+
+
+  █ THRESHOLDS 
+
+    checks
+    ✓ 'rate>0.99' rate=100.00%
+
+    http_req_duration
+    ✓ 'p(95)<500' p(95)=2.47ms
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 1602    82.768442/s
+    checks_succeeded...: 100.00% 1602 out of 1602
+    checks_failed......: 0.00%   0 out of 1602
+
+    ✓ gateway returns stub response
+    ✓ gateway returns W3C trace context
+    ✓ gateway propagates W3C trace context upstream
+
+    CUSTOM
+    gateway_http_200...............: 534    27.589481/s
+
+    HTTP
+    http_req_duration..............: avg=1.93ms min=1.31ms med=1.86ms max=10.55ms p(50)=1.86ms p(95)=2.47ms p(99)=4.77ms
+      { expected_response:true }...: avg=1.93ms min=1.31ms med=1.86ms max=10.55ms p(50)=1.86ms p(95)=2.47ms p(99)=4.77ms
+    http_req_failed................: 0.00%  0 out of 534
+    http_reqs......................: 534    27.589481/s
+
+    EXECUTION
+    iteration_duration.............: avg=13.62s min=9.37s  med=13.29s max=18.7s   p(50)=13.29s p(95)=18.1s  p(99)=18.6s 
+    iterations.....................: 534    27.589481/s
+    vus............................: 23     min=23       max=500
+    vus_max........................: 500    min=500      max=500
+
+    NETWORK
+    data_received..................: 292 kB 15 kB/s
+    data_sent......................: 838 kB 43 kB/s
+
+
+
+
+running (19.4s), 000/500 VUs, 534 complete and 0 interrupted iterations
+gateway_stub ✓ [ 100% ] 500 VUs  10s
+

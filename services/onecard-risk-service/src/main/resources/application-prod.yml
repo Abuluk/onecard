@@ -1,0 +1,13 @@
+spring:
+  config:
+    import: nacos:${spring.application.name}.yaml?group=DEFAULT_GROUP
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${OIDC_JWK_SET_URI}
+onecard:
+  security:
+    issuer-uri: ${OIDC_ISSUER_URI}
+    audience: ${OIDC_AUDIENCE}
+    required-scope: onecard.risk.invoke

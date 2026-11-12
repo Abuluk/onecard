@@ -4,19 +4,20 @@
 $ErrorActionPreference = "Stop"
 
 Write-Host "=== [1/5] Maven 编译与单元测试 ===" -ForegroundColor Cyan
-.\mvnw clean package
+.\mvnw.cmd --batch-mode --no-transfer-progress clean verify
 if ($LASTEXITCODE -ne 0) { exit 1 }
 
 Write-Host "=== [2/5] 启动服务并运行 K6 门禁 ===" -ForegroundColor Cyan
-$jarPath = "onecard-demo-service\target\onecard-demo-service-1.0.0-SNAPSHOT.jar"
-$process = Start-Process -FilePath "java" -ArgumentList "-jar $jarPath" -PassThru -WindowStyle Hidden
+$jarPath = "services\onecard-account-service\target\onecard-account-service-1.0.0-SNAPSHOT.jar"
+$process = Start-Process -FilePath "java" -ArgumentList "-Dspring.profiles.active=test -Dserver.port=8082 -jar $jarPath" -PassThru -WindowStyle Hidden
 
 $isReady = $false
 for ($i = 0; $i -lt 30; $i++) {
     Start-Sleep -Seconds 1
     try {
-        $res = Invoke-WebRequest -Uri "http://localhost:8080/api/demo/ping" -UseBasicParsing -TimeoutSec 1
-        if ($res.StatusCode -eq 200) { $isReady = $true; break }
+        $res = Invoke-WebRequest -Uri "http://localhost:8082/actuator/health" -UseBasicParsing -TimeoutSec 1
+        $body = $res.Content | ConvertFrom-Json
+        if ($res.StatusCode -eq 200 -and $body.status -eq "UP") { $isReady = $true; break }
     } catch {}
 }
 
@@ -27,7 +28,7 @@ if (-not $isReady) {
 }
 
 Write-Host "正在压测..." -ForegroundColor Yellow
-k6 run --env TARGET_URL=http://localhost:8080/api/demo/ping tests/performance/smoke.js
+k6 run --env BASE_URL=http://localhost:8082 tests/performance/smoke.js
 $k6ExitCode = $LASTEXITCODE
 
 Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue
@@ -44,7 +45,7 @@ $IMAGE_NAME = "$DOCKER_USER/nyt"
 $TAG = "latest"
 $FULL_IMAGE = "${IMAGE_NAME}:${TAG}"
 
-docker build -t $FULL_IMAGE ./onecard-demo-service
+docker build -t $FULL_IMAGE ./services/onecard-account-service
 if ($LASTEXITCODE -ne 0) { exit 1 }
 
 Write-Host "=== [4/5] 推送镜像到 Docker Hub ===" -ForegroundColor Cyan

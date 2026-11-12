@@ -1,0 +1,19 @@
+spring:
+  config:
+    import: nacos:${spring.application.name}.yaml?group=DEFAULT_GROUP
+  data:
+    redis:
+      url: ${VALKEY_URL}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${OIDC_JWK_SET_URI}
+onecard:
+  security:
+    issuer-uri: ${OIDC_ISSUER_URI}
+    audience: ${OIDC_AUDIENCE}
+    roles:
+      user: ${OIDC_ROLE_USER}
+      admin: ${OIDC_ROLE_ADMIN}
+      auditor: ${OIDC_ROLE_AUDITOR}

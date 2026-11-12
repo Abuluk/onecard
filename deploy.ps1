@@ -22,7 +22,7 @@ if ($LASTEXITCODE -ne 0) {
 # 3. Docker 构建镜像
 Write-Host "正在构建 Docker 镜像..." -ForegroundColor Yellow
 # 注意：这里 -t 后面直接使用 $FULL_IMAGE
-docker build -t $FULL_IMAGE ./onecard-demo-service
+docker build -t $FULL_IMAGE ./services/onecard-account-service
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Docker 构建失败，终止流程！" -ForegroundColor Red
     exit 1

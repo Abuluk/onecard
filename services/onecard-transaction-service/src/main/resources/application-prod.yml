@@ -1,0 +1,48 @@
+spring:
+  config:
+    import: nacos:${spring.application.name}.yaml?group=DEFAULT_GROUP
+  datasource:
+    url: ${TRANSACTION_DB_URL}
+    username: ${TRANSACTION_DB_USERNAME}
+    password: ${TRANSACTION_DB_PASSWORD}
+  flyway:
+    enabled: true
+    url: ${TRANSACTION_DB_MIGRATION_URL:${TRANSACTION_DB_URL}}
+    user: ${TRANSACTION_DB_MIGRATION_USERNAME}
+    password: ${TRANSACTION_DB_MIGRATION_PASSWORD}
+    schemas: ${TRANSACTION_DB_SCHEMA:onecard_transaction}
+    default-schema: ${TRANSACTION_DB_SCHEMA:onecard_transaction}
+    locations: classpath:db/migration
+    create-schemas: false
+    baseline-on-migrate: false
+    clean-disabled: true
+    out-of-order: false
+    validate-on-migrate: true
+  cloud:
+    openfeign:
+      oauth2:
+        enabled: true
+      client:
+        config:
+          default:
+            connect-timeout: 2000
+            read-timeout: 3000
+  security:
+    oauth2:
+      client:
+        registration:
+          onecard-account-service:
+            provider: service-identity
+            client-id: ${SERVICE_ACCOUNT_CLIENT_ID}
+            client-secret: ${SERVICE_ACCOUNT_CLIENT_SECRET}
+            authorization-grant-type: client_credentials
+            scope: onecard.account.invoke
+          onecard-risk-service:
+            provider: service-identity
+            client-id: ${SERVICE_RISK_CLIENT_ID}
+            client-secret: ${SERVICE_RISK_CLIENT_SECRET}
+            authorization-grant-type: client_credentials
+            scope: onecard.risk.invoke
+        provider:
+          service-identity:
+            token-uri: ${SERVICE_OIDC_TOKEN_URI}

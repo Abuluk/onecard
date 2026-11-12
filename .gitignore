@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Local environment ###
+.env
+.env.*
+!.env.example
+
+### Monitoring runtime data ###
+/deploy/monitoring/categraf/data/
+/deploy/monitoring/greptimedb/data/

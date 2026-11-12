@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.1.2</version>
+        <version>4.0.9</version>
         <relativePath/>
     </parent>
 
@@ -17,15 +17,33 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-        <modules>
-            <module>onecard-demo-service</module>
-        </modules>
+    <modules>
+        <module>common</module>
+        <module>gateway</module>
+        <module>apis/onecard-account-api</module>
+        <module>apis/onecard-transaction-api</module>
+        <module>apis/onecard-payment-adapter-api</module>
+        <module>apis/onecard-clearing-api</module>
+        <module>apis/onecard-notification-api</module>
+        <module>apis/onecard-risk-api</module>
+        <module>apis/onecard-access-api</module>
+        <module>apis/onecard-device-api</module>
+        <module>services/onecard-account-service</module>
+        <module>services/onecard-transaction-service</module>
+        <module>services/onecard-payment-adapter-service</module>
+        <module>services/onecard-clearing-service</module>
+        <module>services/onecard-notification-service</module>
+        <module>services/onecard-risk-service</module>
+        <module>services/onecard-access-service</module>
+        <module>services/onecard-device-service</module>
+    </modules>
 
     <properties>
         <revision>1.0.0-SNAPSHOT</revision>
         <java.version>25</java.version>
         <spring-cloud.version>2025.1.4</spring-cloud.version>
         <spring-cloud-alibaba.version>2025.1.0.0</spring-cloud-alibaba.version>
+        <nacos-client.version>3.3.0</nacos-client.version>
         <maven.version>[3.6.3,)</maven.version>
         <enforcer.version>3.6.1</enforcer.version>
         <flatten.version>1.7.3</flatten.version>
@@ -46,6 +64,71 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.alibaba.nacos</groupId>
+                        <artifactId>nacos-client</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.alibaba.nacos</groupId>
+                        <artifactId>nacos-client</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>2.22.3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>33.7.2-jre</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>${nacos-client.version}</version>
+                <classifier>pure</classifier>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-common</artifactId>
+                <version>${nacos-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents.core5</groupId>
+                <artifactId>httpcore5</artifactId>
+                <version>5.4.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents.core5</groupId>
+                <artifactId>httpcore5-h2</artifactId>
+                <version>5.4.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk18on</artifactId>
+                <version>1.85</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>1.6.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -74,7 +157,7 @@
                                 </requireJavaVersion>
                                 <requireMavenVersion>
                                     <version>${maven.version}</version>
-                                    <message>Spring Boot 4.1 要求 Maven 3.6.3 或更高版本。</message>
+                                    <message>Spring Boot 4 要求 Maven 3.6.3 或更高版本。</message>
                                 </requireMavenVersion>
                             </rules>
                         </configuration>

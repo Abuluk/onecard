@@ -1,0 +1,259 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /tmp/onecard-phase1-1829d6d7f86b/gateway-platform.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 250 max VUs, 1m30s max duration (incl. graceful stop):
+              * gateway_stub: 250 looping VUs for 1m0s (gracefulStop: 30s)
+
+
+running (0m01.0s), 250/250 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [   2% ] 250 VUs  0m01.0s/1m0s
+
+running (0m02.0s), 250/250 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [   3% ] 250 VUs  0m02.0s/1m0s
+
+running (0m03.0s), 250/250 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [   5% ] 250 VUs  0m03.0s/1m0s
+
+running (0m04.0s), 250/250 VUs, 0 complete and 0 interrupted iterations
+gateway_stub   [   7% ] 250 VUs  0m04.0s/1m0s
+
+running (0m05.0s), 250/250 VUs, 16 complete and 0 interrupted iterations
+gateway_stub   [   8% ] 250 VUs  0m05.0s/1m0s
+
+running (0m06.0s), 250/250 VUs, 66 complete and 0 interrupted iterations
+gateway_stub   [  10% ] 250 VUs  0m06.0s/1m0s
+
+running (0m07.0s), 250/250 VUs, 122 complete and 0 interrupted iterations
+gateway_stub   [  12% ] 250 VUs  0m07.0s/1m0s
+
+running (0m08.0s), 250/250 VUs, 179 complete and 0 interrupted iterations
+gateway_stub   [  13% ] 250 VUs  0m08.0s/1m0s
+
+running (0m09.0s), 250/250 VUs, 230 complete and 0 interrupted iterations
+gateway_stub   [  15% ] 250 VUs  0m09.0s/1m0s
+
+running (0m10.0s), 250/250 VUs, 280 complete and 0 interrupted iterations
+gateway_stub   [  17% ] 250 VUs  0m10.0s/1m0s
+
+running (0m11.0s), 250/250 VUs, 335 complete and 0 interrupted iterations
+gateway_stub   [  18% ] 250 VUs  0m11.0s/1m0s
+
+running (0m12.0s), 250/250 VUs, 394 complete and 0 interrupted iterations
+gateway_stub   [  20% ] 250 VUs  0m12.0s/1m0s
+
+running (0m13.0s), 250/250 VUs, 448 complete and 0 interrupted iterations
+gateway_stub   [  22% ] 250 VUs  0m13.0s/1m0s
+
+running (0m14.0s), 250/250 VUs, 498 complete and 0 interrupted iterations
+gateway_stub   [  23% ] 250 VUs  0m14.0s/1m0s
+
+running (0m15.0s), 250/250 VUs, 548 complete and 0 interrupted iterations
+gateway_stub   [  25% ] 250 VUs  0m15.0s/1m0s
+
+running (0m16.0s), 250/250 VUs, 608 complete and 0 interrupted iterations
+gateway_stub   [  27% ] 250 VUs  0m16.0s/1m0s
+
+running (0m17.0s), 250/250 VUs, 657 complete and 0 interrupted iterations
+gateway_stub   [  28% ] 250 VUs  0m17.0s/1m0s
+
+running (0m18.0s), 250/250 VUs, 710 complete and 0 interrupted iterations
+gateway_stub   [  30% ] 250 VUs  0m18.0s/1m0s
+
+running (0m19.0s), 250/250 VUs, 765 complete and 0 interrupted iterations
+gateway_stub   [  32% ] 250 VUs  0m19.0s/1m0s
+
+running (0m20.0s), 250/250 VUs, 816 complete and 0 interrupted iterations
+gateway_stub   [  33% ] 250 VUs  0m20.0s/1m0s
+
+running (0m21.0s), 250/250 VUs, 871 complete and 0 interrupted iterations
+gateway_stub   [  35% ] 250 VUs  0m21.0s/1m0s
+
+running (0m22.0s), 250/250 VUs, 928 complete and 0 interrupted iterations
+gateway_stub   [  37% ] 250 VUs  0m22.0s/1m0s
+
+running (0m23.0s), 250/250 VUs, 980 complete and 0 interrupted iterations
+gateway_stub   [  38% ] 250 VUs  0m23.0s/1m0s
+
+running (0m24.0s), 250/250 VUs, 1030 complete and 0 interrupted iterations
+gateway_stub   [  40% ] 250 VUs  0m24.0s/1m0s
+
+running (0m25.0s), 250/250 VUs, 1083 complete and 0 interrupted iterations
+gateway_stub   [  42% ] 250 VUs  0m25.0s/1m0s
+
+running (0m26.0s), 250/250 VUs, 1143 complete and 0 interrupted iterations
+gateway_stub   [  43% ] 250 VUs  0m26.0s/1m0s
+
+running (0m27.0s), 250/250 VUs, 1195 complete and 0 interrupted iterations
+gateway_stub   [  45% ] 250 VUs  0m27.0s/1m0s
+
+running (0m28.0s), 250/250 VUs, 1246 complete and 0 interrupted iterations
+gateway_stub   [  47% ] 250 VUs  0m28.0s/1m0s
+
+running (0m29.0s), 250/250 VUs, 1296 complete and 0 interrupted iterations
+gateway_stub   [  48% ] 250 VUs  0m29.0s/1m0s
+
+running (0m30.0s), 250/250 VUs, 1355 complete and 0 interrupted iterations
+gateway_stub   [  50% ] 250 VUs  0m30.0s/1m0s
+
+running (0m31.0s), 250/250 VUs, 1406 complete and 0 interrupted iterations
+gateway_stub   [  52% ] 250 VUs  0m31.0s/1m0s
+
+running (0m32.0s), 250/250 VUs, 1460 complete and 0 interrupted iterations
+gateway_stub   [  53% ] 250 VUs  0m32.0s/1m0s
+
+running (0m33.0s), 250/250 VUs, 1515 complete and 0 interrupted iterations
+gateway_stub   [  55% ] 250 VUs  0m33.0s/1m0s
+
+running (0m34.0s), 250/250 VUs, 1566 complete and 0 interrupted iterations
+gateway_stub   [  57% ] 250 VUs  0m34.0s/1m0s
+
+running (0m35.0s), 250/250 VUs, 1621 complete and 0 interrupted iterations
+gateway_stub   [  58% ] 250 VUs  0m35.0s/1m0s
+
+running (0m36.0s), 250/250 VUs, 1677 complete and 0 interrupted iterations
+gateway_stub   [  60% ] 250 VUs  0m36.0s/1m0s
+
+running (0m37.0s), 250/250 VUs, 1729 complete and 0 interrupted iterations
+gateway_stub   [  62% ] 250 VUs  0m37.0s/1m0s
+
+running (0m38.0s), 250/250 VUs, 1777 complete and 0 interrupted iterations
+gateway_stub   [  63% ] 250 VUs  0m38.0s/1m0s
+
+running (0m39.0s), 250/250 VUs, 1833 complete and 0 interrupted iterations
+gateway_stub   [  65% ] 250 VUs  0m39.0s/1m0s
+
+running (0m40.0s), 250/250 VUs, 1892 complete and 0 interrupted iterations
+gateway_stub   [  67% ] 250 VUs  0m40.0s/1m0s
+
+running (0m41.0s), 250/250 VUs, 1944 complete and 0 interrupted iterations
+gateway_stub   [  68% ] 250 VUs  0m41.0s/1m0s
+
+running (0m42.0s), 250/250 VUs, 1996 complete and 0 interrupted iterations
+gateway_stub   [  70% ] 250 VUs  0m42.0s/1m0s
+
+running (0m43.0s), 250/250 VUs, 2046 complete and 0 interrupted iterations
+gateway_stub   [  72% ] 250 VUs  0m43.0s/1m0s
+
+running (0m44.0s), 250/250 VUs, 2104 complete and 0 interrupted iterations
+gateway_stub   [  73% ] 250 VUs  0m44.0s/1m0s
+
+running (0m45.0s), 250/250 VUs, 2156 complete and 0 interrupted iterations
+gateway_stub   [  75% ] 250 VUs  0m45.0s/1m0s
+
+running (0m46.0s), 250/250 VUs, 2209 complete and 0 interrupted iterations
+gateway_stub   [  77% ] 250 VUs  0m46.0s/1m0s
+
+running (0m47.0s), 250/250 VUs, 2265 complete and 0 interrupted iterations
+gateway_stub   [  78% ] 250 VUs  0m47.0s/1m0s
+
+running (0m48.0s), 250/250 VUs, 2316 complete and 0 interrupted iterations
+gateway_stub   [  80% ] 250 VUs  0m48.0s/1m0s
+
+running (0m49.0s), 250/250 VUs, 2369 complete and 0 interrupted iterations
+gateway_stub   [  82% ] 250 VUs  0m49.0s/1m0s
+
+running (0m50.0s), 250/250 VUs, 2425 complete and 0 interrupted iterations
+gateway_stub   [  83% ] 250 VUs  0m50.0s/1m0s
+
+running (0m51.0s), 250/250 VUs, 2477 complete and 0 interrupted iterations
+gateway_stub   [  85% ] 250 VUs  0m51.0s/1m0s
+
+running (0m52.0s), 250/250 VUs, 2526 complete and 0 interrupted iterations
+gateway_stub   [  87% ] 250 VUs  0m52.0s/1m0s
+
+running (0m53.0s), 250/250 VUs, 2581 complete and 0 interrupted iterations
+gateway_stub   [  88% ] 250 VUs  0m53.0s/1m0s
+
+running (0m54.0s), 250/250 VUs, 2641 complete and 0 interrupted iterations
+gateway_stub   [  90% ] 250 VUs  0m54.0s/1m0s
+
+running (0m55.0s), 250/250 VUs, 2694 complete and 0 interrupted iterations
+gateway_stub   [  92% ] 250 VUs  0m55.0s/1m0s
+
+running (0m56.0s), 250/250 VUs, 2745 complete and 0 interrupted iterations
+gateway_stub   [  93% ] 250 VUs  0m56.0s/1m0s
+
+running (0m57.0s), 250/250 VUs, 2793 complete and 0 interrupted iterations
+gateway_stub   [  95% ] 250 VUs  0m57.0s/1m0s
+
+running (0m58.0s), 250/250 VUs, 2854 complete and 0 interrupted iterations
+gateway_stub   [  97% ] 250 VUs  0m58.0s/1m0s
+
+running (0m59.0s), 250/250 VUs, 2904 complete and 0 interrupted iterations
+gateway_stub   [  98% ] 250 VUs  0m59.0s/1m0s
+
+running (1m00.0s), 250/250 VUs, 2959 complete and 0 interrupted iterations
+gateway_stub   [ 100% ] 250 VUs  1m00.0s/1m0s
+
+running (1m01.0s), 195/250 VUs, 3015 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 250 VUs  1m0s
+
+running (1m02.0s), 144/250 VUs, 3066 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 250 VUs  1m0s
+
+running (1m03.0s), 092/250 VUs, 3118 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 250 VUs  1m0s
+
+running (1m04.0s), 036/250 VUs, 3174 complete and 0 interrupted iterations
+gateway_stub ↓ [ 100% ] 250 VUs  1m0s
+
+
+  █ THRESHOLDS 
+
+    checks
+    ✓ 'rate>0.99' rate=100.00%
+
+    http_req_duration
+    ✓ 'p(95)<500' p(95)=2.62ms
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+    http_reqs
+    ✓ 'count>=3200' count=3210
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 9630    148.903431/s
+    checks_succeeded...: 100.00% 9630 out of 9630
+    checks_failed......: 0.00%   0 out of 9630
+
+    ✓ gateway returns stub response
+    ✓ gateway returns W3C trace context
+    ✓ gateway propagates W3C trace context upstream
+
+    CUSTOM
+    gateway_http_200...............: 3210   49.634477/s
+
+    HTTP
+    http_req_duration..............: avg=1.99ms min=1.25ms med=1.92ms max=10.47ms p(50)=1.92ms p(95)=2.62ms p(99)=4.22ms
+      { expected_response:true }...: avg=1.99ms min=1.25ms med=1.92ms max=10.47ms p(50)=1.92ms p(95)=2.62ms p(99)=4.22ms
+    http_req_failed................: 0.00%  0 out of 3210
+    http_reqs......................: 3210   49.634477/s
+
+    EXECUTION
+    iteration_duration.............: avg=4.85s  min=4.67s  med=4.67s  max=9.34s   p(50)=4.67s  p(95)=6.35s  p(99)=8.79s 
+    iterations.....................: 3210   49.634477/s
+    vus............................: 37     min=37        max=250
+    vus_max........................: 250    min=250       max=250
+
+    NETWORK
+    data_received..................: 1.8 MB 27 kB/s
+    data_sent......................: 5.0 MB 78 kB/s
+
+
+
+
+running (1m04.7s), 000/250 VUs, 3210 complete and 0 interrupted iterations
+gateway_stub ✓ [ 100% ] 250 VUs  1m0s
+

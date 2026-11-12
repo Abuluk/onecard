@@ -1,17 +1,28 @@
-name: CD — Build and Push to Docker Hub
+name: Publish OneCard Image
 
 on:
-  push:
-    branches: [main]
-  workflow_dispatch: # 允许手动触发
-
-env:
-  # 这里换成你的 Docker Hub 用户名和仓库名
-  IMAGE_NAME: nytttt/nyt
+  workflow_dispatch:
+    inputs:
+      module:
+        description: Maven module to publish
+        required: true
+        type: choice
+        options:
+          - gateway
+          - account
+          - transaction
+          - payment-adapter
+          - clearing
+          - notification
+          - risk
+          - access
+          - device
 
 jobs:
-  build-and-push:
+  publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -25,32 +36,46 @@ jobs:
           cache-dependency-path: |
             pom.xml
             */pom.xml
+            */*/pom.xml
 
-      - name: Build with Maven (Full Verify)
+      - name: Resolve module path
+        id: module
+        env:
+          MODULE: ${{ inputs.module }}
+        run: |
+          case "$MODULE" in
+            gateway) path=gateway ;;
+            account) path=services/onecard-account-service ;;
+            transaction) path=services/onecard-transaction-service ;;
+            payment-adapter) path=services/onecard-payment-adapter-service ;;
+            clearing) path=services/onecard-clearing-service ;;
+            notification) path=services/onecard-notification-service ;;
+            risk) path=services/onecard-risk-service ;;
+            access) path=services/onecard-access-service ;;
+            device) path=services/onecard-device-service ;;
+            *) echo "Unsupported module: $MODULE" >&2; exit 1 ;;
+          esac
+          echo "path=$path" >> "$GITHUB_OUTPUT"
+
+      - name: Build and verify selected module
+        env:
+          MODULE_PATH: ${{ steps.module.outputs.path }}
         run: |
           chmod +x ./mvnw
-          ./mvnw --batch-mode --no-transfer-progress clean verify
+          ./mvnw --batch-mode --no-transfer-progress -pl "$MODULE_PATH" -am clean verify
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: nytttt
-          password: dckr_pat_VAjjiE0HIi8f4U_utQtd4hmsJD4
-
-      - name: Extract metadata for Docker
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.IMAGE_NAME }}
-          tags: |
-            type=sha,format=short
-            type=raw,value=latest
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: ./onecard-demo-service
-          file: ./onecard-demo-service/Dockerfile
+          context: ${{ steps.module.outputs.path }}
+          file: ${{ steps.module.outputs.path }}/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/onecard-${{ inputs.module }}:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/onecard-${{ inputs.module }}:latest

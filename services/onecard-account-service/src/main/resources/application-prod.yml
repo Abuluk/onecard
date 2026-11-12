@@ -1,0 +1,30 @@
+spring:
+  config:
+    import: nacos:${spring.application.name}.yaml?group=DEFAULT_GROUP
+  datasource:
+    url: ${ACCOUNT_DB_URL}
+    username: ${ACCOUNT_DB_USERNAME}
+    password: ${ACCOUNT_DB_PASSWORD}
+  flyway:
+    enabled: true
+    url: ${ACCOUNT_DB_MIGRATION_URL:${ACCOUNT_DB_URL}}
+    user: ${ACCOUNT_DB_MIGRATION_USERNAME}
+    password: ${ACCOUNT_DB_MIGRATION_PASSWORD}
+    schemas: ${ACCOUNT_DB_SCHEMA:onecard_account}
+    default-schema: ${ACCOUNT_DB_SCHEMA:onecard_account}
+    locations: classpath:db/migration
+    create-schemas: false
+    baseline-on-migrate: false
+    clean-disabled: true
+    out-of-order: false
+    validate-on-migrate: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${OIDC_JWK_SET_URI}
+onecard:
+  security:
+    issuer-uri: ${OIDC_ISSUER_URI}
+    audience: ${OIDC_AUDIENCE}
+    required-scope: onecard.account.invoke

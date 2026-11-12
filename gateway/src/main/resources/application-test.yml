@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        enabled: false
+      discovery:
+        enabled: false
+onecard:
+  security:
+    test-routes:
+      enabled: true
+  rate-limit:
+    enabled: false
+management:
+  health:
+    redis:
+      enabled: false

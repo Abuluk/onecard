@@ -1,0 +1,484 @@
+valkey-1  | 7:M 11 Nov 2026 02:41:06.719 * oO0OoO0OoO0Oo Valkey is starting oO0OoO0OoO0Oo
+valkey-1  | 7:M 11 Nov 2026 02:41:06.719 * Valkey version=9.1.3, bits=64, commit=00000000, modified=0, pid=7, just started
+valkey-1  | 7:M 11 Nov 2026 02:41:06.719 * Configuration loaded
+valkey-1  | 7:M 11 Nov 2026 02:41:06.720 * Increased maximum number of open files to 10032 (it was originally set to 1024).
+valkey-1  | 7:M 11 Nov 2026 02:41:06.720 * monotonic clock: POSIX clock_gettime
+valkey-1  | 7:M 11 Nov 2026 02:41:06.720 * Running mode=standalone, port=6379.
+valkey-1  | 7:M 11 Nov 2026 02:41:06.720 * Static Module 'lua' successfully loaded
+valkey-1  | 7:M 11 Nov 2026 02:41:06.720 * Server initialized
+valkey-1  | 7:M 11 Nov 2026 02:41:06.720 * Ready to accept connections tcp
+nacos-1   | + export 'CUSTOM_SEARCH_NAMES=application'
+nacos-1   | + export 'CUSTOM_SEARCH_LOCATIONS=file:/home/nacos/conf/'
+nacos-1   | + export 'MEMBER_LIST='
+nacos-1   | + PLUGINS_DIR=/home/nacos/plugins/peer-finder
+nacos-1   | + join_if_exist -Xms 1g
+nacos-1   | + '[' -n 1g ]
+nacos-1   | + echo -Xms1g
+nacos-1   | + Xms=-Xms1g
+nacos-1   | + join_if_exist -Xmx 1g
+nacos-1   | + '[' -n 1g ]
+nacos-1   | + echo -Xmx1g
+nacos-1   | + Xmx=-Xmx1g
+nacos-1   | + join_if_exist -Xmn 512m
+nacos-1   | + '[' -n 512m ]
+nacos-1   | + echo -Xmn512m
+nacos-1   | + Xmn=-Xmn512m
+nacos-1   | + join_if_exist '-XX:MetaspaceSize=' 128m
+nacos-1   | + '[' -n 128m ]
+nacos-1   | + echo '-XX:MetaspaceSize=128m'
+nacos-1   | + XX_MS='-XX:MetaspaceSize=128m'
+nacos-1   | + join_if_exist '-XX:MaxMetaspaceSize=' 320m
+nacos-1   | + '[' -n 320m ]
+nacos-1   | + echo '-XX:MaxMetaspaceSize=320m'
+nacos-1   | + XX_MMS='-XX:MaxMetaspaceSize=320m'
+nacos-1   | + '[[' standalone '==' standalone ]]
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m'
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m -Dnacos.standalone=true'
+nacos-1   | + '[[' all '==' config ]]
+nacos-1   | + '[[' all '==' naming ]]
+nacos-1   | + '[[' '!' -z  ]]
+nacos-1   | + '[[' '!' -z  ]]
+nacos-1   | + '[[' '!' -z  ]]
+nacos-1   | + '[[' '!' -z  ]]
+nacos-1   | + '[[' '!' -z false ]]
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m -Dnacos.standalone=true -Dnacos.core.auth.enabled=false'
+nacos-1   | + '[[' '!' -z  ]]
+nacos-1   | + '[[' '!' -z  ]]
+nacos-1   | + '[[' -z '[REDACTED]' ]]
+nacos-1   | + '[[' -z serverIdentity ]]
+nacos-1   | + '[[' -z onecard-local ]]
+nacos-1   | + '[[' ip '==' hostname ]]
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m -Dnacos.standalone=true -Dnacos.core.auth.enabled=false -Dnacos.member.list='
+nacos-1   | + '[[' '!' -z  ]]
+nacos-1   | + /usr/lib/jvm/java-17-openjdk/bin/java -version
+nacos-1   | + sed -E -n 's/.* version "([0-9]*).*$/\1/p'
+nacos-1   | + JAVA_MAJOR_VERSION=17
+nacos-1   | + '[[' 17 -ge 9 ]]
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m -Dnacos.standalone=true -Dnacos.core.auth.enabled=false -Dnacos.member.list= -Xlog:gc*:file=/home/nacos/logs/nacos_gc.log:time,tags:filecount=10,filesize=102400'
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m -Dnacos.standalone=true -Dnacos.core.auth.enabled=false -Dnacos.member.list= -Xlog:gc*:file=/home/nacos/logs/nacos_gc.log:time,tags:filecount=10,filesize=102400 -Dloader.path=/home/nacos/plugins,/home/nacos/plugins/health,/home/nacos/plugins/cmdb,/home/nacos/plugins/selector'
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m -Dnacos.standalone=true -Dnacos.core.auth.enabled=false -Dnacos.member.list= -Xlog:gc*:file=/home/nacos/logs/nacos_gc.log:time,tags:filecount=10,filesize=102400 -Dloader.path=/home/nacos/plugins,/home/nacos/plugins/health,/home/nacos/plugins/cmdb,/home/nacos/plugins/selector -Dnacos.home=/home/nacos'
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m -Dnacos.standalone=true -Dnacos.core.auth.enabled=false -Dnacos.member.list= -Xlog:gc*:file=/home/nacos/logs/nacos_gc.log:time,tags:filecount=10,filesize=102400 -Dloader.path=/home/nacos/plugins,/home/nacos/plugins/health,/home/nacos/plugins/cmdb,/home/nacos/plugins/selector -Dnacos.home=/home/nacos -jar /home/nacos/target/nacos-server.jar'
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m -Dnacos.standalone=true -Dnacos.core.auth.enabled=false -Dnacos.member.list= -Xlog:gc*:file=/home/nacos/logs/nacos_gc.log:time,tags:filecount=10,filesize=102400 -Dloader.path=/home/nacos/plugins,/home/nacos/plugins/health,/home/nacos/plugins/cmdb,/home/nacos/plugins/selector -Dnacos.home=/home/nacos -jar /home/nacos/target/nacos-server.jar '
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m -Dnacos.standalone=true -Dnacos.core.auth.enabled=false -Dnacos.member.list= -Xlog:gc*:file=/home/nacos/logs/nacos_gc.log:time,tags:filecount=10,filesize=102400 -Dloader.path=/home/nacos/plugins,/home/nacos/plugins/health,/home/nacos/plugins/cmdb,/home/nacos/plugins/selector -Dnacos.home=/home/nacos -jar /home/nacos/target/nacos-server.jar  --spring.config.additional-location=file:/home/nacos/conf/'
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m -Dnacos.standalone=true -Dnacos.core.auth.enabled=false -Dnacos.member.list= -Xlog:gc*:file=/home/nacos/logs/nacos_gc.log:time,tags:filecount=10,filesize=102400 -Dloader.path=/home/nacos/plugins,/home/nacos/plugins/health,/home/nacos/plugins/cmdb,/home/nacos/plugins/selector -Dnacos.home=/home/nacos -jar /home/nacos/target/nacos-server.jar  --spring.config.additional-location=file:/home/nacos/conf/ --spring.config.name=application'
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m -Dnacos.standalone=true -Dnacos.core.auth.enabled=false -Dnacos.member.list= -Xlog:gc*:file=/home/nacos/logs/nacos_gc.log:time,tags:filecount=10,filesize=102400 -Dloader.path=/home/nacos/plugins,/home/nacos/plugins/health,/home/nacos/plugins/cmdb,/home/nacos/plugins/selector -Dnacos.home=/home/nacos -jar /home/nacos/target/nacos-server.jar  --spring.config.additional-location=file:/home/nacos/conf/ --spring.config.name=application --logging.config=/home/nacos/conf/nacos-logback.xml'
+nacos-1   | + JAVA_OPT=' -Xms1g -Xmx1g -Xmn512m -Dnacos.standalone=true -Dnacos.core.auth.enabled=false -Dnacos.member.list= -Xlog:gc*:file=/home/nacos/logs/nacos_gc.log:time,tags:filecount=10,filesize=102400 -Dloader.path=/home/nacos/plugins,/home/nacos/plugins/health,/home/nacos/plugins/cmdb,/home/nacos/plugins/selector -Dnacos.home=/home/nacos -jar /home/nacos/target/nacos-server.jar  --spring.config.additional-location=file:/home/nacos/conf/ --spring.config.name=application --logging.config=/home/nacos/conf/nacos-logback.xml --server.max-http-request-header-size=524288'
+nacos-1   | + echo 'Nacos is starting, you can docker logs your container'
+nacos-1   | Nacos is starting, you can docker logs your container
+nacos-1   | + exec /usr/lib/jvm/java-17-openjdk/bin/java -Xms1g -Xmx1g -Xmn512m '-Dnacos.standalone=true' '-Dnacos.core.auth.enabled=false' '-Dnacos.member.list=' '-Xlog:gc*:file=/home/nacos/logs/nacos_gc.log:time,tags:filecount=10,filesize=102400' '-Dloader.path=/home/nacos/plugins,/home/nacos/plugins/health,/home/nacos/plugins/cmdb,/home/nacos/plugins/selector' '-Dnacos.home=/home/nacos' -jar /home/nacos/target/nacos-server.jar '--spring.config.additional-location=file:/home/nacos/conf/' '--spring.config.name=application' '--logging.config=/home/nacos/conf/nacos-logback.xml' '--server.max-http-request-header-size=524288'
+nacos-1   | 10:41:07,595 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.5.12
+nacos-1   | 10:41:07,599 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - Here is a list of configurators discovered as a service, by rank: 
+nacos-1   | 10:41:07,599 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 -   org.springframework.boot.logging.logback.RootLogLevelConfigurator
+nacos-1   | 10:41:07,599 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - They will be invoked in order until ExecutionStatus.DO_NOT_INVOKE_NEXT_IF_ANY is returned.
+nacos-1   | 10:41:07,599 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - Constructed configurator of type class org.springframework.boot.logging.logback.RootLogLevelConfigurator
+nacos-1   | 10:41:07,604 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - org.springframework.boot.logging.logback.RootLogLevelConfigurator.configure() call lasted 0 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+nacos-1   | 10:41:07,604 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+nacos-1   | 10:41:07,605 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+nacos-1   | 10:41:07,606 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+nacos-1   | 10:41:07,607 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+nacos-1   | 10:41:07,607 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 2 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+nacos-1   | 10:41:07,607 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+nacos-1   | 10:41:07,607 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+nacos-1   | 10:41:07,608 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+nacos-1   | 10:41:07,609 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.xml]
+nacos-1   | 10:41:07,609 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 2 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+nacos-1   | 10:41:07,609 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - Trying to configure with ch.qos.logback.classic.BasicConfigurator
+nacos-1   | 10:41:07,611 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - Constructed configurator of type class ch.qos.logback.classic.BasicConfigurator
+nacos-1   | 10:41:07,611 |-INFO in ch.qos.logback.classic.BasicConfigurator@56a4479a - Setting up default configuration.
+nacos-1   | 10:41:07,631 |-INFO in ch.qos.logback.classic.util.ContextInitializer@58c34bb3 - ch.qos.logback.classic.BasicConfigurator.configure() call lasted 20 milliseconds. ExecutionStatus=NEUTRAL
+nacos-1   | 10:41:08,246 |-WARN in ch.qos.logback.classic.joran.action.LevelAction - <level> element is deprecated. Near [level] on line 712
+nacos-1   | 10:41:08,246 |-WARN in ch.qos.logback.classic.joran.action.LevelAction - Please use "level" attribute within <logger> or <root> elements instead.
+nacos-1   | 10:41:08,292 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs" substituted for "${logPath}"
+nacos-1   | 10:41:08,296 |-INFO in ch.qos.logback.classic.model.processor.ConfigurationModelHandlerFull - Registering a new ReconfigureOnChangeTask ReconfigureOnChangeTask(born:1794364868295)
+nacos-1   | 10:41:08,297 |-INFO in ch.qos.logback.classic.model.processor.ConfigurationModelHandlerFull - Will scan for changes in [ConfigurationWatchList(mainURL=file:/home/nacos/conf/nacos-logback.xml, fileWatchList={/home/nacos/conf/nacos-logback.xml}, urlWatchList=[})] 
+nacos-1   | 10:41:08,297 |-INFO in ch.qos.logback.classic.model.processor.ConfigurationModelHandlerFull - Setting ReconfigureOnChangeTask scanning period to 10 seconds
+nacos-1   | 10:41:08,301 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [cmdb-main]
+nacos-1   | 10:41:08,301 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+nacos-1   | 10:41:08,308 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs/cmdb-main.log" substituted for "${nacos.home}/logs/cmdb-main.log"
+nacos-1   | 10:41:08,312 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs/cmdb-main.log.%d{yyyy-MM-dd}.%i" substituted for "${nacos.home}/logs/cmdb-main.log.%d{yyyy-MM-dd}.%i"
+nacos-1   | 10:41:08,312 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@547923534 - setting totalSizeCap to 7 GB
+nacos-1   | 10:41:08,315 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@547923534 - Archive files will be limited to [2 GB] each.
+nacos-1   | 10:41:08,323 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@547923534 - No compression will be used
+nacos-1   | 10:41:08,324 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@547923534 - Will use the pattern /home/nacos/logs/cmdb-main.log.%d{yyyy-MM-dd}.%i for the active file
+nacos-1   | 10:41:08,348 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@62f4ff3b - The date pattern is 'yyyy-MM-dd' from file name pattern '/home/nacos/logs/cmdb-main.log.%d{yyyy-MM-dd}.%i'.
+nacos-1   | 10:41:08,348 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@62f4ff3b - Roll-over at midnight.
+nacos-1   | 10:41:08,353 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@62f4ff3b - Setting initial period to 2026-11-11T02:41:08.353Z
+nacos-1   | 10:41:08,356 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@547923534 - Cleaning on start up
+nacos-1   | 10:41:08,358 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - first clean up after appender initialization
+nacos-1   | 10:41:08,358 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+nacos-1   | 10:41:08,358 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - Multiple periods, i.e. 32 periods, seem to have elapsed. This is expected at application start.
+nacos-1   | 10:41:08,366 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - No removal attempts were made.
+nacos-1   | 10:41:08,386 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[cmdb-main] - Active log file name: /home/nacos/logs/cmdb-main.log
+nacos-1   | 10:41:08,386 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[cmdb-main] - File property is set to [/home/nacos/logs/cmdb-main.log]
+nacos-1   | 10:41:08,387 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [CONSOLE]
+nacos-1   | 10:41:08,387 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+nacos-1   | 10:41:08,387 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+nacos-1   | 10:41:08,388 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [naming-server]
+nacos-1   | 10:41:08,388 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+nacos-1   | 10:41:08,388 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs/naming-server.log" substituted for "${LOG_HOME}/naming-server.log"
+nacos-1   | 10:41:08,388 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs/naming-server.log.%d{yyyy-MM-dd}.%i" substituted for "${LOG_HOME}/naming-server.log.%d{yyyy-MM-dd}.%i"
+nacos-1   | 10:41:08,389 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@379124840 - setting totalSizeCap to 7 GB
+nacos-1   | 10:41:08,389 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@379124840 - Archive files will be limited to [1 GB] each.
+nacos-1   | 10:41:08,389 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@379124840 - No compression will be used
+nacos-1   | 10:41:08,389 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@379124840 - Will use the pattern /home/nacos/logs/naming-server.log.%d{yyyy-MM-dd}.%i for the active file
+nacos-1   | 10:41:08,389 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@4504d271 - The date pattern is 'yyyy-MM-dd' from file name pattern '/home/nacos/logs/naming-server.log.%d{yyyy-MM-dd}.%i'.
+nacos-1   | 10:41:08,389 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@4504d271 - Roll-over at midnight.
+nacos-1   | 10:41:08,390 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@4504d271 - Setting initial period to 2026-11-11T02:41:08.390Z
+nacos-1   | 10:41:08,390 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@379124840 - Cleaning on start up
+nacos-1   | 10:41:08,390 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+nacos-1   | 10:41:08,390 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - first clean up after appender initialization
+nacos-1   | 10:41:08,391 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - Multiple periods, i.e. 32 periods, seem to have elapsed. This is expected at application start.
+nacos-1   | 10:41:08,391 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[naming-server] - Active log file name: /home/nacos/logs/naming-server.log
+nacos-1   | 10:41:08,391 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[naming-server] - File property is set to [/home/nacos/logs/naming-server.log]
+nacos-1   | 10:41:08,391 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [async-naming-server]
+nacos-1   | 10:41:08,391 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.classic.AsyncAppender]
+nacos-1   | 10:41:08,393 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [naming-server] to ch.qos.logback.classic.AsyncAppender[async-naming-server]
+nacos-1   | 10:41:08,394 |-INFO in ch.qos.logback.classic.AsyncAppender[async-naming-server] - Attaching appender named [naming-server] to AsyncAppender.
+nacos-1   | 10:41:08,394 |-INFO in ch.qos.logback.classic.AsyncAppender[async-naming-server] - Setting discardingThreshold to 0
+nacos-1   | 10:41:08,394 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [naming-raft]
+nacos-1   | 10:41:08,394 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+nacos-1   | 10:41:08,394 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs/naming-raft.log" substituted for "${LOG_HOME}/naming-raft.log"
+nacos-1   | 10:41:08,394 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs/naming-raft.log.%d{yyyy-MM-dd}.%i" substituted for "${LOG_HOME}/naming-raft.log.%d{yyyy-MM-dd}.%i"
+nacos-1   | 10:41:08,394 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@544966217 - setting totalSizeCap to 3 GB
+nacos-1   | 10:41:08,394 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@544966217 - Archive files will be limited to [1 GB] each.
+nacos-1   | 10:41:08,395 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@544966217 - No compression will be used
+nacos-1   | 10:41:08,395 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@544966217 - Will use the pattern /home/nacos/logs/naming-raft.log.%d{yyyy-MM-dd}.%i for the active file
+nacos-1   | 10:41:08,395 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@65b3a85a - The date pattern is 'yyyy-MM-dd' from file name pattern '/home/nacos/logs/naming-raft.log.%d{yyyy-MM-dd}.%i'.
+nacos-1   | 10:41:08,395 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@65b3a85a - Roll-over at midnight.
+nacos-1   | 10:41:08,395 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@65b3a85a - Setting initial period to 2026-11-11T02:41:08.395Z
+nacos-1   | 10:41:08,396 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@544966217 - Cleaning on start up
+nacos-1   | 10:41:08,396 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+nacos-1   | 10:41:08,397 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - first clean up after appender initialization
+nacos-1   | 10:41:08,397 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - Multiple periods, i.e. 32 periods, seem to have elapsed. This is expected at application start.
+nacos-1   | 10:41:08,397 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[naming-raft] - Active log file name: /home/nacos/logs/naming-raft.log
+nacos-1   | 10:41:08,397 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[naming-raft] - File property is set to [/home/nacos/logs/naming-raft.log]
+nacos-1   | 10:41:08,397 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [async-naming-raft]
+nacos-1   | 10:41:08,397 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.classic.AsyncAppender]
+nacos-1   | 10:41:08,397 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [naming-raft] to ch.qos.logback.classic.AsyncAppender[async-naming-raft]
+nacos-1   | 10:41:08,397 |-INFO in ch.qos.logback.classic.AsyncAppender[async-naming-raft] - Attaching appender named [naming-raft] to AsyncAppender.
+nacos-1   | 10:41:08,397 |-INFO in ch.qos.logback.classic.AsyncAppender[async-naming-raft] - Setting discardingThreshold to 0
+nacos-1   | 10:41:08,397 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - No removal attempts were made.
+nacos-1   | 10:41:08,397 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [naming-distro]
+nacos-1   | 10:41:08,397 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+nacos-1   | 10:41:08,397 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs/naming-distro.log" substituted for "${LOG_HOME}/naming-distro.log"
+nacos-1   | 10:41:08,398 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs/naming-distro.log.%d{yyyy-MM-dd}.%i" substituted for "${LOG_HOME}/naming-distro.log.%d{yyyy-MM-dd}.%i"
+nacos-1   | 10:41:08,398 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@882471736 - setting totalSizeCap to 3 GB
+nacos-1   | 10:41:08,398 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@882471736 - Archive files will be limited to [1 GB] each.
+nacos-1   | 10:41:08,398 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@882471736 - No compression will be used
+nacos-1   | 10:41:08,398 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@882471736 - Will use the pattern /home/nacos/logs/naming-distro.log.%d{yyyy-MM-dd}.%i for the active file
+nacos-1   | 10:41:08,399 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@57eda880 - The date pattern is 'yyyy-MM-dd' from file name pattern '/home/nacos/logs/naming-distro.log.%d{yyyy-MM-dd}.%i'.
+nacos-1   | 10:41:08,399 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@57eda880 - Roll-over at midnight.
+nacos-1   | 10:41:08,399 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@57eda880 - Setting initial period to 2026-11-11T02:41:08.399Z
+nacos-1   | 10:41:08,399 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@882471736 - Cleaning on start up
+nacos-1   | 10:41:08,400 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+nacos-1   | 10:41:08,400 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - first clean up after appender initialization
+nacos-1   | 10:41:08,400 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - Multiple periods, i.e. 32 periods, seem to have elapsed. This is expected at application start.
+nacos-1   | 10:41:08,400 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[naming-distro] - Active log file name: /home/nacos/logs/naming-distro.log
+nacos-1   | 10:41:08,400 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[naming-distro] - File property is set to [/home/nacos/logs/naming-distro.log]
+nacos-1   | 10:41:08,400 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [async-naming-distro]
+nacos-1   | 10:41:08,400 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.classic.AsyncAppender]
+nacos-1   | 10:41:08,401 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [naming-distro] to ch.qos.logback.classic.AsyncAppender[async-naming-distro]
+nacos-1   | 10:41:08,401 |-INFO in ch.qos.logback.classic.AsyncAppender[async-naming-distro] - Attaching appender named [naming-distro] to AsyncAppender.
+nacos-1   | 10:41:08,401 |-INFO in ch.qos.logback.classic.AsyncAppender[async-naming-distro] - Setting discardingThreshold to 0
+nacos-1   | 10:41:08,402 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [naming-event]
+nacos-1   | 10:41:08,402 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+nacos-1   | 10:41:08,402 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs/naming-event.log" substituted for "${LOG_HOME}/naming-event.log"
+nacos-1   | 10:41:08,402 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs/naming-event.log.%d{yyyy-MM-dd}.%i" substituted for "${LOG_HOME}/naming-event.log.%d{yyyy-MM-dd}.%i"
+nacos-1   | 10:41:08,403 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@727197178 - setting totalSizeCap to 3 GB
+nacos-1   | 10:41:08,403 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@727197178 - Archive files will be limited to [1 GB] each.
+nacos-1   | 10:41:08,404 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@727197178 - No compression will be used
+nacos-1   | 10:41:08,404 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@727197178 - Will use the pattern /home/nacos/logs/naming-event.log.%d{yyyy-MM-dd}.%i for the active file
+nacos-1   | 10:41:08,404 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@53d1b9b3 - The date pattern is 'yyyy-MM-dd' from file name pattern '/home/nacos/logs/naming-event.log.%d{yyyy-MM-dd}.%i'.
+nacos-1   | 10:41:08,404 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@53d1b9b3 - Roll-over at midnight.
+nacos-1   | 10:41:08,404 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@53d1b9b3 - Setting initial period to 2026-11-11T02:41:08.404Z
+nacos-1   | 10:41:08,405 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@727197178 - Cleaning on start up
+nacos-1   | 10:41:08,405 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - first clean up after appender initialization
+nacos-1   | 10:41:08,405 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+nacos-1   | 10:41:08,405 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - Multiple periods, i.e. 32 periods, seem to have elapsed. This is expected at application start.
+nacos-1   | 10:41:08,405 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[naming-event] - Active log file name: /home/nacos/logs/naming-event.log
+nacos-1   | 10:41:08,405 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[naming-event] - File property is set to [/home/nacos/logs/naming-event.log]
+nacos-1   | 10:41:08,405 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - No removal attempts were made.
+nacos-1   | 10:41:08,406 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [async-naming-event]
+nacos-1   | 10:41:08,406 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.classic.AsyncAppender]
+nacos-1   | 10:41:08,406 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [naming-event] to ch.qos.logback.classic.AsyncAppender[async-naming-event]
+nacos-1   | 10:41:08,406 |-INFO in ch.qos.logback.classic.AsyncAppender[async-naming-event] - Attaching appender named [naming-event] to AsyncAppender.
+nacos-1   | 10:41:08,406 |-INFO in ch.qos.logback.classic.AsyncAppender[async-naming-event] - Setting discardingThreshold to 0
+nacos-1   | 10:41:08,407 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [naming-push]
+nacos-1   | 10:41:08,407 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+nacos-1   | 10:41:08,407 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs/naming-push.log" substituted for "${LOG_HOME}/naming-push.log"
+nacos-1   | 10:41:08,407 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@62163b39 - value "/home/nacos/logs/naming-push.log.%d{yyyy-MM-dd}.%i" substituted for "${LOG_HOME}/naming-push.log.%d{yyyy-MM-dd}.%i"
+nacos-1   | 10:41:08,407 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@749604930 - setting totalSizeCap to 3 GB
+nacos-1   | 10:41:08,408 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@749604930 - Archive files will be limited to [1 GB] each.
+nacos-1   | 10:41:08,408 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@749604930 - No compression will be used
+nacos-1   | 10:41:08,408 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@749604930 - Will use the pattern /home/nacos/logs/naming-push.log.%d{yyyy-MM-dd}.%i for the active file
+nacos-1   | 10:41:08,408 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@163d04ff - The date pattern is 'yyyy-MM-dd' from file name pattern '/home/nacos/logs/naming-push.log.%d{yyyy-MM-dd}.%i'.
+nacos-1   | 10:41:08,408 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@163d04ff - Roll-over at midnight.
+nacos-1   | 10:41:08,409 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFileNamingAndTriggeringPolicy@163d04ff - Setting initial period to 2026-11-11T02:41:08.408Z
+nacos-1   | 10:41:08,409 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@749604930 - Cleaning on start up
+nacos-1   | 10:41:08,411 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating DEBUG level on Logger[com.alibaba.nacos.core.remote.push] onto the JUL framework
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.core.remote.push] to false
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [remote-push] to Logger[com.alibaba.nacos.core.remote.push]
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.core.remote.digest] to DEBUG
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating DEBUG level on Logger[com.alibaba.nacos.core.remote.digest] onto the JUL framework
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.core.remote.digest] to false
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [remote-digest] to Logger[com.alibaba.nacos.core.remote.digest]
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.plugin.control] to INFO
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.plugin.control] onto the JUL framework
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.plugin.control] to false
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [plugin-control] to Logger[com.alibaba.nacos.plugin.control]
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.plugin.control.tps] to INFO
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.plugin.control.tps] onto the JUL framework
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.plugin.control.tps] to false
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [plugin-control-tps] to Logger[com.alibaba.nacos.plugin.control.tps]
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.plugin.control.connection] to INFO
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.plugin.control.connection] onto the JUL framework
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.plugin.control.connection] to false
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [plugin-control-connection] to Logger[com.alibaba.nacos.plugin.control.connection]
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.naming.main] to INFO
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.naming.main] onto the JUL framework
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.naming.main] to false
+nacos-1   | 10:41:08,525 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - No removal attempts were made.
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [async-naming-server] to Logger[com.alibaba.nacos.naming.main]
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.naming.raft] to INFO
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.naming.raft] onto the JUL framework
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.naming.raft] to false
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [async-naming-raft] to Logger[com.alibaba.nacos.naming.raft]
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.naming.distro] to INFO
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.naming.distro] onto the JUL framework
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.naming.distro] to false
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [async-naming-distro] to Logger[com.alibaba.nacos.naming.distro]
+nacos-1   | 10:41:08,525 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - No removal attempts were made.
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.naming.event] to INFO
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.naming.event] onto the JUL framework
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.naming.event] to false
+nacos-1   | 10:41:08,525 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [async-naming-event] to Logger[com.alibaba.nacos.naming.event]
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.naming.push] to INFO
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.naming.push] onto the JUL framework
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.naming.push] to false
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [naming-push] to Logger[com.alibaba.nacos.naming.push]
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.naming.rt] to INFO
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.naming.rt] onto the JUL framework
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.naming.rt] to false
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [naming-rt] to Logger[com.alibaba.nacos.naming.rt]
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.naming.performance] to INFO
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.naming.performance] onto the JUL framework
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.naming.performance] to false
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [naming-performance] to Logger[com.alibaba.nacos.naming.performance]
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.config.dumpLog] to INFO
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.config.dumpLog] onto the JUL framework
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.config.dumpLog] to false
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [dumpFile] to Logger[com.alibaba.nacos.config.dumpLog]
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.config.pullLog] to INFO
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.config.pullLog] onto the JUL framework
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.config.pullLog] to false
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [pullFile] to Logger[com.alibaba.nacos.config.pullLog]
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.config.pullCheckLog] to INFO
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.config.pullCheckLog] onto the JUL framework
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.config.pullCheckLog] to false
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [pullCheckFile] to Logger[com.alibaba.nacos.config.pullCheckLog]
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.config.fatal] to INFO
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.config.fatal] onto the JUL framework
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.config.fatal] to false
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [fatalFile] to Logger[com.alibaba.nacos.config.fatal]
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.config.monitorLog] to INFO
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.config.monitorLog] onto the JUL framework
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.config.monitorLog] to false
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [memoryFile] to Logger[com.alibaba.nacos.config.monitorLog]
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.config.clientLog] to INFO
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.config.clientLog] onto the JUL framework
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.config.clientLog] to false
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [clientLog] to Logger[com.alibaba.nacos.config.clientLog]
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.config.notifyLog] to INFO
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.config.notifyLog] onto the JUL framework
+nacos-1   | 10:41:08,526 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.config.notifyLog] to false
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [notifyLog] to Logger[com.alibaba.nacos.config.notifyLog]
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.config.traceLog] to INFO
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.config.traceLog] onto the JUL framework
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.config.traceLog] to false
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [traceLog] to Logger[com.alibaba.nacos.config.traceLog]
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.config.startLog] to INFO
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.config.startLog] onto the JUL framework
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.config.startLog] to false
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [startLog] to Logger[com.alibaba.nacos.config.startLog]
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.istio.main] to DEBUG
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating DEBUG level on Logger[com.alibaba.nacos.istio.main] onto the JUL framework
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.istio.main] to false
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [istio-main] to Logger[com.alibaba.nacos.istio.main]
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.core.auth] to DEBUG
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating DEBUG level on Logger[com.alibaba.nacos.core.auth] onto the JUL framework
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.core.auth] to false
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [core-auth] to Logger[com.alibaba.nacos.core.auth]
+nacos-1   | 10:41:08,527 |-INFO in c.q.l.core.rolling.helper.TimeBasedArchiveRemover - No removal attempts were made.
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.k8s.sync.main] to false
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating DEBUG level on Logger[com.alibaba.nacos.k8s.sync.main] onto the JUL framework
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LevelModelHandler - com.alibaba.nacos.k8s.sync.main level set to DEBUG
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [k8s-sync-main] to Logger[com.alibaba.nacos.k8s.sync.main]
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.core.protocol.raft] to INFO
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.core.protocol.raft] onto the JUL framework
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.core.protocol.raft] to false
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [protocol-raft] to Logger[com.alibaba.nacos.core.protocol.raft]
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alipay.sofa.jraft] to INFO
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alipay.sofa.jraft] onto the JUL framework
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alipay.sofa.jraft] to false
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [alipay-jraft] to Logger[com.alipay.sofa.jraft]
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.core.protocol.distro] to INFO
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.core.protocol.distro] onto the JUL framework
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.core.protocol.distro] to false
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [protocol-distro] to Logger[com.alibaba.nacos.core.protocol.distro]
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.core.cluster] to INFO
+nacos-1   | 10:41:08,527 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.core.cluster] onto the JUL framework
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.core.cluster] to false
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [nacos-cluster] to Logger[com.alibaba.nacos.core.cluster]
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.persistence] to INFO
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.persistence] onto the JUL framework
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [com.alibaba.nacos.persistence] to false
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [nacos-persistence] to Logger[com.alibaba.nacos.persistence]
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework] to INFO
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[org.springframework] onto the JUL framework
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[org.springframework]
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.catalina.startup.DigesterFactory] to INFO
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[org.apache.catalina.startup.DigesterFactory] onto the JUL framework
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[org.apache.catalina.startup.DigesterFactory]
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.catalina.util.LifecycleBase] to ERROR
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating ERROR level on Logger[org.apache.catalina.util.LifecycleBase] onto the JUL framework
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[org.apache.catalina.util.LifecycleBase]
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.coyote.http11.Http11NioProtocol] to WARN
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating WARN level on Logger[org.apache.coyote.http11.Http11NioProtocol] onto the JUL framework
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[org.apache.coyote.http11.Http11NioProtocol]
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.tomcat.util.net.NioSelectorPool] to WARN
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating WARN level on Logger[org.apache.tomcat.util.net.NioSelectorPool] onto the JUL framework
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[org.apache.tomcat.util.net.NioSelectorPool]
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.core.listener.StartingApplicationListener] to INFO
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.core.listener.StartingApplicationListener] onto the JUL framework
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[com.alibaba.nacos.core.listener.StartingApplicationListener]
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.common.notify.NotifyCenter] to INFO
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.common.notify.NotifyCenter] onto the JUL framework
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[com.alibaba.nacos.common.notify.NotifyCenter]
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.sys.file.WatchFileCenter] to INFO
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.sys.file.WatchFileCenter] onto the JUL framework
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[com.alibaba.nacos.sys.file.WatchFileCenter]
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.alibaba.nacos.common.executor.ThreadPoolManager] to INFO
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[com.alibaba.nacos.common.executor.ThreadPoolManager] onto the JUL framework
+nacos-1   | 10:41:08,528 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[com.alibaba.nacos.common.executor.ThreadPoolManager]
+nacos-1   | 10:41:08,529 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
+nacos-1   | 10:41:08,529 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@7c209437 - Propagating INFO level on Logger[ROOT] onto the JUL framework
+nacos-1   | 10:41:08,529 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [rootFile] to Logger[ROOT]
+nacos-1   | 10:41:08,530 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@2262b621 - End of configuration.
+nacos-1   | 10:41:08,530 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@7e928e2f - Registering current configuration as safe fallback point
+nacos-1   | 
+nacos-1   | 
+nacos-1   |          ,--.
+nacos-1   |        ,--.'|
+nacos-1   |    ,--,:  : |                                           Nacos Server 3.1.1
+nacos-1   | ,`--.'`|  ' :                       ,---.               Running in stand alone mode, All function modules
+nacos-1   | |   :  :  | |                      '   ,'\   .--.--.
+nacos-1   | :   |   \ | :  ,--.--.     ,---.  /   /   | /  /    '   Pid: 1
+nacos-1   | |   : '  '; | /       \   /     \.   ; ,. :|  :  /`./
+nacos-1   | '   ' ;.    ;.--.  .-. | /    / ''   | |: :|  :  ;_
+nacos-1   | |   | | \   | \__\/: . ..    ' / '   | .; : \  \    `.      https://nacos.io
+nacos-1   | '   : |  ; .' ," .--.; |'   ; :__|   :    |  `----.   \
+nacos-1   | |   | '`--'  /  /  ,.  |'   | '.'|\   \  /  /  /`--'  /
+nacos-1   | '   : |     ;  :   .'   \   :    : `----'  '--'.     /
+nacos-1   | ;   |.'     |  ,     .-./\   \  /            `--'---'
+nacos-1   | '---'        `--`---'     `----'
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:09,677 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:10,677 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:11,678 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:12,678 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:13,679 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:14,679 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:15,680 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:16,680 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:17,681 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:18,681 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:19,682 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:20,682 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:21,683 INFO Nacos Server is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:21,774 WARN Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:22,425 INFO Nacos started successfully in stand alone mode with embedded storage in 14659 ms
+nacos-1   | 
+nacos-1   | 
+nacos-1   |          ,--.
+nacos-1   |        ,--.'|
+nacos-1   |    ,--,:  : |                                           Nacos Server API 3.1.1
+nacos-1   | ,`--.'`|  ' :                       ,---.               Running in stand alone mode, All function modules
+nacos-1   | |   :  :  | |                      '   ,'\   .--.--.    Port: 8848
+nacos-1   | :   |   \ | :  ,--.--.     ,---.  /   /   | /  /    '   Pid: 1
+nacos-1   | |   : '  '; | /       \   /     \.   ; ,. :|  :  /`./
+nacos-1   | '   ' ;.    ;.--.  .-. | /    / ''   | |: :|  :  ;_
+nacos-1   | |   | | \   | \__\/: . ..    ' / '   | .; : \  \    `.      https://nacos.io
+nacos-1   | '   : |  ; .' ," .--.; |'   ; :__|   :    |  `----.   \
+nacos-1   | |   | '`--'  /  /  ,.  |'   | '.'|\   \  /  /  /`--'  /
+nacos-1   | '   : |     ;  :   .'   \   :    : `----'  '--'.     /
+nacos-1   | ;   |.'     |  ,     .-./\   \  /            `--'---'
+nacos-1   | '---'        `--`---'     `----'
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:23,398 WARN Bean 'nacosWebBeanPostProcessorConfiguration' of type [com.alibaba.nacos.server.NacosWebBeanPostProcessorConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [nacosDuplicateSpringBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:23,469 INFO Nacos Server API is starting...
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:23,603 INFO Tomcat initialized with port 8848 (http)
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:23,647 INFO Root WebApplicationContext: initialization completed in 1173 ms
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:23,869 INFO Adding welcome page: class path resource [static/index.html]
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:24,175 INFO Exposing 1 endpoint beneath base path '/actuator'
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:24,208 INFO Tomcat started on port 8848 (http) with context path '/nacos'
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:24,230 INFO Nacos Server API started successfully in 1798 ms
+nacos-1   | 
+nacos-1   | 
+nacos-1   |          ,--.
+nacos-1   |        ,--.'|
+nacos-1   |    ,--,:  : |                                           Nacos Console 3.1.1
+nacos-1   | ,`--.'`|  ' :                       ,---.               Running in stand alone mode, All function modules
+nacos-1   | |   :  :  | |                      '   ,'\   .--.--.    Port: 8080
+nacos-1   | :   |   \ | :  ,--.--.     ,---.  /   /   | /  /    '   Pid: 1
+nacos-1   | |   : '  '; | /       \   /     \.   ; ,. :|  :  /`./   Console: http://172.18.0.3:8080/index.html
+nacos-1   | '   ' ;.    ;.--.  .-. | /    / ''   | |: :|  :  ;_
+nacos-1   | |   | | \   | \__\/: . ..    ' / '   | .; : \  \    `.      https://nacos.io
+nacos-1   | '   : |  ; .' ," .--.; |'   ; :__|   :    |  `----.   \
+nacos-1   | |   | '`--'  /  /  ,.  |'   | '.'|\   \  /  /  /`--'  /
+nacos-1   | '   : |     ;  :   .'   \   :    : `----'  '--'.     /
+nacos-1   | ;   |.'     |  ,     .-./\   \  /            `--'---'
+nacos-1   | '---'        `--`---'     `----'
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:24,625 WARN Bean 'nacosConsoleBeanPostProcessorConfiguration' of type [com.alibaba.nacos.console.config.NacosConsoleBeanPostProcessorConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [nacosDuplicateSpringBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:24,655 INFO Tomcat initialized with port 8080 (http)
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:24,658 INFO Root WebApplicationContext: initialization completed in 395 ms
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:24,737 INFO Adding welcome page: class path resource [static/index.html]
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:24,855 INFO Exposing 1 endpoint beneath base path '/actuator'
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:24,866 INFO Tomcat started on port 8080 (http) with context path '/'
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:24,876 INFO Nacos Console started successfully in 638 ms
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:27,385 INFO Initializing Servlet 'dispatcherServlet'
+nacos-1   | 
+nacos-1   | 2026-11-11 10:41:27,386 INFO Completed initialization in 1 ms
+nacos-1   | 
+onecard-clearing-service-1  | 02:41:29.567 [main] INFO com.alibaba.nacos.plugin.auth.spi.client.ClientAuthPluginManager -- [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+onecard-clearing-service-1  | 02:41:29.571 [main] INFO com.alibaba.nacos.plugin.auth.spi.client.ClientAuthPluginManager -- [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+

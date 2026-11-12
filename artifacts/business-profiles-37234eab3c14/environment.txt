@@ -1,0 +1,6 @@
+Linux admin1-virtual-machine 6.8.0-138-generic #138~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Aug  7 13:43:15 UTC  x86_64 x86_64 x86_64 GNU/Linux
+8
+               total        used        free      shared  buff/cache   available
+内存：       15Gi       1.1Gi       4.9Gi        10Mi       9.6Gi        14Gi
+交换：      6.0Gi       2.0Mi       6.0Gi
+29.6.2

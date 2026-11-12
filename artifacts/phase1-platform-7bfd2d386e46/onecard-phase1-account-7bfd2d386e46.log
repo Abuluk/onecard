@@ -1,0 +1,25 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.9)
+
+2026-11-10T20:03:44.754Z  INFO 1 --- [onecard-account-service] [           main] [                                                 ] com.onecard.account.AccountApplication   : Starting AccountApplication v1.0.0-SNAPSHOT using Java 25.0.5 with PID 1 (/app/app.jar started by root in /app)
+2026-11-10T20:03:44.759Z  INFO 1 --- [onecard-account-service] [           main] [                                                 ] com.onecard.account.AccountApplication   : The following 1 profile is active: "dev"
+2026-11-10T20:03:46.435Z  INFO 1 --- [onecard-account-service] [           main] [                                                 ] o.s.cloud.context.scope.GenericScope     : BeanFactory id=63636c4e-95c5-36da-8047-0b700a538709
+2026-11-10T20:03:46.903Z  INFO 1 --- [onecard-account-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 44430 (http)
+2026-11-10T20:03:46.917Z  INFO 1 --- [onecard-account-service] [           main] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-10T20:03:46.917Z  INFO 1 --- [onecard-account-service] [           main] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.27]
+2026-11-10T20:03:46.940Z  INFO 1 --- [onecard-account-service] [           main] [                                                 ] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2081 ms
+2026-11-10T20:03:48.396Z  INFO 1 --- [onecard-account-service] [           main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-11-10T20:03:48.480Z  INFO 1 --- [onecard-account-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 44430 (http) with context path '/'
+2026-11-10T20:03:48.507Z  INFO 1 --- [onecard-account-service] [           main] [                                                 ] com.onecard.account.AccountApplication   : Started AccountApplication in 4.568 seconds (process running for 5.287)
+2026-11-10T20:03:50.258Z  INFO 1 --- [onecard-account-service] [.1-44430-exec-1] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-10T20:03:50.259Z  INFO 1 --- [onecard-account-service] [.1-44430-exec-1] [                                                 ] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-10T20:03:50.260Z  INFO 1 --- [onecard-account-service] [.1-44430-exec-1] [                                                 ] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-11-10T20:03:54.233Z  WARN 1 --- [onecard-account-service] [.1-44430-exec-3] [1e9aff876a2b4528fa2a06f1dc4a0af0-e3eb06ce23036450] com.onecard.security.audit               : security_event event=access_denied service=onecard-account-service method=GET
+
