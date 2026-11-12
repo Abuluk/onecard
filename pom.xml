@@ -45,7 +45,7 @@
         <spring-cloud-alibaba.version>2025.1.0.0</spring-cloud-alibaba.version>
         <nacos-client.version>3.3.0</nacos-client.version>
         <maven.version>[3.6.3,)</maven.version>
-        <enforcer.version>3.6.1</enforcer.version>
+        <enforcer.version>3.7.0</enforcer.version>
         <flatten.version>1.7.3</flatten.version>
     </properties>
 
