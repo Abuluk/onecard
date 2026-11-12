@@ -3,10 +3,28 @@ param(
     [string] $DockerHost,
     [string] $SshTarget,
     [ValidateRange(1, 4)]
-    [int] $CpuLimit = 4
+    [int] $CpuLimit = 4,
+    [switch] $CiProfile
 )
 
 $ErrorActionPreference = "Stop"
+if ($CiProfile) {
+    $containerMemory = "6g"
+    $oceanBaseMemoryLimit = "3G"
+    $oceanBaseDatafileSize = "2G"
+    $oceanBaseLogDiskSize = "2G"
+    $tenantMaxCpu = 1
+    $tenantMemorySize = "1G"
+    $tenantLogDiskSize = "1G"
+} else {
+    $containerMemory = "10g"
+    $oceanBaseMemoryLimit = "6G"
+    $oceanBaseDatafileSize = "5G"
+    $oceanBaseLogDiskSize = "5G"
+    $tenantMaxCpu = 2
+    $tenantMemorySize = "2G"
+    $tenantLogDiskSize = "2G"
+}
 $containerName = "onecard-oceanbase-smoke-$([guid]::NewGuid().ToString('N').Substring(0, 12))"
 $dockerContextName = "onecard-oceanbase-smoke-context-$([guid]::NewGuid().ToString('N').Substring(0, 12))"
 $repositoryRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
@@ -133,20 +151,20 @@ try {
     $transactionAppPassword = New-TestPassword
     $transactionMigrationPassword = New-TestPassword
     $dockerId = docker run --detach --name $containerName `
-        --memory 10g --cpus $CpuLimit `
+        --memory $containerMemory --cpus $CpuLimit `
         --ulimit nofile=65535:65535 --ulimit stack=-1:-1 `
         --publish 127.0.0.1::2881 `
         --env MODE=MINI `
         --env EXIT_WHILE_ERROR=YES `
-        --env OB_MEMORY_LIMIT=6G `
+        --env "OB_MEMORY_LIMIT=$oceanBaseMemoryLimit" `
         --env OB_SYSTEM_MEMORY=1G `
-        --env OB_DATAFILE_SIZE=5G `
-        --env OB_LOG_DISK_SIZE=5G `
+        --env "OB_DATAFILE_SIZE=$oceanBaseDatafileSize" `
+        --env "OB_LOG_DISK_SIZE=$oceanBaseLogDiskSize" `
         --env OB_TENANT_NAME=onecard `
         --env OB_TENANT_MIN_CPU=1 `
-        --env OB_TENANT_MAX_CPU=2 `
-        --env OB_TENANT_MEMORY_SIZE=2G `
-        --env OB_TENANT_LOG_DISK_SIZE=2G `
+        --env "OB_TENANT_MAX_CPU=$tenantMaxCpu" `
+        --env "OB_TENANT_MEMORY_SIZE=$tenantMemorySize" `
+        --env "OB_TENANT_LOG_DISK_SIZE=$tenantLogDiskSize" `
         --entrypoint bash --workdir /root `
         $Image -lc "/usr/sbin/sshd && sed -i 's/--min-cpu=/--max-cpu=2 --min-cpu=/' /root/boot/start.sh && /root/boot/start.sh"
     if ($LASTEXITCODE -ne 0) {
@@ -306,6 +324,7 @@ GRANT ALL PRIVILEGES ON onecard_transaction.* TO 'onecard_transaction_migrator'@
         "",
         "- Temporary container: $containerName",
         "- Target: $(if ($SshTarget) { $SshTarget } else { 'local Docker engine' })",
+        "- Resource profile: $(if ($CiProfile) { 'CI compact' } else { 'development' })",
         "- Generated credentials were checked against test output; no credential leak found.",
         "- Test logs are in this directory."
     ) | Set-Content -LiteralPath (Join-Path $outputDirectory "report.md")

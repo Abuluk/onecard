@@ -515,7 +515,7 @@ jobs:
 
       - name: Run OceanBase migration and schema isolation smoke
         shell: pwsh
-        run: ./scripts/oceanbase-account-smoke.ps1 -CpuLimit 2
+        run: ./scripts/oceanbase-account-smoke.ps1 -CpuLimit 2 -CiProfile
 
       - name: Upload OceanBase migration reports
         if: always()
