@@ -36,6 +36,9 @@ $containerCreated = $false
 $dockerContextCreated = $false
 $sshTunnel = $null
 $outputDirectory = Join-Path $repositoryRoot "artifacts/oceanbase-smoke-$([guid]::NewGuid().ToString('N').Substring(0, 12))"
+if (-not [string]::IsNullOrWhiteSpace($env:GITHUB_OUTPUT)) {
+    Add-Content -LiteralPath $env:GITHUB_OUTPUT -Value "report-directory=$outputDirectory"
+}
 $savedDockerContext = $env:DOCKER_CONTEXT
 $savedEnvironment = @{}
 $testVariables = @(
@@ -152,7 +155,7 @@ try {
     $transactionMigrationPassword = New-TestPassword
     $dockerId = docker run --detach --name $containerName `
         --memory $containerMemory --cpus $CpuLimit `
-        --ulimit nofile=65535:65535 --ulimit stack=-1:-1 `
+        --ulimit nofile=655350:655350 --ulimit stack=-1:-1 `
         --publish 127.0.0.1::2881 `
         --env MODE=MINI `
         --env EXIT_WHILE_ERROR=YES `

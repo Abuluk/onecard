@@ -513,7 +513,11 @@ jobs:
             */pom.xml
             */*/pom.xml
 
+      - name: Set OceanBase kernel prerequisites
+        run: sudo sysctl -w fs.aio-max-nr=1048576 vm.max_map_count=655360
+
       - name: Run OceanBase migration and schema isolation smoke
+        id: database-smoke
         shell: pwsh
         run: ./scripts/oceanbase-account-smoke.ps1 -CpuLimit 2 -CiProfile
 
@@ -522,6 +526,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: oceanbase-migration-smoke
-          path: artifacts/oceanbase-smoke-*/
+          path: ${{ steps.database-smoke.outputs.report-directory }}
           if-no-files-found: ignore
           retention-days: 7
