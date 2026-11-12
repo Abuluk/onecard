@@ -46,7 +46,7 @@
         <nacos-client.version>3.3.0</nacos-client.version>
         <maven.version>[3.6.3,)</maven.version>
         <enforcer.version>3.6.1</enforcer.version>
-        <flatten.version>1.7.3</flatten.version>
+        <flatten.version>1.9.0</flatten.version>
     </properties>
 
     <dependencyManagement>
