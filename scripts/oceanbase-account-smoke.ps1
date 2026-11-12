@@ -10,7 +10,7 @@ param(
 $ErrorActionPreference = "Stop"
 if ($CiProfile) {
     $containerMemory = "6g"
-    $oceanBaseMemoryLimit = "3G"
+    $oceanBaseMemoryLimit = "4G"
     $oceanBaseDatafileSize = "2G"
     $oceanBaseLogDiskSize = "2G"
     $tenantMaxCpu = 1
@@ -153,6 +153,10 @@ try {
     $accountMigrationPassword = New-TestPassword
     $transactionAppPassword = New-TestPassword
     $transactionMigrationPassword = New-TestPassword
+    $startCommand = "/usr/sbin/sshd && sed -i 's/--min-cpu=/--max-cpu=2 --min-cpu=/' /root/boot/start.sh && /root/boot/start.sh"
+    if ($CiProfile) {
+        $startCommand += " || sleep 300"
+    }
     $dockerId = docker run --detach --name $containerName `
         --memory $containerMemory --cpus $CpuLimit `
         --ulimit nofile=655350:655350 --ulimit stack=-1:-1 `
@@ -169,7 +173,7 @@ try {
         --env "OB_TENANT_MEMORY_SIZE=$tenantMemorySize" `
         --env "OB_TENANT_LOG_DISK_SIZE=$tenantLogDiskSize" `
         --entrypoint bash --workdir /root `
-        $Image -lc "/usr/sbin/sshd && sed -i 's/--min-cpu=/--max-cpu=2 --min-cpu=/' /root/boot/start.sh && /root/boot/start.sh"
+        $Image -lc $startCommand
     if ($LASTEXITCODE -ne 0) {
         throw "Unable to start the isolated OceanBase smoke container."
     }
@@ -214,12 +218,22 @@ try {
 
     $ready = $false
     for ($attempt = 1; $attempt -le 180; $attempt++) {
+        $startupLogs = docker logs $containerName 2>&1 | Out-String
+        if ($startupLogs -match "observer program health check x") {
+            docker logs --tail 150 $containerName
+            $traceIds = [regex]::Matches($startupLogs, "Trace ID: ([0-9a-f-]+)")
+            if ($traceIds.Count -gt 0) {
+                $traceId = $traceIds[$traceIds.Count - 1].Groups[1].Value
+                docker exec $containerName obd display-trace $traceId
+            }
+            docker exec $containerName bash -lc "find /root -type f -name observer.log -exec grep -iE 'ERROR|FATAL|OB_SERVER|out of memory' {} + | tail -n 100"
+            throw "OceanBase observer failed its startup health check."
+        }
         $state = docker inspect --format '{{.State.Running}}' $containerName 2>$null
         if ($LASTEXITCODE -ne 0 -or $state -ne "true") {
             docker logs --tail 150 $containerName
             throw "OceanBase exited before the tenant became ready."
         }
-        $startupLogs = docker logs $containerName 2>&1 | Out-String
         if ($startupLogs -match "create resource (unit|pool) .*execute failed") {
             docker logs --tail 150 $containerName
             $traceIds = [regex]::Matches($startupLogs, "Trace ID: ([0-9a-f-]+)")
