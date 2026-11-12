@@ -153,7 +153,7 @@ try {
     $accountMigrationPassword = New-TestPassword
     $transactionAppPassword = New-TestPassword
     $transactionMigrationPassword = New-TestPassword
-    $startCommand = "/usr/sbin/sshd && sed -i 's/--min-cpu=/--max-cpu=2 --min-cpu=/' /root/boot/start.sh && /root/boot/start.sh"
+    $startCommand = "/usr/sbin/sshd && sed -i 's/--min-cpu=/--max-cpu=$tenantMaxCpu --min-cpu=/' /root/boot/start.sh && /root/boot/start.sh"
     if ($CiProfile) {
         $startCommand += " || sleep 300"
     }
