@@ -259,7 +259,7 @@
 
 实现期间以 `tasks/phase1-todo.md` 记录任务状态；每个检查点提交测试报告和决策更新。一次只完成一个垂直切片，切片通过后再进入依赖它的任务。若实际依赖/版本和本方案不符，先更新 ADR 与本方案，再改实现。
 
-## 最新复核（2026-11-12）
+## 历史复核记录（截至 2026-11-12）
 
 新增 transaction Feign 熔断和并发隔离后，定向集成测试 8/8 通过，MockMvc 验证断路、503 和 504 的安全响应；随后在 `admin1@192.168.0.41` 再次执行全仓 `clean verify`、九应用镜像构建与恢复 smoke，均通过。九应用全栈停启及 Nacos/account 重启后注册恢复 9/9，Gateway loopback 边界与匿名 401 正常。最新报告：`artifacts/platform-recovery-03734da9e8/report.md`；脚本已清理临时容器、镜像、volume、网络、Docker context 和 SSH 隧道。
 
@@ -280,3 +280,11 @@ SSH 恢复后的最新目标机复测报告为 `artifacts/platform-recovery-0373
 为补齐任务 8 可执行的消息基础设施故障恢复验证，`scripts/business-profiles-smoke.ps1` 新增 RocketMQ broker stop/start 检查：必须观察到 broker `exited`，并在 180 秒内恢复 `running + healthy`，同时确认 nameserver healthy。目标机 `business-data + business-messaging` 组合 smoke 通过：OceanBase `SELECT 1` 一次返回 1，RocketMQ broker 在 6 秒内恢复 healthy；报告 `artifacts/business-profiles-d2a1fd8b2be5/report.md`。生产业务尚无 RocketMQ producer/consumer，因此报告仅证明 broker 进程恢复、不证明消息投递或业务降级。
 
 2026-11-12 Nacos Pure 修复后续：此前 Trivy 命中的是九个应用包中的 `nacos-client-3.1.1` shaded Guava，属于修复前历史扫描。当前九个应用包均已核验为 `nacos-client-3.3.0-pure` + `guava-33.7.2-jre`，没有旧 client 3.1.1 或普通 shaded client 3.3.0。Compose 中 Nacos Server 镜像仍是 3.1.1；它不是 Maven `nacos-client`，`pure` classifier 不适用于 Server。全仓 `clean verify` 19/19、Gateway 集成测试 21/21 及本地 Server 3.1.1 注册/恢复/配置刷新验证通过。任务 1 按用户标准标记完成，当前分支远端 CI/CD 结果未核验且不阻塞。
+
+## 最新复核（2026-11-13）
+
+`main@f349cf7c7a9b293edbe4f4bbeba0dfe6989fc2d1` 的 GitHub Actions run [43241387525](https://github.com/Abuluk/onecard/actions/runs/43241387525) 已成功完成，`build` 和 `secret-scan` 均为 success；此前 CI 镜像、Trivy、Gitleaks 与 Nacos client 漏洞阻断已解决。Dependabot alerts 已启用，当前开放告警数为 0。
+
+阶段 1 尚未正式退出。检查点 A 因私有仓库当前套餐不支持 branch protection/rulesets 而无法将 CI 设为 required check（GitHub API 返回 403，提示需 GitHub Pro 或公开仓库）。检查点 B 的 OceanBase 双 schema 正向迁移 smoke 虽已在开发机通过 10 项，但尚未接入并通过 PR CI；本机 Docker Linux Engine 当前未运行。检查点 C 的现有负载结果仅是 Keycloak/Gateway/account/stub 平台 PoC，阶段 0 明确禁止将它解释为业务容量；真实业务 API 尚未实现，且没有获批的开发业务延迟阈值，因此“按阶段 0 SLO 通过”目前不可判定。
+
+本阶段按用户确认的阶段 0 临时开发基线范围评估。生产 API/调用者批准矩阵、持久审计保留策略、payment-adapter/clearing 数据责任和生产 SLO 仍是独立的生产启用门禁；业务路由继续默认拒绝。阶段 1 退出评审保持未通过，直至 A/B 闭环并澄清 C 的开发验收标准。

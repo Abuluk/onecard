@@ -7,11 +7,15 @@ param(
 $ErrorActionPreference = "Stop"
 $containerName = "onecard-oceanbase-smoke-$([guid]::NewGuid().ToString('N').Substring(0, 12))"
 $dockerContextName = "onecard-oceanbase-smoke-context-$([guid]::NewGuid().ToString('N').Substring(0, 12))"
+$repositoryRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
+$mavenWrapper = Join-Path $repositoryRoot "mvnw"
+if (Test-Path -LiteralPath (Join-Path $repositoryRoot "mvnw.cmd")) {
+    $mavenWrapper = Join-Path $repositoryRoot "mvnw.cmd"
+}
 $containerCreated = $false
 $dockerContextCreated = $false
 $sshTunnel = $null
-$outputDirectory = Join-Path (Resolve-Path (Join-Path $PSScriptRoot "..")).Path `
-    "artifacts/oceanbase-smoke-$([guid]::NewGuid().ToString('N').Substring(0, 12))"
+$outputDirectory = Join-Path $repositoryRoot "artifacts/oceanbase-smoke-$([guid]::NewGuid().ToString('N').Substring(0, 12))"
 $savedDockerContext = $env:DOCKER_CONTEXT
 $savedEnvironment = @{}
 $testVariables = @(
@@ -39,7 +43,7 @@ function New-TestPassword {
 }
 
 function Invoke-SecretScannedTest([string[]] $Arguments, [string] $LogName, [string] $FailureMessage) {
-    $testOutput = & .\mvnw.cmd @Arguments 2>&1 | Out-String
+    $testOutput = & $mavenWrapper @Arguments 2>&1 | Out-String
     $testExitCode = $LASTEXITCODE
     $containsSecret = $false
     foreach ($secret in @(

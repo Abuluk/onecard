@@ -16,7 +16,7 @@
 - [ ] 检查点 C：性能和恢复
 - [ ] 阶段 1 退出评审
 
-## 最新复核（2026-11-12）
+## 历史复核记录（截至 2026-11-12）
 
 - GitHub `main@373fa8d` CI run `43178914957` 中，secret scan 和全量 `clean verify` 通过；CI 在启动共享限流集成测试时，因从 `docker.1panel.live/valkey/valkey` 拉镜像被拒（`denied: only support mainland China`）而退出，Valkey 测试本身未执行，后续应用镜像构建与扫描也未运行。本地已将 CI、Compose、九个 Dockerfile 和 Valkey smoke 脚本的活动镜像源改为官方仓库并保留版本/digest；本机全仓 `clean verify`、Valkey 集成测试 5/5、四种 Compose 配置检查通过。需要修复提交触发远端 Actions 后，才能关闭此 CI 证据项。
 - GitHub `main@9eeee09` CI run `43215026750` 验证了官方仓库访问修复：secret scan、19 模块 `clean verify`、Valkey 集成测试、九应用镜像构建、服务注册/恢复以及前九个容器扫描均通过；最后的 Valkey Trivy 扫描因 Debian 13 基础镜像的 50 个 HIGH（0 CRITICAL）阻断。Docker Hub 官方标签 API 提供同版本的 Alpine 变体及固定 digest；本地已将 Compose、CI 和 smoke 脚本统一切换到该变体，HIGH/CRITICAL 门禁保持不变，后续 Trivy 复测结果见下条记录。
@@ -30,7 +30,16 @@
 - transaction Feign 熔断/隔离及异常映射测试现为 8/8 通过，MockMvc 覆盖标准 503/504 错误体和不泄露下游异常。
 - SSH 恢复后的最新目标机复测报告为 `artifacts/platform-recovery-03734da9e8/report.md`；本机全仓 `clean verify` 为 19/19 模块成功，Surefire 共 77 项测试、0 失败/错误、16 项外部服务 profile 测试跳过；Keycloak、Valkey、OceanBase 外部集成另有真实服务 smoke 通过。远端 `main` 最新查询仍为 `0074cc8a969cc266c744b33013fcec8d47973b72`；精确查询 `feature/project-architecture` 未返回远端引用，本地改动尚无远端 PR/Actions 结果。`gh` CLI 未安装，branch protection 与 Dependabot alerts API 仍需管理权限验证。NVD 当前记录确认 CVE-2026-102554 影响 Guava `<33.7.2`，修复版为 33.7.2；Maven Central 当前最新 `nacos-client` 为 3.3.0，但此前镜像扫描显示其内嵌 Guava 33.5.0-android，尚无可验证修复版，不降 Nacos server 基线、不豁免该 High。
 - 范围决策（2026-11-11）：用户确认阶段 1 按阶段 0 临时开发出口验收；业务路由保持默认拒绝，生产身份/调用者矩阵、持久审计保留策略和 payment-adapter/clearing 数据责任继续作为生产启用门禁。退出评审仍未通过：当前 Nacos client High 未解决，当前 transaction 镜像扫描尚未完成，当前本地分支没有可核验的远端 CI 结果。
+
 - Trivy 数据库改由 `docker.1panel.live` 镜像源成功下载，本轮最新 transaction 镜像 OS 扫描为 0 High/Critical、Java 扫描为 1 High/0 Critical；报告与原始 JSON 见 `artifacts/trivy-transaction-20261112/`。`nacos-client:3.1.2` 和最新 `3.3.0` 均内嵌 Guava 33.5.0-android，仍低于修复版本 33.7.2，尚无兼容且已验证的上游修复版。扫描结果不通过，不添加豁免；Nacos server 3.1.1 基线保持不变。
 - 2026-11-12：目标机当前工作树 JAR 的九个应用镜像均以 no-cache 重建，并验证镜像内 JAR SHA-256 与本机 9/9 一致。Trivy 0.76.2（漏洞库 2026-11-12 01:03 UTC、Java 库 00:58 UTC）完整扫描得到每镜像 0 OS High/Critical、1 Java High/0 Critical，均为 Nacos client 3.1.1 内嵌 Guava 33.3.1-android 的 CVE-2026-102554；原始 JSON 与 digest/JAR 哈希清单见 `artifacts/trivy-all-20261112/`。冷缓存扫描复现默认 5 分钟 timeout 后失败，已确认 `TRIVY_TIMEOUT` 环境变量会作用于 Trivy CLI，并将 CI 扫描超时设为 30 分钟。HIGH/CRITICAL 门禁仍失败，不豁免、不降低 Nacos server 3.1.1 基线。
 - 2026-11-12：扩展 `business-profiles-smoke.ps1`，RocketMQ broker 现须先确认停止状态，再在 180 秒内恢复 `running + healthy`，nameserver 保持 healthy；该验证只覆盖 broker 进程恢复，不声称业务消息语义，当前阶段没有 producer/consumer。目标机默认 business-data + business-messaging 组合 smoke 通过：OceanBase `SELECT 1` 一次返回 1，broker 6 秒恢复 healthy；报告 `artifacts/business-profiles-d2a1fd8b2be5/report.md`。
 - 2026-11-12：通过 Maven Central 官方发布物逐个核对 `nacos-client` 3.2.0–3.2.4，五个版本均在 shaded client JAR 内嵌 Guava 33.5.0-android；结合 3.1.1、3.1.2 和最新 3.3.0，普通 shaded client 均未包含 CVE-2026-102554 修复版 Guava 33.7.2。该历史结论不涵盖 Pure classifier；后续已切换九个应用到 `nacos-client:3.3.0:pure` 并显式管理 Guava `33.7.2-jre`，因此不需要重打包或漏洞豁免。当前应用包核验通过，任务 1 已完成；检查点 A 保持未完成。
+
+## 最新复核（2026-11-13）
+
+- `main@f349cf7c7a9b293edbe4f4bbeba0dfe6989fc2d1` 的 GitHub Actions run [43241387525](https://github.com/Abuluk/onecard/actions/runs/43241387525) 已完成，`build` 与 `secret-scan` 均成功；19 模块 `clean verify`、Keycloak/Valkey 集成、九应用镜像构建及 Trivy HIGH/CRITICAL 扫描通过。此前 Valkey 镜像源、Debian 基础镜像漏洞、Gitleaks 误报和 Nacos shaded Guava CVE 均已关闭，不再是当前阻断。
+- 已通过 GitHub API 启用 Dependabot alerts；复查 alerts API 返回成功，开放告警数为 0。私有仓库的 branch protection/rulesets API 返回 403，明确要求 GitHub Pro 或将仓库公开；当前不改变仓库可见性，因此检查点 A 仍被“CI 不能作为 required check”阻断。
+- OceanBase CE 4.4.2-lts 在开发机上的双 schema 正向迁移/权限 smoke 已通过 10 项，但 PR CI 只有数据库不可用时 fail-closed 检查，没有执行 OceanBase 正向迁移。当前工作站 Docker Desktop Linux Engine 未运行，不能在本机复跑，也没有经远端 Actions 验证的 OceanBase CI workflow；检查点 B 保持未完成。
+- 当前性能报告验证的是 Keycloak + Gateway + account + stub 的平台 PoC：500 VU/30 分钟完成 96,303 请求，317,766/317,766 checks 通过。阶段 0 明确该结果不代表业务容量，且业务 API 尚不存在、开发业务 p95/p99 阈值未批准；因此检查点 C 的“按阶段 0 SLO 通过”没有可判定的验收标准，不能据此声明阶段 1 正式完成。
+- 正式 API/调用者矩阵、持久审计保留策略、payment-adapter/clearing 数据责任及生产容量/SLO 继续按已确认范围作为生产启用门禁；业务路由维持默认拒绝。这些事项与本轮识别的阶段 1 开发退出阻断分开跟踪。
