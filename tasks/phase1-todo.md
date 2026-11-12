@@ -18,6 +18,7 @@
 
 ## 最新复核（2026-11-12）
 
+- Nacos Pure 后续验证：Maven Central 最新稳定 `nacos-client` 为 3.3.0，官方 `pure` classifier JAR 不含 shaded Guava。九个应用现排除两个 Alibaba Nacos starter 传入的普通 client，改用 `nacos-client:3.3.0:pure`、`nacos-common:3.3.0` 和 Maven 管理的 `guava:33.7.2-jre`；Gateway 显式补齐 `grpc-netty:1.81.0`。全仓 `clean verify` 19/19、Gateway 安全集成测试 21/21，九个可执行 JAR 均核实只含 pure client 与修复版 Guava。用本地 Nacos Server 3.1.1 实测 account 注册、Nacos 重启后 2 秒内重注册、配置初始导入和 2 秒热刷新均通过。当前环境无本地 Trivy CLI，镜像 HIGH/CRITICAL 扫描仍待 CI 验证；任务 1、检查点 A 和退出评审保持未完成。
 - 本轮曾成功通过已有 Git 凭据只读读取私有仓库，`origin/main` 为 `0074cc8a969cc266c744b33013fcec8d47973b72`，该提交的 Actions CI/deploy 成功；随后查询本地分支远端引用遇 DNS 失败。当前 `feature/project-architecture` 的本地 HEAD 为 `79a0b16`，相对本地 `origin/main` 跟踪引用领先 17 个提交，当前改动的远端 PR/CI 尚未验证。branch protection 与 Dependabot alerts API 返回 403。
 - 新增 performance profile YAML 加载测试后，发现并修复 `application-performance.yml` 重复 `security` 键；四阶段真实 Keycloak smoke 的 12,801 个请求及 38,403 项功能检查全部通过，证据：`artifacts/phase1-platform-9083cf83e160/report.md`。全仓 `.\mvnw.cmd --batch-mode --no-transfer-progress clean verify` 随后 19/19 模块成功。
 - 最终复测已完成：500 VU/30 分钟 96,303 请求，四阶段合计 105,922 请求、317,766/317,766 checks、0% HTTP 错误，证据：`artifacts/phase1-platform-e9ed7f3f70f8/report.md`。Resilience4j 改动后的 transaction 定向集成测试为 8/8。SSH 恢复后在目标机再次执行全仓 `clean verify`、九应用构建与恢复 smoke，九应用全停/启和 Nacos/account 重启后注册恢复 9/9，Gateway loopback 边界及匿名 401 正常；最新报告 `artifacts/platform-recovery-03734da9e8/report.md`。脚本已清理临时容器、镜像、volume、网络、Docker context 与 SSH 隧道。生产 API/调用者矩阵、正式配置与数据责任决策、持久审计保留策略、GitHub 管理权限及生产 SLO 仍未获批准或验证。
