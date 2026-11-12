@@ -18,6 +18,8 @@
 
 ## 最新复核（2026-11-12）
 
+- GitHub `main@373fa8d` CI run `43178914957` 中，secret scan 和全量 `clean verify` 通过；CI 在启动共享限流集成测试时，因从 `docker.1panel.live/valkey/valkey` 拉镜像被拒（`denied: only support mainland China`）而退出，Valkey 测试本身未执行，后续应用镜像构建与扫描也未运行。本地已将 CI、Compose、九个 Dockerfile 和 Valkey smoke 脚本的活动镜像源改为官方仓库并保留版本/digest；本机全仓 `clean verify`、Valkey 集成测试 5/5、四种 Compose 配置检查通过。需要修复提交触发远端 Actions 后，才能关闭此 CI 证据项。
+
 - Nacos Pure 后续验证：Maven Central 最新稳定 `nacos-client` 为 3.3.0，官方 `pure` classifier JAR 不含 shaded Guava。九个应用均排除两个 Alibaba Nacos starter 传入的普通 client，改用 `nacos-client:3.3.0:pure`、`nacos-common:3.3.0` 和 Maven 管理的 `guava:33.7.2-jre`；Gateway 显式补齐 `grpc-netty:1.81.0`。全仓 `clean verify` 19/19、Gateway 安全集成测试 21/21；本轮再次核验九个可执行 JAR，均包含 `nacos-client-3.3.0-pure.jar`、`guava-33.7.2-jre.jar`，均不含 `nacos-client-3.1.1.jar` 或普通 shaded `nacos-client-3.3.0.jar`。旧 Trivy 报告为 Pure 替换前历史结果。`nacos-server` 镜像仍为独立的 Server 3.1.1，Pure classifier 只适用于客户端；本机使用 Server 3.1.1 实测客户端注册、重启恢复、配置导入和 2 秒热刷新通过。远端 CI/CD 执行结果未收集且不作为任务 1 完成条件；任务 1 已完成，检查点 A 和退出评审仍未完成。
 - 本轮曾成功通过已有 Git 凭据只读读取私有仓库，`origin/main` 为 `0074cc8a969cc266c744b33013fcec8d47973b72`，该提交的 Actions CI/deploy 成功；随后查询本地分支远端引用遇 DNS 失败。当前 `feature/project-architecture` 的本地 HEAD 为 `79a0b16`，相对本地 `origin/main` 跟踪引用领先 17 个提交，当前改动的远端 PR/CI 尚未验证。branch protection 与 Dependabot alerts API 返回 403。以上远端状态仅记录为未取得的 CI/CD 及仓库设置核验结果，不阻塞任务 1 完成。
 - 新增 performance profile YAML 加载测试后，发现并修复 `application-performance.yml` 重复 `security` 键；四阶段真实 Keycloak smoke 的 12,801 个请求及 38,403 项功能检查全部通过，证据：`artifacts/phase1-platform-9083cf83e160/report.md`。全仓 `.\mvnw.cmd --batch-mode --no-transfer-progress clean verify` 随后 19/19 模块成功。
