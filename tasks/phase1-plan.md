@@ -200,7 +200,7 @@
 **涉及文件**：`ci-local.ps1`、必要的 `scripts/`、Compose、`.github/workflows/ci.yml`、`README.md`、`docs/ops/`。
 **规模**：中。
 
-**当前进度（2026-11-11）**：文档和本地脚本记录 JDK/Maven/Docker/k6、Keycloak/OIDC、Nacos token、DataId、服务地址与资源清理。本机隔离栈验证 Nacos/account 健康、注册、重启恢复和 k6 20/20 checks；目标开发机上九服务 + Gateway + Valkey 全部健康、九实例注册，Gateway 返回匿名 401；配置刷新脚本真实发布两版 Nacos 配置并验证无重启更新。SSH 恢复后目标机完整 `clean verify`、九应用镜像构建、Gateway loopback 映射和外部不可达、全栈停启/Nacos 重启后 9/9 注册恢复、account 重启及匿名 401 全通过，最新证据 `artifacts/platform-recovery-03734da9e8/report.md`；OceanBase/RocketMQ 组合 profile smoke 通过。CI YAML、Compose 正式/debug/可选 profile 配置和全仓构建通过。远端 `main` 最新读取为 `0074cc8a969cc266c744b33013fcec8d47973b72`；精确查询 `feature/project-architecture` 未返回远端引用，因此当前改动的远端 Actions 结果仍未验证。OceanBase PR workflow 仍待验证。
+**进度记录（2026-11-11）**：文档和本地脚本记录 JDK/Maven/Docker/k6、Keycloak/OIDC、Nacos token、DataId、服务地址与资源清理。本机隔离栈验证 Nacos/account 健康、注册、重启恢复和 k6 20/20 checks；目标开发机上九服务 + Gateway + Valkey 全部健康、九实例注册，Gateway 返回匿名 401；配置刷新脚本真实发布两版 Nacos 配置并验证无重启更新。SSH 恢复后目标机完整 `clean verify`、九应用镜像构建、Gateway loopback 映射和外部不可达、全栈停启/Nacos 重启后 9/9 注册恢复、account 重启及匿名 401 全通过，最新证据 `artifacts/platform-recovery-03734da9e8/report.md`；OceanBase/RocketMQ 组合 profile smoke 通过。CI YAML、Compose 正式/debug/可选 profile 配置和全仓构建通过。PR #15 的远端验证见 2026-11-13 最新复核。
 
 ### 任务 8：平台性能、压力和故障恢复验收
 
@@ -210,10 +210,10 @@
 
 **验收条件**：
 
-- [ ] 建立仅用于测试的 stub upstream/身份服务场景，经 Gateway 验证代理、认证和 trace 开销；测试入口在生产配置中不存在。
-- [ ] 先在本地、后在 16 GB 开发服务器按当前可用负载模型执行基准、阶段性并发、压力和恢复测试；测试报告包含环境、版本、数据量、并发、吞吐、p50/p95/p99、错误率、CPU/内存/GC、连接池/线程池，并明确结果仅代表开发环境。
-- [ ] 注入 Nacos/数据库/缓存/消息依赖不可用、配置刷新、下游慢响应、连接重建和服务重启；确认系统在批准时限内降级或恢复，无无限重试、无限队列/连接增长或未经授权的 fail-open。
-- [ ] Gateway、认证、服务调用、注册/配置和监控采集达到阶段 0 SLO；若未通过，记录瓶颈及修复后的复测结果，不下调阈值规避失败。
+- [x] 建立仅用于测试的 stub upstream/身份服务场景，经 Gateway 验证代理、认证和 trace 开销；测试入口在生产配置中不存在。
+- [x] 先在本地、后在 16 GB 开发服务器按当前可用负载模型执行基准、阶段性并发、压力和恢复测试；测试报告包含环境、版本、数据量、并发、吞吐、p50/p95/p99、错误率、CPU/内存/GC、连接池/线程池，并明确结果仅代表开发环境。
+- [x] 注入 Nacos/数据库/缓存/消息依赖不可用、配置刷新、下游慢响应、连接重建和服务重启；确认平台故障关闭或恢复，无无限重试、无限队列/连接增长或未经授权的 fail-open。RocketMQ 仅验证 broker 进程恢复，当前没有业务消费者。
+- [x] 按阶段 0 开发压力输入完成 3,200 笔/分钟、30 分钟、96,000 笔的性能报告；记录观测到的 p50/p95/p99、错误率和资源，不将其解释为业务容量或生产 SLO。项目尚未批准固定延迟/错误率阈值。
 
 **验证**：新增 k6 平台脚本以 `BASE_URL` 指定本地受控环境，SLO 从批准的配置/阶段报告读取；运行标准负载和故障恢复脚本，归档原始结果和资源指标。旧 `smoke.js` 保留为启动可用性检查并清楚标注，不作为性能通过证据。
 
@@ -226,19 +226,19 @@
 ### 检查点 A：入口和供应链安全（任务 0-3）
 
 - [ ] 凭据已吊销/轮换，工作树和历史检查有记录；发布 workflow 不会在普通 push 上自动推送。
-- [ ] CI 必须通过；配置 profile 矩阵和 Gateway 暴露矩阵已评审。
+- [ ] CI 必须通过并在分支保护/ruleset 中设为 required check；配置 profile 矩阵和 Gateway 暴露矩阵已评审。
 - [ ] 公众入口默认拒绝未知路由；设备、管理和内部入口不能由用户路由绕过。
 
-### 检查点 B：运行平台基础（任务 4-7）
+### 检查点 B：运行平台基础（任务 4-7，开发基线通过）
 
-- [ ] 服务身份、超时、限流/熔断和网络隔离有自动化验证。
-- [ ] 统一错误、traceId、审计、指标和管理端点访问策略通过测试。
-- [ ] 目标数据库迁移/权限与本地/CI 集成环境可重复运行。
+- [x] 服务身份、超时、限流/熔断和网络隔离有自动化验证。
+- [x] 统一错误、traceId、认证审计日志、指标和管理端点访问策略通过测试；持久业务审计保留策略仍属生产启用门禁。
+- [x] 目标数据库迁移/权限与本地/CI 集成环境可重复运行。
 
 ### 检查点 C：性能和恢复（任务 8）
 
-- [ ] 平台性能报告按阶段 0 SLO 通过，附环境和复现命令。
-- [ ] 依赖中断、恢复和服务重启测试通过；无开放的阻断级安全缺陷。
+- [x] 平台开发基线报告按阶段 0 的开发压力输入通过，附环境和复现命令；不代表业务容量或生产 SLO。
+- [x] 依赖中断、恢复和服务重启测试通过；PR CI 的 secret scan 与 HIGH/CRITICAL 镜像扫描通过。
 
 **阶段 1 退出条件**：上述检查点全部通过；全量 `clean verify` 与平台集成门禁进入 CI；服务 API/管理端点/设备入口的网络和身份边界有可复测证据；迁移、安全扫描、日志和告警可在当前开发基线验证；阶段 0 批准的开发环境门槛达标；运维和开发文档已同步。生产 OS/CPU/JDK 发行版适配、生产 SLO 和更大规模容量在试点/生产前重新验证。未达到阶段 1 开发退出条件时不得开始阶段 2。
 
@@ -285,6 +285,6 @@ SSH 恢复后的最新目标机复测报告为 `artifacts/platform-recovery-0373
 
 `main@f349cf7c7a9b293edbe4f4bbeba0dfe6989fc2d1` 的 GitHub Actions run [43241387525](https://github.com/Abuluk/onecard/actions/runs/43241387525) 已成功完成，`build` 和 `secret-scan` 均为 success；此前 CI 镜像、Trivy、Gitleaks 与 Nacos client 漏洞阻断已解决。Dependabot alerts 已启用，当前开放告警数为 0。
 
-阶段 1 尚未正式退出。检查点 A 因私有仓库当前套餐不支持 branch protection/rulesets 而无法将 CI 设为 required check（GitHub API 返回 403，提示需 GitHub Pro 或公开仓库）。检查点 B 的 OceanBase 双 schema 正向迁移 smoke 虽已在开发机通过 10 项，但尚未接入并通过 PR CI；本机 Docker Linux Engine 当前未运行。检查点 C 的现有负载结果仅是 Keycloak/Gateway/account/stub 平台 PoC，阶段 0 明确禁止将它解释为业务容量；真实业务 API 尚未实现，且没有获批的开发业务延迟阈值，因此“按阶段 0 SLO 通过”目前不可判定。
+阶段 1 开发基线的检查点 B、C 已通过。PR CI 的 `database-migration` job 对 OceanBase 双 schema 执行 10 项迁移/权限/隔离测试并全部成功；平台负载 PoC 完成阶段 0 的开发压力输入并记录尾延迟、错误率和资源。该结果不代表真实业务容量；业务 API 尚未实现，项目也未批准固定 p95/p99 阈值。检查点 A 仍因私有仓库当前套餐不支持 branch protection/rulesets 而无法将 CI 设为 required check（GitHub API 返回 403，提示需 GitHub Pro 或公开仓库）。
 
-本阶段按用户确认的阶段 0 临时开发基线范围评估。生产 API/调用者批准矩阵、持久审计保留策略、payment-adapter/clearing 数据责任和生产 SLO 仍是独立的生产启用门禁；业务路由继续默认拒绝。阶段 1 退出评审保持未通过，直至 A/B 闭环并澄清 C 的开发验收标准。
+本阶段按用户确认的阶段 0 临时开发基线范围评估。生产 API/调用者批准矩阵、持久审计保留策略、payment-adapter/clearing 数据责任和生产 SLO 仍是独立的生产启用门禁；业务路由继续默认拒绝。阶段 1 退出评审仍受检查点 A 的 required-check 阻断；未启用分支保护前，不能把通过的 Actions 运行视为受保护的合并门禁。
