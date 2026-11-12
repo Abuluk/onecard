@@ -1,0 +1,406 @@
+2026-10-30T04:34:42.312965Z  INFO common_runtime::global: Creating runtime with runtime_name: global, thread_name: global-worker, work_threads: 16.
+2026-10-30T04:34:42.316563Z  INFO common_runtime::global: Creating compact runtime with runtime_name: compact, thread_name: compact-worker, work_threads: 8, max_blocking_threads: 8.
+2026-10-30T04:34:42.317532Z  INFO common_runtime::global: Creating runtime with runtime_name: heartbeat, thread_name: hb-worker, work_threads: 2.
+2026-10-30T04:34:42.320316Z  INFO common_runtime::global: Constructed the experimental workload scheduler: internal_capacity=16, query_weight=2, write_weight=8, sample_every_polls=16, enabled=false
+2026-10-30T04:34:42.320412Z  INFO cmd: GreptimeDB version: 
+branch: 
+commit: badceec12a0e98fd69e83e9b9b9b06d9358b78dd
+clean: true
+version: 1.3.0
+2026-10-30T04:34:42.325716Z  INFO cmd: Heap profile is active
+2026-10-30T04:34:42.325809Z  INFO cmd: GreptimeDB start with cpu limit in millicores: 16000
+2026-10-30T04:34:42.325953Z  INFO cmd: GreptimeDB start with memory limit in bytes: 8250814464
+2026-10-30T04:34:42.325998Z  INFO cmd::standalone: Standalone start command: StartCommand {
+    http_addr: Some(
+        "0.0.0.0:4000",
+    ),
+    http_api_server_addr: None,
+    grpc_bind_addr: None,
+    mysql_addr: None,
+    postgres_addr: None,
+    influxdb_enable: false,
+    config_file: None,
+    tls_mode: None,
+    tls_cert_path: None,
+    tls_key_path: None,
+    tls_watch: false,
+    user_provider: None,
+    env_prefix: "GREPTIMEDB_STANDALONE",
+    data_home: Some(
+        "/greptimedb_data",
+    ),
+    daemon: false,
+}
+2026-10-30T04:34:42.326323Z  INFO cmd::standalone: Standalone options: GreptimeOptions {
+    runtime: RuntimeOptions {
+        global_rt_size: 16,
+        compact_rt_size: 8,
+        compact_rt_max_blocking_threads: 8,
+        query_rt_size: 15,
+        ingest_rt_size: 16,
+        experimental_workload_scheduler: WorkloadSchedulerOptions {
+            enable: false,
+            query_weight: 2,
+            write_weight: 8,
+            sample_every_polls: 16,
+        },
+    },
+    plugins: [],
+    component: StandaloneOptions {
+        enable_telemetry: true,
+        default_timezone: None,
+        default_column_prefix: None,
+        auto_create_table: true,
+        experimental_metric_export: false,
+        max_in_flight_write_bytes: 0B,
+        write_bytes_exhausted_policy: Wait {
+            timeout: 10s,
+        },
+        http: HttpOptions {
+            addr: "0.0.0.0:4000",
+            timeout: 0ns,
+            disable_dashboard: false,
+            body_limit: 64.0MiB,
+            cors_allowed_origins: [],
+            enable_cors: true,
+            enable_api_server: false,
+            api_server_addr: "127.0.0.1:4006",
+        },
+        grpc: GrpcOptions {
+            bind_addr: "127.0.0.1:4001",
+            server_addr: "",
+            max_recv_message_size: 512.0MiB,
+            max_send_message_size: 512.0MiB,
+            flight_compression: ArrowIpc,
+            runtime_size: 8,
+            tls: TlsOption {
+                mode: Disable,
+                cert_path: "",
+                key_path: "",
+                ca_cert_path: "",
+                watch: false,
+            },
+            max_connection_age: None,
+            http2_keep_alive_interval: 10s,
+            http2_keep_alive_timeout: 3s,
+        },
+        mysql: MysqlOptions {
+            enable: true,
+            addr: "127.0.0.1:4002",
+            runtime_size: 2,
+            tls: TlsOption {
+                mode: Disable,
+                cert_path: "",
+                key_path: "",
+                ca_cert_path: "",
+                watch: false,
+            },
+            reject_no_database: None,
+            keep_alive: 0ns,
+            prepared_stmt_cache_size: 10000,
+        },
+        postgres: PostgresOptions {
+            enable: true,
+            addr: "127.0.0.1:4003",
+            runtime_size: 2,
+            tls: TlsOption {
+                mode: Disable,
+                cert_path: "",
+                key_path: "",
+                ca_cert_path: "",
+                watch: false,
+            },
+            keep_alive: 0ns,
+        },
+        opentsdb: OpentsdbOptions {
+            enable: true,
+        },
+        influxdb: InfluxdbOptions {
+            enable: true,
+            default_merge_mode: LastNonNull,
+        },
+        pending_rows_batcher: PendingRowsBatcherOptions {
+            table: BatcherOptions {
+                protocols: [],
+                pending_rows_flush_interval: 0ns,
+                max_batch_rows: 100000,
+                max_concurrent_flushes: 256,
+                worker_channel_capacity: 65536,
+                max_inflight_requests: 3000,
+                flow_notification_queue_capacity: 1024,
+            },
+            logical_table: None,
+        },
+        jaeger: JaegerOptions {
+            enable: true,
+        },
+        otlp: OtlpOptions {
+            enable: true,
+            trace_ingest_chunk_size: 512,
+            experimental_enable_resource_info: false,
+        },
+        prom_store: PromStoreOptions {
+            enable: true,
+            with_metric_engine: true,
+            prom_validation_mode: Strict,
+            pending_rows_flush_interval: 0ns,
+            max_batch_rows: 100000,
+            max_concurrent_flushes: 256,
+            worker_channel_capacity: 65536,
+            max_inflight_requests: 3000,
+            flow_notification_queue_capacity: 1024,
+        },
+        wal: RaftEngine(
+            RaftEngineConfig {
+                dir: None,
+                file_size: 128.0MiB,
+                purge_threshold: 1.0GiB,
+                purge_interval: 60s,
+                read_batch_size: 128,
+                sync_write: false,
+                enable_log_recycle: true,
+                prefill_log_files: false,
+                sync_period: None,
+                recovery_parallelism: 16,
+            },
+        ),
+        storage: StorageConfig {
+            data_home: "/greptimedb_data",
+            copy_root: None,
+            store: File(
+                FileConfig,
+            ),
+            providers: [],
+        },
+        metadata_store: KvBackendConfig {
+            file_size: 64.0MiB,
+            purge_threshold: 256.0MiB,
+            purge_interval: 60s,
+        },
+        procedure: ProcedureConfig {
+            max_retry_times: 3,
+            retry_delay: 500ms,
+            max_metadata_value_size: None,
+            max_running_procedures: 128,
+        },
+        flow: FlowConfig {
+            num_workers: 8,
+            batching_mode: BatchingModeOptions {
+                query_timeout: 600s,
+                slow_query_threshold: 60s,
+                experimental_min_refresh_duration: 5s,
+                grpc_conn_timeout: 5s,
+                experimental_flight_do_get_timeout: 10s,
+                experimental_grpc_max_retries: 3,
+                experimental_frontend_scan_timeout: 30s,
+                experimental_max_filter_num_per_query: 20,
+                experimental_time_window_merge_threshold: 3,
+                experimental_enable_incremental_read: false,
+                read_preference: Leader,
+                frontend_tls: None,
+            },
+        },
+        logging: LoggingOptions {
+            dir: "/greptimedb_data/logs",
+            level: None,
+            log_format: Text,
+            max_log_files: 720,
+            max_log_dir_size: 0B,
+            append_stdout: true,
+            enable_file_logging: true,
+            enable_otlp_tracing: false,
+            otlp_endpoint: None,
+            tracing_sample_ratio: None,
+            otlp_export_protocol: None,
+            otlp_headers: {},
+            enable_per_region_metrics: false,
+        },
+        user_provider: None,
+        region_engine: [
+            Mito(
+                MitoConfig {
+                    num_workers: 8,
+                    worker_channel_size: 128,
+                    worker_request_batch_size: 64,
+                    manifest_checkpoint_distance: 10,
+                    experimental_manifest_keep_removed_file_count: 256,
+                    experimental_manifest_keep_removed_file_ttl: 3600s,
+                    compress_manifest: false,
+                    max_background_index_builds: 2,
+                    experimental_enable_series_index: false,
+                    experimental_series_index_max_size: 5.0GiB,
+                    experimental_enable_range_index: false,
+                    experimental_series_index_maintenance_interval: 300s,
+                    experimental_series_index_bucket_width: 432000s,
+                    max_background_flushes: 8,
+                    max_background_compactions: 4,
+                    max_background_purges: 16,
+                    experimental_compaction_memory_limit: Unlimited,
+                    experimental_compaction_on_exhausted: Wait {
+                        timeout: 10s,
+                    },
+                    auto_flush_interval: 600s,
+                    global_write_buffer_size: 983.6MiB,
+                    global_write_buffer_reject_size: 1.9GiB,
+                    default_region_write_buffer_size: 0B,
+                    sst_meta_cache_size: 512.0MiB,
+                    vector_cache_size: 491.8MiB,
+                    page_cache_size: 983.6MiB,
+                    selector_result_cache_size: 491.8MiB,
+                    range_result_cache_size: 491.8MiB,
+                    prefilter_result_cache_size: 128.0MiB,
+                    enable_write_cache: false,
+                    write_cache_path: "",
+                    write_cache_size: 5.0GiB,
+                    write_cache_ttl: None,
+                    preload_index_cache: true,
+                    index_cache_percent: 20,
+                    enable_refill_cache_on_read: true,
+                    manifest_cache_size: 256.0MiB,
+                    sst_write_buffer_size: 8.0MiB,
+                    max_concurrent_scan_files: 384,
+                    allow_stale_entries: false,
+                    scan_memory_limit: Percentage(
+                        25,
+                    ),
+                    scan_memory_mode: Basic,
+                    scan_memory_on_exhausted: Fail,
+                    index: IndexConfig {
+                        aux_path: "",
+                        staging_size: 2.0GiB,
+                        staging_ttl: Some(
+                            604800s,
+                        ),
+                        build_mode: Sync,
+                        write_buffer_size: 8.0MiB,
+                        metadata_cache_size: 64.0MiB,
+                        content_cache_size: 128.0MiB,
+                        content_cache_page_size: 64.0KiB,
+                        result_cache_size: 128.0MiB,
+                    },
+                    inverted_index: InvertedIndexConfig {
+                        create_on_flush: Auto,
+                        create_on_compaction: Auto,
+                        apply_on_query: Auto,
+                        mem_threshold_on_create: Auto,
+                        intermediate_path: "",
+                        write_buffer_size: 8.0MiB,
+                    },
+                    fulltext_index: FulltextIndexConfig {
+                        create_on_flush: Auto,
+                        create_on_compaction: Auto,
+                        apply_on_query: Auto,
+                        mem_threshold_on_create: Auto,
+                        compress: true,
+                    },
+                    bloom_filter_index: BloomFilterConfig {
+                        create_on_flush: Auto,
+                        create_on_compaction: Auto,
+                        apply_on_query: Auto,
+                        mem_threshold_on_create: Auto,
+                    },
+                    min_compaction_interval: 0ns,
+                    schedule_compaction_after_edit: true,
+                    default_flat_format: true,
+                    experimental_series_scan_v2: false,
+                    gc: GcConfig {
+                        enable: false,
+                        lingering_time: Some(
+                            3600s,
+                        ),
+                        unknown_file_lingering_time: 86400s,
+                        max_concurrent_lister_per_gc_job: 32,
+                        max_concurrent_gc_job: 4,
+                    },
+                },
+            ),
+            File(
+                EngineConfig,
+            ),
+        ],
+        tracing: TracingOptions,
+        init_regions_in_background: false,
+        init_regions_parallelism: 16,
+        max_concurrent_queries: 0,
+        concurrent_query_limiter_timeout: 100ms,
+        slow_query: SlowQueryOptions {
+            enable: true,
+            record_type: SystemTable,
+            threshold: 30s,
+            sample_ratio: 1.0,
+            ttl: 7776000s,
+        },
+        query: QueryOptions {
+            parallelism: 0,
+            allow_query_fallback: false,
+            memory_pool_size: Unlimited,
+            enable_per_region_metrics: false,
+            experimental_spill_mode: Default,
+            experimental_spill_path: None,
+            experimental_spill_max_temp_directory_size: 1.0GiB,
+            experimental_spill_compression: Uncompressed,
+            experimental_memory_pool_policy: Greedy,
+        },
+        memory: MemoryOptions {
+            enable_heap_profiling: true,
+        },
+        pipeline: PipelineOptions {
+            cache_ttl: 10s,
+            allow_vrl_host_access: false,
+        },
+        event_recorder: EventRecorderOptions {
+            ttl: 7776000s,
+            event_types: All,
+            flush_interval: 5s,
+        },
+        heartbeat_env_vars: [],
+    },
+}
+2026-10-30T04:34:42.349179Z  INFO servers::grpc: Using detected: 172.18.0.5:4001 as server address
+2026-10-30T04:34:42.362997Z  INFO standalone::metadata: Creating metadata kvbackend with dir: /greptimedb_data/metadata, config: KvBackendConfig { file_size: 64.0MiB, purge_threshold: 256.0MiB, purge_interval: 60s }
+2026-10-30T04:34:42.384044Z  INFO raft_engine::engine: Recovering raft logs takes 15.381419ms
+2026-10-30T04:34:42.384623Z  INFO common_procedure::store: The procedure state store path is: procedure/
+2026-10-30T04:34:42.539011Z  INFO object_store::factory: The file storage home is: /greptimedb_data/
+2026-10-30T04:34:42.545511Z  INFO datanode::datanode: Creating raft-engine logstore with config: RaftEngineConfig { dir: None, file_size: 128.0MiB, purge_threshold: 1.0GiB, purge_interval: 60s, read_batch_size: 128, sync_write: false, enable_log_recycle: true, prefill_log_files: false, sync_period: None, recovery_parallelism: 16 } and storage path: /greptimedb_data/wal
+2026-10-30T04:34:42.553699Z  INFO raft_engine::engine: Recovering raft logs takes 8.101942ms
+2026-10-30T04:34:42.558693Z  INFO puffin::puffin_manager::stager::bounded_stager: Recovering the staging area, base_dir: "/greptimedb_data/index_intermediate/staging"
+2026-10-30T04:34:42.569684Z  INFO puffin::puffin_manager::stager::bounded_stager: Recovered the staging area, num_entries: 0, num_bytes: 0, cost: 10.988448ms
+2026-10-30T04:34:42.570560Z  INFO mito2::sst::index::intermediate: Initializing intermediate manager, aux_path: /greptimedb_data/index_intermediate
+2026-10-30T04:34:42.581505Z  INFO mito2::worker: Start region worker thread 1, init_check_delay: 50s
+2026-10-30T04:34:42.581509Z  INFO mito2::worker: Start region worker thread 0, init_check_delay: 160s
+2026-10-30T04:34:42.581525Z  INFO mito2::worker: Start region worker thread 2, init_check_delay: 104s
+2026-10-30T04:34:42.581545Z  INFO mito2::worker: Start region worker thread 3, init_check_delay: 119s
+2026-10-30T04:34:42.581645Z  INFO mito2::worker: Start region worker thread 4, init_check_delay: 167s
+2026-10-30T04:34:42.581667Z  INFO mito2::worker: Start region worker thread 5, init_check_delay: 65s
+2026-10-30T04:34:42.581676Z  INFO mito2::worker: Start region worker thread 7, init_check_delay: 34s
+2026-10-30T04:34:42.581807Z  INFO mito2::worker: Start region worker thread 6, init_check_delay: 38s
+2026-10-30T04:34:42.582970Z  INFO datanode::region_server: Region Engine mito is registered
+2026-10-30T04:34:42.582979Z  INFO datanode::region_server: Region Engine metric is registered
+2026-10-30T04:34:42.582988Z  INFO datanode::region_server: Region Engine file is registered
+2026-10-30T04:34:42.583203Z  INFO datanode::datanode: going to open 0 region(s)
+2026-10-30T04:34:42.583269Z  INFO datanode::datanode: Opened 0 regions in 59.205µs
+2026-10-30T04:34:42.583273Z  INFO datanode::datanode: all regions are opened
+2026-10-30T04:34:42.748888Z  INFO common_stat::resource: Starting to collect CPU usage periodically for every 5 seconds
+2026-10-30T04:34:42.780577Z  INFO common_event_recorder::recorder: Start the background processor in event recorder to handle the received events.
+2026-10-30T04:34:42.780589Z  INFO common_event_recorder::recorder: Start the background processor in event recorder to handle the received events.
+2026-10-30T04:34:42.790972Z  INFO cmd: Starting app: greptime-standalone
+2026-10-30T04:34:42.791024Z  INFO common_greptimedb_telemetry: Attention: GreptimeDB now collects anonymous usage data to help improve its roadmap and prioritize features.
+2026-10-30T04:34:42.791029Z  INFO common_greptimedb_telemetry: To learn more about this anonymous program and how to deactivate it if you don't want to participate, please visit the following URL: 
+2026-10-30T04:34:42.791032Z  INFO common_greptimedb_telemetry: https://docs.greptime.com/reference/telemetry
+2026-10-30T04:34:42.791089Z  INFO common_procedure::local: LocalManager is start.
+2026-10-30T04:34:42.791092Z  INFO common_procedure::local: LocalManager start to recover
+2026-10-30T04:34:42.791140Z  INFO common_procedure::local: LocalManager finish recovery, cost: 0ms
+2026-10-30T04:34:42.791211Z  INFO common_greptimedb_telemetry: reporting greptimedb version: StatisticData { os: "linux", version: "1.3.0", arch: "x86_64", mode: Standalone, git_commit: "badceec12a0e98fd69e83e9b9b9b06d9358b78dd", nodes: Some(1), uuid: "41fb0551-dc3e-4142-acd4-44751ca099b0", uptime: "hours" }
+2026-10-30T04:34:42.791365Z  INFO servers::server: MySQL server started at 127.0.0.1:4002
+2026-10-30T04:34:42.791404Z  INFO servers::server: Server MYSQL_SERVER is started
+2026-10-30T04:34:42.791777Z  INFO servers::http: Enable dashboard service at '/dashboard'
+2026-10-30T04:34:42.791932Z  INFO servers::http: HTTP server timeout is disabled
+2026-10-30T04:34:42.792655Z  INFO servers::http: HTTP server is bound to 0.0.0.0:4000
+2026-10-30T04:34:42.792700Z  INFO servers::server: Server HTTP_SERVER is started
+2026-10-30T04:34:42.792790Z  INFO servers::server: Postgres server started at 127.0.0.1:4003
+2026-10-30T04:34:42.793336Z  INFO servers::server: Server POSTGRES_SERVER is started
+2026-10-30T04:34:42.793392Z  INFO servers::grpc: gRPC server(name=GRPC_SERVER) is bound to 127.0.0.1:4001
+2026-10-30T04:34:42.799406Z  INFO servers::server: Server GRPC_SERVER is started
+2026-10-30T04:34:42.802189Z  INFO flow::adapter::flownode_impl: FlowDualEngine done recovering
+2026-10-30T04:36:13.245090Z  WARN servers::http::client_ip: HTTP error response 400 Bad Request for GET /v1/prometheus/api/v1/label/application/values (matched: /v1/prometheus/api/v1/label/{label_name}/values) from client 172.18.0.1:59754
+2026-10-30T04:37:53.572804Z  WARN servers::http::client_ip: HTTP error response 400 Bad Request for GET /v1/prometheus/api/v1/label/application/values (matched: /v1/prometheus/api/v1/label/{label_name}/values) from client 172.18.0.1:41018
