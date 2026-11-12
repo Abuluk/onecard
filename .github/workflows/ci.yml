@@ -481,6 +481,7 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: read
+      pull-requests: read
     steps:
       - name: Checkout full history
         uses: actions/checkout@v7
@@ -514,7 +515,7 @@ jobs:
 
       - name: Run OceanBase migration and schema isolation smoke
         shell: pwsh
-        run: ./scripts/oceanbase-account-smoke.ps1
+        run: ./scripts/oceanbase-account-smoke.ps1 -CpuLimit 2
 
       - name: Upload OceanBase migration reports
         if: always()

@@ -1,7 +1,9 @@
 param(
     [string] $Image = "oceanbase/oceanbase-ce:4.4.2-lts@sha256:eaa2c3b3513fa21e4a658f197c1deb93c9d6b6eb742cfa5ef0f085f82b9cec54",
     [string] $DockerHost,
-    [string] $SshTarget
+    [string] $SshTarget,
+    [ValidateRange(1, 4)]
+    [int] $CpuLimit = 4
 )
 
 $ErrorActionPreference = "Stop"
@@ -131,7 +133,7 @@ try {
     $transactionAppPassword = New-TestPassword
     $transactionMigrationPassword = New-TestPassword
     $dockerId = docker run --detach --name $containerName `
-        --memory 10g --cpus 4 `
+        --memory 10g --cpus $CpuLimit `
         --ulimit nofile=65535:65535 --ulimit stack=-1:-1 `
         --publish 127.0.0.1::2881 `
         --env MODE=MINI `
