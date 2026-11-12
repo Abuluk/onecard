@@ -1,6 +1,6 @@
 # ADR-0009：服务间调用采用 OIDC Client Credentials
 
-**状态**：开发基线已选；transaction Feign 调用端、account/risk 接收端与真实 Keycloak client-credentials 联测已完成；生产身份提供方及授权矩阵待评审
+**状态**：开发安全基线已实现；test-only Feign probe 与 account/risk 接收端通过真实 Keycloak 联测；生产业务 API 尚无服务调用契约，生产身份提供方及授权矩阵待评审
 **日期**：2026-11-09
 
 ## 背景
@@ -17,7 +17,7 @@
 6. `dev` 使用阶段 0 的 Keycloak `onecard-dev` realm 作为联合测试模板；生产身份提供方、客户端登记、密钥生命周期、audience/scope 映射仍须经目标环境评审。
 7. 服务仍无业务 Feign 契约，因此阶段 1 的首个认证验证使用测试专用端点/上游，不增加生产业务 API。实现覆盖合法调用、缺失/伪造 token、错误 issuer/audience、scope 不足、token endpoint 不可用和下游超时。
 
-开发服务身份模板使用 `onecard-account-service`、`onecard-risk-service` audience，分别要求 `onecard.account.invoke`、`onecard.risk.invoke` scope。account/risk 的 `dev` profile 默认指向 `onecard-dev` realm；生产 profile 要求显式设置 issuer、JWKS URI 和目标服务 audience。2026-11-11 已通过 Keycloak 26.8.1 验证 transaction Feign 获取 client-credentials token、account audience/scope 校验、缺 scope 拒绝及 `traceparent` 传播；生产身份提供方、密钥生命周期和调用方授权矩阵仍待评审。
+开发服务身份模板使用 `onecard-account-service`、`onecard-risk-service` audience，分别要求 `onecard.account.invoke`、`onecard.risk.invoke` scope。account/risk 的 `dev` profile 默认指向 `onecard-dev` realm；生产 profile 要求显式设置 issuer、JWKS URI 和目标服务 audience。2026-11-11 已通过 Keycloak 26.8.1 验证 transaction-service test-only Feign probe 获取 client-credentials token、account audience/scope 校验、缺 scope 拒绝及 `traceparent` 传播。`apis/` 当前没有 Java 调用契约，生产源码也没有 Feign client；服务身份与韧性配置的真实联测属于框架基线测试，不代表生产业务调用已经接通。生产身份提供方、密钥生命周期和调用方授权矩阵仍待评审。
 
 ### 开发 Compose 网络边界（2026-11-11）
 

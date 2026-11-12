@@ -9,6 +9,8 @@ runs:
   steps:
     - name: Scan image vulnerabilities
       uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+      env:
+        TRIVY_TIMEOUT: 30m
       with:
         scan-type: image
         image-ref: ${{ inputs.image-ref }}

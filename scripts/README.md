@@ -111,8 +111,12 @@ pwsh -File scripts/platform-recovery-smoke.ps1 `
 ```
 
 `business-profiles-smoke.ps1` starts the optional OceanBase and RocketMQ
-profiles in an isolated project, waits for their health checks, and runs
-`SELECT 1` against OceanBase with a bounded retry for tenant initialization.
+profiles in an isolated project, waits for their health checks, verifies that
+the RocketMQ broker returns to healthy after a stop/start within 180 seconds,
+and runs `SELECT 1` against OceanBase with a bounded retry for tenant
+initialization. RocketMQ recovery currently covers the broker process only;
+there is no Phase 1 business producer or consumer to verify message delivery
+or business degradation.
 If a pinned image is missing on the target, it
 exports the matching digest from the local Docker context and loads it on the
 target before startup. It removes the temporary volumes and Docker context after

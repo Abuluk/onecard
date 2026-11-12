@@ -45,6 +45,22 @@ function Get-HealthyContainer([string] $ServiceName) {
     return ($containerId -join "").Trim()
 }
 
+function Wait-HealthyContainer([string] $ServiceName, [string] $ContainerId, [int] $TimeoutSeconds) {
+    $startedAt = [DateTime]::UtcNow
+    do {
+        $state = & docker inspect --format '{{.State.Status}}|{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' $ContainerId 2>$null
+        if ($LASTEXITCODE -eq 0) {
+            $status = ($state -join "").Trim().Split('|')
+            if ($status.Length -eq 2 -and $status[0] -eq "running" -and $status[1] -eq "healthy") {
+                return [math]::Ceiling(([DateTime]::UtcNow - $startedAt).TotalSeconds)
+            }
+        }
+        Start-Sleep -Seconds 2
+    } while ([DateTime]::UtcNow - $startedAt -lt [TimeSpan]::FromSeconds($TimeoutSeconds))
+
+    throw "$ServiceName did not become healthy within $TimeoutSeconds seconds."
+}
+
 function Wait-OceanBaseQuery {
     for ($attempt = 1; $attempt -le 120; $attempt++) {
         $query = & docker compose --project-name $project --file $composeFile exec -T onecard-oceanbase `
@@ -182,6 +198,17 @@ try {
         $brokerContainer = Get-HealthyContainer "onecard-rocketmq-broker"
         $evidence += "- RocketMQ 5.3.1 nameserver and broker health: healthy."
         $evidence += "- RocketMQ container IDs: nameserver $nameServerContainer; broker $brokerContainer"
+
+        Invoke-Compose @("stop", "onecard-rocketmq-broker")
+        $brokerState = & docker inspect --format '{{.State.Status}}' $brokerContainer
+        if ($LASTEXITCODE -ne 0 -or ($brokerState -join "").Trim() -ne "exited") {
+            throw "RocketMQ broker did not stop before the recovery check."
+        }
+        Invoke-Compose @("start", "onecard-rocketmq-broker")
+        $recoverySeconds = Wait-HealthyContainer "RocketMQ broker" $brokerContainer 180
+        Get-HealthyContainer "onecard-rocketmq-namesrv" | Out-Null
+        $evidence += "- RocketMQ broker stop/start recovery: confirmed stopped, returned to healthy in ${recoverySeconds}s (180s bound); nameserver remained healthy."
+        $evidence += "- No Phase 1 business producer/consumer exists; this check verifies broker process recovery only."
     }
     $evidence += "- All services ran in Compose project $project with unique volumes removed after the run."
     $evidence | Set-Content -LiteralPath (Join-Path $outputDirectory "report.md")
