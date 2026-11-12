@@ -12,7 +12,7 @@ if ($CiProfile) {
     $containerMemory = "6g"
     $oceanBaseMemoryLimit = "4G"
     $oceanBaseDatafileSize = "2G"
-    $oceanBaseLogDiskSize = "2G"
+    $oceanBaseLogDiskSize = "4G"
     $tenantMaxCpu = 1
     $tenantMemorySize = "1G"
     $tenantLogDiskSize = "1G"
