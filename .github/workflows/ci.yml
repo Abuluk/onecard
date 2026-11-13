@@ -135,7 +135,7 @@ jobs:
 
       - name: Upload production profile failure logs
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: production-config-failure-logs
           path: ${{ runner.temp }}/*-prod-nacos-failure.log
@@ -178,7 +178,7 @@ jobs:
 
       - name: Upload database failure logs
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: database-failure-logs
           path: ${{ runner.temp }}/*-database-failure.log
@@ -228,7 +228,7 @@ jobs:
 
       - name: Upload Keycloak failure logs
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: keycloak-integration-logs
           path: ${{ runner.temp }}/onecard-ci-keycloak.log
@@ -396,7 +396,7 @@ jobs:
 
       - name: Upload platform startup logs
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: platform-startup-logs
           path: ${{ runner.temp }}/platform-compose.log
@@ -469,7 +469,7 @@ jobs:
 
       - name: Upload test reports
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: maven-test-reports
           path: '**/target/surefire-reports/*.xml'
@@ -523,7 +523,7 @@ jobs:
 
       - name: Upload OceanBase migration reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: oceanbase-migration-smoke
           path: ${{ steps.database-smoke.outputs.report-directory }}

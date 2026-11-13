@@ -57,7 +57,7 @@ jobs:
 
       - name: Upload service logs
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: platform-smoke-logs
           path: platform-smoke.log
