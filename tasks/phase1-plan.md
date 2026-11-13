@@ -287,6 +287,6 @@ SSH 恢复后的最新目标机复测报告为 `artifacts/platform-recovery-0373
 
 `main` branch protection 已启用，required checks 为 `build`、`secret-scan`、`database-migration`，要求分支保持最新并对管理员生效；force-push 与删除分支均禁用。公开后的全历史 Gitleaks 扫描通过；`.gitleaksignore` 两条精确指纹经人工核对分别是 Prometheus URL 和 `${{ secrets.DOCKERHUB_TOKEN }}` 引用，不是凭据。Dependabot alerts 当前为 0。
 
-PR #15 当前提交 `a541fbc492d4191182a74ad58617b61edf506ab4` 的 Actions run [43274621231](https://github.com/Abuluk/onecard/actions/runs/43274621231) 中 `build`、`secret-scan`、`database-migration` 均成功，OceanBase 双 schema smoke 10/10 通过。阶段 1 开发基线 A/B/C 均通过；正式退出待 PR #15 合并及合并后 `main` 上的 required checks 成功。
+PR #15 当前提交 `eaf893d9bfda83d3ce2b8fc6a48973df30da760c` 的 Actions run [43346372059](https://github.com/Abuluk/onecard/actions/runs/43346372059) 中 `build`、`secret-scan`、`database-migration` 均成功，OceanBase 双 schema smoke 10/10 通过。阶段 1 开发基线 A/B/C 均通过；正式退出待 PR #15 合并及合并后 `main` 上的 required checks 成功。
 
 本阶段按用户确认的阶段 0 临时开发基线范围评估。生产 API/调用者批准矩阵、持久审计保留策略、payment-adapter/clearing 数据责任和生产 SLO 仍是独立的生产启用门禁；业务路由继续默认拒绝，不因阶段 1 开发基线通过而提前开放。
