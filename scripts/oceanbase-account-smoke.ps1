@@ -32,7 +32,7 @@ if ($CiProfile) {
 $containerName = "onecard-oceanbase-smoke-$([guid]::NewGuid().ToString('N').Substring(0, 12))"
 $dockerContextName = "onecard-oceanbase-smoke-context-$([guid]::NewGuid().ToString('N').Substring(0, 12))"
 $repositoryRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
-$mavenWrapper = Join-Path $repositoryRoot $(if ($IsWindows) { "mvnw.cmd" } else { "mvnw" })
+$mavenWrapper = Join-Path $repositoryRoot $(if ($env:OS -eq "Windows_NT") { "mvnw.cmd" } else { "mvnw" })
 $containerCreated = $false
 $dockerContextCreated = $false
 $sshTunnel = $null
