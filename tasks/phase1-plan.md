@@ -1,6 +1,6 @@
 # 阶段 1：工程与运行平台详细开发方案
 
-**状态**：开发基线检查点 A/B/C 已通过；阶段正式退出待 PR #15 合并及合并后 `main` 检查成功。阶段 0 临时开发基线出口已通过。平台骨架按暂定默认推进，真实渠道、OIDC 对外授权、账户资金写入、终端离线、数据库 HA 和业务容量仍受启用门禁限制。
+**状态**：阶段 1 开发基线已完成。PR #15 已合并到受保护的 `main`，合并后 required checks 全部成功。阶段 0 临时开发基线出口已通过。真实渠道、OIDC 对外授权、账户资金写入、终端离线、数据库 HA 和业务容量仍受生产启用门禁限制。
 **范围**：CI、配置与服务发现、入口与服务身份、公共响应与可观测性、迁移基础、开发/CI 运行环境
 **不含**：账户/交易等业务 API、业务表结构、生产发布和生产容量承诺
 
@@ -240,7 +240,7 @@
 - [x] 平台开发基线报告按阶段 0 的开发压力输入通过，附环境和复现命令；不代表业务容量或生产 SLO。
 - [x] 依赖中断、恢复和服务重启测试通过；PR CI 的 secret scan 与 HIGH/CRITICAL 镜像扫描通过。
 
-**阶段 1 退出条件**：上述检查点全部通过；PR #15 合并至 `main` 且合并后的 required checks 全部成功；全量 `clean verify` 与平台集成门禁进入 CI；服务 API/管理端点/设备入口的网络和身份边界有可复测证据；迁移、安全扫描、日志和告警可在当前开发基线验证；阶段 0 批准的开发环境门槛达标；运维和开发文档已同步。生产 OS/CPU/JDK 发行版适配、生产 SLO 和更大规模容量在试点/生产前重新验证。未达到阶段 1 开发退出条件时不得开始阶段 2。
+**阶段 1 退出条件**：上述检查点全部通过；PR #15 已合并至 `main` 且合并后的 required checks 全部成功；全量 `clean verify` 与平台集成门禁进入 CI；服务 API/管理端点/设备入口的网络和身份边界有可复测证据；迁移、安全扫描、日志和告警可在当前开发基线验证；阶段 0 批准的开发环境门槛达标；运维和开发文档已同步。以上开发退出条件已满足。生产 OS/CPU/JDK 发行版适配、生产 SLO 和更大规模容量在试点/生产前重新验证；真实渠道、受保护 API 对外开放、账户资金写入、设备离线和数据库 HA 仍须通过对应生产启用门禁。
 
 ## 6. 风险与限制
 
@@ -287,6 +287,6 @@ SSH 恢复后的最新目标机复测报告为 `artifacts/platform-recovery-0373
 
 `main` branch protection 已启用，required checks 为 `build`、`secret-scan`、`database-migration`，要求分支保持最新并对管理员生效；force-push 与删除分支均禁用。公开后的全历史 Gitleaks 扫描通过；`.gitleaksignore` 两条精确指纹经人工核对分别是 Prometheus URL 和 `${{ secrets.DOCKERHUB_TOKEN }}` 引用，不是凭据。Dependabot alerts 当前为 0。
 
-PR #15 当前提交 `eaf893d9bfda83d3ce2b8fc6a48973df30da760c` 的 Actions run [43346372059](https://github.com/Abuluk/onecard/actions/runs/43346372059) 中 `build`、`secret-scan`、`database-migration` 均成功，OceanBase 双 schema smoke 10/10 通过。阶段 1 开发基线 A/B/C 均通过；正式退出待 PR #15 合并及合并后 `main` 上的 required checks 成功。
+PR #15 最终 head `601b2adbdc0acac24a1d417dcee1f982a7c3b50e` 的 Actions run [43349595723](https://github.com/Abuluk/onecard/actions/runs/43349595723) 中 `build`、`secret-scan`、`database-migration` 均成功；OceanBase 双 schema smoke 10/10 通过，Windows PowerShell 5.1 与 PowerShell Core 的 Maven wrapper 选择和脚本解析均验证通过。PR 已 squash 合并，main merge commit 为 `7409ab874ad8b4722d4fd71197bf667d6f9f5208`；合并后 main run [43350999777](https://github.com/Abuluk/onecard/actions/runs/43350999777) 的三个 required checks 也全部成功。因此阶段 1 开发基线 A/B/C 与正式退出条件均已完成。
 
 本阶段按用户确认的阶段 0 临时开发基线范围评估。生产 API/调用者批准矩阵、持久审计保留策略、payment-adapter/clearing 数据责任和生产 SLO 仍是独立的生产启用门禁；业务路由继续默认拒绝，不因阶段 1 开发基线通过而提前开放。
