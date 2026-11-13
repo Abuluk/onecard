@@ -14,7 +14,7 @@
 - [x] 检查点 B：运行平台基础（开发基线通过；生产身份/持久审计/数据责任仍为生产启用门禁）
 - [x] 任务 8：平台性能、压力和故障恢复验收（阶段 1 开发基线已完成；目标机真实 Keycloak + Gateway + account + Python stub 隔离链路完成 50/100/250/500 VU 四阶段负载。500 VU/30m 阶段完成 96,303 请求，p50/p95/p99=1.7/2.3/3.5ms；四阶段合计 105,922 请求、317,766/317,766 checks，全部 HTTP 200、错误率 0%。报告含每约 5 秒容器 CPU/内存峰值、JVM/GC/executor、凭据扫描和清理验证。证据：`artifacts/phase1-platform-e9ed7f3f70f8/report.md`。本轮另在目标机重跑完整 `clean verify` 和九应用恢复 smoke，证据：`artifacts/platform-recovery-03734da9e8/report.md`。本机 account/transaction 在 Nacos 禁用且 Flyway 开启时验证数据库不可用 fail-closed；真实 Valkey 503、Nacos 重启与配置刷新、Feign 下游 503/慢响应及九服务恢复已有自动测试或实测。阶段 0 明确将此负载定为开发压力场景而非生产 SLO；生产 SLO 明确延期，当前只采集基线、不宣称生产 SLO 达标）
 - [x] 检查点 C：性能和恢复（阶段 0 开发基线通过；不代表业务容量或生产 SLO）
-- [ ] 阶段 1 退出评审（PR #15 已通过全部 required checks；合并及合并后 `main` checks 待完成）
+- [x] 阶段 1 退出评审（PR #15 已 squash 合并；合并后 `main@7409ab8` 的 `build`、`secret-scan`、`database-migration` 全部成功，run 43350999777）
 
 ## 历史复核记录（截至 2026-11-12）
 
@@ -42,5 +42,5 @@
 - 已通过 GitHub API 启用依赖图与 Dependabot alerts，alerts API 当前返回 0 项开放告警。历史上仓库私有时移除了不受套餐支持的 Dependency Review action；当前 PR 仍由九个完整应用镜像 Trivy 扫描 HIGH/CRITICAL OS 与 Java 库漏洞。仓库改为公开后，已成功设置 `main` branch protection，required checks 为 `build`、`secret-scan`、`database-migration`，strict=true、管理员受约束，禁止 force-push/删除分支。
 - PR #15 的 GitHub Actions run [43270248950](https://github.com/Abuluk/onecard/actions/runs/43270248950) 已验证 OceanBase CE 4.4.2-lts 双 schema 正向迁移/权限/隔离 smoke：account 4 项、transaction 4 项、schema 隔离 2 项，10/10 通过。CI compact profile 使用 `sys` tenant 适配 hosted runner 的 CPU/内存限制；开发机 profile 仍使用独立 `onecard` tenant。检查点 B 的阶段 1 开发基线现已完成。
 - 当前性能报告验证的是 Keycloak + Gateway + account + stub 的平台 PoC：500 VU/30 分钟完成 96,303 请求，317,766/317,766 checks 通过，观察到 p50/p95/p99 为 1.7/2.3/3.5 ms。阶段 0 的开发压力输入为 3,200 笔/分钟、30 分钟、96,000 笔；报告已超过该请求数且无 HTTP 错误，故检查点 C 的开发基线通过。阶段 0 未批准固定 p95/p99 阈值，且明确该平台 PoC 不代表业务容量或生产 SLO。
-- 公开后的全历史 Gitleaks 扫描已通过；两条精确忽略项已人工复核，分别是 Prometheus URL 与 GitHub Actions Secret 引用，均非真实凭据。PR #15 当前 SHA `eaf893d9bfda83d3ce2b8fc6a48973df30da760c` 的 [Actions run 43346372059](https://github.com/Abuluk/onecard/actions/runs/43346372059) 中三项 required checks 全部成功，OceanBase 双 schema 测试 10/10 通过。
-- 阶段 1 开发基线 A/B/C 均已通过；正式退出等待 PR #15 合并并确认合并后 `main` 的 required checks 成功。生产 API/调用者矩阵、持久审计保留策略、payment-adapter/clearing 数据责任及生产容量/SLO 仍按既定范围作为生产启用门禁；业务路由维持默认拒绝。
+- 公开后的全历史 Gitleaks 扫描已通过；两条精确忽略项已人工复核，分别是 Prometheus URL 与 GitHub Actions Secret 引用，均非真实凭据。PR #15 最终 head `601b2adbdc0acac24a1d417dcee1f982a7c3b50e` 的 [Actions run 43349595723](https://github.com/Abuluk/onecard/actions/runs/43349595723) 中三项 required checks 全部成功，OceanBase 双 schema 测试 10/10 通过；Windows PowerShell 5.1 和 PowerShell Core 的 wrapper 选择及脚本解析通过。
+- PR #15 已 squash 合并到受保护的 `main`，merge commit `7409ab874ad8b4722d4fd71197bf667d6f9f5208` 的 [main Actions run 43350999777](https://github.com/Abuluk/onecard/actions/runs/43350999777) 中三个 required checks 全部成功。阶段 1 开发基线 A/B/C 及退出评审完成。生产 API/调用者矩阵、持久审计保留策略、payment-adapter/clearing 数据责任及生产容量/SLO 仍按既定范围作为生产启用门禁；业务路由维持默认拒绝。
