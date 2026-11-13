@@ -481,6 +481,7 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: read
+      pull-requests: read
     steps:
       - name: Checkout full history
         uses: actions/checkout@v7
@@ -493,3 +494,38 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_ENABLE_COMMENTS: "false"
           GITLEAKS_ENABLE_UPLOAD_ARTIFACT: "false"
+
+  database-migration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v6
+        with:
+          distribution: 'temurin'
+          java-version: '25'
+          cache: 'maven'
+          cache-dependency-path: |
+            pom.xml
+            */pom.xml
+            */*/pom.xml
+
+      - name: Set OceanBase kernel prerequisites
+        run: sudo sysctl -w fs.aio-max-nr=1048576 vm.max_map_count=655360
+
+      - name: Run OceanBase migration and schema isolation smoke
+        id: database-smoke
+        shell: pwsh
+        run: ./scripts/oceanbase-account-smoke.ps1 -CpuLimit 2 -CiProfile
+
+      - name: Upload OceanBase migration reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oceanbase-migration-smoke
+          path: ${{ steps.database-smoke.outputs.report-directory }}
+          if-no-files-found: ignore
+          retention-days: 7

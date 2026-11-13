@@ -1,6 +1,6 @@
 # 阶段 1：工程与运行平台详细开发方案
 
-**状态**：进行中；阶段 0 临时开发基线出口已通过。平台骨架按暂定默认推进，真实渠道、OIDC 对外授权、账户资金写入、终端离线、数据库 HA 和业务容量仍受启用门禁限制。
+**状态**：开发基线检查点 A/B/C 已通过；阶段正式退出待 PR #15 合并及合并后 `main` 检查成功。阶段 0 临时开发基线出口已通过。平台骨架按暂定默认推进，真实渠道、OIDC 对外授权、账户资金写入、终端离线、数据库 HA 和业务容量仍受启用门禁限制。
 **范围**：CI、配置与服务发现、入口与服务身份、公共响应与可观测性、迁移基础、开发/CI 运行环境
 **不含**：账户/交易等业务 API、业务表结构、生产发布和生产容量承诺
 
@@ -8,14 +8,14 @@
 
 ## 1. 开工时基线与当前进展
 
-- 根 Maven 工程聚合 `common`、`gateway`、八个 API 模块和八个服务模块；`.github/workflows/ci.yml` 已运行 JDK 25 的 `clean verify`，但尚未覆盖平台集成和安全门禁。
+- 根 Maven 工程聚合 `common`、`gateway`、八个 API 模块和八个服务模块；`.github/workflows/ci.yml` 在 PR/push 执行 JDK 25 全量 `clean verify`，并覆盖 Keycloak、Valkey、Nacos、数据库迁移、服务恢复、Gitleaks 和 Trivy 镜像扫描；`main` 已将三个 CI job 设为 required checks。
 - 服务已有 `dev`、`test`、`prod` 配置。开发配置以 `optional:nacos:` 导入，测试关闭 Nacos，生产使用必需的 `nacos:` 导入；目标机已验证账户配置从 Nacos 初始导入，并通过 dev-only `@RefreshScope` 探针验证 `alpha -> beta` 在 1 秒内无重启刷新。2026-11-11 本机启动测试确认八个服务与 Gateway 的生产 profile 在 Nacos 不可达时均 fail-closed。
 - transaction-service 已配置 OIDC client credentials 与 Feign 熔断/隔离基础；真实令牌和故障测试使用 test-only client 向隔离 stub 联测。account/risk 的资源服务器按 ADR-0009 校验 JWT 签名、issuer、服务 audience 和独立 scope。开发使用 Keycloak realm 模板；`apis/` 尚无 Java 服务调用契约，生产 Feign client 留待接口设计，生产身份映射仍待评审。
 - Gateway 已完成开发态 OIDC JWT 验签、issuer/audience/过期校验、角色映射、路径/方法默认拒绝和共享 Valkey 限流；真实 Valkey 运行测试及 PR CI 门禁已通过，真实 Keycloak JWT 与代理/trace 联测已完成。精确生产 API 白名单仍待业务所有者批准。
 - Compose 固定 Nacos 3.1.1 镜像 digest；八个服务、Gateway、Nacos、Valkey 和可选 OceanBase/RocketMQ 接入 `internal: true` 的 `onecard-private`。Gateway 单独加入 `onecard-ingress` 并只发布回环端口；监控数据库在 default 网络，Categraf 双网连接。目标机已验证九应用注册/恢复、Gateway 入口隔离和可选业务数据/消息 profile。MySQL/Redis 仍只供 N9E，业务缓存尚未接入。
 - `common` 已有 `Result<T>`、业务/校验/未预期异常处理、Servlet 安全错误处理、可信 `traceparent` 响应头和平台指标白名单；Gateway 有响应式错误处理、上游 5xx 安全重写和真实 Valkey 429 限流。ADR-0010 记录当前契约。业务审计记录及业务指标仍待后续实现。
 - account/transaction 已建立 Flyway 生产迁移基线和隔离 smoke 迁移目录，尚无业务 V1 表；OceanBase 双 schema 迁移/权限 smoke 已通过。k6 保留 1 VU、10 秒 Actuator 启动检查，并新增真实 OIDC Gateway-to-stub 性能场景；CI 集成门禁已覆盖 Keycloak、Valkey、Nacos 和数据库 fail-closed/恢复。
-- `.github/workflows/deploy.yml` 原先包含内联发布凭据并指向不存在的构建目录；现已改为手动选择模块、使用仓库 Secret 发布。远端发布和扫描仍待验证。仓库所有者确认私人仓库并接受现有凭据处理方式，因此凭据轮换/历史处置不纳入阶段 0。
+- `.github/workflows/deploy.yml` 原先包含内联发布凭据并指向不存在的构建目录；现已改为手动选择模块、使用仓库 Secret 发布。发布动作未在生产目标上执行。仓库公开后重新复核全历史 Gitleaks 结果；两条精确忽略项只是 Prometheus URL 与 GitHub Actions Secret 引用，不含实际凭据，因此无需轮换或改写历史。
 - `.github/workflows/performance-gate.yml` 原先接受任意 `base_url`；现已固定到隔离运行的本地账户服务健康冒烟，不代表平台性能验收。
 
 ## 2. 开工前置决策
@@ -60,7 +60,7 @@
 
 - [x] 阶段 0 临时开发基线检查点 A-D 通过；出口评审、ADR、已有 PoC 和证据缺口/门禁均有记录。
 - [x] 阶段 1 所需身份、软件组件、配置、网络、数据库开发基线和数据边界已有暂定默认；生产 OS/CPU/JDK、容量及真实合规结论列为后续门禁。
-- [x] 阶段 0 凭据事项按仓库所有者已确认范围豁免；不要求轮换或历史改写，部署 workflow 工程配置仍按任务 1 修正。
+- [x] 仓库公开后已重新核验阶段 0 凭据事项：全历史 Gitleaks 扫描通过，两条精确忽略项均为非凭据；部署 workflow 只使用仓库 Secret 且不会在普通 push 上发布。
 - [x] 阶段 1 当前目标范围、入口默认拒绝、开发/CI 环境基线、暂行限制和退出条件已记录。
 
 **验证**：按 `tasks/phase0-todo.md` 和阶段 0 ADR/报告逐项核验；检查任务 1-8 的阻断条件均有明确结果。
@@ -75,17 +75,17 @@
 
 **验收条件**：
 
-- [ ] `ci.yml` 在 PR 和受支持分支 push 上执行 JDK 25 全量 `clean verify`，不跳过测试；Actions 权限最小化，PR job 不可访问发布 Secret。
-- [ ] 按仓库策略启用分支保护，使 CI 必过；依赖漏洞检查、secret scan 和容器镜像扫描的工具与阻断级别有记录，关键/高危可达风险有处置结果。
-- [ ] 部署 workflow 与测试 workflow 分离；性能 workflow 不再接受任意外部目标作为默认测试入口。
-- [ ] 流水线失败时保留测试报告、启动日志和可定位的失败阶段，不以重试或关闭门禁消除失败。
+- [x] `ci.yml` 在 PR 和受支持分支 push 上执行 JDK 25 全量 `clean verify`，不跳过测试；Actions 权限最小化，PR job 不可访问发布 Secret。
+- [x] 按仓库策略启用分支保护，使 CI 必过；依赖漏洞检查、secret scan 和容器镜像扫描的工具与阻断级别有记录，关键/高危可达风险有处置结果。
+- [x] 部署 workflow 与测试 workflow 分离；性能 workflow 不再接受任意外部目标作为默认测试入口。
+- [x] 流水线失败时保留测试报告、启动日志和可定位的失败阶段，不以重试或关闭门禁消除失败。
 
 **验证**：本地执行 `.\mvnw.cmd --batch-mode --no-transfer-progress clean verify`；提交临时 PR 验证成功与故意失败两种情况均正确阻断/放行；核对 PR 环境没有部署凭据。
 **依赖**：任务 0 启动准入；CI 可先独立实施。
 **涉及文件**：`.github/workflows/ci.yml`、`.github/workflows/deploy.yml`、安全扫描配置、`pom.xml`（仅确有构建插件需求时）、CI 说明。
 **规模**：中。
 
-**当前进度（2026-11-11）**：CI 已新增真实 Keycloak service-client 凭据测试、全部八个服务与 Gateway 在 Nacos 不可达时 fail-closed 测试、Flyway 显式开启且数据库不可达时启动失败检查、Nacos/account 重启恢复验证和失败日志上传；临时 client secret 与 Nacos token 每次运行新建并遮罩。本机九应用 Nacos fail-closed 与两服务数据库 fail-closed 脚本、全仓 19 模块 `clean verify`、CI YAML 解析和 Compose 正式/debug 配置校验通过。原镜像的四项 Alpine libexpat High 已通过固定 `expat=2.10.0-r0` 修复；Gateway 镜像经 Trivy 0.76.2 OS 扫描为 0 High/Critical。剩余 Nacos client 3.1.1 shaded Guava 33.3.1-android 仍受 CVE-2026-102554 影响；已核对 Maven Central 最新 client 3.3.0 仍内嵌易受影响的 33.5.0-android，尚无已验证修复版，未豁免。GitHub CLI 不在当前工作站，分支保护、Dependabot alerts、远端 workflow 结果及剩余 High 处置仍未验证，任务保持进行中。
+**历史进度记录（2026-11-11）**：CI 已新增真实 Keycloak service-client 凭据测试、全部八个服务与 Gateway 在 Nacos 不可达时 fail-closed 测试、Flyway 显式开启且数据库不可达时启动失败检查、Nacos/account 重启恢复验证和失败日志上传；临时 client secret 与 Nacos token 每次运行新建并遮罩。本机九应用 Nacos fail-closed 与两服务数据库 fail-closed 脚本、全仓 19 模块 `clean verify`、CI YAML 解析和 Compose 正式/debug 配置校验通过。原镜像的四项 Alpine libexpat High 已通过固定 `expat=2.10.0-r0` 修复；Gateway 镜像经 Trivy 0.76.2 OS 扫描为 0 High/Critical。后续 Nacos client 风险通过 Pure client 和 Guava 33.7.2 修复，GitHub 设置与远端 CI 结果见 2026-11-13 最新复核。
 
 ### 任务 2：统一 profile、Nacos 配置导入和本地平台栈
 
@@ -200,7 +200,7 @@
 **涉及文件**：`ci-local.ps1`、必要的 `scripts/`、Compose、`.github/workflows/ci.yml`、`README.md`、`docs/ops/`。
 **规模**：中。
 
-**当前进度（2026-11-11）**：文档和本地脚本记录 JDK/Maven/Docker/k6、Keycloak/OIDC、Nacos token、DataId、服务地址与资源清理。本机隔离栈验证 Nacos/account 健康、注册、重启恢复和 k6 20/20 checks；目标开发机上九服务 + Gateway + Valkey 全部健康、九实例注册，Gateway 返回匿名 401；配置刷新脚本真实发布两版 Nacos 配置并验证无重启更新。SSH 恢复后目标机完整 `clean verify`、九应用镜像构建、Gateway loopback 映射和外部不可达、全栈停启/Nacos 重启后 9/9 注册恢复、account 重启及匿名 401 全通过，最新证据 `artifacts/platform-recovery-03734da9e8/report.md`；OceanBase/RocketMQ 组合 profile smoke 通过。CI YAML、Compose 正式/debug/可选 profile 配置和全仓构建通过。远端 `main` 最新读取为 `0074cc8a969cc266c744b33013fcec8d47973b72`；精确查询 `feature/project-architecture` 未返回远端引用，因此当前改动的远端 Actions 结果仍未验证。OceanBase PR workflow 仍待验证。
+**进度记录（2026-11-11）**：文档和本地脚本记录 JDK/Maven/Docker/k6、Keycloak/OIDC、Nacos token、DataId、服务地址与资源清理。本机隔离栈验证 Nacos/account 健康、注册、重启恢复和 k6 20/20 checks；目标开发机上九服务 + Gateway + Valkey 全部健康、九实例注册，Gateway 返回匿名 401；配置刷新脚本真实发布两版 Nacos 配置并验证无重启更新。SSH 恢复后目标机完整 `clean verify`、九应用镜像构建、Gateway loopback 映射和外部不可达、全栈停启/Nacos 重启后 9/9 注册恢复、account 重启及匿名 401 全通过，最新证据 `artifacts/platform-recovery-03734da9e8/report.md`；OceanBase/RocketMQ 组合 profile smoke 通过。CI YAML、Compose 正式/debug/可选 profile 配置和全仓构建通过。PR #15 的远端验证见 2026-11-13 最新复核。
 
 ### 任务 8：平台性能、压力和故障恢复验收
 
@@ -210,10 +210,10 @@
 
 **验收条件**：
 
-- [ ] 建立仅用于测试的 stub upstream/身份服务场景，经 Gateway 验证代理、认证和 trace 开销；测试入口在生产配置中不存在。
-- [ ] 先在本地、后在 16 GB 开发服务器按当前可用负载模型执行基准、阶段性并发、压力和恢复测试；测试报告包含环境、版本、数据量、并发、吞吐、p50/p95/p99、错误率、CPU/内存/GC、连接池/线程池，并明确结果仅代表开发环境。
-- [ ] 注入 Nacos/数据库/缓存/消息依赖不可用、配置刷新、下游慢响应、连接重建和服务重启；确认系统在批准时限内降级或恢复，无无限重试、无限队列/连接增长或未经授权的 fail-open。
-- [ ] Gateway、认证、服务调用、注册/配置和监控采集达到阶段 0 SLO；若未通过，记录瓶颈及修复后的复测结果，不下调阈值规避失败。
+- [x] 建立仅用于测试的 stub upstream/身份服务场景，经 Gateway 验证代理、认证和 trace 开销；测试入口在生产配置中不存在。
+- [x] 先在本地、后在 16 GB 开发服务器按当前可用负载模型执行基准、阶段性并发、压力和恢复测试；测试报告包含环境、版本、数据量、并发、吞吐、p50/p95/p99、错误率、CPU/内存/GC、连接池/线程池，并明确结果仅代表开发环境。
+- [x] 注入 Nacos/数据库/缓存/消息依赖不可用、配置刷新、下游慢响应、连接重建和服务重启；确认平台故障关闭或恢复，无无限重试、无限队列/连接增长或未经授权的 fail-open。RocketMQ 仅验证 broker 进程恢复，当前没有业务消费者。
+- [x] 按阶段 0 开发压力输入完成 3,200 笔/分钟、30 分钟、96,000 笔的性能报告；记录观测到的 p50/p95/p99、错误率和资源，不将其解释为业务容量或生产 SLO。项目尚未批准固定延迟/错误率阈值。
 
 **验证**：新增 k6 平台脚本以 `BASE_URL` 指定本地受控环境，SLO 从批准的配置/阶段报告读取；运行标准负载和故障恢复脚本，归档原始结果和资源指标。旧 `smoke.js` 保留为启动可用性检查并清楚标注，不作为性能通过证据。
 
@@ -225,22 +225,22 @@
 
 ### 检查点 A：入口和供应链安全（任务 0-3）
 
-- [ ] 凭据已吊销/轮换，工作树和历史检查有记录；发布 workflow 不会在普通 push 上自动推送。
-- [ ] CI 必须通过；配置 profile 矩阵和 Gateway 暴露矩阵已评审。
-- [ ] 公众入口默认拒绝未知路由；设备、管理和内部入口不能由用户路由绕过。
+- [x] 全历史凭据扫描与工作树扫描已复核；两条精确忽略项仅对应 Prometheus URL 和 GitHub Actions Secret 引用，不含实际凭据；发布 workflow 不会在普通 push 上自动推送。
+- [x] CI 必须通过并在分支保护/ruleset 中设为 required check；配置 profile 矩阵和 Gateway 暴露矩阵已评审。
+- [x] 公众入口默认拒绝未知路由；设备、管理和内部入口不能由用户路由绕过。
 
-### 检查点 B：运行平台基础（任务 4-7）
+### 检查点 B：运行平台基础（任务 4-7，开发基线通过）
 
-- [ ] 服务身份、超时、限流/熔断和网络隔离有自动化验证。
-- [ ] 统一错误、traceId、审计、指标和管理端点访问策略通过测试。
-- [ ] 目标数据库迁移/权限与本地/CI 集成环境可重复运行。
+- [x] 服务身份、超时、限流/熔断和网络隔离有自动化验证。
+- [x] 统一错误、traceId、认证审计日志、指标和管理端点访问策略通过测试；持久业务审计保留策略仍属生产启用门禁。
+- [x] 目标数据库迁移/权限与本地/CI 集成环境可重复运行。
 
 ### 检查点 C：性能和恢复（任务 8）
 
-- [ ] 平台性能报告按阶段 0 SLO 通过，附环境和复现命令。
-- [ ] 依赖中断、恢复和服务重启测试通过；无开放的阻断级安全缺陷。
+- [x] 平台开发基线报告按阶段 0 的开发压力输入通过，附环境和复现命令；不代表业务容量或生产 SLO。
+- [x] 依赖中断、恢复和服务重启测试通过；PR CI 的 secret scan 与 HIGH/CRITICAL 镜像扫描通过。
 
-**阶段 1 退出条件**：上述检查点全部通过；全量 `clean verify` 与平台集成门禁进入 CI；服务 API/管理端点/设备入口的网络和身份边界有可复测证据；迁移、安全扫描、日志和告警可在当前开发基线验证；阶段 0 批准的开发环境门槛达标；运维和开发文档已同步。生产 OS/CPU/JDK 发行版适配、生产 SLO 和更大规模容量在试点/生产前重新验证。未达到阶段 1 开发退出条件时不得开始阶段 2。
+**阶段 1 退出条件**：上述检查点全部通过；PR #15 合并至 `main` 且合并后的 required checks 全部成功；全量 `clean verify` 与平台集成门禁进入 CI；服务 API/管理端点/设备入口的网络和身份边界有可复测证据；迁移、安全扫描、日志和告警可在当前开发基线验证；阶段 0 批准的开发环境门槛达标；运维和开发文档已同步。生产 OS/CPU/JDK 发行版适配、生产 SLO 和更大规模容量在试点/生产前重新验证。未达到阶段 1 开发退出条件时不得开始阶段 2。
 
 ## 6. 风险与限制
 
@@ -259,7 +259,7 @@
 
 实现期间以 `tasks/phase1-todo.md` 记录任务状态；每个检查点提交测试报告和决策更新。一次只完成一个垂直切片，切片通过后再进入依赖它的任务。若实际依赖/版本和本方案不符，先更新 ADR 与本方案，再改实现。
 
-## 最新复核（2026-11-12）
+## 历史复核记录（截至 2026-11-12）
 
 新增 transaction Feign 熔断和并发隔离后，定向集成测试 8/8 通过，MockMvc 验证断路、503 和 504 的安全响应；随后在 `admin1@192.168.0.41` 再次执行全仓 `clean verify`、九应用镜像构建与恢复 smoke，均通过。九应用全栈停启及 Nacos/account 重启后注册恢复 9/9，Gateway loopback 边界与匿名 401 正常。最新报告：`artifacts/platform-recovery-03734da9e8/report.md`；脚本已清理临时容器、镜像、volume、网络、Docker context 和 SSH 隧道。
 
@@ -280,3 +280,13 @@ SSH 恢复后的最新目标机复测报告为 `artifacts/platform-recovery-0373
 为补齐任务 8 可执行的消息基础设施故障恢复验证，`scripts/business-profiles-smoke.ps1` 新增 RocketMQ broker stop/start 检查：必须观察到 broker `exited`，并在 180 秒内恢复 `running + healthy`，同时确认 nameserver healthy。目标机 `business-data + business-messaging` 组合 smoke 通过：OceanBase `SELECT 1` 一次返回 1，RocketMQ broker 在 6 秒内恢复 healthy；报告 `artifacts/business-profiles-d2a1fd8b2be5/report.md`。生产业务尚无 RocketMQ producer/consumer，因此报告仅证明 broker 进程恢复、不证明消息投递或业务降级。
 
 2026-11-12 Nacos Pure 修复后续：此前 Trivy 命中的是九个应用包中的 `nacos-client-3.1.1` shaded Guava，属于修复前历史扫描。当前九个应用包均已核验为 `nacos-client-3.3.0-pure` + `guava-33.7.2-jre`，没有旧 client 3.1.1 或普通 shaded client 3.3.0。Compose 中 Nacos Server 镜像仍是 3.1.1；它不是 Maven `nacos-client`，`pure` classifier 不适用于 Server。全仓 `clean verify` 19/19、Gateway 集成测试 21/21 及本地 Server 3.1.1 注册/恢复/配置刷新验证通过。任务 1 按用户标准标记完成，当前分支远端 CI/CD 结果未核验且不阻塞。
+
+## 最新复核（2026-11-13）
+
+`main@f349cf7c7a9b293edbe4f4bbeba0dfe6989fc2d1` 的 GitHub Actions run [43241387525](https://github.com/Abuluk/onecard/actions/runs/43241387525) 已成功完成，`build` 和 `secret-scan` 均为 success；此前 CI 镜像、Trivy、Gitleaks 与 Nacos client 漏洞阻断已解决。Dependabot alerts 已启用，当前开放告警数为 0。GitHub API 已确认仓库为 public。
+
+`main` branch protection 已启用，required checks 为 `build`、`secret-scan`、`database-migration`，要求分支保持最新并对管理员生效；force-push 与删除分支均禁用。公开后的全历史 Gitleaks 扫描通过；`.gitleaksignore` 两条精确指纹经人工核对分别是 Prometheus URL 和 `${{ secrets.DOCKERHUB_TOKEN }}` 引用，不是凭据。Dependabot alerts 当前为 0。
+
+PR #15 当前提交 `eaf893d9bfda83d3ce2b8fc6a48973df30da760c` 的 Actions run [43346372059](https://github.com/Abuluk/onecard/actions/runs/43346372059) 中 `build`、`secret-scan`、`database-migration` 均成功，OceanBase 双 schema smoke 10/10 通过。阶段 1 开发基线 A/B/C 均通过；正式退出待 PR #15 合并及合并后 `main` 上的 required checks 成功。
+
+本阶段按用户确认的阶段 0 临时开发基线范围评估。生产 API/调用者批准矩阵、持久审计保留策略、payment-adapter/clearing 数据责任和生产 SLO 仍是独立的生产启用门禁；业务路由继续默认拒绝，不因阶段 1 开发基线通过而提前开放。
